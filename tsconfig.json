@@ -1,0 +1,35 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "diagnostics": true,
+    "extendedDiagnostics": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "noLib": false,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "lib": ["es6", "dom", "es2015", "es2017.object", "es2016.array.include", "esnext.asynciterable"],
+    "allowSyntheticDefaultImports": true,
+    "declarationMap": true,
+    "strict": true,
+    "composite": true,
+    "baseUrl": "./packages",
+    "paths": {
+      "@somo/tda-apps-*": ["./apps/*"],
+      "@somo/tda-components-*": ["./components/*"]
+    }
+  },
+  "include": ["packages/**/*", "./global.d.ts", "./index.d.ts"],
+  "exclude": ["node_modules", "./node_modules/*", ".cache", "packages/apps/e2e"]
+}

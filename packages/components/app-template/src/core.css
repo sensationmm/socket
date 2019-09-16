@@ -1,0 +1,162 @@
+@import 'reset-css';
+@import 'normalize.css';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: initial;
+  margin: initial;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  min-height: 100vh;
+  font-variant-ligatures: none;
+  font-family: 'Buenos Aires', Futura, Avenir, Arial, SansSerif, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:any-link {
+  color: inherit; /* stylelint-disable-line */
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-Black.eot');
+  src:
+    url('./assets/BuenosAiresWeb-Black.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-Black.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-Black.woff') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-BlackItalic.eot');
+  src:
+    url('./assets/BuenosAiresWeb-BlackItalic.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-BlackItalic.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-BlackItalic.woff') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-SemiBold.eot');
+  src:
+    url('./assets/BuenosAiresWeb-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-SemiBold.woff2') format('woff2'),
+    url('./assets/BuenosAiresWeb-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-Bold.eot');
+  src:
+    url('./assets/BuenosAiresWeb-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-Bold.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-Bold.woff') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-BoldItalic.eot');
+  src:
+    url('./assets/BuenosAiresWeb-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-BoldItalic.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-BoldItalic.woff') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-Book.eot');
+  src:
+    url('./assets/BuenosAiresWeb-Book.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-Book.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-Book.woff') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-BookItalic.eot');
+  src:
+    url('./assets/BuenosAiresWeb-BookItalic.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-BookItalic.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-BookItalic.woff') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-Regular.eot');
+  src:
+    url('./assets/BuenosAiresWeb-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-Regular.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-Regular.woff') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: auto;
+  font-family: 'Buenos Aires';
+  src: url('./assets/BuenosAiresWeb-RegularItalic.eot');
+  src:
+    url('./assets/BuenosAiresWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
+    url('./assets/BuenosAiresWeb-RegularItalic.woff') format('woff'),
+    url('./assets/BuenosAiresWeb-RegularItalic.woff') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}

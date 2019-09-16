@@ -1,0 +1,104 @@
+.base {
+  position: relative;
+  cursor: pointer;
+  border: 0;
+  border-radius: var(--spacing-xl);
+  line-height: normal;
+  padding: 0 var(--spacing-xl);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-kerning: none;
+  background: transparent;
+  outline: none;
+  white-space: nowrap;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.disabled {
+  svg {
+    opacity: 0.5;
+    fill: currentColor !important;
+  }
+}
+
+a.base {
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.mini {
+  height: 30px;
+  padding: 0 15px;
+  font-size: var(--font-size-xs);
+}
+
+.regular {
+  height: 42px;
+  padding: 0 21px;
+  font-size: var(--font-size-xs);
+}
+
+.large {
+  height: 54px;
+  padding: 0 27px;
+  font-size: var(--font-size-s);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.loading {
+  cursor: wait;
+}
+
+.icon {
+  margin-right: var(--spacing-s);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.iconLoading {
+  visibility: hidden;
+}
+
+.contentLoading {
+  color: transparent; /* stylelint-disable-line */
+}
+
+.spinner {
+  position: absolute;
+  z-index: 2;
+
+  path {
+    stroke: currentColor;
+  }
+}
+
+@media all and (-ms-high-contrast: none) {
+  .spinner {
+    left: calc(50% - 14px);
+    top: calc(50% - 14px);
+  }
+}

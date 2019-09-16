@@ -1,0 +1,19 @@
+{
+  "extends": ["@somo/tslint-preset"],
+  "rules": {
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ],
+    "no-redundant-jsdoc": true,
+    "file-name-casing": [true, "kebab-case"],
+    "newline-before-return": true,
+    "jsx-no-lambda": false,
+    "no-empty-interface": false
+  },
+  "linterOptions": {
+    "exclude": ["./packages/**/vendor/*", ".bin"]
+  }
+}

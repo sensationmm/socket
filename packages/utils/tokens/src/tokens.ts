@@ -3,12 +3,8 @@ const colors = {
     white: '#ffffff',
     black: '#000000',
   },
-  link: {
-    default: '#301c77',
-    hover: '#8c32be',
-  },
   brand: {
-    main: '#311c77',
+    main: '#ea1b0a',
     secondary: '#ff2dff',
     somo: '#38e6db',
   },
@@ -28,33 +24,12 @@ const colors = {
     paneltitle: '#301c77',
     primaryblack: '#1d1d1d',
   },
-  gradient: {
-    alpha: {
-      a: '#301c77',
-      b: '#ff2dff',
-    },
-    bravo: {
-      a: '#57e8ff',
-      b: '#8dffbe',
-    },
-    charlie: {
-      a: '#8c32be',
-      b: '#57e8fc',
-    },
-    delta: {
-      a: '#983AB4',
-      b: '#F3755D',
-    },
-  },
   shade: {
     xxlight: '#f7f7f7',
     xlight: '#f1f1f1',
     light: '#e8e8e8',
     medium: '#a9a9a9',
     dark: '#2f2f2f',
-  },
-  panel: {
-    a: '#f5f5f5',
   },
 };
 

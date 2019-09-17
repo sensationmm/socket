@@ -1,0 +1,98 @@
+:root {
+  --display-line-height: 1.35;
+  --body-line-height: 1.55;
+}
+
+.base {
+  line-height: var(--body-line-height);
+}
+
+.mainTitle {
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--display-line-height);
+}
+
+.vehicleTitle {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+}
+
+.vehicleSubTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+}
+
+.vehiclePrice {
+  color: var(--color-brand-main);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: normal;
+}
+
+.vehicleBody {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--font-size-xxl);
+}
+
+.cardTitle {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-semibold);
+  line-height: normal;
+}
+
+.menuTitle {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cardFocalText {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.body1 {
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-book);
+}
+
+.body2 {
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-shade-dark);
+}
+
+.menuItem {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+.bullet {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-book);
+}
+
+.smallCaption {
+  font-size: var(--font-size-3xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.button {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-s);
+  text-transform: uppercase;
+}
+
+.caption {
+  font-weight: var(--font-weight-book);
+  font-size: var(--font-size-3xs);
+}
+
+.overline {
+  font-weight: var(--font-weight-book);
+  font-size: var(--font-size-3xs);
+  text-transform: uppercase;
+}

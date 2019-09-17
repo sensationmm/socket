@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 
 import * as React from 'react';
 
-import { Outline, Primary, Tertiary } from './index';
+import { Outline, Primary } from './index';
 
 const buttonKnobs = () => ({
   children: text('children', 'Register'),
@@ -17,6 +17,4 @@ storiesOf('Components|button', module)
   .add('Primary', () => <Primary {...buttonKnobs()} />)
   .add('Primary disabled', () => <Primary {...buttonKnobs()} disabled={true} />)
   .add('Outline', () => <Outline {...buttonKnobs()} />)
-  .add('Outline disabled', () => <Outline {...buttonKnobs()} disabled={true} />)
-  .add('Tertiary', () => <Tertiary {...buttonKnobs()} />)
-  .add('Tertiary disabled', () => <Tertiary {...buttonKnobs()} disabled={true} />);
+  .add('Outline disabled', () => <Outline {...buttonKnobs()} disabled={true} />);

@@ -1,10 +1,5 @@
 #Todo - internet gateway 50/50
-#Todo - implement fargate cluster on gatsby image (this will break future migration)
-
-resource "aws_s3_bucket" "DA_Gatsby" {
-  bucket = "da-gatsby"
-  acl    = "private"
-}
+#Todo - implement fargate cluster on gatsby image
 
 resource "aws_instance" "da_gatsby" {
   ami           = var.docker_ami #eu-west-1
@@ -12,7 +7,7 @@ resource "aws_instance" "da_gatsby" {
   key_name = "DAGatsby"
 
   network_interface {
-    network_interface_id = "${aws_network_interface.Somo_Sandbox_Nodejs.id}"
+    network_interface_id = "${aws_network_interface.da_gatsby_primary_network_interface.id}"
     device_index         = 0
   }
 

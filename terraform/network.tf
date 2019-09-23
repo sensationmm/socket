@@ -3,24 +3,24 @@
 # Create var.az_count private subnets, each in a different AZ
 resource "aws_subnet" "private" {
   count             = var.az_count
-  cidr_block        = cidrsubnet(aws_vpc.main.cidr_block, 8, count.index)
+  cidr_block        = cidrsubnet(aws_vpc.da_vpc.cidr_block, 8, count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
-  vpc_id            = aws_vpc.main.id
+  vpc_id            = aws_vpc.da_vpc.id
 }
 
 # Create var.az_count public subnets, each in a different AZ
 resource "aws_subnet" "public" {
   count                   = var.az_count
-  cidr_block              = cidrsubnet(aws_vpc.main.cidr_block, 8, var.az_count + count.index)
+  cidr_block              = cidrsubnet(aws_vpc.da_vpc.cidr_block, 8, var.az_count + count.index)
   availability_zone       = data.aws_availability_zones.available.names[count.index]
-  vpc_id                  = aws_vpc.main.id
+  vpc_id                  = aws_vpc.da_vpc.id
   map_public_ip_on_launch = true
 }
 
 resource "aws_nat_gateway" "gw" {
   count         = var.az_count
   subnet_id     = element(aws_subnet.public.*.id, count.index)
-  allocation_id = element(aws_eip.gw.*.id, count.index)
+  allocation_id = element(aws_eip.da_elastic_ip.*.id, count.index)
 }
 
 # Create a new route table for the private subnets, make it route non-local traffic through the NAT gateway to the internet

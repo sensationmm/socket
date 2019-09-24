@@ -3,6 +3,7 @@
 
 # Terraform credentials
 .shared_credentials
+secrets.tf
 
 #State files
 *.tfstate

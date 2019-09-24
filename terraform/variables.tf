@@ -2,6 +2,11 @@
 #insecure Todo - Figure out correct cidr security ip range
 #Todo - select ami
 
+variable "environment" {
+  description = "environment for codepipeline"
+  default     = "develop"
+}
+
 variable "availability_zone_names" {
   type    = list(string)
   default = ["eu-west-1a", "eu-west-1b"]

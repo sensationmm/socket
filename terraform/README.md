@@ -7,3 +7,9 @@
 > [Terraform]
 > aws_access_key_id=x
 > aws_secret_access_key=x
+
+# Setup
+
+`terraform init
+terraform plan
+terraform apply`

@@ -4,7 +4,7 @@
 
 variable "availability_zone_names" {
   type    = list(string)
-  default = ["eu-west-1a"]
+  default = ["eu-west-1a", "eu-west-1b"]
 }
 
 #insecure Todo - Figure out correct ip range
@@ -39,17 +39,17 @@ variable "app_image" {
 }
 
 variable "app_count" {
-  description = "Number of docker containers to run"
+  description = "Number of apollo nodes to run"
   default     = 3
 }
 
 variable "app_port" {
-  description = "Port exposed by the docker image to redirect traffic to"
+  description = "Port exposed by apollo to redirect traffic to"
   default     = 8080
 }
-variable "docker_ami" {
-  description = "image for base docker server"
-  default     = "select ami" #eu-west-1
+variable "gatsby_ami" {
+  description = "image for base gatsby server"
+  default     = "ami-0ce71448843cb18a1" #eu-west-1
 }
 
 variable "health_check_path" {

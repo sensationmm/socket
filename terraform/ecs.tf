@@ -35,7 +35,7 @@ resource "aws_ecs_service" "apollo_service" {
 
   network_configuration {
     security_groups   = [aws_security_group.somo_webteam.id]
-    subnets           = aws_subnet.private.*.id
+    subnets           = aws_subnet.da_vpc_subnet.*.id
     assign_public_ip  = true
   }
 

@@ -4,32 +4,24 @@ const colors = {
     black: '#000000',
   },
   brand: {
-    main: '#ea1b0a',
-    secondary: '#ff2dff',
-    somo: '#38e6db',
+    main: '#47d7ac',
+    secondary: '#007672',
+    tertiary: '#f6eb61',
   },
-  ui: {
-    success: '#3abf1f',
-    error: '#ff332d',
-    focus: '#ff2dff',
-    divider: '#dcd2e9',
-    selected: '#8c32be',
+  grey: {
+    light: '#f0f0f0',
+    mid: '#aeaeae',
+    dark: '#2d2d2d',
   },
   text: {
-    ui: '#521e92',
-    main: '#321979',
-    display: '#1d1d1d',
-    body: '#434343',
-    meta: '#656565',
-    paneltitle: '#301c77',
-    primaryblack: '#1d1d1d',
+    header: '#007672',
+    body: {
+      primary: '#2d2d2d',
+      secondary: '#ffffff',
+    },
   },
-  shade: {
-    xxlight: '#f7f7f7',
-    xlight: '#f1f1f1',
-    light: '#e8e8e8',
-    medium: '#a9a9a9',
-    dark: '#2f2f2f',
+  ui: {
+    error: '#e02020',
   },
 };
 

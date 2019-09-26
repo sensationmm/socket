@@ -23,7 +23,7 @@ module.exports = {
   preset: 'ts-jest',
   reporters: ['default', 'jest-junit'],
   roots: ['<rootDir>'],
-  setupFilesAfterEnv: ['@testing-library/react/cleanup-after-each', '<rootDir>/__scripts__/setup-tests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/__scripts__/setup-tests.ts'],
   testEnvironment: 'enzyme',
   testURL: 'http://localhost',
   testPathIgnorePatterns: [

@@ -1,4 +1,4 @@
-import tokens, { toJSON } from '@somo/tda-utils-tokens/src';
+import tokens, { toJSON } from '@somo/pda-utils-tokens/src';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 

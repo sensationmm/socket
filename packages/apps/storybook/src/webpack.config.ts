@@ -1,6 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import postcssPlugins from '@somo/tda-utils-postcss-plugins/src';
+import postcssPlugins from '@somo/pda-utils-postcss-plugins/src';
 
 export default ({ config: storybookConfig }) => ({
   ...storybookConfig,

@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
 
 // tslint:disable-next-line no-var-requires
-const tokens = require('@somo/tda-utils-tokens/src');
+const tokens = require('@somo/pda-utils-tokens/src');
 const imports = tokens.toJSON(tokens.default);
 
 const plugins = (loader: webpack.loader.LoaderContext) => [

@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-import Text from '@somo/tda-components-text';
+import Text from '@somo/pda-components-text';
 ```
 
 ## Usage

@@ -26,8 +26,8 @@
     "composite": true,
     "baseUrl": "./packages",
     "paths": {
-      "@somo/tda-apps-*": ["./apps/*"],
-      "@somo/tda-components-*": ["./components/*"]
+      "@somo/pda-apps-*": ["./apps/*"],
+      "@somo/pda-components-*": ["./components/*"]
     }
   },
   "include": ["packages/**/*", "./global.d.ts", "./index.d.ts"],

@@ -27,7 +27,9 @@
     "baseUrl": "./packages",
     "paths": {
       "@somo/pda-apps-*": ["./apps/*"],
-      "@somo/pda-components-*": ["./components/*"]
+      "@somo/pda-components-*": ["./components/*"],
+      "@somo/pda-pages-*": ["./pages/*"],
+      "@somo/pda-utils-*": ["./utils/*"]
     }
   },
   "include": ["packages/**/*", "./global.d.ts", "./index.d.ts"],

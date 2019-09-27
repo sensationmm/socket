@@ -8,6 +8,7 @@ export enum TextStyles {
   pageTitle = 'pageTitle',
   pageAbout = 'pageAbout',
   header = 'header',
+  subheader = 'subheader',
   header2 = 'header2',
   content = 'content',
   content2 = 'content2',

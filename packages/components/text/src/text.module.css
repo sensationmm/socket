@@ -1,6 +1,7 @@
 :root {
   --display-line-height: 1.35;
   --body-line-height: 1.55;
+  --color-text-subheader: #f6eb61;
 }
 
 .base {
@@ -35,6 +36,17 @@
   line-height: 1.45;
   letter-spacing: normal;
   color: var(--color-text-header);
+}
+
+/* same as header except color */
+.subheader {
+  font-size: 22px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  color: var(--color-text-subheader);
 }
 
 /* same as header except color */

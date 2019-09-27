@@ -16,10 +16,12 @@ const PageSectionTypes = {
 storiesOf('Components|page-section', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Default', () => (
-    <PageSection
-      style={select('Style', PageSectionTypes, PageSectionStyle.Default)}
-      bgImage={files('Background Image (for Image style)', '.jpg, .svg, .gif, .png')}
-    >
-      {text('Content', 'This is my content')}
-    </PageSection>
+    <div style={{ width: '800px' }}>
+      <PageSection
+        style={select('Style', PageSectionTypes, PageSectionStyle.Default)}
+        bgImage={files('Background Image (for Image style)', '.jpg, .svg, .gif, .png')}
+      >
+        {text('Content', 'This is my content')}
+      </PageSection>
+    </div>
   ));

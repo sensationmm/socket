@@ -1,5 +1,5 @@
 .component {
-  width: 1000px;
+  width: 100%;
   display: block;
   padding: var(--spacing-xl);
 }

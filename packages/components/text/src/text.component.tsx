@@ -5,21 +5,13 @@ import * as React from 'react';
 import * as baseStyles from './text.module.css';
 
 export enum TextStyles {
-  mainTitle = 'mainTitle',
-  vehicleTitle = 'vehicleTitle',
-  vehicleSubTitle = 'vehicleSubTitle',
-  vehiclePrice = 'vehiclePrice',
-  vehicleBody = 'vehicleBody',
-  cardTitle = 'cardTitle',
-  menuTitle = 'menuTitle',
-  menuItem = 'menuItem',
-  bullet = 'bullet',
-  cardFocalText = 'cardFocalText',
-  body1 = 'body1',
-  body2 = 'body2',
-  button = 'button',
-  caption = 'caption',
-  overline = 'overline',
+  pageTitle = 'pageTitle',
+  pageAbout = 'pageAbout',
+  header = 'header',
+  header2 = 'header2',
+  content = 'content',
+  content2 = 'content2',
+  disclaimer = 'disclaimer'
 }
 
 interface ITextProps {
@@ -39,7 +31,7 @@ const Text: React.FC<ITextProps> = ({ className, children, element, type, ...pro
 
 Text.defaultProps = {
   element: 'span',
-  type: TextStyles.body1,
+  type: TextStyles.content,
 };
 
 export default Text;

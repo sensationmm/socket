@@ -35,7 +35,7 @@ const fontWeights = {
 const fontSizes = {
   '5xl': '72px',
   '4xl': '42px',
-  '3xl': '32px',
+  '3xl': '38px',
   xxl: '28px',
   xl: '24px',
   l: '22px',

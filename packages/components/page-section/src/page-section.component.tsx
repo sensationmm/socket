@@ -17,18 +17,18 @@ export interface IPageSectionProps {
   bgImage: string[];
 }
 
-const PageSection: React.FC<IPageSectionProps> = (props) => (
+const PageSection: React.FC<IPageSectionProps> = ({ style, bgImage = {}, children }) => (
   <div
     className={classnames(
       styles.component,
-      { [styles.primary]: props.style === PageSectionStyle.Primary },
-      { [styles.primarypattern]: props.style === PageSectionStyle.PrimaryPattern },
-      { [styles.secondary]: props.style === PageSectionStyle.Secondary },
-      { [styles.image]: props.style === PageSectionStyle.Image },
+      { [styles.primary]: style === PageSectionStyle.Primary },
+      { [styles.primarypattern]: style === PageSectionStyle.PrimaryPattern },
+      { [styles.secondary]: style === PageSectionStyle.Secondary },
+      { [styles.image]: style === PageSectionStyle.Image },
     )}
-    style={props.style === PageSectionStyle.Image ? { backgroundImage: `url(${props.bgImage})` } : {}}
+    style={style === PageSectionStyle.Image ? { backgroundImage: `url(${bgImage})` } : {}}
   >
-    <div>{props.children}</div>
+    <div>{children}</div>
   </div>
 );
 

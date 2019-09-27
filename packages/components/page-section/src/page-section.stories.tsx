@@ -2,8 +2,7 @@ import { files, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import PageSection from '.';
-import { PageSectionStyle } from './page-section.component';
+import PageSection, { PageSectionStyle } from '.';
 
 const PageSectionTypes = {
   Default: PageSectionStyle.Default,

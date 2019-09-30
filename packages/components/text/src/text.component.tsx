@@ -1,6 +1,5 @@
 import cx from 'classnames';
 import * as React from 'react';
-
 // @ts-ignore
 import * as baseStyles from './text.module.css';
 
@@ -12,7 +11,7 @@ export enum TextStyles {
   header2 = 'header2',
   content = 'content',
   content2 = 'content2',
-  disclaimer = 'disclaimer'
+  disclaimer = 'disclaimer',
 }
 
 interface ITextProps {

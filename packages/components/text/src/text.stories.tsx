@@ -26,10 +26,15 @@ perferendis praesentium suscipit.`;
 
 storiesOf('Components|text', module)
   .addDecorator(withKnobs)
-  .add('default', () => <div style={{background: 'linear-gradient(to bottom right, white, black'}}>
-    <Text className={text('className', '')} children={text('children', defaultText)}
-          type={select('type', Object.keys(baseStyles), Object.keys(baseStyles)[0]) as keyof typeof TextStyles} />
-  </div>);
+  .add('default', () => (
+    <div style={{ background: 'linear-gradient(to bottom right, white, black' }}>
+      <Text
+        className={text('className', '')}
+        children={text('children', defaultText)}
+        type={select('type', Object.keys(baseStyles), Object.keys(baseStyles)[0]) as keyof typeof TextStyles}
+      />
+    </div>
+  ));
 
 storiesOf('Kitchen Sink|Typography', module)
   .addDecorator(withKnobs)
@@ -37,25 +42,25 @@ storiesOf('Kitchen Sink|Typography', module)
     return (
       <table>
         <tbody>
-        {types.map((type) => (
-          <tr key={type}>
-            <td className={styles.td}>
-              <Text
-                className={styles.story}
-                style={{textAlign: 'right', color: '#9c9c9c'}}
-                element="div"
-                type={Object.keys(baseStyles)[0] as keyof typeof TextStyles}
-              >
-                {type}
-              </Text>
-            </td>
-            <td className={styles.td}>
-              <Text className={styles.story} element="div" type={type as any}>
-                Text Style {type}
-              </Text>
-            </td>
-          </tr>
-        ))}
+          {types.map((type) => (
+            <tr key={type}>
+              <td className={styles.td}>
+                <Text
+                  className={styles.story}
+                  style={{ textAlign: 'right', color: '#9c9c9c' }}
+                  element="div"
+                  type={Object.keys(baseStyles)[0] as keyof typeof TextStyles}
+                >
+                  {type}
+                </Text>
+              </td>
+              <td className={styles.td}>
+                <Text className={styles.story} element="div" type={type as any}>
+                  Text Style {type}
+                </Text>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     );

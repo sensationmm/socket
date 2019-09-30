@@ -34,3 +34,5 @@ packages/apps/e2e/cypress/results
 
 packages/apps/identity-views/dist/*
 
+# IDEs
+.idea/

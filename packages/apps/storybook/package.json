@@ -5,8 +5,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "ts-node ./node_modules/.bin/start-storybook -p 9001 --config-dir ./src --static-dir ./public",
-    "build": "ts-node ./node_modules/.bin/build-storybook --config-dir src --output-dir build --quiet"
+    "start": "start-storybook -p 9001 --config-dir ./src --static-dir ./public",
+    "build": "build-storybook --config-dir src --output-dir build --quiet"
   },
   "dependencies": {
     "@babel/core": "7.6.0",

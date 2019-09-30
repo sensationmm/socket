@@ -8,8 +8,10 @@ phases:
             - 'yarn global add gatsby-dev-cli'
     pre_build:
         commands:
+            - echo Running gatsby...
+            #- gatsby new gatsby-site
             - echo Installing source yarn dependencies...
-            - 'yarn run bootstrap'
+            - 'yarn install'
     build:
         commands:
             - echo Build started on `date`

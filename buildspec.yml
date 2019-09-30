@@ -12,10 +12,11 @@ phases:
             #- gatsby new gatsby-site
             - echo Installing source yarn dependencies...
             - 'yarn install'
+            - 'gatsby develop'
     build:
         commands:
             - echo Build started on `date`
-            - gatsby build
+            - 'gatsby build'
 
     post_build:
         commands:

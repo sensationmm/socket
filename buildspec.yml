@@ -5,7 +5,7 @@ phases:
         nodejs: 10
       commands:
             - 'touch .yarnignore'
-            - 'yarn global add gatsby-dev-cli'
+            - 'yarn global add gatsby-cli'
     pre_build:
         commands:
             - echo Running gatsby...

@@ -15,7 +15,7 @@ describe('base button', () => {
     wrapper = shallow(<Component {...props} />);
     expect(wrapper.props()).toEqual(expect.objectContaining(props));
   });
-  it('should render the children', () => {
+  it('should shallow the children', () => {
     wrapper = shallow(<Component children="lol" />);
     expect(wrapper.html()).toContain('lol');
   });

@@ -66,6 +66,10 @@ resource "aws_internet_gateway" "vpc_gw" {
   vpc_id = aws_vpc.da_vpc.id
 }
 
+resource "aws_egress_only_internet_gateway" "da_egress_gateway" {
+  vpc_id = aws_vpc.da_vpc.id
+}
+
 
 # Route the public subnet traffic through the IGW
 resource "aws_route" "internet_access" {
@@ -74,28 +78,16 @@ resource "aws_route" "internet_access" {
   gateway_id             = aws_internet_gateway.vpc_gw.id
 }
 
+resource "aws_network_interface" "da_gatsby_primary_network_interface" {
+  count  = var.az_count
+  subnet_id       = element(aws_subnet.da_vpc_subnet.*.id, count.index)
 
-#resource "aws_network_interface" "da_apollo_network_interface" {
-#  count  = var.az_count
-#  subnet_id       = element(aws_subnet.da_vpc_subnet.*.id, count.index)
-#  private_ips     = ["10.0.0.110"]
-#  security_groups = [aws_security_group.somo_webteam.id]
-#
-#  tags = {
-#    Name = "da_apollo_network_interface"
-#  }
-#}
+  security_groups = [aws_security_group.somo_webteam.id]
 
-#resource "aws_network_interface" "da_gatsby_primary_network_interface" {
-#  count  = var.az_count
-#  subnet_id       = element(aws_subnet.da_vpc_subnet.*.id, count.index)
-#  private_ips     = ["10.0.0.100"]
-#  security_groups = [aws_security_group.somo_webteam.id]
-#
-#  tags = {
-#    Name = "da_gatsby_network_interface"
-#  }
-#}
+  tags = {
+    Name = "da_gatsby_network_interface"
+  }
+}
 
 #Elastic IP for NAT Gateway - for each private subnet to get internet connectivity
 resource "aws_eip" "da_elastic_ip" {

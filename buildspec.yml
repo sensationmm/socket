@@ -1,0 +1,22 @@
+version: 0.1
+phases:
+    install:
+        commands:
+            - 'touch .yarnignore'
+            - 'yarn global add gatsby-dev-cli'
+    pre_build:
+        commands:
+            - echo Installing source yarn dependencies...
+            - 'yarn run bootstrap'
+    build:
+        commands:
+            - echo Build started on `date`
+            - 'yarn run build'
+    post_build:
+        commands:
+            - 'aws s3 sync "public/" "s3://da-gatsby-bucket" --delete --acl "public-read"'
+artifacts:
+    base-directory: public
+    files:
+        - '**/*'
+    discard-paths: yes

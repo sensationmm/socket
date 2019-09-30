@@ -1,22 +1,23 @@
 import * as React from 'react';
 
-import HomePage from '@somo/pda-pages-home/src';
+import Page from '@somo/pda-pages-404/src';
 
 import SEO from '../components/seo.component';
 
 const SEOprops = {
-  title: 'home',
-  description: 'homepage description',
+  title: '404',
+  description: '404 error',
   siteLanguage: 'en_GB',
+  noindex: true,
 };
 
-const Home: React.FC = () => {
+const ErrorPage: React.FC = () => {
   return (
     <>
       <SEO {...SEOprops} />
-      <HomePage />
+      <Page />
     </>
   );
 };
 
-export default Home;
+export default ErrorPage;

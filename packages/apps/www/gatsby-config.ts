@@ -69,13 +69,13 @@ const plugins = [
   'gatsby-transformer-json',
   'gatsby-plugin-react-helmet',
   'gatsby-plugin-remove-trailing-slashes',
-  {
-    resolve: 'gatsby-plugin-advanced-sitemap',
-    options: {
-      exclude: ['/404', '/404.html', '/preview'],
-      createLinkInHead: true,
-    },
-  },
+  // {
+  //   resolve: 'gatsby-plugin-advanced-sitemap',
+  //   options: {
+  //     exclude: ['/404', '/404.html', '/preview'],
+  //     createLinkInHead: true,
+  //   },
+  // },
   {
     resolve: 'gatsby-plugin-robots-txt',
     options: {

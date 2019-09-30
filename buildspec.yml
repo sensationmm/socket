@@ -1,7 +1,9 @@
 version: 0.1
 phases:
     install:
-        commands:
+      runtime-versions:
+        nodejs: 10
+      commands:
             - 'touch .yarnignore'
             - 'yarn global add gatsby-dev-cli'
     pre_build:

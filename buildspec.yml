@@ -13,9 +13,13 @@ phases:
             - echo Installing source yarn dependencies...
             - 'yarn install'
             - 'gatsby develop'
+            - 'jest'
+            - 'husky'
     build:
         commands:
             - echo Build started on `date`
+            - 'cd ./storybook'
+            - 'yarn build'
             - 'gatsby build'
 
     post_build:

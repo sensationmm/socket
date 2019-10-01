@@ -12,9 +12,11 @@ storiesOf('Components|page-hero', module)
   .addDecorator(withKnobs())
   .add('Default', () => (
     <PageHero
-      heading={text('Heading', 'Heading')}
-      text={text('Text', 'Text goes here text goes here text goes here text goes here')}
-      cta={text('CTA', 'Click here')}
+      i18n={{
+        heading: text('Heading', 'Heading'),
+        text: text('Text', 'Text goes here text goes here text goes here text goes here'),
+        cta: text('CTA', 'Click here'),
+      }}
       onClick={action('onClick')}
     />
   ));

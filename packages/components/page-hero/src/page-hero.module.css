@@ -1,0 +1,19 @@
+.component {
+  width: 100%;
+
+  @media (--s) {
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.cta {
+  margin-top: var(--spacing-xl);
+}
+
+.text {
+  margin-top: var(--spacing-m);
+}

@@ -8,9 +8,11 @@ jest.mock('postcss-nested', () => 'postcss-nested');
 jest.mock('postcss-preset-env', () => () => 'postcss-preset-env');
 jest.mock('postcss-import', () => () => 'postcss-import');
 jest.mock('cssnano', () => () => 'cssnano');
+jest.mock('postcss-hexrgba', () => () => 'postcss-hexrgba');
 
 describe('postcss-plugins package', () => {
   it('should export a method that returns an array of post css plugins', () => {
+    console.log(pkg.default);
     expect(pkg.default({ resourcePath: 'foo' } as any)).toEqual([
       'stylelint',
       'postcss-reporter',
@@ -19,6 +21,7 @@ describe('postcss-plugins package', () => {
       'postcss-preset-env',
       'postcss-import',
       'cssnano',
+      'postcss-hexrgba',
     ]);
   });
 });

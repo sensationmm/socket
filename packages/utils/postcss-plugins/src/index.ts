@@ -26,7 +26,7 @@ const plugins = (loader: webpack.loader.LoaderContext) => [
       },
     ],
   }),
-  require('postcss-hexrgba'),
+  require('postcss-hexrgba')(),
 ];
 
 export default plugins;

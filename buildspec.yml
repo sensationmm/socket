@@ -20,13 +20,13 @@ phases:
     build:
         commands:
             - echo Build started on `date`
-            - 'cd /packages/apps/storybook'
+            - 'cd ./packages/apps/storybook'
             - 'yarn build'
             #- 'gatsby build'
 
     post_build:
         commands:
-            - 'aws s3 sync "/packages/apps/storybook/build" "s3://da-codepipeline-bucket" --delete --acl "public-read"'
+            - 'aws s3 sync "./packages/apps/storybook/build" "s3://da-codepipeline-bucket" --delete --acl "public-read"'
 artifacts:
     base-directory: public
     files:

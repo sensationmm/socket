@@ -16,17 +16,17 @@ phases:
             #- gatsby new gatsby-site
             - echo Installing source yarn dependencies...
             - 'yarn install'
-            - 'gatsby develop'
+            #- 'gatsby develop'
     build:
         commands:
             - echo Build started on `date`
-            - 'cd ./storybook'
+            - 'cd /packages/apps/storybook'
             - 'yarn build'
-            - 'gatsby build'
+            #- 'gatsby build'
 
     post_build:
         commands:
-            - 'aws s3 sync "/packages/apps/storybook/build" "s3://da-gatsby-bucket" --delete --acl "public-read"'
+            - 'aws s3 sync "/packages/apps/storybook/build" "s3://da-codepipeline-bucket" --delete --acl "public-read"'
 artifacts:
     base-directory: public
     files:

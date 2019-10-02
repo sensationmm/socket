@@ -3,6 +3,8 @@ version: 0.2
 env:
   variables:
     PR: "x"
+    environment: "Develop"
+    S3Bucket: "s3://da-codepipeline-bucket"
 phases:
     install:
       runtime-versions:
@@ -26,7 +28,7 @@ phases:
 
     post_build:
         commands:
-            - 'aws s3 sync "./" "s3://da-codepipeline-bucket" --delete --acl "public-read"'
+            - 'aws s3 sync "./build" $S3Bucket --delete --acl "public-read"'
 artifacts:
     base-directory: public
     files:

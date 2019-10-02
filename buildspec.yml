@@ -12,8 +12,7 @@ phases:
       commands:
             - 'touch .yarnignore'
             - 'yarn global add gatsby-cli'
-            - 'branch= $(git branch | grep \* | cut -d " " -f2 )'
-            - 'echo $branch'
+            - 'echo $CODEBUILD_SOURCE_VERSION'
     pre_build:
         commands:
             #- echo Running gatsby...

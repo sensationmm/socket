@@ -22,7 +22,7 @@
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
     "tsc:e2e": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
     "storybook": "start-storybook",
-    "get-branch": "git branch | grep \* | cut -d ' ' -f2",
+    "get-branch": "",
     "build": ""
   },
   "devDependencies": {

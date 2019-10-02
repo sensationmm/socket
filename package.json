@@ -21,9 +21,8 @@
     "test:clearCache": "jest --clearCache",
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
     "tsc:e2e": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
-    "storybook": "start-storybook",
-    "get-branch": "",
-    "build": ""
+    "storybook": "start-storybook"
+
   },
   "devDependencies": {
     "@commitlint/cli": "8.1.0",
@@ -38,7 +37,6 @@
     "@types/node": "12.7.5",
     "@types/react-dom": "16.9.0",
     "@types/react-redux": "7.1.2",
-    "@storybook/react": ,
     "autoprefixer": "9.6.1",
     "codecov": "3.5.0",
     "codeowner": "1.0.3",

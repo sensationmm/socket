@@ -19,8 +19,6 @@ export interface IBaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonE
   styles?: IButtonStyles;
   className?: string;
   size?: 'mini' | 'regular' | 'large';
-  icon?: any;
-  iconProps?: any;
 }
 
 function getButtonSizeStyle(size) {
@@ -43,8 +41,6 @@ const BaseButton: React.FC<IBaseButtonProps> = ({
   isLoading,
   size,
   className,
-  icon,
-  iconProps = {},
   ...props
 }) => {
   const mergedStyles: any = { ...baseStyles, ...styles };

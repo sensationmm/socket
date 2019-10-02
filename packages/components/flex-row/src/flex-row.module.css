@@ -18,7 +18,7 @@
   }
 }
 
-.flexrow > *:last-child {
+.flexrow > div:last-child {
   margin-bottom: 0;
 
   @media (--s) {

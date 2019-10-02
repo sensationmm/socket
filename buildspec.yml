@@ -12,11 +12,11 @@ phases:
       commands:
             - 'touch .yarnignore'
             - 'yarn global add gatsby-cli'
-            - '$branch= $(git branch | grep \* | cut -d ' ' -f2 )'
+            - 'branch= $(git branch | grep \* | cut -d " " -f2 )'
             - 'echo $branch'
     pre_build:
         commands:
-            - echo Running gatsby...
+            #- echo Running gatsby...
             #- gatsby new gatsby-site
             - echo Installing source yarn dependencies...
             - 'yarn install'

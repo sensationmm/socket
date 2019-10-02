@@ -13,6 +13,7 @@ phases:
             - 'touch .yarnignore'
             - 'yarn global add gatsby-cli'
             - 'echo $CODEBUILD_SOURCE_VERSION'
+            - 'if $CODEBUILD_SOURCE_VERSION = "develop" then $branch=""  else $branch=$CODEBUILD_SOURCE_VERSION fi'
     pre_build:
         commands:
             #- echo Running gatsby...
@@ -29,7 +30,7 @@ phases:
 
     post_build:
         commands:
-            - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
+            - 'aws s3 sync "./build" $S3Bucket/$branch/ --delete --acl "public-read"'
 artifacts:
     base-directory: public
     files:

@@ -2,7 +2,6 @@ version: 0.2
 
 env:
   variables:
-    PR: "x"
     environment: "Develop"
     S3Bucket: "s3://da-codepipeline-bucket"
 phases:

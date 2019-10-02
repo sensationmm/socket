@@ -14,8 +14,10 @@ phases:
             - 'yarn global add gatsby-cli'
             - 'echo $CODEBUILD_SOURCE_VERSION'
             - |
-            if test $CODEBUILD_SOURCE_VERSION = "develop"; then
-            branch=""  else branch=$CODEBUILD_SOURCE_VERSION;
+            if [$CODEBUILD_SOURCE_VERSION = "develop"]; then
+            branch="";  
+            else
+            branch=$CODEBUILD_SOURCE_VERSION;
             fi
     pre_build:
         commands:

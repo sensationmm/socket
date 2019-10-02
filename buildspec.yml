@@ -5,15 +5,15 @@ env:
     PR: "x"
     environment: "Develop"
     S3Bucket: "s3://da-codepipeline-bucket"
-    branch: $(git branch | grep \* | cut -d ' ' -f2)
 phases:
     install:
       runtime-versions:
         nodejs: 10
       commands:
             - 'touch .yarnignore'
-            - 'echo $branch'
             - 'yarn global add gatsby-cli'
+            - '$branch= $(git branch | grep \* | cut -d ' ' -f2 )'
+            - 'echo $branch'
     pre_build:
         commands:
             - echo Running gatsby...

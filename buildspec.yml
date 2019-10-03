@@ -36,7 +36,7 @@ phases:
         commands:
             - 'aws s3 sync "./build" $S3Bucket/$branch/ --delete --acl "public-read"'
 artifacts:
-    base-directory: public
+    #base-directory: public
     files:
         - '**/*'
-    discard-paths: yes
+    #discard-paths: yes

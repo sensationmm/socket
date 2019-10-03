@@ -3,13 +3,19 @@ import { storiesOf } from '@storybook/react';
 
 import * as React from 'react';
 
-import { Outline, Primary, Secondary } from './index';
+import { Outline, Primary, Round, Secondary } from './index';
 
 const buttonKnobs = () => ({
   children: text('children', 'Register'),
   isFullWidth: boolean('isFullWidth', false),
   isLoading: boolean('isLoading', false),
   size: select('size', ['mini', 'regular'], 'regular'),
+});
+
+const roundButtonKnobs = () => ({
+  children: text('children', 'i'),
+  isLoading: boolean('isLoading', false),
+  isSelected: boolean('selected', false),
 });
 
 storiesOf('Components|button', module)
@@ -19,4 +25,6 @@ storiesOf('Components|button', module)
   .add('Secondary', () => <Secondary {...buttonKnobs()} />)
   .add('Secondary disabled', () => <Secondary {...buttonKnobs()} disabled={true} />)
   .add('Outline', () => <Outline {...buttonKnobs()} />)
-  .add('Outline disabled', () => <Outline {...buttonKnobs()} disabled={true} />);
+  .add('Outline disabled', () => <Outline {...buttonKnobs()} disabled={true} />)
+  .add('Round', () => <Round {...roundButtonKnobs()} />)
+  .add('Round disabled', () => <Round {...roundButtonKnobs()} disabled={true} />);

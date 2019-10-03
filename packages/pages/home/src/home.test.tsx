@@ -3,11 +3,24 @@ import * as React from 'react';
 
 import Home from '.';
 
-describe('@somo/oxd-pages-home', () => {
+describe('@somo/pda-pages-home', () => {
   let component;
+  let props;
 
   beforeAll(() => {
-    component = shallow(<Home />);
+    props = {
+      i18n: {
+        hero: {
+          title: 'title',
+          subTitle: 'subTitle',
+          cta: {
+            text: 'CTA',
+            url: 'https://site.com',
+          },
+        },
+      },
+    };
+    component = shallow(<Home {...props} />);
   });
 
   it('should render the component successfully', () => {

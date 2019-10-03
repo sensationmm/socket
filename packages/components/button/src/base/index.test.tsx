@@ -50,20 +50,6 @@ describe('base button', () => {
     });
   });
 
-  describe('when size is large', () => {
-    beforeEach(() => {
-      props = {
-        onClick: jest.fn(() => null),
-        size: 'large',
-      };
-      wrapper = shallow(<Component {...props} />);
-    });
-
-    it('should set a class of large', () => {
-      expect(wrapper.props().className).toEqual('large');
-    });
-  });
-
   describe('when size is regular', () => {
     beforeEach(() => {
       props = {

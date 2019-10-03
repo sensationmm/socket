@@ -5,7 +5,7 @@ import { create } from '@storybook/theming';
 
 import appTemplateDecorator from './decorators/app-template';
 
-const req = require.context('../../../../packages', true, /\.stories\.(tsx|ts)$/);
+const req = require.context('../../../../packages', true, /^((?![\\/]node_modules[\\/]).)*\.stories\.(tsx|ts)$/);
 
 const loadStories = () => {
   req.keys().forEach((filename) => req(filename));

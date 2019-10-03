@@ -26,9 +26,14 @@ const Footer: React.FC<IFooterProps> = ({ menu }) => (
 
     <div className={styles.nav}>
       <ul>
-      {menu && menu.map(({ label, link }, count) => {
-        return <li key={`footer-menu-${count}`}><a href={link}>{label}</a></li>
-      })}
+        {menu &&
+          menu.map(({ label, link }, count) => {
+            return (
+              <li key={`footer-menu-${count}`}>
+                <a href={link}>{label}</a>
+              </li>
+            );
+          })}
       </ul>
     </div>
   </div>

@@ -8,7 +8,7 @@
     "start": "yarn develop",
     "build": "ts-node --files ./node_modules/.bin/gatsby build",
     "serve": "ts-node --files ./node_modules/.bin/gatsby serve",
-    "develop": "ts-node --files ./node_modules/.bin/gatsby develop --https"
+    "develop": "ts-node --files ./node_modules/.bin/gatsby develop"
   },
   "browserslist": [
     "last 3 versions"
@@ -33,11 +33,12 @@
     "gatsby-plugin-robots-txt": "1.5.0",
     "gatsby-plugin-typescript": "2.1.11",
     "gatsby-transformer-json": "2.2.11",
-    "react": "16.8.0",
-    "react-dom": "16.8.0",
-    "react-helmet": "5.2.0",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "@hot-loader/react-dom": "16.9.0",
+    "react-helmet": "5.2.1",
     "schema-dts": "0.4.1",
-    "ts-node": "8.0.2"
+    "ts-node": "8.4.1"
   },
   "resolutions": {
     "gatsby-source-graphql": "2.1.2"

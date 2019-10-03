@@ -22,7 +22,6 @@
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
     "tsc:e2e": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
     "storybook": "start-storybook"
-
   },
   "devDependencies": {
     "@commitlint/cli": "8.1.0",

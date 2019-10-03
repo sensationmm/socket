@@ -1,0 +1,35 @@
+.component {
+  position: relative;
+  width: 100%;
+  display: block;
+  color: var(--color-basic-white);
+}
+
+.social {
+  margin-bottom: var(--spacing-xxl);
+}
+
+.social > button {
+  margin-right: var(--spacing-l);
+}
+
+.copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-book);
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav ul li {
+  margin-left: var(--spacing-xl);
+}

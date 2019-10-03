@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 import ExportedRing from '.';
-import { Ring } from './ring.component';
+import Ring from '.';
 
 describe('ring', () => {
   it('should export an Ring component', () => {

@@ -1,3 +1,3 @@
-import { Ring } from './ring.component';
+import Ring from './ring.component';
 
 export default Ring;

@@ -25,7 +25,7 @@ phases:
             - 'gatsby build'
     post_build:
         commands:
-            - 'aws s3 sync "./" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
+            - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
 artifacts:
     files:
         - '**/*'

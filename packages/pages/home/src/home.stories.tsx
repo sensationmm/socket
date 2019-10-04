@@ -10,10 +10,7 @@ const props = {
       title: 'Take control. Own your energy.',
       subTitle:
         "See real usage, accurate billing at a click and a scroll - in the palm of your hand. It's how energy should work.",
-      cta: {
-        text: 'Join the waiting list',
-        url: 'https://site.com',
-      },
+      cta: 'Join the waiting list',
     },
     mainFeatures: {
       content: [

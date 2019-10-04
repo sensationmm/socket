@@ -14,15 +14,22 @@ describe('@somo/pda-components-page-hero component', () => {
   const onClickMock = jest.fn();
 
   it('should render without error', () => {
+    props = {
+      i18n: {
+        heading: headingString,
+      },
+    };
     wrapper = shallow(<Component {...props} />);
     expect(wrapper).toBeDefined();
   });
 
   it('should render full content', () => {
     props = {
-      heading: headingString,
-      text: textString,
-      cta: ctaString,
+      i18n: {
+        heading: headingString,
+        text: textString,
+        cta: ctaString,
+      },
       onClick: onClickMock,
     };
 
@@ -46,8 +53,10 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render heading and text only', () => {
     props = {
-      heading: headingString,
-      text: textString,
+      i18n: {
+        heading: headingString,
+        text: textString,
+      },
     };
 
     wrapper = shallow(<Component {...props} />);
@@ -69,8 +78,10 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render heading and cta only', () => {
     props = {
-      heading: headingString,
-      cta: ctaString,
+      i18n: {
+        heading: headingString,
+        cta: ctaString,
+      },
       onClick: onClickMock,
     };
 
@@ -89,7 +100,9 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render heading only', () => {
     props = {
-      heading: headingString,
+      i18n: {
+        heading: headingString,
+      },
     };
 
     wrapper = shallow(<Component {...props} />);

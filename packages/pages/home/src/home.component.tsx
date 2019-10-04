@@ -8,6 +8,7 @@ interface IHomepageProps {
 }
 
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
+  // const { hero, mainFeatures, understandEnergy, companyFeatures, goodBunch, footer } = i18n;
   const { hero } = i18n;
 
   return <h1>{hero.title}</h1>;

@@ -26,6 +26,49 @@ const Home: React.FC = () => {
                   url
                 }
               }
+              mainFeatures {
+                content {
+                  icon
+                  header
+                  body
+                }
+              }
+              understandEnergy {
+                title
+                subTitle
+                cta {
+                  text
+                  url
+                }
+                image
+              }
+              companyFeatures {
+                thingsWeDontDo {
+                  header
+                  content {
+                    icon
+                    header
+                    body
+                  }
+                }
+                thingsWeDoDo {
+                  header
+                  content {
+                    icon
+                    header
+                    body
+                  }
+                }
+              }
+              goodBunch {
+                title
+                body
+              }
+              footer {
+                title
+                subTitle
+                copyright
+              }
             }
           }
         }

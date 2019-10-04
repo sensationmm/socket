@@ -11,10 +11,7 @@ declare namespace EON {
       hero: {
         title: string;
         subTitle: string;
-        cta: {
-          text: string;
-          url: string;
-        };
+        cta: string;
       };
       mainFeatures: {
         content: IHomepageFeatures[];

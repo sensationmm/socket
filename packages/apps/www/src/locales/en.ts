@@ -4,10 +4,7 @@ const data: EON.IWebAppTranslations = {
       title: 'Take control. Own your energy.',
       subTitle:
         "See real usage, accurate billing at a click and a scroll - in the palm of your hand. It's how energy should work.",
-      cta: {
-        text: 'Join the waiting list',
-        url: 'https://site.com',
-      },
+      cta: 'Join the waiting list',
     },
     mainFeatures: {
       content: [
@@ -87,7 +84,7 @@ const data: EON.IWebAppTranslations = {
             icon: 'comment',
             header: 'Make it easy for you to talk to us',
             body:
-              "And we're not talking useless vouchers or a free coffee at 10.36am every Tuesday. Cool rewards for the stuff you love.",
+              'Service on the channels you’re used to. Live chat with real UK based humans and a community of brains ready to answer FAQs.',
           },
           {
             icon: 'earth',

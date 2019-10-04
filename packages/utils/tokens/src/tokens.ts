@@ -26,24 +26,24 @@ const colors = {
 };
 
 const fontWeights = {
-  book: 300,
-  medium: 400,
+  light: 300,
   semibold: 600,
   bold: 700,
 };
 
 const fontSizes = {
-  '5xl': '72px',
-  '4xl': '42px',
-  '3xl': '38px',
-  xxl: '28px',
+  '5xl': '60px',
+  '4xl': '48px',
+  '3xl': '34px',
+  xxl: '30px',
   xl: '24px',
   l: '22px',
-  m: '18px',
-  s: '16px',
-  xs: '14px',
-  '3xs': '12px',
-  '4xs': '10px',
+  m: '20px',
+  s: '18px',
+  xs: '17px',
+  xxs: '16px',
+  '3xs': '14px',
+  '4xs': '12px',
 };
 
 const spacing = {

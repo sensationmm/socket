@@ -4,34 +4,44 @@ import * as React from 'react';
 import * as baseStyles from './text.module.css';
 
 export enum TextStyles {
-  pageTitle = 'pageTitle',
-  pageAbout = 'pageAbout',
-  header = 'header',
-  subheader = 'subheader',
-  header2 = 'header2',
-  content = 'content',
-  content2 = 'content2',
-  disclaimer = 'disclaimer',
+  h1 = 'h1',
+  h2 = 'h2',
+  h3 = 'h3',
+  body = 'body',
+  segmentCopy = 'segmentCopy',
+  caption = 'caption',
+}
+
+export enum ColorStyles {
+  primary = 'primary',
+  secondary = 'secondary',
+  tertiary = 'teritary',
 }
 
 interface ITextProps {
   children?: React.ReactNode;
   className?: string;
   element?: any;
-  type?: TextStyles | keyof typeof TextStyles;
+  type?: any;
+  color?: any;
 
   [prop: string]: any;
 }
 
-const Text: React.FC<ITextProps> = ({ className, children, element, type, ...props }) => {
-  const finalClassName = cx(className, baseStyles.base, (type && baseStyles[type]) || type);
+const Text: React.FC<ITextProps> = ({ className, children, element, type, color = 'primary', ...props }) => {
+  const finalClassName = cx(
+    className,
+    baseStyles.base,
+    (type && baseStyles[type]) || type,
+    (color && baseStyles[color]) || color,
+  );
 
   return React.createElement(element, { className: finalClassName, ...props }, children);
 };
 
 Text.defaultProps = {
   element: 'span',
-  type: TextStyles.content,
+  type: TextStyles.body,
 };
 
 export default Text;

@@ -7,31 +7,23 @@ import * as baseStyles from './text.module.css';
 // @ts-ignore
 import * as styles from './text.stories.module.css';
 
-const types = [
-  'mainTitle',
-  'cardTitle',
-  'menuTitle',
-  'cardFocalText',
-  'body1',
-  'body2',
-  'button',
-  'caption',
-  'overline',
-];
+const elements = ['span', 'p', 'h1', 'h2', 'h3'];
+const types = ['h1', 'h2', 'h3', 'body', 'segmentCopy', 'caption'];
 
-const defaultText = `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-Accusamus fuga iste iure molestias mollitia, necessitatibus nulla sed similique
-sit temporibus! Architecto error esse fuga iusto necessitatibus odio
-perferendis praesentium suscipit.`;
+const color = ['primary', 'secondary', 'tertiary'];
+
+const defaultText = `Take control. Own your energy.`;
 
 storiesOf('Components|text', module)
   .addDecorator(withKnobs)
   .add('default', () => (
-    <div style={{ background: 'linear-gradient(to bottom right, white, black' }}>
+    <div>
       <Text
+        element={select('element', elements, 'h1')}
+        type={select('type', types, 'h1')}
+        color={select('color', color, 'primary')}
         className={text('className', '')}
         children={text('children', defaultText)}
-        type={select('type', Object.keys(baseStyles), Object.keys(baseStyles)[0]) as keyof typeof TextStyles}
       />
     </div>
   ));

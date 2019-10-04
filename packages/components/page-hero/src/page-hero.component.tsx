@@ -24,14 +24,14 @@ const PageHero: React.FC<IPageHeroProps> = ({ i18n, onClick }) => {
   return (
     <div className={classnames(styles.component)}>
       <div className={styles.heading}>
-        <Text type={TextStyles.pageTitle} data-test="page-hero-heading">
+        <Text type={TextStyles.h1} data-test="page-hero-heading">
           {heading}
         </Text>
       </div>
 
       {text && (
         <div className={styles.text}>
-          <Text type={TextStyles.pageAbout} data-test="page-hero-text">
+          <Text type={TextStyles.body} data-test="page-hero-text">
             {text}
           </Text>
         </div>

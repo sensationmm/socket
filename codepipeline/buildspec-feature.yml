@@ -22,7 +22,7 @@ phases:
             - 'cd ./packages/apps/storybook'
             - 'yarn build'
             - 'cd ../www'
-            - 'gatsby build'
+            - 'yarn build'
     post_build:
         commands:
             - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'

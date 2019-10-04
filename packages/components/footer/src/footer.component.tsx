@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import RoundButton from '@somo/pda-components-button/src/round';
+import { Round as RoundButton } from '@somo/pda-components-button/src';
 
 // @ts-ignore
 import * as styles from './footer.module.css';
@@ -24,18 +24,19 @@ const Footer: React.FC<IFooterProps> = ({ menu }) => (
 
     <div className={styles.copyright}>2019 &copy; Socket Energy. All rights reserved.</div>
 
-    <div className={styles.nav}>
-      <ul>
-        {menu &&
-          menu.map(({ label, link }, count) => {
+    {menu && (
+      <div className={styles.nav}>
+        <ul>
+          {menu.map(({ label, link }, count) => {
             return (
               <li key={`footer-menu-${count}`}>
                 <a href={link}>{label}</a>
               </li>
             );
           })}
-      </ul>
-    </div>
+        </ul>
+      </div>
+    )}
   </div>
 );
 

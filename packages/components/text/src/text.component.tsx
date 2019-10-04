@@ -29,12 +29,7 @@ interface ITextProps {
 }
 
 const Text: React.FC<ITextProps> = ({ className, children, element, type, color = 'primary', ...props }) => {
-  const finalClassName = cx(
-    className,
-    baseStyles.base,
-    (type && baseStyles[type]) || type,
-    (color && baseStyles[color]) || color,
-  );
+  const finalClassName = cx(className, baseStyles.base, baseStyles[type], baseStyles[color]);
 
   return React.createElement(element, { className: finalClassName, ...props }, children);
 };

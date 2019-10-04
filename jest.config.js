@@ -9,7 +9,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/vendor/**',
   ],
-  coverageReporters: ['text-summary', 'cobertura', 'lcov'],
+  coverageReporters: ['text', 'cobertura', 'lcov'],
   coveragePathIgnorePatterns: ['/node_modules/'],
   coverageDirectory: './build/reports/coverage',
   moduleNameMapper: {

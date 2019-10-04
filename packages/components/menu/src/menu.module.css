@@ -1,0 +1,13 @@
+.nav {
+  width: 100%;
+  color: var(--color-basic-white);
+}
+
+.nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav ul li {
+  margin-left: var(--spacing-xl);
+}

@@ -21,6 +21,7 @@ phases:
             - echo Build started on `date`
             - 'cd ./packages/apps/storybook'
             - 'yarn build'
+            - 'cd ../www'
             - 'gatsby build'
     post_build:
         commands:

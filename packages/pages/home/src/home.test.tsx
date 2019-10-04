@@ -40,10 +40,7 @@ describe('@somo/pda-pages-home', () => {
         understandEnergy: {
           title: 'Do you understand your energy?',
           subTitle: 'We make it easy',
-          cta: {
-            text: 'Join us',
-            url: 'https://site.com',
-          },
+          cta: 'Join us',
           image: '',
         },
         companyFeatures: {

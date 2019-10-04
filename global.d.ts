@@ -1,5 +1,11 @@
 // tslint:disable-next-line:no-namespace
 declare namespace EON {
+  interface IHomepageFeatures {
+    icon: string;
+    header: string;
+    body: string;
+  }
+
   interface IWebAppTranslations {
     homepage: {
       hero: {
@@ -9,6 +15,37 @@ declare namespace EON {
           text: string;
           url: string;
         };
+      };
+      mainFeatures: {
+        content: IHomepageFeatures[];
+      };
+      understandEnergy: {
+        title: string;
+        subTitle: string;
+        cta: {
+          text: string;
+          url: string;
+        };
+        image: string;
+      };
+      companyFeatures: {
+        thingsWeDontDo: {
+          header: string;
+          content: IHomepageFeatures[];
+        };
+        thingsWeDoDo: {
+          header: string;
+          content: IHomepageFeatures[];
+        };
+      };
+      goodBunch: {
+        title: string;
+        body: string;
+      };
+      footer: {
+        title: string;
+        subTitle: string;
+        copyright: string;
       };
     };
   }

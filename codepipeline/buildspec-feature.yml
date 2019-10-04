@@ -4,7 +4,7 @@ version: 0.2
 env:
   variables:
     environment: "Develop"
-    S3Bucket: "s3://da-codepipeline-bucket"
+    S3Bucket: "s3://da-monorepo-source-bucket"
 phases:
     install:
       runtime-versions:
@@ -21,9 +21,10 @@ phases:
             - echo Build started on `date`
             - 'cd ./packages/apps/storybook'
             - 'yarn build'
+            - 'gatsby build'
     post_build:
         commands:
-            #- 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
+            - 'aws s3 sync "./" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
 artifacts:
     files:
         - '**/*'

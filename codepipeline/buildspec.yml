@@ -1,5 +1,9 @@
-# Default build spec to create build artifacts
+# Basic build spec to create build artifacts, for templating from
 version: 0.2
+env:
+  variables:
+    environment: "Develop"
+    S3Bucket: "s3://da-codepipeline-bucket"
 phases:
     install:
       runtime-versions:
@@ -18,6 +22,7 @@ phases:
             - 'yarn build'
     post_build:
         commands:
+            - 'aws s3 sync "./build" $S3Bucket/ --delete --acl "public-read"'
 artifacts:
     files:
         - '**/*'

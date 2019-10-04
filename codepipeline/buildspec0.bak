@@ -1,0 +1,42 @@
+version: 0.2
+
+env:
+  variables:
+    environment: "Develop"
+    S3Bucket: "s3://da-codepipeline-bucket"
+phases:
+    install:
+      runtime-versions:
+        nodejs: 10
+      commands:
+            - 'touch .yarnignore'
+            - 'yarn global add gatsby-cli'
+            - 'echo $CODEBUILD_SOURCE_VERSION'
+            - |
+              if [$CODEBUILD_SOURCE_VERSION = "develop"]; then
+              branch="";
+              else
+              branch=$CODEBUILD_SOURCE_VERSION;
+              fi
+    pre_build:
+        commands:
+            #- echo Running gatsby...
+            #- gatsby new gatsby-site
+            - echo Installing source yarn dependencies...
+            - 'yarn install'
+            #- 'gatsby develop'
+    build:
+        commands:
+            - echo Build started on `date`
+            - 'cd ./packages/apps/storybook'
+            - 'yarn build'
+            #- 'gatsby build'
+
+    post_build:
+        commands:
+            - 'aws s3 sync "./build" $S3Bucket/$branch/ --delete --acl "public-read"'
+artifacts:
+    #base-directory: public
+    files:
+        - '**/*'
+    #discard-paths: yes

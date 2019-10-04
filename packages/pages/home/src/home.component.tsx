@@ -1,7 +1,6 @@
 import { navigate } from 'gatsby';
 import * as React from 'react';
 
-// import PageSection from '@somo/pda';
 import AppTemplate from '@somo/pda-components-app-template/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 // import Footer from '@somo/pda-components-footer/src';
@@ -15,9 +14,18 @@ interface IHomepageProps {
   i18n: EON.IWebAppTranslations['homepage'];
 }
 
+const ContentCard = ({ icon, header, body }) => {
+  return (
+    <div>
+      <p>{icon}</p>
+      <h2>{header}</h2>
+      <p>{body}</p>
+    </div>
+  );
+};
+
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
-  // const { hero, mainFeatures, understandEnergy, companyFeatures, goodBunch, footer } = i18n;
-  const { hero } = i18n;
+  const { hero, mainFeatures, companyFeatures } = i18n;
 
   return (
     <AppTemplate>
@@ -26,26 +34,43 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           i18n={{
             heading: hero.title,
             text: hero.subTitle,
-            cta: hero.cta.text,
+            cta: hero.cta,
           }}
           onClick={() => navigate('/page')}
         />
       </PageSection>
 
-      <PageSection>CompanyFeatures</PageSection>
-
-      <PageSection style={PageSectionStyle.Primary}>Youre on track</PageSection>
-
-      <PageSection style={PageSectionStyle.Secondary}>Switching is quick and painless</PageSection>
-
       <PageSection>
         <FlexRow>
-          <div>Things we dont do</div>
-          <div>Things we do do</div>
+          {mainFeatures.content.map((feature, count) => {
+            return (
+              <ContentCard key={`feature-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
+            );
+          })}
         </FlexRow>
       </PageSection>
 
-      <PageSection style={PageSectionStyle.Secondary}>A really good bunch</PageSection>
+      <PageSection>
+        <FlexRow>
+          <div>
+            <h2>{companyFeatures.thingsWeDontDo.header}</h2>
+            {companyFeatures.thingsWeDontDo.content.map((feature, count) => {
+              return (
+                <ContentCard key={`dontDo-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
+              );
+            })}
+          </div>
+
+          <div>
+            <h2>{companyFeatures.thingsWeDoDo.header}</h2>
+            {companyFeatures.thingsWeDoDo.content.map((feature, count) => {
+              return (
+                <ContentCard key={`doDo-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
+              );
+            })}
+          </div>
+        </FlexRow>
+      </PageSection>
 
       <PageSection style={PageSectionStyle.PrimaryPattern}>Footer</PageSection>
     </AppTemplate>

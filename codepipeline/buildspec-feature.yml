@@ -21,9 +21,14 @@ phases:
             - echo Build started on `date`
             - 'cd ./packages/apps/storybook'
             - 'yarn build'
+<<<<<<< HEAD
             - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/build --delete --acl "public-read"'
             - 'cd ../www'
             - 'yarn build'
+=======
+            - 'cd ../www'
+            - 'gatsby build'
+>>>>>>> gatsby build in packages/apps/www
     post_build:
         commands:
             - 'aws s3 sync "./public" $S3Bucket/$CODEBUILD_SOURCE_VERSION/public --delete --acl "public-read"'

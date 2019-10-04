@@ -19,6 +19,8 @@ body {
   min-height: 100vh;
   font-variant-ligatures: none;
   font-family: 'Buenos Aires', Futura, Avenir, Arial, SansSerif, sans-serif;
+  padding: 0 !important;
+  margin: 0;
 }
 
 *,

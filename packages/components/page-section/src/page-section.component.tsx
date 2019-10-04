@@ -13,8 +13,8 @@ export enum PageSectionStyle {
 }
 
 export interface IPageSectionProps {
-  style: PageSectionStyle;
-  bgImage: string[];
+  style?: PageSectionStyle;
+  bgImage?: string[];
 }
 
 const PageSection: React.FC<IPageSectionProps> = ({ style, bgImage = {}, children }) => (
@@ -28,7 +28,7 @@ const PageSection: React.FC<IPageSectionProps> = ({ style, bgImage = {}, childre
     )}
     style={style === PageSectionStyle.Image ? { backgroundImage: `url(${bgImage})` } : {}}
   >
-    <div>{children}</div>
+    <div className={styles.inner}>{children}</div>
   </div>
 );
 

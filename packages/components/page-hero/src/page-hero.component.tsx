@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import * as React from 'react';
 
-import { Primary as Button } from '@somo/pda-components-button/src';
+import { Secondary as Button } from '@somo/pda-components-button/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
 
 // @ts-ignore

@@ -1,7 +1,13 @@
 .component {
-  width: 100%;
   display: block;
   padding: var(--spacing-xl);
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .primary {

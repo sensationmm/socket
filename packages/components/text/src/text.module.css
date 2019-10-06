@@ -104,4 +104,5 @@
 
 .tertiary {
   color: var(--color-grey-dark);
+  font-weight: var(--font-weight-light);
 }

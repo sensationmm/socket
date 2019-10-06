@@ -57,6 +57,7 @@ const Home: React.FC = () => {
               goodBunch {
                 title
                 body
+                cta
               }
               footer {
                 title

@@ -35,6 +35,7 @@ declare namespace EON {
       goodBunch: {
         title: string;
         body: string;
+        cta: string;
       };
       footer: {
         title: string;

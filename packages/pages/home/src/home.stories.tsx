@@ -102,6 +102,7 @@ const props = {
       title: 'A really good bunch.',
       body:
         'Help us make our community work. Together, we can make our dream of an energy company that puts you in control a reality (and prove the folks who said we were dreaming too big wrong).',
+      cta: 'Join us',
     },
     footer: {
       title: 'Our smart technology needs a smart meter.',

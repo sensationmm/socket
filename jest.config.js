@@ -10,7 +10,7 @@ module.exports = {
     '!**/vendor/**',
   ],
   coverageReporters: ['text', 'cobertura', 'lcov'],
-  coveragePathIgnorePatterns: ['/node_modules/'],
+  coveragePathIgnorePatterns: ['/node_modules/', '/packages/components/icons/'],
   coverageDirectory: './build/reports/coverage',
   moduleNameMapper: {
     '^\\@somo/oxd-(components|apps)-([a-z|-]*)$': '<rootDir>/packages/$1/$2/src/index.ts',

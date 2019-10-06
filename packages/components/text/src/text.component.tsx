@@ -15,7 +15,7 @@ export enum TextStyles {
 export enum ColorStyles {
   primary = 'primary',
   secondary = 'secondary',
-  tertiary = 'teritary',
+  tertiary = 'tertiary',
 }
 
 interface ITextProps {

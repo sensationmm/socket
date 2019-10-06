@@ -21,10 +21,7 @@ const Home: React.FC = () => {
               hero {
                 title
                 subTitle
-                cta {
-                  text
-                  url
-                }
+                cta
               }
               mainFeatures {
                 content {
@@ -36,10 +33,7 @@ const Home: React.FC = () => {
               understandEnergy {
                 title
                 subTitle
-                cta {
-                  text
-                  url
-                }
+                cta
                 image
               }
               companyFeatures {

@@ -4,10 +4,23 @@
 }
 
 .nav ul {
-  display: flex;
-  justify-content: flex-end;
+  @media (--s) {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .nav ul li {
-  margin-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-l);
+
+  @media (--s) {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: var(--spacing-xl);
+    margin-bottom: 0;
+  }
+}
+
+.nav a {
+  display: block;
 }

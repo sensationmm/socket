@@ -1,23 +1,53 @@
+import cx from 'classnames';
+import { navigate } from 'gatsby';
 import * as React from 'react';
 
+import { BurgerMenu, Logo } from '@somo/pda-components-icons/src';
 import Menu, { IMenuProps } from '@somo/pda-components-menu/src';
+import SVG from '@somo/pda-components-svg/src';
 
 // @ts-ignore
 import * as styles from './navbar.module.css';
-import Logo from '../assets/socket-logo.svg';
 
 interface INavbarProps {
   menu?: IMenuProps['links'];
 }
 
-const Navbar: React.FC<INavbarProps> = ({ menu }) => {
-  return (
-    <div className={styles.component}>
-      <div className={styles.logo}><img src={Logo} /></div>
+interface INavbarState {
+  menuOpen: boolean;
+}
 
-      {menu && <Menu links={menu} />}
-    </div>
-  );
-};
+class Navbar extends React.Component<INavbarProps, INavbarState> {
+  constructor(props: INavbarProps) {
+    super(props);
+
+    this.state = {
+      menuOpen: false,
+    };
+  }
+
+  public render() {
+    const { menu } = this.props;
+    const { menuOpen } = this.state;
+
+    return (
+      <div className={styles.component}>
+        <div className={styles.logo} onClick={() => navigate('/')}>
+          <SVG children={Logo} />
+        </div>
+
+        {menu && (
+          <div className={cx(styles.headermenu, { [styles.mobileopen]: menuOpen })}>
+            <Menu links={menu} />
+          </div>
+        )}
+
+        <div className={styles.mobilemenu} onClick={() => this.setState({ menuOpen: !menuOpen })}>
+          <SVG children={BurgerMenu} />
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Navbar;

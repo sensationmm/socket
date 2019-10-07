@@ -1,4 +1,5 @@
 import { shallow } from 'enzyme';
+import { navigate } from 'gatsby';
 import * as React from 'react';
 
 import Component from '.';
@@ -10,6 +11,10 @@ const MenuMock = [
   { label: 'Link 2', link: 'http://www.google.com' },
   { label: 'Link 3', link: 'http://www.google.com' },
 ];
+
+jest.mock('gatsby', () => ({
+  navigate: jest.fn(),
+}));
 
 describe('@somo/pda-components-page-hero component', () => {
   let wrapper;
@@ -25,5 +30,21 @@ describe('@somo/pda-components-page-hero component', () => {
     wrapper = shallow(<Component menu={MenuMock} />);
 
     expect(wrapper.find(Menu).exists()).toBe(true);
+  });
+
+  it('logo links to homepage', () => {
+    wrapper = shallow(<Component menu={MenuMock} />);
+
+    wrapper.find('.logo').simulate('click');
+
+    expect(navigate).toHaveBeenCalledWith('/');
+  });
+
+  it('triggers mobile menu', () => {
+    wrapper = shallow(<Component menu={MenuMock} />);
+
+    wrapper.find('.mobilemenu').simulate('click');
+
+    expect(wrapper.state().menuOpen).toEqual(true);
   });
 });

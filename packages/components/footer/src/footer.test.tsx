@@ -3,7 +3,9 @@ import * as React from 'react';
 
 import Component from '.';
 
-const menuMock = [
+import Menu from '@somo/pda-components-menu/src';
+
+const MenuMock = [
   { label: 'Link 1', link: 'http://www.google.com' },
   { label: 'Link 2', link: 'http://www.google.com' },
   { label: 'Link 3', link: 'http://www.google.com' },
@@ -21,11 +23,12 @@ describe('@somo/pda-components-footer component', () => {
   it('should render without error', () => {
     wrapper = shallow(<Component i18n={i18n} />);
     expect(wrapper).toBeDefined();
+    expect(wrapper.find(Menu).exists()).toBe(false);
   });
 
   it('should render menu passed as props', () => {
     wrapper = shallow(<Component i18n={i18n} menu={menuMock} />);
 
-    expect(wrapper.find('.nav ul li').length).toEqual(menuMock.length);
+    expect(wrapper.find(Menu).exists()).toBe(true);
   });
 });

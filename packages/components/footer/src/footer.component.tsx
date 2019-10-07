@@ -1,19 +1,14 @@
 import * as React from 'react';
 
 import { Round as RoundButton } from '@somo/pda-components-button/src';
-// import Text, { TextStyles, ColorStyles } from '@somo/pda-components-text/src';
+import Menu, { IMenuProps } from '@somo/pda-components-menu/src';
 
 // @ts-ignore
 import * as styles from './footer.module.css';
 
-export interface IMenu {
-  label: string;
-  link: string;
-}
-
 export interface IFooterProps {
   i18n: EON.IWebAppTranslations['homepage']['footer'];
-  menu?: IMenu[];
+  menu?: IMenuProps[];
 }
 
 const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {
@@ -33,21 +28,9 @@ const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {
         <RoundButton>I</RoundButton>
       </div>
 
-      <div>{copyright}</div>
+      <div className={styles.copyright}>{copyright}</div>
 
-      {menu && (
-        <div className={styles.nav}>
-          <ul>
-            {menu.map(({ label, link }, count) => {
-              return (
-                <li key={`footer-menu-${count}`}>
-                  <a href={link}>{label}</a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+      {menu && <Menu links={menu} />}
     </div>
   );
 };

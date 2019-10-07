@@ -9,3 +9,11 @@
     width: 100%;
   }
 }
+
+.featureContentCard {
+  margin-top: var(--spacing-xl);
+
+  @media (--m) {
+    margin-top: var(--spacing-xxl);
+  }
+}

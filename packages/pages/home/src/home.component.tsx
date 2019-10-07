@@ -4,7 +4,7 @@ import * as React from 'react';
 import AppTemplate from '@somo/pda-components-app-template/src';
 import { Secondary } from '@somo/pda-components-button/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
-// import Footer from '@somo/pda-components-footer/src';
+import Footer from '@somo/pda-components-footer/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
@@ -18,7 +18,7 @@ interface IHomepageProps {
 }
 
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
-  const { hero, mainFeatures, understandEnergy, companyFeatures, goodBunch } = i18n;
+  const { hero, mainFeatures, understandEnergy, companyFeatures, goodBunch, footer } = i18n;
 
   return (
     <AppTemplate>
@@ -67,7 +67,13 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
             </Text>
             {companyFeatures.thingsWeDontDo.content.map((feature, count) => {
               return (
-                <ContentCard key={`dontDo-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
+                <ContentCard
+                  key={`dontDo-${count}`}
+                  className={styles.featureContentCard}
+                  icon={feature.icon}
+                  header={feature.header}
+                  body={feature.body}
+                />
               );
             })}
           </div>
@@ -78,7 +84,13 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
             </Text>
             {companyFeatures.thingsWeDoDo.content.map((feature, count) => {
               return (
-                <ContentCard key={`doDo-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
+                <ContentCard
+                  key={`doDo-${count}`}
+                  className={styles.featureContentCard}
+                  icon={feature.icon}
+                  header={feature.header}
+                  body={feature.body}
+                />
               );
             })}
           </div>
@@ -104,7 +116,9 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           <div></div>
         </FlexRow>
       </PageSection>
-      <PageSection style={PageSectionStyle.PrimaryPattern}>Footer</PageSection>
+      <PageSection style={PageSectionStyle.PrimaryPattern}>
+        <Footer i18n={footer} />
+      </PageSection>
     </AppTemplate>
   );
 };

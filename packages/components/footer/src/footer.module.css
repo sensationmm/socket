@@ -13,14 +13,6 @@
   margin-right: var(--spacing-l);
 }
 
-.copyright {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-book);
-}
-
 .nav {
   width: 100%;
 }

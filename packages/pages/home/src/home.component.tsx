@@ -8,7 +8,7 @@ import FlexRow from '@somo/pda-components-flex-row/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
-import Ring from '@somo/pda-components-ring/src';
+import ContentCard from '@somo/pda-components-content-card/src';
 
 // @ts-ignore
 import * as styles from './home.module.css';
@@ -16,20 +16,6 @@ import * as styles from './home.module.css';
 interface IHomepageProps {
   i18n: EON.IWebAppTranslations['homepage'];
 }
-
-const ContentCard = ({ icon, header, body }) => {
-  return (
-    <div>
-      <Ring>{icon}</Ring>
-      <Text element="h3" type={TextStyles.h3}>
-        {header}
-      </Text>
-      <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary}>
-        {body}
-      </Text>
-    </div>
-  );
-};
 
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
   const { hero, mainFeatures, understandEnergy, companyFeatures, goodBunch } = i18n;

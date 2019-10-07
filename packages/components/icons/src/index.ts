@@ -11,6 +11,8 @@ export { default as Instagram } from './assets/instagram.svg';
 // @ts-ignore
 export { default as LinkedIn } from './assets/linkedin.svg';
 // @ts-ignore
+export { default as Logo } from './assets/logo.svg';
+// @ts-ignore
 export { default as Mail } from './assets/mail.svg';
 // @ts-ignore
 export { default as Twitter } from './assets/twitter.svg';

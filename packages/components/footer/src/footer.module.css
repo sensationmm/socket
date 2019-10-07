@@ -13,6 +13,19 @@
   margin-right: var(--spacing-l);
 }
 
+.copyright {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-book);
+  margin-bottom: var(--spacing-xxl);
+
+  @media (--s) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+  }
+}
+
 .nav {
   width: 100%;
 }

@@ -27,7 +27,7 @@ describe('@somo/pda-components-footer component', () => {
   });
 
   it('should render menu passed as props', () => {
-    wrapper = shallow(<Component i18n={i18n} menu={menuMock} />);
+    wrapper = shallow(<Component i18n={i18n} menu={MenuMock} />);
 
     expect(wrapper.find(Menu).exists()).toBe(true);
   });

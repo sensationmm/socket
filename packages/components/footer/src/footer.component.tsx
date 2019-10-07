@@ -8,7 +8,7 @@ import * as styles from './footer.module.css';
 
 export interface IFooterProps {
   i18n: EON.IWebAppTranslations['homepage']['footer'];
-  menu?: IMenuProps[];
+  menu?: IMenuProps['links'];
 }
 
 const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {

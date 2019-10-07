@@ -3,29 +3,27 @@
 version: 0.2
 env:
   variables:
-    environment: "Develop"
-    S3Bucket: "s3://da-monorepo-source-bucket"
+    environment: 'Develop'
+    S3Bucket: 's3://da-monorepo-source-bucket'
 phases:
-    install:
-      runtime-versions:
-        nodejs: 10
-      commands:
-            - 'touch .yarnignore'
-            - 'yarn global add gatsby-cli'
-    pre_build:
-        commands:
-            - echo Installing source yarn dependencies...
-            - 'yarn install'
-    build:
-        commands:
-            - echo Build started on `date`
-            - 'cd ./packages/apps/storybook'
-            - 'yarn build'
-            - 'cd ../www'
-            - 'yarn build'
-    post_build:
-        commands:
-            - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - 'touch .yarnignore'
+      - 'yarn global add gatsby-cli'
+  pre_build:
+    commands:
+      - echo Installing source yarn dependencies...
+      - 'yarn install'
+  build:
+    commands:
+      - echo Build started on `date`
+      - 'cd ../www'
+      - 'yarn build'
+  post_build:
+    commands:
+      - 'aws s3 sync "./public" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
 artifacts:
-    files:
-        - '**/*'
+  files:
+    - '**/*'

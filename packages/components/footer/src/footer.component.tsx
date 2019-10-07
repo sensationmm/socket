@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Round as RoundButton } from '@somo/pda-components-button/src';
-import Text, { TextStyles, ColorStyles } from '@somo/pda-components-text/src';
+// import Text, { TextStyles, ColorStyles } from '@somo/pda-components-text/src';
 
 // @ts-ignore
 import * as styles from './footer.module.css';
@@ -17,16 +17,16 @@ export interface IFooterProps {
 }
 
 const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {
-  const { title, subTitle, copyright } = i18n;
+  const { copyright } = i18n;
 
   return (
     <div className={styles.component}>
-      <Text element="h3" type={TextStyles.h2} color={ColorStyles.secondary}>
+      {/* <Text element="h3" type={TextStyles.h2} color={ColorStyles.secondary}>
         {title}
       </Text>
       <Text element="p" type={TextStyles.segmentCopy} color={ColorStyles.secondary}>
         {subTitle}
-      </Text>
+      </Text> */}
       <div className={styles.social}>
         <RoundButton>F</RoundButton>
         <RoundButton>T</RoundButton>

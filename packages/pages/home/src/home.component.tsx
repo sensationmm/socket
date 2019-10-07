@@ -2,12 +2,12 @@ import { navigate } from 'gatsby';
 import * as React from 'react';
 
 import AppTemplate from '@somo/pda-components-app-template/src';
-import { Secondary } from '@somo/pda-components-button/src';
+// import { Secondary } from '@somo/pda-components-button/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import Footer from '@somo/pda-components-footer/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
-import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
+import Text, { TextStyles } from '@somo/pda-components-text/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 
 // @ts-ignore
@@ -18,7 +18,7 @@ interface IHomepageProps {
 }
 
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
-  const { hero, mainFeatures, understandEnergy, companyFeatures, goodBunch, footer } = i18n;
+  const { hero, mainFeatures, companyFeatures, footer } = i18n;
 
   return (
     <AppTemplate>
@@ -42,7 +42,7 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           })}
         </FlexRow>
       </PageSection>
-      <PageSection style={PageSectionStyle.Primary}>
+      {/* <PageSection style={PageSectionStyle.Primary}>
         <FlexRow className={styles.narrowSection}>
           <div>
             <Text element="h2" type={TextStyles.h2} color={ColorStyles.secondary}>
@@ -58,7 +58,7 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           </div>
           <div></div>
         </FlexRow>
-      </PageSection>
+      </PageSection> */}
       <PageSection>
         <FlexRow>
           <div>
@@ -96,7 +96,7 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           </div>
         </FlexRow>
       </PageSection>
-      <PageSection style={PageSectionStyle.Secondary}>
+      {/* <PageSection style={PageSectionStyle.Secondary}>
         <FlexRow className={styles.narrowSection}>
           <div>
             <Text element="h2" type={TextStyles.h2}>
@@ -115,7 +115,7 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           </div>
           <div></div>
         </FlexRow>
-      </PageSection>
+      </PageSection> */}
       <PageSection style={PageSectionStyle.PrimaryPattern}>
         <Footer i18n={footer} />
       </PageSection>

@@ -3,12 +3,12 @@ import * as React from 'react';
 
 import AppTemplate from '@somo/pda-components-app-template/src';
 // import { Secondary } from '@somo/pda-components-button/src';
+import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import Footer from '@somo/pda-components-footer/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
-import ContentCard from '@somo/pda-components-content-card/src';
 
 // @ts-ignore
 import * as styles from './home.module.css';

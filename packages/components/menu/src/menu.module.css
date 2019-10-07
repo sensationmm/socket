@@ -11,13 +11,14 @@
 }
 
 .nav ul li {
-  margin-bottom: var(--spacing-l);
+  margin-bottom: var(--spacing-xl);
 
   @media (--s) {
     display: flex;
     justify-content: flex-end;
     margin-left: var(--spacing-xl);
     margin-bottom: 0;
+    padding-left: 0;
   }
 }
 

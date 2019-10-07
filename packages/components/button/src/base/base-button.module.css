@@ -44,10 +44,13 @@ a.base:focus {
 }
 
 .mini {
-  min-width: 170px;
   height: 36px;
   padding: 0 20px;
   font-size: var(--font-size-3xs);
+
+  @media (--s) {
+    min-width: 170px;
+  }
 
   &:focus::after {
     width: 178px;
@@ -57,10 +60,13 @@ a.base:focus {
 }
 
 .regular {
-  min-width: 254px;
   height: 50px;
   padding: 0 40px;
   font-size: var(--font-size-xs);
+
+  @media (--s) {
+    min-width: 254px;
+  }
 
   &:focus::after {
     width: 262px;

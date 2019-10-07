@@ -6,6 +6,7 @@ import AppTemplate from '@somo/pda-components-app-template/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import Footer from '@somo/pda-components-footer/src';
+import NavBar from '@somo/pda-components-navbar/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
@@ -17,12 +18,37 @@ interface IHomepageProps {
   i18n: EON.IWebAppTranslations['homepage'];
 }
 
+const navigation = [
+  {
+    label: 'About',
+    link: '/about',
+  },
+  {
+    label: 'Community',
+    link: '/community',
+  },
+  {
+    label: 'Blog',
+    link: '/blog',
+  },
+  {
+    label: 'Moving In',
+    link: '/moving-in',
+  },
+  {
+    label: 'Waiting List',
+    link: '/waiting-list',
+  },
+];
+
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
   const { hero, mainFeatures, companyFeatures, footer } = i18n;
 
   return (
     <AppTemplate>
       <PageSection style={PageSectionStyle.PrimaryPattern}>
+        <NavBar menu={navigation} />
+
         <PageHero
           i18n={{
             heading: hero.title,
@@ -117,7 +143,7 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
         </FlexRow>
       </PageSection> */}
       <PageSection style={PageSectionStyle.PrimaryPattern}>
-        <Footer i18n={footer} />
+        <Footer i18n={footer} menu={navigation} />
       </PageSection>
     </AppTemplate>
   );

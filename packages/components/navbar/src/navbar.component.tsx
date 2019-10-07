@@ -31,7 +31,7 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
     const { menuOpen } = this.state;
 
     return (
-      <div className={styles.component}>
+      <div className={styles.navbar}>
         <div className={styles.logo} onClick={() => navigate('/')}>
           <SVG children={Logo} />
         </div>

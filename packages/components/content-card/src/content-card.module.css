@@ -1,3 +1,7 @@
+.contentCard {
+  padding-right: var(--spacing-xl);
+}
+
 .contentCardHeader {
   align-items: center;
   display: flex;

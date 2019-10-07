@@ -14,7 +14,7 @@
     width: 0;
     flex-grow: 1;
     margin-bottom: 0;
-    margin-right: var(--spacing-xl);
+    margin-right: var(--spacing-xxl);
   }
 }
 

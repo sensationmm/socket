@@ -1,4 +1,10 @@
 const data: EON.IWebAppTranslations = {
+  fourOhFour: {
+    hero: {
+      title: 'Coming Soon',
+    },
+    body: "We haven't built this page yet! Come back soon",
+  },
   homepage: {
     hero: {
       title: 'Take control. Own your energy.',

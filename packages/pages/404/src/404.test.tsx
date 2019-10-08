@@ -3,11 +3,22 @@ import * as React from 'react';
 
 import FourOh from '.';
 
-describe('@somo/oxd-pages-404', () => {
+describe('@somo/pda-pages-404', () => {
   let component;
+  let props;
+
 
   beforeAll(() => {
-    component = shallow(<FourOh />);
+    props = {
+      i18n: {
+        hero: {
+          title: 'Take control. Own your energy.',
+        },
+        body: 'Some text string',
+      },
+    };
+
+    component = shallow(<FourOh {...props} />);
   });
 
   it('should render the component successfully', () => {

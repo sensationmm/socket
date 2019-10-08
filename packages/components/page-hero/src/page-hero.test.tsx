@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { Primary as Button } from '@somo/pda-components-button/src';
+import { Secondary as Button } from '@somo/pda-components-button/src';
 import Component from '.';
 
 describe('@somo/pda-components-page-hero component', () => {

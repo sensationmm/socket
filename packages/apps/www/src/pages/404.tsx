@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
 import Page from '@somo/pda-pages-404/src';
@@ -12,10 +13,28 @@ const SEOprops = {
 };
 
 const ErrorPage: React.FC = () => {
+  const data: any = useStaticQuery(graphql`
+    query fourOhFourQuery {
+      allTranslations {
+        edges {
+          node {
+            fourOhFour {
+              hero {
+                title
+              }
+              body
+            }
+          }
+        }
+      }
+    }
+  `);
+  const i18n = data.allTranslations.edges[0].node.fourOhFour;
+
   return (
     <>
       <SEO {...SEOprops} />
-      <Page />
+      <Page i18n={i18n} />
     </>
   );
 };

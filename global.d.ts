@@ -7,6 +7,12 @@ declare namespace EON {
   }
 
   interface IWebAppTranslations {
+    fourOhFour: {
+      hero: {
+        title: string;
+      };
+      body: string;
+    };
     homepage: {
       hero: {
         title: string;

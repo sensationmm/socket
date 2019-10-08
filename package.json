@@ -91,7 +91,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test:clearCache && yarn tsc:repo && lint-staged",
+      "pre-commit": "yarn test:clearCache && yarn tsc:repo && yarn lint && lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

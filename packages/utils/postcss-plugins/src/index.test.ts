@@ -12,7 +12,6 @@ jest.mock('postcss-hexrgba', () => () => 'postcss-hexrgba');
 
 describe('postcss-plugins package', () => {
   it('should export a method that returns an array of post css plugins', () => {
-    console.log(pkg.default);
     expect(pkg.default({ resourcePath: 'foo' } as any)).toEqual([
       'stylelint',
       'postcss-reporter',

@@ -1,7 +1,9 @@
 import cx from 'classnames';
 import * as React from 'react';
 
+import { Logo } from '@somo/pda-components-icons/src';
 import Ring from '@somo/pda-components-ring/src';
+import SVG from '@somo/pda-components-svg/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
 // @ts-ignore
@@ -14,10 +16,12 @@ export interface IContentCardProps {
   body: string;
 }
 
-const ContentCard: React.FC<IContentCardProps> = ({ className, icon, header, body }) => (
+const ContentCard: React.FC<IContentCardProps> = ({ className, header, body }) => (
   <div className={cx(styles.contentCard, className)}>
     <div className={styles.contentCardHeader}>
-      <Ring>{icon}</Ring>
+      <Ring>
+        <SVG children={Logo} />
+      </Ring>
       <Text element="h3" className={styles.contentCardTitle} type={TextStyles.h3}>
         {header}
       </Text>

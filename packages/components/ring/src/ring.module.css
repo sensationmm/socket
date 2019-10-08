@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
   width: 60px;
+  min-width: 60px;
+  padding: 10px;
   height: 60px;
   border-radius: 30px;
   background: var(--color-grey-light);

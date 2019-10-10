@@ -1,7 +1,9 @@
 import React from 'react';
 
 import PreConnect from './components/preconnect.component';
+import PreLoad from './components/preload.component';
 import preconnectList from './utils/preconnect-list';
+
 interface IHTMLProps {
   htmlAttributes: object;
   headComponents: any[];
@@ -23,6 +25,7 @@ const HTML: React.FC<IHTMLProps> = (props) => (
       <meta name="cinch:buildId" content={BUILD_ID} />
       <meta name="cinch:buildTime" content={BUILD_TIME} />
       <PreConnect preconnectUrls={preconnectList} />
+      <PreLoad />
       {props.headComponents}
     </head>
     <body {...props.bodyAttributes}>

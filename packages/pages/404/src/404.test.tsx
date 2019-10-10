@@ -7,7 +7,6 @@ describe('@somo/pda-pages-404', () => {
   let component;
   let props;
 
-
   beforeAll(() => {
     props = {
       i18n: {

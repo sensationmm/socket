@@ -76,6 +76,7 @@ const plugins = [
   //     createLinkInHead: true,
   //   },
   // },
+  'gatsby-plugin-preload-fonts',
   {
     resolve: 'gatsby-plugin-robots-txt',
     options: {

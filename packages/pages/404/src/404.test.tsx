@@ -10,10 +10,17 @@ describe('@somo/pda-pages-404', () => {
   beforeAll(() => {
     props = {
       i18n: {
-        hero: {
-          title: 'Take control. Own your energy.',
+        footer: {
+          title: 'Our smart technology needs a smart meter.',
+          subTitle: "Check you're on the latest smart meter and start taking control your energy.",
+          copyright: '2019 © Socket Energy. All rights reserved.',
         },
-        body: 'Some text string',
+        fourOhFour: {
+          hero: {
+            title: 'Coming Soon',
+          },
+          body: "We haven't built this page yet! Come back soon",
+        },
       },
     };
 

@@ -9,7 +9,7 @@ import SVG from '@somo/pda-components-svg/src';
 import * as styles from './footer.module.css';
 
 export interface IFooterProps {
-  i18n: EON.IWebAppTranslations['homepage']['footer'];
+  i18n: EON.IWebAppTranslations['site']['footer'];
   menu?: IMenuProps['links'];
 }
 

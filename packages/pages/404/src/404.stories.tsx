@@ -5,10 +5,17 @@ import Component from '.';
 
 const props = {
   i18n: {
-    hero: {
-      title: 'Take control. Own your energy.',
+    footer: {
+      title: 'Our smart technology needs a smart meter.',
+      subTitle: "Check you're on the latest smart meter and start taking control your energy.",
+      copyright: '2019 © Socket Energy. All rights reserved.',
     },
-    body: 'Some text string',
+    fourOhFour: {
+      hero: {
+        title: 'Take control. Own your energy.',
+      },
+      body: 'Some text string',
+    },
   },
 };
 

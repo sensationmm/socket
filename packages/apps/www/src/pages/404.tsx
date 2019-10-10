@@ -18,18 +18,25 @@ const ErrorPage: React.FC = () => {
       allTranslations {
         edges {
           node {
-            fourOhFour {
-              hero {
+            site {
+              footer {
                 title
+                subTitle
+                copyright
               }
-              body
+              fourOhFour {
+                hero {
+                  title
+                }
+                body
+              }
             }
           }
         }
       }
     }
   `);
-  const i18n = data.allTranslations.edges[0].node.fourOhFour;
+  const i18n = data.allTranslations.edges[0].node.site;
 
   return (
     <>

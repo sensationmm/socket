@@ -17,52 +17,54 @@ const Home: React.FC = () => {
       allTranslations {
         edges {
           node {
-            homepage {
-              hero {
-                title
-                subTitle
-                cta
-              }
-              mainFeatures {
-                content {
-                  icon
-                  header
-                  body
-                }
-              }
-              understandEnergy {
-                title
-                subTitle
-                cta
-                image
-              }
-              companyFeatures {
-                thingsWeDontDo {
-                  header
-                  content {
-                    icon
-                    header
-                    body
-                  }
-                }
-                thingsWeDoDo {
-                  header
-                  content {
-                    icon
-                    header
-                    body
-                  }
-                }
-              }
-              goodBunch {
-                title
-                body
-                cta
-              }
+            site {
               footer {
                 title
                 subTitle
                 copyright
+              }
+              homepage {
+                hero {
+                  title
+                  subTitle
+                  cta
+                }
+                mainFeatures {
+                  content {
+                    icon
+                    header
+                    body
+                  }
+                }
+                understandEnergy {
+                  title
+                  subTitle
+                  cta
+                  image
+                }
+                companyFeatures {
+                  thingsWeDontDo {
+                    header
+                    content {
+                      icon
+                      header
+                      body
+                    }
+                  }
+                  thingsWeDoDo {
+                    header
+                    content {
+                      icon
+                      header
+                      body
+                    }
+                  }
+                }
+                goodBunch {
+                  title
+                  body
+                  cta
+                }
               }
             }
           }
@@ -70,7 +72,7 @@ const Home: React.FC = () => {
       }
     }
   `);
-  const i18n = data.allTranslations.edges[0].node.homepage;
+  const i18n = data.allTranslations.edges[0].node.site;
 
   return (
     <>

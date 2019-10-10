@@ -1,64 +1,25 @@
-import { navigate } from 'gatsby';
 import * as React from 'react';
 
-import AppTemplate from '@somo/pda-components-app-template/src';
 // import { Secondary } from '@somo/pda-components-button/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
-import Footer from '@somo/pda-components-footer/src';
-import NavBar from '@somo/pda-components-navbar/src';
-import PageHero from '@somo/pda-components-page-hero/src';
-import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
+import PageSection from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
+import RegularLayout from '@somo/pda-layouts-regular/src';
 
 // @ts-ignore
 import * as styles from './home.module.css';
 
 interface IHomepageProps {
-  i18n: EON.IWebAppTranslations['homepage'];
+  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
 }
 
-const navigation = [
-  {
-    label: 'About',
-    link: '/about',
-  },
-  {
-    label: 'Community',
-    link: '/community',
-  },
-  {
-    label: 'Blog',
-    link: '/blog',
-  },
-  {
-    label: 'Moving In',
-    link: '/moving-in',
-  },
-  {
-    label: 'Waiting List',
-    link: '/waiting-list',
-  },
-];
-
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
-  const { hero, mainFeatures, companyFeatures, footer } = i18n;
+  const { homepage, footer } = i18n;
+  const { hero, mainFeatures, companyFeatures } = homepage;
 
   return (
-    <AppTemplate>
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
-        <NavBar menu={navigation} />
-
-        <PageHero
-          i18n={{
-            heading: hero.title,
-            text: hero.subTitle,
-            cta: hero.cta,
-          }}
-          onClick={() => navigate('/page')}
-        />
-      </PageSection>
-
+    <RegularLayout hero={hero} footer={footer}>
       <PageSection>
         <FlexRow>
           {mainFeatures.content.map((feature, count) => {
@@ -142,10 +103,7 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           <div></div>
         </FlexRow>
       </PageSection> */}
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
-        <Footer i18n={footer} menu={navigation} />
-      </PageSection>
-    </AppTemplate>
+    </RegularLayout>
   );
 };
 

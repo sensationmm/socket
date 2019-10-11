@@ -1,4 +1,4 @@
-name: CSS & TS Linting
+name: Gatsby build
 
 on:
   pull_request:

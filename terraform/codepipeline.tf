@@ -1,6 +1,26 @@
 resource "aws_s3_bucket" "codepipeline_bucket" {
   bucket = "da-codepipeline-bucket"
   acl    = "private"
+  cors_rule {
+          allowed_headers = [
+              "Authorization",
+              "Content-Length",
+            ]
+          allowed_methods = ["GET"]
+          allowed_origins = ["*"]
+          expose_headers  = []
+          max_age_seconds = 3000
+        }
+
+        versioning {
+            enabled    = false
+            mfa_delete = false
+        }
+
+      website {
+        error_document = "error.html"
+        index_document = "index.html"
+      }
 }
 
 resource "aws_iam_role" "codepipeline_role" {

@@ -45,7 +45,7 @@ variable "app_image" {
 
 variable "app_count" {
   description = "Number of apollo nodes to run"
-  default     = 3
+  default     = 1
 }
 
 variable "app_port" {

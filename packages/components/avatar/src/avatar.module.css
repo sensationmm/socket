@@ -1,0 +1,30 @@
+:root {
+  --avatar-size-regular: 80px;
+  --avatar-size-small: 40px;
+}
+
+.defaultAvatarWrapper {
+  align-items: center;
+  background-color: var(--color-grey-light);
+  border-radius: 50%;
+  height: var(--avatar-size-regular);
+  width: var(--avatar-size-regular);
+  display: flex;
+  justify-content: center;
+}
+
+img.avatar {
+  height: var(--avatar-size-regular);
+  width: var(--avatar-size-regular);
+}
+
+.avatar {
+  border-radius: 50%;
+  flex-shrink: 0;
+  color: var(--color-grey-mid);
+}
+
+.small {
+  width: var(--avatar-size-small);
+  height: var(--avatar-size-small);
+}

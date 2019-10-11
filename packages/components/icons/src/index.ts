@@ -15,4 +15,6 @@ export { default as Logo } from './assets/logo.svg';
 // @ts-ignore
 export { default as Mail } from './assets/mail.svg';
 // @ts-ignore
+export { default as Profile } from './assets/profile.svg';
+// @ts-ignore
 export { default as Twitter } from './assets/twitter.svg';

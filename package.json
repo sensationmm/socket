@@ -30,6 +30,7 @@
     "@somo/browserslist-config": "0.0.4",
     "@somo/postcss-plugins": "0.0.4",
     "@somo/tslint-preset": "0.0.4",
+    "@storybook/react": "5.2.0",
     "@types/classnames": "2.2.9",
     "@types/enzyme": "3.10.3",
     "@types/jest": "24.0.18",
@@ -58,7 +59,6 @@
     "react-redux": "7.1.1",
     "react-router-dom": "5.0.1",
     "react-test-renderer": "16.9.0",
-    "@storybook/react": "5.2.0",
     "redux": "4.0.4",
     "stylelint": "11.0.0",
     "stylelint-config-recommended": "3.0.0",
@@ -72,15 +72,15 @@
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.1.0",
-    "@testing-library/react": "^9.1.4",
+    "@testing-library/react": "^9.3.0",
     "classnames": "2.2.6",
+    "gatsby": "2.15.28",
+    "gatsby-cli": "2.7.54",
+    "gatsby-link": "2.2.17",
     "graphql": "14.5.6",
     "lerna": "3.16.4",
     "react-redux": "7.1.1",
-    "tslib": "1.10.0",
-    "gatsby": "2.15.28",
-    "gatsby-cli": "2.7.54",
-    "gatsby-link": "2.2.17"
+    "tslib": "1.10.0"
   },
   "browserslist": [
     "last 3 versions"

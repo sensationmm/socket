@@ -25,7 +25,7 @@ describe('@somo/oxd-layouts-regular component', () => {
     };
   });
 
-  it('should not render', () => {
+  it('should render Regular Layout', () => {
     wrapper = shallow(<RegularLayout {...props} />);
     expect(wrapper).toBeDefined();
   });

@@ -24,7 +24,7 @@ jobs:
           yarn global add gatsby-cli
           yarn install
           echo Build started on `date`
-          'cd packages/apps/www'
+          'cd ~/packages/apps/www'
           yarn build
         env:
           CI: true

@@ -16,6 +16,14 @@ describe('@somo/pda-components-page-section component', () => {
     expect(wrapper.find('.component').text()).toEqual(content);
   });
 
+  it('should render the given prop element as the html tag', () => {
+    props = {
+      element: 'section',
+    };
+    wrapper = shallow(<Component {...props}>{content}</Component>);
+    expect(wrapper.find(props.element)).toHaveLength(1);
+  });
+
   it('renders primary style container', () => {
     props = {
       style: PageSectionStyle.Primary,

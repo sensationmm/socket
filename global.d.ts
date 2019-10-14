@@ -6,10 +6,7 @@ declare namespace EON {
     body: string;
   }
 
-  interface IHomepageSwitchingSteps {
-    style: string;
-    isVerticallyCentered?: boolean;
-    isHorizontallyCentered?: boolean;
+  interface IHomepageSwitchingStep {
     header?: string;
     body?: string;
     cta?: string;
@@ -39,7 +36,11 @@ declare namespace EON {
         };
         switchingSteps: {
           header: string;
-          content: IHomepageSwitchingSteps[];
+          content: {
+            step1: IHomepageSwitchingStep;
+            step2: IHomepageSwitchingStep;
+            step3: IHomepageSwitchingStep;
+          };
         };
         understandEnergy: {
           title: string;

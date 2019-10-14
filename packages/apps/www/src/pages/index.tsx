@@ -45,12 +45,17 @@ const Home: React.FC = () => {
                 switchingSteps {
                   header
                   content {
-                    style
-                    isVerticallyCentered
-                    isHorizontallyCentered
-                    header
-                    body
-                    cta
+                    step1 {
+                      header
+                      body
+                    }
+                    step2 {
+                      header
+                      body
+                    }
+                    step3 {
+                      cta
+                    }
                   }
                 }
                 companyFeatures {

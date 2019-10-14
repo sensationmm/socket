@@ -15,15 +15,46 @@ interface IHomepageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
 }
 
-const SwitchingBoxContentBoxTypes = {
-  Default: ContentBoxStyle.Default,
-  Primary: ContentBoxStyle.Primary,
-  PrimaryPattern: ContentBoxStyle.PrimaryPattern,
-  Secondary: ContentBoxStyle.Secondary,
-  SecondaryPattern: ContentBoxStyle.SecondaryPattern,
-  Tertiary: ContentBoxStyle.Tertiary,
-  TertiaryPattern: ContentBoxStyle.TertiaryPattern,
-};
+interface IHomepageSwitchingStepProps extends EON.IHomepageSwitchingStep {
+  style: ContentBoxStyle;
+  isVerticallyCentered?: boolean;
+  isHorizontallyCentered?: boolean;
+}
+
+const HomepageSwitchingStep = ({
+  header,
+  body,
+  cta,
+  style,
+  isVerticallyCentered,
+  isHorizontallyCentered,
+}: IHomepageSwitchingStepProps) => (
+  <div className={styles.switchingStepsCard}>
+    <ContentBox
+      style={style}
+      height="100%"
+      isVerticallyCentered={isVerticallyCentered}
+      isHorizontallyCentered={isHorizontallyCentered}
+    >
+      {header && (
+        <Text
+          element="h3"
+          className={styles.switchingStepsCardHeader}
+          type={TextStyles.h2}
+          color={ColorStyles.secondary}
+        >
+          {header}
+        </Text>
+      )}
+      {body && (
+        <Text element="p" type={TextStyles.body} color={ColorStyles.secondary}>
+          {body}
+        </Text>
+      )}
+      {cta && <Outline size="mini">{cta}</Outline>}
+    </ContentBox>
+  </div>
+);
 
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
   const { homepage, footer } = i18n;
@@ -64,35 +95,22 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           </Text>
         </div>
         <FlexRow className={styles.switchingStepsSection}>
-          {switchingSteps.content.map((step, count) => {
-            return (
-              <div key={`step-${count}`} className={styles.switchingStepsCard}>
-                <ContentBox
-                  style={SwitchingBoxContentBoxTypes[step.style]}
-                  height="100%"
-                  isVerticallyCentered={step.isVerticallyCentered}
-                  isHorizontallyCentered={step.isHorizontallyCentered}
-                >
-                  {step.header && (
-                    <Text
-                      element="h3"
-                      className={styles.switchingStepsCardHeader}
-                      type={TextStyles.h2}
-                      color={ColorStyles.secondary}
-                    >
-                      {step.header}
-                    </Text>
-                  )}
-                  {step.body && (
-                    <Text element="p" type={TextStyles.body} color={ColorStyles.secondary}>
-                      {step.body}
-                    </Text>
-                  )}
-                  {step.cta && <Outline size="mini">{step.cta}</Outline>}
-                </ContentBox>
-              </div>
-            );
-          })}
+          <HomepageSwitchingStep
+            header={switchingSteps.content.step1.header}
+            body={switchingSteps.content.step1.body}
+            style={ContentBoxStyle.SecondaryPattern}
+          />
+          <HomepageSwitchingStep
+            header={switchingSteps.content.step2.header}
+            body={switchingSteps.content.step2.body}
+            style={ContentBoxStyle.SecondaryPattern}
+          />
+          <HomepageSwitchingStep
+            cta={switchingSteps.content.step3.cta}
+            style={ContentBoxStyle.TertiaryPattern}
+            isVerticallyCentered={true}
+            isHorizontallyCentered={true}
+          />
         </FlexRow>
       </PageSection>
       <PageSection>

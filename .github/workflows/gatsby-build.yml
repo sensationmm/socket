@@ -31,3 +31,7 @@ jobs:
           yarn build
         env:
           CI: true
+          GTM_ID: '123'
+          BRAND_NAME_LONG: 'SOCKET'
+          BRAND_NAME_SHORT: 'SOCKET'
+          SITE_URL: 'https://socket.io'

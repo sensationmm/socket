@@ -31,7 +31,11 @@
 .primaryPattern {
   background: center top repeat;
   background-image:
-    linear-gradient(to bottom, rgba(var(--color-brand-main), 0), rgba(var(--color-brand-secondary), 0.8)),
+    linear-gradient(
+      to bottom,
+      rgba(var(--color-brand-main), 0),
+      rgba(var(--color-brand-secondary), 0.8)
+    ),
     url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjgiIGhlaWdodD0iMTY4IiB2aWV3Qm94PSIwIDAgMTY4IDE2OCI+CiAgICA8cGF0aCBmaWxsPSIjNDdEN0FDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMy41MDggMTQzLjAxYTguNSA4LjUgMCAwIDEgMCAxMi4wMjFMMTAuNTQgMTY4SDB2LTEzLjUwM2wxMS40ODctMTEuNDg2YTguNSA4LjUgMCAwIDEgMTIuMDIxIDB6bTI0LjAwMyAxOGE4LjQ4NSA4LjQ4NSAwIDAgMSAyLjQzMyA2Ljk5SDMzLjA1N2E4LjUgOC41IDAgMCAxIDE0LjQ1NC02Ljk5em01OS45OTctMThhOC41IDguNSAwIDAgMSAwIDEyLjAyMUw5NC41NCAxNjhINzAuNDk3bDI0Ljk5LTI0Ljk5YTguNSA4LjUgMCAwIDEgMTIuMDIxIDB6bTIzLjI2MiAxOWE4LjQ3MyA4LjQ3MyAwIDAgMSAyLjQ5IDUuOTloLTE3YTguNSA4LjUgMCAwIDEgMTQuNTEtNS45OXptMzcuMjMtNy41MTNWMTY4aC0xMy41MDNMMTY4IDE1NC40OTd6bTAtNDJ2MjQuMDQybC0xMy45NjkgMTMuOTdhOC41IDguNSAwIDEgMS0xMi4wMi0xMi4wMjJMMTY4IDExMi40OTd6bS02MC40OTItMTEuNDg2YTguNSA4LjUgMCAwIDEgMCAxMi4wMmwtMzcuNDc3IDM3LjQ3N2E4LjUgOC41IDAgMSAxLTEyLjAyLTEyLjAybDM3LjQ3Ni0zNy40NzdhOC41IDguNSAwIDAgMSAxMi4wMjEgMHptLTg0IDBhOC41IDguNSAwIDAgMSAwIDEyLjAyTDAgMTM2LjU0di0yNC4wNDNsMTEuNDg3LTExLjQ4NmE4LjUgOC41IDAgMCAxIDEyLjAyMSAwem0xMDcuMjYyIDE5YTguNSA4LjUgMCAxIDEtMTIuMDIxIDEyLjAyIDguNSA4LjUgMCAwIDEgMTIuMDItMTIuMDJ6bS04My4yNiAwYTguNSA4LjUgMCAxIDEtMTIuMDIgMTIuMDIgOC41IDguNSAwIDAgMSAxMi4wMi0xMi4wMnpNMTY4IDcxLjIzOFY5NS4yOGwtMTMuMjI4IDEzLjIyOGE4LjUgOC41IDAgMSAxLTEyLjAyLTEyLjAyTDE2OCA3MS4yMzd6bS01OS43NTEtMTIuMjI3YTguNSA4LjUgMCAwIDEgMCAxMi4wMmwtMzcuNDc3IDM3LjQ3N2E4LjUgOC41IDAgMSAxLTEyLjAyLTEyLjAyTDk2LjIyNyA1OS4wMWE4LjUgOC41IDAgMCAxIDEyLjAyIDB6bS04NCAwYTguNSA4LjUgMCAwIDEgMCAxMi4wMkwwIDk1LjI4VjcxLjIzOGwxMi4yMjgtMTIuMjI3YTguNSA4LjUgMCAwIDEgMTIuMDIgMHptMTA3LjI2MiAxOWE4LjUgOC41IDAgMSAxLTEyLjAyMSAxMi4wMiA4LjUgOC41IDAgMCAxIDEyLjAyLTEyLjAyem0tODQgMEE4LjUgOC41IDAgMSAxIDM1LjQ5IDkwLjAzYTguNSA4LjUgMCAwIDEgMTIuMDItMTIuMDJ6TTE2OCAyOS40OTd2MjQuMDQybC0xMi45NjkgMTIuOTdhOC41IDguNSAwIDAgMS0xMi4wMi0xMi4wMjJMMTY4IDI5LjQ5N3ptLTU5LjQ5Mi0xMi40ODZhOC41IDguNSAwIDAgMSAwIDEyLjAyTDcxLjAzMSA2Ni41MDhhOC41IDguNSAwIDEgMS0xMi4wMi0xMi4wMkw5Ni40ODcgMTcuMDFhOC41IDguNSAwIDAgMSAxMi4wMjEgMHptLTg0IDBhOC41IDguNSAwIDAgMSAwIDEyLjAyTDAgNTMuNTRWMjkuNDk3bDEyLjQ4Ny0xMi40ODZhOC41IDguNSAwIDAgMSAxMi4wMjEgMHptMTA3LjI2MiAxOWE4LjUgOC41IDAgMSAxLTEyLjAyMSAxMi4wMiA4LjUgOC41IDAgMCAxIDEyLjAyLTEyLjAyem0tODQuMjYgMGE4LjUgOC41IDAgMSAxLTEyLjAyIDEyLjAyIDguNSA4LjUgMCAwIDEgMTIuMDItMTIuMDJ6TTE2OCAwdjEwLjUzOGwtMTMuOTY5IDEzLjk3YTguNSA4LjUgMCAwIDEtMTIuMDItMTIuMDIyTDE1NC40OTcgMEgxNjh6TTk0LjU0IDBMNzAuMDMxIDI0LjUwOGE4LjUgOC41IDAgMSAxLTEyLjAyLTEyLjAyTDcwLjQ5NyAwSDk0LjU0em0tODQgMEwwIDEwLjU0VjBoMTAuNTR6bTM2Ljk3IDYuNTFBOC41IDguNSAwIDAgMSAzMy4wMTYgMGgxNi45N2E4LjQ4IDguNDggMCAwIDEtMi40NzQgNi41MXptODMuMjYtLjI0QTguNSA4LjUgMCAwIDEgMTE2LjI2MyAwaDE2Ljk5MmE4LjQ3NiA4LjQ3NiAwIDAgMS0yLjQ4NSA2LjI3eiIvPgo8L3N2Zz4K'),
     linear-gradient(to bottom, var(--color-brand-main), var(--color-brand-secondary));
   background-size: 100%, 150px;
@@ -39,9 +43,25 @@
 
 .primaryPattern .inner {
   background-image:
-    linear-gradient(to bottom, rgba(var(--color-brand-main), 0.65), rgba(var(--color-brand-main), 0.65) 20%, rgba(var(--color-brand-main), 0)),
-    radial-gradient(circle at 20%, rgba(var(--color-brand-secondary), 0), rgba(var(--color-brand-secondary), 0.72) 50%, rgba(var(--color-brand-secondary), 0.85), rgba(var(--color-brand-secondary), 1)),
-    linear-gradient(to bottom, rgba(var(--color-brand-secondary), 0), rgba(var(--color-brand-secondary), 0) 80%, rgba(var(--color-brand-secondary), 0.85));
+    linear-gradient(
+      to bottom,
+      rgba(var(--color-brand-main), 0.65),
+      rgba(var(--color-brand-main), 0.65) 20%,
+      rgba(var(--color-brand-main), 0)
+    ),
+    radial-gradient(
+      circle at 20%,
+      rgba(var(--color-brand-secondary), 0),
+      rgba(var(--color-brand-secondary), 0.72) 50%,
+      rgba(var(--color-brand-secondary), 0.85),
+      rgba(var(--color-brand-secondary), 1)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(var(--color-brand-secondary), 0),
+      rgba(var(--color-brand-secondary), 0) 80%,
+      rgba(var(--color-brand-secondary), 0.85)
+    );
 }
 
 .secondary,

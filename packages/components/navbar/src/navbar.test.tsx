@@ -43,7 +43,7 @@ describe('@somo/pda-components-page-hero component', () => {
   it('triggers mobile menu', () => {
     wrapper = shallow(<Component menu={MenuMock} />);
 
-    wrapper.find('.mobilemenu').simulate('click');
+    wrapper.find('.mobileMenu').simulate('click');
 
     expect(wrapper.state().menuOpen).toEqual(true);
   });

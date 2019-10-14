@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Component from '.';
 
-describe('@somo/oxd-components-app-template component', () => {
+describe('@somo/pda-components-app-template component', () => {
   let wrapper;
   let props;
 

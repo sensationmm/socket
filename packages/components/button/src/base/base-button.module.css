@@ -27,7 +27,7 @@
     position: absolute;
     top: -4px;
     left: -4px;
-    content: "";
+    content: '';
     border: 2px solid var(--color-brand-main);
     z-index: -1;
   }

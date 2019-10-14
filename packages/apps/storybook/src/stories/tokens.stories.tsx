@@ -4,7 +4,6 @@ import * as React from 'react';
 
 const { customProperties, customMedia } = toJSON(tokens);
 
-// @ts-ignore
 import * as styles from './tokens.module.css';
 
 const Preview = (props: {

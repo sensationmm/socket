@@ -2,7 +2,6 @@ import cx from 'classnames';
 import { VerticalAlignProperty } from 'csstype';
 import * as React from 'react';
 
-// @ts-ignore
 import * as baseStyles from './svg.module.css';
 
 interface ISVGStyle {

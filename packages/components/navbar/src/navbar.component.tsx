@@ -6,7 +6,6 @@ import { BurgerMenu, Logo } from '@somo/pda-components-icons/src';
 import Menu, { IMenuProps } from '@somo/pda-components-menu/src';
 import SVG from '@somo/pda-components-svg/src';
 
-// @ts-ignore
 import * as styles from './navbar.module.css';
 
 interface INavbarProps {
@@ -37,12 +36,12 @@ class Navbar extends React.Component<INavbarProps, INavbarState> {
         </div>
 
         {menu && (
-          <div className={cx(styles.headermenu, { [styles.mobileopen]: menuOpen })}>
+          <div className={cx(styles.headerMenu, { [styles.mobileOpen]: menuOpen })}>
             <Menu links={menu} />
           </div>
         )}
 
-        <div className={styles.mobilemenu} onClick={() => this.setState({ menuOpen: !menuOpen })}>
+        <div className={styles.mobileMenu} onClick={() => this.setState({ menuOpen: !menuOpen })}>
           <SVG children={BurgerMenu} />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import * as React from 'react';
-// @ts-ignore
+
 import * as baseStyles from './text.module.css';
 
 export enum TextStyles {

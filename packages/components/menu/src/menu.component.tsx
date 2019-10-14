@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-// @ts-ignore
 import * as styles from './menu.module.css';
 
 export interface IMenuItem {

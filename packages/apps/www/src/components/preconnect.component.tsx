@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-interface IPreconnectProps {
-  preconnectUrls: string[];
+interface IPreConnectProps {
+  preConnectUrls: string[];
 }
 
-const PreConnect: React.FC<IPreconnectProps> = ({ preconnectUrls }) => {
+const PreConnect: React.FC<IPreConnectProps> = ({ preConnectUrls }) => {
   return (
     <>
-      {preconnectUrls.map((preconnect) => (
-        <link key={preconnect} rel="preconnect dns-prefetch" href={preconnect} />
+      {preConnectUrls.map((preConnect) => (
+        <link key={preConnect} rel="preconnect dns-prefetch" href={preConnect} />
       ))}
     </>
   );

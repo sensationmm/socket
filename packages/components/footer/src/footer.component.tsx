@@ -5,7 +5,6 @@ import { Facebook, Instagram, Twitter } from '@somo/pda-components-icons/src';
 import Menu, { IMenuProps } from '@somo/pda-components-menu/src';
 import SVG from '@somo/pda-components-svg/src';
 
-// @ts-ignore
 import * as styles from './footer.module.css';
 
 export interface IFooterProps {

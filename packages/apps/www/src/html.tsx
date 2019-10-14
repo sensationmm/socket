@@ -2,7 +2,7 @@ import React from 'react';
 
 import PreConnect from './components/preconnect.component';
 import PreLoad from './components/preload.component';
-import preconnectList from './utils/preconnect-list';
+import preConnectList from './utils/pre-connect-list';
 
 interface IHTMLProps {
   htmlAttributes: object;
@@ -22,9 +22,9 @@ const HTML: React.FC<IHTMLProps> = (props) => (
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="cinch:buildId" content={BUILD_ID} />
-      <meta name="cinch:buildTime" content={BUILD_TIME} />
-      <PreConnect preconnectUrls={preconnectList} />
+      <meta name="socket:buildId" content={BUILD_ID} />
+      <meta name="socket:buildTime" content={BUILD_TIME} />
+      <PreConnect preConnectUrls={preConnectList} />
       <PreLoad />
       {props.headComponents}
     </head>

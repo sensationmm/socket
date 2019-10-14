@@ -13,7 +13,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['/node_modules/', '/packages/components/icons/'],
   coverageDirectory: './build/reports/coverage',
   moduleNameMapper: {
-    '^\\@somo/oxd-(components|apps)-([a-z|-]*)$': '<rootDir>/packages/$1/$2/src/index.ts',
+    '^\\@somo/pda-(components|apps)-([a-z|-]*)$': '<rootDir>/packages/$1/$2/src/index.ts',
     '.+\\.(jpg|jpeg|png|gif|webp|webm)$': 'identity-obj-proxy',
     '.+\\.(css|pcss)$': '<rootDir>/__scripts__/identity-obj-proxy-esm.js',
     'dialog-polyfill': '<rootDir>/__mocks__/dialog-polyfill.ts',

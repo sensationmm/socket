@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-// @ts-ignore
 import * as styles from './input.module.css';
 
 interface IInputProps extends React.InputHTMLAttributes<any> {

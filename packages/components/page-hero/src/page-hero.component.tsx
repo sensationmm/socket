@@ -3,7 +3,6 @@ import * as React from 'react';
 import { Secondary as Button } from '@somo/pda-components-button/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
-// @ts-ignore
 import * as styles from './page-hero.module.css';
 
 interface IPageHeroI18N {

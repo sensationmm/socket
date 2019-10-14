@@ -5,7 +5,7 @@ import Footer from '@somo/pda-components-footer/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import RegularLayout from '.';
 
-describe('@somo/oxd-layouts-regular component', () => {
+describe('@somo/pda-layouts-regular component', () => {
   let wrapper;
   let props;
 

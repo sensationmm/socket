@@ -42,7 +42,7 @@ describe('@somo/pda-components-page-section component', () => {
     };
     wrapper = shallow(<Component {...props} />);
 
-    expect(wrapper.find('.component').hasClass('primarypattern')).toEqual(true);
+    expect(wrapper.find('.component').hasClass('primaryPattern')).toEqual(true);
     expect(wrapper.find('.component').props().style.backgroundImage).toEqual(undefined);
   });
 

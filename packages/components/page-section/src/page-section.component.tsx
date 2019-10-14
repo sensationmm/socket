@@ -1,7 +1,6 @@
-import classnames from 'classnames';
+import classNames from 'classnames';
 import * as React from 'react';
 
-// @ts-ignore
 import * as styles from './page-section.module.css';
 
 export enum PageSectionStyle {
@@ -19,10 +18,10 @@ export interface IPageSectionProps {
 }
 
 const PageSection: React.FC<IPageSectionProps> = ({ element, style, bgImage = {}, children }) => {
-  const finalClassName = classnames(
+  const finalClassName = classNames(
     styles.component,
     { [styles.primary]: style === PageSectionStyle.Primary },
-    { [styles.primarypattern]: style === PageSectionStyle.PrimaryPattern },
+    { [styles.primaryPattern]: style === PageSectionStyle.PrimaryPattern },
     { [styles.secondary]: style === PageSectionStyle.Secondary },
     { [styles.image]: style === PageSectionStyle.Image },
   );

@@ -6,7 +6,6 @@ import Ring from '@somo/pda-components-ring/src';
 import SVG from '@somo/pda-components-svg/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
-// @ts-ignore
 import * as styles from './content-card.module.css';
 
 export interface IContentCardProps {

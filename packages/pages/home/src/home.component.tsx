@@ -8,14 +8,13 @@ import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 
-// @ts-ignore
 import * as styles from './home.module.css';
 
-interface IHomepageProps {
+interface IHomePageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
 }
 
-interface IHomepageSwitchingStepProps extends EON.IHomepageSwitchingStep {
+interface IHomePageSwitchingStepProps extends EON.IHomepageSwitchingStep {
   style: ContentBoxStyle;
   isVerticallyCentered?: boolean;
   isHorizontallyCentered?: boolean;
@@ -28,7 +27,7 @@ const HomepageSwitchingStep = ({
   style,
   isVerticallyCentered,
   isHorizontallyCentered,
-}: IHomepageSwitchingStepProps) => (
+}: IHomePageSwitchingStepProps) => (
   <div className={styles.switchingStepsCard}>
     <ContentBox
       style={style}
@@ -56,7 +55,7 @@ const HomepageSwitchingStep = ({
   </div>
 );
 
-const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
+const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
   const { homepage, footer } = i18n;
   const { hero, mainFeatures, companyFeatures, switchingSteps } = homepage;
 
@@ -174,4 +173,4 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
   );
 };
 
-export default Homepage;
+export default HomePage;

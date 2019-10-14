@@ -1,10 +1,9 @@
 import { select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
+
 import Text, { TextStyles } from './index';
-// @ts-ignore
 import * as baseStyles from './text.module.css';
-// @ts-ignore
 import * as styles from './text.stories.module.css';
 
 const elements = ['span', 'p', 'h1', 'h2', 'h3'];

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { HTMLAttributes } from 'react';
-// @ts-ignore
+
 import * as baseStyles from './ring.module.css';
 
 const Ring: React.FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...props }) => (

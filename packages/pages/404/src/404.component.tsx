@@ -4,9 +4,6 @@ import PageSection from '@somo/pda-components-page-section/src';
 import Text from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 
-// @ts-ignore
-import * as styles from './404.module.css';
-
 interface IFourOhFourProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'fourOhFour'>;
 }

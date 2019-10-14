@@ -2,7 +2,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import Homepage from '@somo/pda-pages-home/src';
+import HomePage from '@somo/pda-pages-home/src';
 
 const props = {
   i18n: {
@@ -135,5 +135,5 @@ const props = {
 storiesOf('Pages|home', module)
   .addDecorator(withKnobs)
   .add('default', () => {
-    return <Homepage {...props} />;
+    return <HomePage {...props} />;
   });

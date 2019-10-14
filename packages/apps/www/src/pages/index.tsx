@@ -42,6 +42,17 @@ const Home: React.FC = () => {
                   cta
                   image
                 }
+                switchingSteps {
+                  header
+                  content {
+                    style
+                    isVerticallyCentered
+                    isHorizontallyCentered
+                    header
+                    body
+                    cta
+                  }
+                }
                 companyFeatures {
                   thingsWeDontDo {
                     header

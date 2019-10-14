@@ -44,6 +44,29 @@ describe('@somo/pda-pages-home', () => {
             cta: 'Join us',
             image: '',
           },
+          switchingSteps: {
+            header: 'Switching is quick & painless.\nOver in seconds & no form filling.',
+            content: [
+              {
+                style: 'SecondaryPattern',
+                header: 'First Step',
+                body:
+                  "Check if you've got the right smart meter to join our club - it takes about 30 seconds and we'll tell you what to do next.",
+              },
+              {
+                style: 'SecondaryPattern',
+                header: 'Up Next',
+                body:
+                  "Get a quote from us and if you're happy you're in (trainers, swimwear, hats - it's all good). Then you can make a start on taking part.",
+              },
+              {
+                style: 'TertiaryPattern',
+                isVerticallyCentered: true,
+                isHorizontallyCentered: true,
+                cta: 'Put me in control',
+              },
+            ],
+          },
           companyFeatures: {
             thingsWeDontDo: {
               header: "Things we don't do",

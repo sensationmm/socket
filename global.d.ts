@@ -6,6 +6,15 @@ declare namespace EON {
     body: string;
   }
 
+  interface IHomepageSwitchingSteps {
+    style: string;
+    isVerticallyCentered?: boolean;
+    isHorizontallyCentered?: boolean;
+    header?: string;
+    body?: string;
+    cta?: string;
+  }
+
   interface IWebAppTranslations {
     site: {
       footer: {
@@ -27,6 +36,10 @@ declare namespace EON {
         };
         mainFeatures: {
           content: IHomepageFeatures[];
+        };
+        switchingSteps: {
+          header: string;
+          content: IHomepageSwitchingSteps[];
         };
         understandEnergy: {
           title: string;

@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-// import { Secondary } from '@somo/pda-components-button/src';
+import { Outline } from '@somo/pda-components-button/src';
+import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
-import PageSection from '@somo/pda-components-page-section/src';
-import Text, { TextStyles } from '@somo/pda-components-text/src';
+import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
+import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 
 // @ts-ignore
@@ -14,9 +15,19 @@ interface IHomepageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
 }
 
+const SwitchingBoxContentBoxTypes = {
+  Default: ContentBoxStyle.Default,
+  Primary: ContentBoxStyle.Primary,
+  PrimaryPattern: ContentBoxStyle.PrimaryPattern,
+  Secondary: ContentBoxStyle.Secondary,
+  SecondaryPattern: ContentBoxStyle.SecondaryPattern,
+  Tertiary: ContentBoxStyle.Tertiary,
+  TertiaryPattern: ContentBoxStyle.TertiaryPattern,
+};
+
 const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
   const { homepage, footer } = i18n;
-  const { hero, mainFeatures, companyFeatures } = homepage;
+  const { hero, mainFeatures, companyFeatures, switchingSteps } = homepage;
 
   return (
     <RegularLayout hero={hero} footer={footer}>
@@ -46,6 +57,44 @@ const Homepage: React.FC<IHomepageProps> = ({ i18n }) => {
           <div></div>
         </FlexRow>
       </PageSection> */}
+      <PageSection style={PageSectionStyle.Secondary}>
+        <div className={styles.switchingStepsHeader}>
+          <Text element="h2" type={TextStyles.h2}>
+            {switchingSteps.header}
+          </Text>
+        </div>
+        <FlexRow className={styles.switchingStepsSection}>
+          {switchingSteps.content.map((step, count) => {
+            return (
+              <div key={`step-${count}`} className={styles.switchingStepsCard}>
+                <ContentBox
+                  style={SwitchingBoxContentBoxTypes[step.style]}
+                  height="100%"
+                  isVerticallyCentered={step.isVerticallyCentered}
+                  isHorizontallyCentered={step.isHorizontallyCentered}
+                >
+                  {step.header && (
+                    <Text
+                      element="h3"
+                      className={styles.switchingStepsCardHeader}
+                      type={TextStyles.h2}
+                      color={ColorStyles.secondary}
+                    >
+                      {step.header}
+                    </Text>
+                  )}
+                  {step.body && (
+                    <Text element="p" type={TextStyles.body} color={ColorStyles.secondary}>
+                      {step.body}
+                    </Text>
+                  )}
+                  {step.cta && <Outline size="mini">{step.cta}</Outline>}
+                </ContentBox>
+              </div>
+            );
+          })}
+        </FlexRow>
+      </PageSection>
       <PageSection>
         <FlexRow>
           <div>

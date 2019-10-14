@@ -24,7 +24,7 @@ jobs:
         with:
           cmd: install
       - name: install and build Gatsby
-        uses: './packages/apps/www'
+        working-directory: './packages/apps/www'
         run: |
           yarn global add gatsby-cli
           echo Build started on `date`

@@ -19,30 +19,13 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install and gatsby build
-        run: |
-          yarn global add gatsby-cli
-          yarn install
-        env:
-          CI: true
-
-  gatsby:
-    needs: build
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
-    steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: Borales/actions-yarn@v2.0.0
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: build Gatsby
+          cmd: install
+      - name: install and build Gatsby
         uses: './packages/apps/www'
         run: |
+          yarn global add gatsby-cli
           echo Build started on `date`
           yarn build
         env:

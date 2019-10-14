@@ -95,7 +95,7 @@
 
   @media (--m) {
     font-size: var(--font-size-3xs);
-    line-height: 1.86;
+    line-height: 1.14;
   }
 }
 

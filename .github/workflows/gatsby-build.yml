@@ -20,12 +20,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: yarn install and gatsby build
-        run: |
+      - run: |
           yarn global add gatsby-cli
           yarn install
       - name: build Gatsby
         uses: './packages/apps/www'
-        run: |
+      - run: |
           echo Build started on `date`
           yarn build
         env:

@@ -21,9 +21,12 @@ phases:
             - echo Build started on `date`
             - 'cd ./packages/apps/storybook'
             - 'yarn build'
+            - 'aws s3 sync "./build" $S3Bucket/build --delete --acl "public-read"'
+            - 'cd ../www'
+            - 'yarn build'
     post_build:
         commands:
-            - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/ --delete --acl "public-read"'
+            - 'aws s3 sync "./public" $S3Bucket/public --delete --acl "public-read"'
 artifacts:
     files:
         - '**/*'

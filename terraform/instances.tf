@@ -18,7 +18,7 @@ resource "aws_instance" "da_gatsby" {
 }
 
 resource "aws_instance" "da_c_and_c" {
-  count  = var.az_count
+  count  = 1
   ami           = var.c_and_c_ami #eu-west-1 this linux image is fine
   instance_type = "t2.micro"
   key_name = "DAC&C"

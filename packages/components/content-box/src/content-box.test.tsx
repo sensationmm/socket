@@ -119,4 +119,14 @@ describe('@somo/pda-components-content-box component', () => {
 
     expect(wrapper.find('.contentBox').prop('style')).toMatchObject({ height: 800 });
   });
+
+  it('should render an additional class name if it as passed as a props', () => {
+    props = {
+      className: 'additionalClassName',
+    };
+
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('.contentBox').hasClass('additionalClassName')).toEqual(true);
+  });
 });

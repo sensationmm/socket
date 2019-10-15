@@ -53,9 +53,14 @@ variable "app_port" {
   default     = 8080
 }
 variable "gatsby_ami" {
-  description = "image for base gatsby server"
+  description = "Linux image for base gatsby server"
   default     = "ami-0ce71448843cb18a1" #eu-west-1
 }
+variable "c_and_c_ami" {
+  description = "Linux image for base C&C server"
+  default     = "ami-0ce71448843cb18a1" #eu-west-1
+}
+
 
 variable "health_check_path" {
   default = "/"

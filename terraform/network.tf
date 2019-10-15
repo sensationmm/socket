@@ -89,6 +89,18 @@ resource "aws_network_interface" "da_gatsby_primary_network_interface" {
   }
 }
 
+
+resource "aws_network_interface" "da_c_and_c_primary_network_interface" {
+  count  = var.az_count
+  subnet_id       = element(aws_subnet.da_vpc_subnet.*.id, count.index)
+
+  security_groups = [aws_security_group.somo_webteam.id]
+
+  tags = {
+    Name = "da_c_and_c_network_interface"
+  }
+}
+
 #Elastic IP for NAT Gateway - for each private subnet to get internet connectivity
 resource "aws_eip" "da_elastic_ip" {
   vpc = true

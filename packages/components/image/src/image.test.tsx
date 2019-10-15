@@ -26,17 +26,4 @@ describe('Image', () => {
 
     expect(component.find('HoldingImage').exists()).toBeTruthy();
   });
-
-  // it('updateError()', () => {
-  //   const setState = jest.fn();
-  //   const useStateSpy = jest.spyOn(React, 'useState')
-  //   const updateErrorMock = jest.spyOn(React, 'useState');
-  //   updateErrorMock.mockImplementation((init: () => void) => [init, setState]);
-
-  //   const component = shallow(<Image src="" i18n={{ noImage: 'foo' }} />);
-
-  //   console.log(component.instance());
-
-  //   expect(updateErrorMock).toHaveBeenCalled();
-  // });
 });

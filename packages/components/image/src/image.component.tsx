@@ -10,7 +10,6 @@ interface IImageProps extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HT
   onError?: (event?: any) => void;
 }
 
-// @ts-ignore
 import * as styles from './image.module.css';
 
 const Image: React.FC<IImageProps> = ({

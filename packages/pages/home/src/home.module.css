@@ -80,17 +80,17 @@
 }
 
 .understandEnergyTitle {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-l);
 
   @media (--l) {
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xl);
   }
 }
 
 .understandEnergyList {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-l);
 
   @media (--l) {
-    margin-bottom: var(--spacing-xxl);
+    margin-bottom: var(--spacing-xl);
   }
 }

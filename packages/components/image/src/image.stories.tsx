@@ -2,7 +2,7 @@ import { boolean, object, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import Image from './';
+import Image from '.';
 
 const props = {
   i18n: object('i18n', { noImage: 'Image Unavailable' }),

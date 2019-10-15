@@ -40,7 +40,6 @@
 
   @media (--m) {
     text-align: center;
-    margin-bottom: var(--spacing-xxl);
   }
 }
 
@@ -78,4 +77,20 @@
 
 .switchingStepsCardHeader {
   margin-bottom: var(--spacing-l);
+}
+
+.understandEnergyTitle {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--l) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.understandEnergyList {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--l) {
+    margin-bottom: var(--spacing-xxl);
+  }
 }

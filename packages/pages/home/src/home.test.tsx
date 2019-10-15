@@ -43,6 +43,12 @@ describe('@somo/pda-pages-home', () => {
             subTitle: 'We make it easy',
             cta: 'Join us',
             image: '',
+            list: [
+              'Set goals for how much you spend',
+              'Regular tips from our boffins to help you save',
+              'Easily check and compare your history',
+              'See forecasts based on what you use',
+            ],
           },
           switchingSteps: {
             header: 'Switching is quick & painless.\nOver in seconds & no form filling.',

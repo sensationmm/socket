@@ -47,6 +47,7 @@ declare namespace EON {
           subTitle: string;
           cta: string;
           image: string;
+          list: string[];
         };
         companyFeatures: {
           thingsWeDontDo: {

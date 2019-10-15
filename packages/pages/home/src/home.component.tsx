@@ -1,9 +1,11 @@
 import * as React from 'react';
 
-import { Outline } from '@somo/pda-components-button/src';
+import { Outline, Secondary } from '@somo/pda-components-button/src';
 import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
+import Image from '@somo/pda-components-image/src';
+import List from '@somo/pda-components-list/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
@@ -57,7 +59,7 @@ const HomepageSwitchingStep = ({
 
 const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
   const { homepage, footer } = i18n;
-  const { hero, mainFeatures, companyFeatures, switchingSteps } = homepage;
+  const { hero, mainFeatures, companyFeatures, switchingSteps, understandEnergy } = homepage;
 
   return (
     <RegularLayout hero={hero} footer={footer}>
@@ -70,23 +72,29 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
           })}
         </FlexRow>
       </PageSection>
-      {/* <PageSection style={PageSectionStyle.Primary}>
+      <PageSection style={PageSectionStyle.PrimaryPattern}>
         <FlexRow className={styles.narrowSection}>
           <div>
-            <Text element="h2" type={TextStyles.h2} color={ColorStyles.secondary}>
+            <Text
+              className={styles.understandEnergyTitle}
+              element="h2"
+              type={TextStyles.h2}
+              color={ColorStyles.secondary}
+            >
               {understandEnergy.title}
             </Text>
-            <ul>
-              <li>Set goals for how much you spend</li>
-              <li>Regular tips from our boffins to help you save</li>
-              <li>Easily check and compare your history</li>
-              <li>See forecasts based on what you use</li>
-            </ul>
+            <List
+              classNames={styles.understandEnergyList}
+              listContent={understandEnergy.list}
+              textColor={ColorStyles.secondary}
+            />
             <Secondary>{understandEnergy.cta}</Secondary>
           </div>
-          <div></div>
+          <div>
+            <Image src="" alt={understandEnergy.title} isLazy={true} />
+          </div>
         </FlexRow>
-      </PageSection> */}
+      </PageSection>
       <PageSection style={PageSectionStyle.Secondary}>
         <div className={styles.switchingStepsHeader}>
           <Text element="h2" type={TextStyles.h2}>

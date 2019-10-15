@@ -3,8 +3,12 @@
 version: 0.2
 env:
   variables:
-    environment: "Develop"
+    environment: "Testing"
     S3Bucket: "s3://da-monorepo-source-bucket"
+    BRAND_NAME_LONG: "SOCKET"
+    BRAND_NAME_SHORT: "SOCKET"
+    SITE_URL: "https://localhost:8000"
+    GTM_ID: "GTM-T4ZQZNK"
 phases:
     install:
       runtime-versions:

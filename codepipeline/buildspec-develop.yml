@@ -5,6 +5,10 @@ env:
   variables:
     environment: "Develop"
     S3Bucket: "s3://da-codepipeline-bucket"
+    BRAND_NAME_LONG: "SOCKET"
+    BRAND_NAME_SHORT: "SOCKET"
+    SITE_URL: "https://localhost:8000"
+    GTM_ID: "GTM-T4ZQZNK"
 phases:
     install:
       runtime-versions:

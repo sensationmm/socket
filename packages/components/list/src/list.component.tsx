@@ -13,8 +13,8 @@ interface IListProps {
 
 const List: React.FC<IListProps> = ({ classNames, listContent, textColor }) => (
   <ul className={cx(styles.list, classNames)}>
-    {listContent.map((content) => (
-      <li>
+    {listContent.map((content, index) => (
+      <li key={`listItem-${index}`}>
         <Text type={TextStyles.segmentCopy} color={textColor}>
           {content}
         </Text>

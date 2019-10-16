@@ -9,11 +9,20 @@ import List from '@somo/pda-components-list/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
+import { getImagePath } from '@somo/pda-utils-imagery/src';
 
 import * as styles from './home.module.css';
 
+interface IImageProps {
+  node: {
+    name: string;
+    publicURL: string;
+  };
+}
+
 interface IHomePageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
+  imagery: IImageProps[];
 }
 
 interface IHomePageSwitchingStepProps extends EON.IHomepageSwitchingStep {
@@ -57,7 +66,7 @@ const HomepageSwitchingStep = ({
   </div>
 );
 
-const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
+const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
   const { homepage, footer } = i18n;
   const { hero, mainFeatures, companyFeatures, switchingSteps, understandEnergy } = homepage;
 
@@ -91,7 +100,7 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
             <Secondary>{understandEnergy.cta}</Secondary>
           </div>
           <div>
-            <Image src="" alt={understandEnergy.title} isLazy={true} />
+            <Image src={getImagePath(imagery, understandEnergy.image)} alt={understandEnergy.title} isLazy={true} />
           </div>
         </FlexRow>
       </PageSection>

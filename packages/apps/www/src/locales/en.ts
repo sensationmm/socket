@@ -42,7 +42,7 @@ const data: EON.IWebAppTranslations = {
         title: 'Do you understand your energy?',
         subTitle: 'We make it easy',
         cta: 'Join us',
-        image: '',
+        image: 'energy-pie',
         list: [
           'Set goals for how much you spend',
           'Regular tips from our boffins to help you save',

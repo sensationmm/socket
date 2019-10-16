@@ -17,6 +17,13 @@ if (requiredEnv) {
 
 const plugins = [
   {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `images`,
+      path: `${__dirname}/src/images/`,
+    },
+  },
+  {
     resolve: 'gatsby-plugin-postcss',
     options: {
       postCssPlugins,

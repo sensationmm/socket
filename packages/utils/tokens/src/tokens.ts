@@ -10,7 +10,7 @@ const colors = {
   },
   grey: {
     light: '#f0f0f0',
-    mid: '#aeaeae',
+    mid: '#eaeaea',
     dark: '#2d2d2d',
   },
   text: {

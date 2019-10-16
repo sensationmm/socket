@@ -6,22 +6,24 @@ on:
       - develop
 
 jobs:
-  build:
+  Testing:
+    name: Unit tests
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install and test
-        run: |
-          yarn install
-          yarn test
+
+      - name: Yarn install
+        run: yarn
+
+      - name: Run Tests
+        run: yarn test
+
         env:
           CI: true

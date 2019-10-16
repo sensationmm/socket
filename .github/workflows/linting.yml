@@ -1,3 +1,5 @@
+name: Linting CSS & TypeScript
+
 on:
   pull_request:
     branches:
@@ -5,7 +7,7 @@ on:
 
 jobs:
   Linting:
-    name: Linting CSS & TypeScript
+    name: Run
     runs-on: ubuntu-latest
 
     steps:

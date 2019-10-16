@@ -6,22 +6,27 @@ on:
       - develop
 
 jobs:
-  build:
+  Linting:
+    name: Linting CSS & TtpeScript
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: yarn install and lint
-        run: |
-          yarn install
-          yarn lint
+
+      - name: Yarn install
+        run: yarn
+
+      - name: Linting CSS
+        run: yarn lint:css
+
+      - name: Linting TypeScript
+        run: yarn lint:ts
+
         env:
           CI: true

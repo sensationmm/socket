@@ -1,0 +1,39 @@
+.stepCard {
+  position: relative;
+  height: 220px;
+
+  @media (--xs) {
+    height: 150px;
+  }
+
+  @media (--s) {
+    height: auto;
+  }
+}
+
+.stepCard::before {
+  @media (--m) {
+    content: '';
+    background-color: var(--color-grey-light);
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid var(--color-brand-secondary);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(-4px, -50%, 0);
+    z-index: 1;
+  }
+}
+
+.stepCard:first-child::before {
+  @media (--m) {
+    content: none;
+  }
+}
+
+.stepCard .header {
+  margin-bottom: var(--spacing-l);
+}

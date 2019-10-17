@@ -7,10 +7,10 @@ import FlexRow from '@somo/pda-components-flex-row/src';
 import Image from '@somo/pda-components-image/src';
 import List from '@somo/pda-components-list/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
+import StepCard from '@somo/pda-components-step-card/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
-import SwitchingStep from './switching-step.component';
 
 import * as styles from './home.module.css';
 
@@ -71,17 +71,17 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
           </Text>
         </div>
         <FlexRow className={styles.switchingStepsSection}>
-          <SwitchingStep
+          <StepCard
             header={switchingSteps.content.step1.header}
             body={switchingSteps.content.step1.body}
             style={ContentBoxStyle.SecondaryPattern}
           />
-          <SwitchingStep
+          <StepCard
             header={switchingSteps.content.step2.header}
             body={switchingSteps.content.step2.body}
             style={ContentBoxStyle.SecondaryPattern}
           />
-          <SwitchingStep
+          <StepCard
             cta={switchingSteps.content.step3.cta}
             style={ContentBoxStyle.TertiaryPattern}
             isVerticallyCentered={true}

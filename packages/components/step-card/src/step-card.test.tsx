@@ -2,9 +2,9 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { ContentBoxStyle } from '@somo/pda-components-content-box/src';
-import SwitchingStep from './switching-step.component';
+import StepCard from '.';
 
-describe('@somo/pda-pages-home switching-step component', () => {
+describe('@somo/pda-components-step-card', () => {
   let component;
   let props;
 
@@ -12,7 +12,7 @@ describe('@somo/pda-pages-home switching-step component', () => {
     props = {
       style: ContentBoxStyle.Default,
     };
-    component = shallow(<SwitchingStep {...props} />);
+    component = shallow(<StepCard {...props} />);
     expect(component.find('ContentBox').length).toEqual(1);
   });
 
@@ -21,7 +21,7 @@ describe('@somo/pda-pages-home switching-step component', () => {
       style: ContentBoxStyle.Default,
       header: 'First step',
     };
-    component = shallow(<SwitchingStep {...props} />);
+    component = shallow(<StepCard {...props} />);
     expect(
       component
         .find('Text')
@@ -35,7 +35,7 @@ describe('@somo/pda-pages-home switching-step component', () => {
       style: ContentBoxStyle.Default,
       body: 'Info',
     };
-    component = shallow(<SwitchingStep {...props} />);
+    component = shallow(<StepCard {...props} />);
     expect(
       component
         .find('Text')
@@ -49,7 +49,7 @@ describe('@somo/pda-pages-home switching-step component', () => {
       style: ContentBoxStyle.Default,
       cta: 'Click here',
     };
-    component = shallow(<SwitchingStep {...props} />);
+    component = shallow(<StepCard {...props} />);
     expect(
       component
         .find('OutlineButton')

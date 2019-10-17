@@ -10,6 +10,8 @@ jobs:
     name: Run
     runs-on: ubuntu-latest
 
+    env:
+      CI: true
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -27,6 +29,3 @@ jobs:
 
       - name: Linting TypeScript
         run: yarn lint:ts
-
-        env:
-          CI: true

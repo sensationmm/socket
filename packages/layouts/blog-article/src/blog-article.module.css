@@ -1,0 +1,45 @@
+.blogArticleRelatedListRow {
+  margin-bottom: var(--spacing-xl);
+}
+
+.blogArticleRelatedListWrapper::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.blogArticleRelatedListItem {
+  margin-bottom: var(--spacing-l);
+
+  @media (--s) {
+    margin-bottom: 0;
+  }
+}
+
+.blogArticleRelatedListTitle {
+  margin-bottom: var(--spacing-m);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.blogArticleRelatedLinkWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: var(--spacing-l);
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-l);
+  }
+}
+
+.blogArticleRelatedLinkWrapper a {
+  width: 100%;
+
+  @media (--s) {
+    width: auto;
+  }
+}

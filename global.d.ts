@@ -12,6 +12,26 @@ declare namespace EON {
     cta?: string;
   }
 
+  interface IBlogArticleContent {
+    type: string;
+    tag?: string;
+    content?: string;
+    src?: string;
+    alt?: string;
+  }
+
+  interface IBlogArticleRelated {
+    authorAvatar: string;
+    authorName: string;
+    publicationDate: string;
+    title: string;
+    shortDescription: string;
+    cta: {
+      text: string;
+      link: string;
+    };
+  }
+
   interface IWebAppTranslations {
     site: {
       footer: {
@@ -63,6 +83,26 @@ declare namespace EON {
           title: string;
           body: string;
           cta: string;
+        };
+      };
+      blogArticle: {
+        hero: {
+          title: string;
+          bgImage: string[];
+        };
+        author: {
+          name: string;
+          avatar?: string;
+        };
+        publicationDate: string;
+        content: IBlogArticleContent[];
+        relatedArticles: {
+          title: string;
+          list: IBlogArticleRelated[];
+          cta: {
+            text: string;
+            link: string;
+          };
         };
       };
     };

@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import Image from '@somo/pda-components-image/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import BlogArticleLayout from '@somo/pda-layouts-blog-article/src';
@@ -51,7 +52,7 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n }) => {
           if (item.type === 'image') {
             return (
               <div key={`content-${count}`} className={styles.blogArticleContent}>
-                <img src={item.src} alt={item.alt} />
+                <Image className={styles.image} src={item.src} alt={item.alt} isLazy={true} />
               </div>
             );
           }

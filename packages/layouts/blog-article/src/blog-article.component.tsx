@@ -70,21 +70,24 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({
   footer,
   children,
 }) => {
+  // @ts-ignore
   return (
     <AppTemplate>
       <PageSection
         style={hero.bgImage ? PageSectionStyle.Image : PageSectionStyle.PrimaryPattern}
         bgImage={hero.bgImage}
+        className={styles.blogArticleHeroWrapper}
       >
         <NavBar menu={HeaderNavigation} />
         <PageHero
+          className={styles.blogArticleHero}
           i18n={{
             heading: hero.title,
             text: hero.subTitle,
             cta: hero.cta,
           }}
         />
-        <ArticleAuthor name={author.name} avatar={author.avatar} date={publicationDate} />
+        <ArticleAuthor name={author.name} avatar={author.avatar} isAvatarResponsive={true} date={publicationDate} />
       </PageSection>
       {children}
       <PageSection style={PageSectionStyle.Secondary}>
@@ -105,7 +108,6 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({
                   authorName={article.authorName}
                   cta={article.cta.text}
                   link={article.cta.link}
-                  height={300}
                 />
               ))}
             </FlexRow>

@@ -11,13 +11,14 @@ export interface IArticleAuthorProps {
   name: string;
   avatar?: string;
   isAvatarSmall?: boolean;
+  isAvatarResponsive?: boolean;
   date?: string;
 }
 
-const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, isAvatarSmall, date }) => (
+const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, isAvatarSmall, isAvatarResponsive, date }) => (
   <div className={cx(styles.articleAuthor, { [styles.small]: isAvatarSmall })}>
     <div>
-      <Avatar picture={avatar} alt={name} isSmall={isAvatarSmall} />
+      <Avatar picture={avatar} alt={name} isSmall={isAvatarSmall} isResponsive={isAvatarResponsive} />
     </div>
     <div>
       <Text className={styles.name} color={ColorStyles.secondary} type={TextStyles.body}>

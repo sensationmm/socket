@@ -1,3 +1,26 @@
+.blogArticleHeroWrapper {
+  padding-bottom: var(--spacing-xxl);
+
+  @media (--s) {
+    padding-bottom: 100px;
+  }
+
+  @media (--m) {
+    padding-bottom: 120px;
+  }
+}
+
+.blogArticleHero {
+  @media (--s) {
+    padding-bottom: var(--spacing-m);
+  }
+}
+
+.blogArticleHeroAvatar {
+  width: 40px;
+  height: 40px;
+}
+
 .blogArticleRelatedListRow {
   margin-bottom: var(--spacing-xl);
 }
@@ -9,7 +32,7 @@
 }
 
 .blogArticleRelatedListItem {
-  margin-bottom: var(--spacing-l);
+  margin-bottom: var(--spacing-xl);
 
   @media (--s) {
     margin-bottom: 0;

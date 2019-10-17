@@ -42,7 +42,7 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
         </FlexRow>
       </PageSection>
       <PageSection style={PageSectionStyle.PrimaryPattern}>
-        <FlexRow className={styles.narrowSection}>
+        <FlexRow className={styles.narrowSection} layout={[60, 40]}>
           <div>
             <Text
               className={styles.understandEnergyTitle}

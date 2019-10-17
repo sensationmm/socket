@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Outline, Secondary } from '@somo/pda-components-button/src';
-import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
+import { Secondary } from '@somo/pda-components-button/src';
+import { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import Image from '@somo/pda-components-image/src';
@@ -10,6 +10,7 @@ import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
+import SwitchingStep from './switching-step.component';
 
 import * as styles from './home.module.css';
 
@@ -24,47 +25,6 @@ interface IHomePageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
   imagery: IImageProps[];
 }
-
-interface IHomePageSwitchingStepProps extends EON.IHomepageSwitchingStep {
-  style: ContentBoxStyle;
-  isVerticallyCentered?: boolean;
-  isHorizontallyCentered?: boolean;
-}
-
-const HomepageSwitchingStep = ({
-  header,
-  body,
-  cta,
-  style,
-  isVerticallyCentered,
-  isHorizontallyCentered,
-}: IHomePageSwitchingStepProps) => (
-  <div className={styles.switchingStepsCard}>
-    <ContentBox
-      style={style}
-      height="100%"
-      isVerticallyCentered={isVerticallyCentered}
-      isHorizontallyCentered={isHorizontallyCentered}
-    >
-      {header && (
-        <Text
-          element="h3"
-          className={styles.switchingStepsCardHeader}
-          type={TextStyles.h2}
-          color={ColorStyles.secondary}
-        >
-          {header}
-        </Text>
-      )}
-      {body && (
-        <Text element="p" type={TextStyles.body} color={ColorStyles.secondary}>
-          {body}
-        </Text>
-      )}
-      {cta && <Outline size="mini">{cta}</Outline>}
-    </ContentBox>
-  </div>
-);
 
 const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
   const { homepage, footer } = i18n;
@@ -111,17 +71,17 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
           </Text>
         </div>
         <FlexRow className={styles.switchingStepsSection}>
-          <HomepageSwitchingStep
+          <SwitchingStep
             header={switchingSteps.content.step1.header}
             body={switchingSteps.content.step1.body}
             style={ContentBoxStyle.SecondaryPattern}
           />
-          <HomepageSwitchingStep
+          <SwitchingStep
             header={switchingSteps.content.step2.header}
             body={switchingSteps.content.step2.body}
             style={ContentBoxStyle.SecondaryPattern}
           />
-          <HomepageSwitchingStep
+          <SwitchingStep
             cta={switchingSteps.content.step3.cta}
             style={ContentBoxStyle.TertiaryPattern}
             isVerticallyCentered={true}

@@ -73,9 +73,10 @@ const plugins = [
       features: ['IntersectionObserver'],
     },
   },
+  'gatsby-plugin-netlify-cms',
   'gatsby-transformer-json',
   'gatsby-plugin-react-helmet',
-  'gatsby-plugin-remove-trailing-slashes',
+  // 'gatsby-plugin-remove-trailing-slashes',
   // {
   //   resolve: 'gatsby-plugin-advanced-sitemap',
   //   options: {

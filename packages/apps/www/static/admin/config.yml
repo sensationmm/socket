@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: tommaton/dummy-netlify-cms
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - editor
+# This line should *not* be indented
+# publish_mode: editorial_workflow
+media_folder: 'static/assets' # Media files will be stored in the repo under images/uploads
+public_folder: 'assets' # The src attribute for uploaded media will begin with /images/uploads
+site_url: https://localhost:8000
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: 'blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { name: path, label: Path }
+      - { name: date, label: 'Published Date', widget: datetime }
+      - { name: heroImage, label: 'Hero Image', widget: image }
+      - { name: title, label: Title, required: true }
+      - { name: excerpt, label: Excerpt }
+      - { name: body, label: Body, widget: markdown, required: true }

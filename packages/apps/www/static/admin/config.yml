@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: tommaton/dummy-netlify-cms
+  repo: SomoGlobal/pureda-cms
   accept_roles: #optional - accepts all users if left out
     - admin
     - editor
@@ -16,9 +16,45 @@ collections:
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { name: path, label: Path }
       - { name: date, label: 'Published Date', widget: datetime }
-      - { name: heroImage, label: 'Hero Image', widget: image }
       - { name: title, label: Title, required: true }
-      - { name: excerpt, label: Excerpt }
-      - { name: body, label: Body, widget: markdown, required: true }
+      - label: SEO
+        name: seo
+        widget: 'object'
+        fields:
+          - { name: pageTitle, label: Title }
+          - { name: metaDescription, label: Description }
+      - label: Hero
+        name: hero
+        widget: 'object'
+        fields:
+          - {
+              name: heroBackground,
+              widget: 'select',
+              options: ['None', 'Primary', 'PrimaryPattern', 'Secondary', 'Image'],
+              default: 'None',
+            }
+          - { name: heroImage, label: 'Hero Image', widget: image, required: false }
+      - label: Content
+        name: content
+        widget: 'object'
+        fields:
+          - { name: excerpt, label: Excerpt, required: false }
+          - { name: body, label: Body, widget: markdown, required: true }
+      - label: 'Post Author'
+        name: 'author'
+        widget: 'relation'
+        collection: 'authors'
+        searchFields: ['title']
+        valueField: 'title'
+        required: false
+        displayFields: ['title']
+  - name: 'authors' # Used in routes, e.g., /admin/collections/blog
+    label: 'Authors' # Used in the UI
+    folder: 'authors' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { name: title, label: 'Author name', required: true }
+      - { name: authorDescription, label: 'Author description', required: true }
+      - { name: authorImage, label: 'Author image', widget: image, required: false }

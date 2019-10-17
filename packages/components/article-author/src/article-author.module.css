@@ -1,0 +1,17 @@
+.articleAuthor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.articleAuthor .name,
+.articleAuthor .date {
+  display: block;
+  padding-left: var(--spacing-m);
+}
+
+.articleAuthor.small .name,
+.articleAuthor.small .date {
+  display: block;
+  padding-left: var(--spacing-s);
+}

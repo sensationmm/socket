@@ -22,40 +22,24 @@ describe('@somo/pda-components-blog-post-card component', () => {
     expect(wrapper.find('ContentBox').length).toEqual(1);
   });
 
-  it('should render an avatar', () => {
+  it('should render the article author', () => {
     wrapper = shallow(<Component {...props} />);
-    const avatar = wrapper.find('Avatar');
-    const avatarProps = avatar.props();
-    expect(avatar.length).toEqual(1);
-    expect(avatarProps).toMatchObject({
-      picture: props.authorAvatar,
-      alt: props.authorName,
+    const articleAuthor = wrapper.find('ArticleAuthor');
+    const articleAuthorProps = articleAuthor.props();
+    expect(articleAuthor.length).toEqual(1);
+    expect(articleAuthorProps).toMatchObject({
+      name: props.authorName,
+      avatar: props.authorAvatar,
+      date: props.date,
+      isAvatarSmall: true,
     });
-  });
-
-  it('should render author name', () => {
-    wrapper = shallow(<Component {...props} />);
-    const authorNameText = wrapper
-      .find('Text')
-      .at(0)
-      .childAt(0);
-    expect(authorNameText.text()).toEqual(props.authorName);
-  });
-
-  it('should render post date in format `dd LLL yyyy`', () => {
-    wrapper = shallow(<Component {...props} />);
-    const dateText = wrapper
-      .find('Text')
-      .at(1)
-      .childAt(0);
-    expect(dateText.text()).toEqual('07 Sep 2019');
   });
 
   it('should render the full title if title prop length is less or equal than maximum specified title length', () => {
     wrapper = shallow(<Component {...props} maxTitleLength={10} />);
     const titleText = wrapper
       .find('Text')
-      .at(2)
+      .at(0)
       .childAt(0);
     expect(titleText.text()).toEqual(props.title);
   });
@@ -64,7 +48,7 @@ describe('@somo/pda-components-blog-post-card component', () => {
     wrapper = shallow(<Component {...props} maxTitleLength={4} />);
     const titleText = wrapper
       .find('Text')
-      .at(2)
+      .at(0)
       .childAt(0);
     expect(titleText.text()).toEqual('Some...');
   });
@@ -73,7 +57,7 @@ describe('@somo/pda-components-blog-post-card component', () => {
     wrapper = shallow(<Component {...props} maxShortDescriptionLength={20} />);
     const descriptionText = wrapper
       .find('Text')
-      .at(3)
+      .at(1)
       .childAt(0);
     expect(descriptionText.text()).toEqual(props.shortDescription);
   });
@@ -82,7 +66,7 @@ describe('@somo/pda-components-blog-post-card component', () => {
     wrapper = shallow(<Component {...props} maxShortDescriptionLength={6} />);
     const descriptionText = wrapper
       .find('Text')
-      .at(3)
+      .at(1)
       .childAt(0);
     expect(descriptionText.text()).toEqual('Some i...');
   });

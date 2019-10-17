@@ -20,6 +20,7 @@
   margin-top: -7px;
   right: 25px;
   transition: transform 0.2s cubic-bezier(0, 0, 0.38, 0.9);
+  color: var(--color-brand-main);
 }
 
 .selectIcon.expanded {

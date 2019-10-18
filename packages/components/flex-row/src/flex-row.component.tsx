@@ -3,13 +3,13 @@ import * as React from 'react';
 
 import * as styles from './flex-row.module.css';
 
-export interface IFlexColumnProps {
+export interface IFlexRowProps {
   children: React.ReactNode;
   className?: string;
   layout?: number[] | string[];
 }
 
-const FlexColumn: React.FC<IFlexColumnProps> = ({ children, className, layout }) => (
+const FlexRow: React.FC<IFlexRowProps> = ({ children, className, layout }) => (
   <div className={cx(styles.flexrow, className)}>
     {(!layout || !Array.isArray(children)) && children}
 
@@ -25,4 +25,4 @@ const FlexColumn: React.FC<IFlexColumnProps> = ({ children, className, layout })
   </div>
 );
 
-export default FlexColumn;
+export default FlexRow;

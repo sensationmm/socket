@@ -14,7 +14,7 @@ const PageSectionTypes = {
 
 const elements = ['div', 'section'];
 
-storiesOf('Components|page-section', module)
+storiesOf('Layout Elements|page-section', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .add('Default', () => (
     <div style={{ width: '800px' }}>

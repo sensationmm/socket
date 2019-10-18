@@ -1,28 +1,25 @@
-import { array, number, withKnobs } from '@storybook/addon-knobs';
+import { number, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import FlexRow from '.';
+import FlexRowGrid from '.';
 
 const Foo = () => {
   return <div style={{ backgroundColor: 'red' }}>foo</div>;
 };
 
 const FooList = (num) => {
-  const val = [] as JSX.Element[];
+  const val = [] as object[];
   for (let i = 0; i < num; i++) {
-    val.push(<Foo key={`foo-${i}`} />);
+    val.push({ title: 'Some title' });
   }
 
   return val;
 };
 
-storiesOf('Layout Elements|flex-row', module)
+storiesOf('Layout Elements|flex-row-grid', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => (
-    <FlexRow
-      children={FooList(number('Num columns', 3))}
-      layout={array('Layout [%] must match num columns eg. 10,30,60', [])}
-    />
+    <FlexRowGrid component={Foo} content={FooList(number('content (count)', 7))} cols={number('cols', 3)} />
   ));

@@ -1,0 +1,11 @@
+.flexRowGridItem {
+  margin-bottom: var(--spacing-l);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.flexRowGridItem:last-of-type {
+  margin-bottom: 0;
+}

@@ -34,6 +34,13 @@ declare namespace EON {
 
   interface IWebAppTranslations {
     site: {
+      blog: {
+        hero: {
+          title: string;
+          subTitle: string;
+        };
+        buttonRead: string;
+      };
       footer: {
         title: string;
         subTitle: string;

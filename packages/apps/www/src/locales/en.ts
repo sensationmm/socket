@@ -1,5 +1,12 @@
 const data: EON.IWebAppTranslations = {
   site: {
+    blog: {
+      hero: {
+        title: 'Musings & News-things.',
+        subTitle: 'It’s the latest info, news and updates from the Socket Team.',
+      },
+      buttonRead: 'Read article',
+    },
     footer: {
       title: 'Our smart technology needs a smart meter.',
       subTitle: "Check you're on the latest smart meter and start taking control your energy.",

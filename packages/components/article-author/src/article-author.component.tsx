@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Avatar from '@somo/oxd-components-avatar/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
-import { formatBlogPostISODate } from '@somo/pda-utils-dates/src';
+import { formatISODate } from '@somo/pda-utils-dates/src';
 
 import * as styles from './article-author.module.css';
 
@@ -26,7 +26,7 @@ const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, isAvatarSm
       </Text>
       {date && (
         <Text className={styles.date} color={ColorStyles.secondary} type={TextStyles.caption}>
-          {formatBlogPostISODate(date)}
+          {formatISODate(date)}
         </Text>
       )}
     </div>

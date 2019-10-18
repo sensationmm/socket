@@ -13,5 +13,6 @@ storiesOf('Components|article-author', module)
       avatar={text('picture', 'https://picsum.photos/id/287/100/100')}
       date="2019-09-07T15:53:00+05:00"
       isAvatarSmall={boolean('isAvatarSmall', false)}
+      isAvatarResponsive={boolean('isAvatarResponsive', false)}
     />
   ));

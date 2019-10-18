@@ -27,12 +27,12 @@ const BlogArticle: React.FC = () => {
                 hero {
                   title
                   bgImage
+                  author {
+                    name
+                    avatar
+                  }
+                  publicationDate
                 }
-                author {
-                  name
-                  avatar
-                }
-                publicationDate
                 content {
                   type
                   tag

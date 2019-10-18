@@ -89,12 +89,12 @@ declare namespace EON {
         hero: {
           title: string;
           bgImage: string[];
+          author: {
+            name: string;
+            avatar?: string;
+          };
+          publicationDate: string;
         };
-        author: {
-          name: string;
-          avatar?: string;
-        };
-        publicationDate: string;
         content: IBlogArticleContent[];
         relatedArticles: {
           title: string;

@@ -23,16 +23,10 @@ const ContentTextColorStyles = {
 
 const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n }) => {
   const { blogArticle, footer } = i18n;
-  const { hero, author, publicationDate, relatedArticles, content } = blogArticle;
+  const { hero, relatedArticles, content } = blogArticle;
 
   return (
-    <BlogArticleLayout
-      hero={hero}
-      footer={footer}
-      author={author}
-      publicationDate={publicationDate}
-      relatedArticles={relatedArticles}
-    >
+    <BlogArticleLayout hero={hero} footer={footer} relatedArticles={relatedArticles}>
       <PageSection>
         {content.map((item, count) => {
           if (item.type === 'text') {

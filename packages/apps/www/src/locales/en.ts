@@ -139,12 +139,12 @@ const data: EON.IWebAppTranslations = {
       hero: {
         title: 'Nulla vitae elit libero a pharetra.',
         bgImage: ['https://picsum.photos/id/249/800/300'],
+        author: {
+          name: 'John Smith',
+          avatar: 'https://picsum.photos/id/287/100/100',
+        },
+        publicationDate: '2019-09-07T15:53:00+05:00',
       },
-      author: {
-        name: 'John Smith',
-        avatar: 'https://picsum.photos/id/287/100/100',
-      },
-      publicationDate: '2019-09-07T15:53:00+05:00',
       content: [
         {
           type: 'text',

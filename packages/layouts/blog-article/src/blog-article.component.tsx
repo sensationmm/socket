@@ -21,6 +21,8 @@ interface IHeroI18nProps {
   subTitle?: string;
   cta?: string;
   bgImage?: string[];
+  author: IAuthorProps;
+  publicationDate: string;
 }
 
 interface IFooterI18nProps {
@@ -57,20 +59,11 @@ interface IRelatedArticleI18nProps {
 
 interface IBlogArticleLayoutProps {
   hero: IHeroI18nProps;
-  author: IAuthorProps;
-  publicationDate: string;
   relatedArticles: IRelatedArticleI18nProps;
   footer: IFooterI18nProps;
 }
 
-const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({
-  hero,
-  author,
-  publicationDate,
-  relatedArticles,
-  footer,
-  children,
-}) => {
+const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, relatedArticles, footer, children }) => {
   return (
     <AppTemplate>
       <PageSection
@@ -87,7 +80,12 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({
             cta: hero.cta,
           }}
         />
-        <ArticleAuthor name={author.name} avatar={author.avatar} isAvatarResponsive={true} date={publicationDate} />
+        <ArticleAuthor
+          name={hero.author.name}
+          avatar={hero.author.avatar}
+          isAvatarResponsive={true}
+          date={hero.publicationDate}
+        />
       </PageSection>
       {children}
       <PageSection style={PageSectionStyle.Secondary}>

@@ -14,17 +14,17 @@ describe('@somo/pda-layouts-blog-article component', () => {
         heading: 'I need a hero!!',
         text: "I'm holding out for a hero 'til the end of the night ",
         cta: "I'm a cta",
+        author: {
+          name: 'John Smith',
+          avatar: '/path-to-img.jpg',
+        },
+        publicationDate: '2019-09-07T15:53:00+05:00',
       },
       footer: {
         title: 'Our smart technology needs a smart meter.',
         subTitle: "Check you're on the latest smart meter and start taking control your energy.",
         copyright: '2019 © Socket Energy. All rights reserved.',
       },
-      author: {
-        name: 'John Smith',
-        avatar: '/path-to-img.jpg',
-      },
-      publicationDate: '2019-09-07T15:53:00+05:00',
       relatedArticles: {
         title: 'Related news',
         list: [

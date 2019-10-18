@@ -16,11 +16,6 @@
   }
 }
 
-.blogArticleHeroAvatar {
-  width: 40px;
-  height: 40px;
-}
-
 .blogArticleRelatedListRow {
   margin-bottom: var(--spacing-xl);
 }

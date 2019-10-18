@@ -1,5 +1,5 @@
 ---
 title: Tom Maton
-authorDescription: I'm a senior web developer working at Somo Global
+authorDescription: I'm a Senior web developer working at Somo Global
 ---
 

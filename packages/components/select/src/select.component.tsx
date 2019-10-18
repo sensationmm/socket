@@ -19,13 +19,13 @@ export interface ISelectItem {
 }
 
 export interface IFormSelectProps {
-  label: string;
+  label?: string;
   value?: string;
   type: FormSelectType;
   onChange: (val) => void;
   options: ISelectItem[];
-  defaultOptionText: string;
-  error: string;
+  defaultOptionText?: string;
+  error?: string;
 }
 
 export interface IFormSelectState {
@@ -179,9 +179,11 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
 
     return (
       <div className={classNames(styles.select, { [styles.inline]: type === FormSelectType.Inline })}>
-        <div id="dropdown-label" className={styles.label}>
-          {label}
-        </div>
+        {label && (
+          <div id="dropdown-label" className={styles.label}>
+            {label}
+          </div>
+        )}
 
         <div className={styles.selectbox}>
           <div

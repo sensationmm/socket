@@ -24,6 +24,10 @@ const Blog: React.FC = () => {
                   subTitle
                 }
                 buttonRead
+                filter {
+                  start
+                  end
+                }
               }
               footer {
                 title
@@ -44,7 +48,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-01',
       title: 'Test blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
     {
@@ -52,7 +56,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-03',
       title: 'Another blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
     {
@@ -60,7 +64,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-03',
       title: 'Another blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
     {
@@ -68,7 +72,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-03',
       title: 'Another blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
     {
@@ -76,7 +80,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-03',
       title: 'Another blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
     {
@@ -84,7 +88,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-03',
       title: 'Another blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
     {
@@ -92,7 +96,7 @@ const Blog: React.FC = () => {
       authorName: 'Kevin Reynolds',
       date: '2019-10-03',
       title: 'Another blog post',
-      link: 'http://www.google.com',
+      link: '/page',
       shortDescription: 'This is a short intro of the topic.',
     },
   ];

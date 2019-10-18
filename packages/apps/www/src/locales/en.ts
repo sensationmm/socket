@@ -6,6 +6,10 @@ const data: EON.IWebAppTranslations = {
         subTitle: 'It’s the latest info, news and updates from the Socket Team.',
       },
       buttonRead: 'Read article',
+      filter: {
+        start: 'Show me',
+        end: 'articles',
+      },
     },
     footer: {
       title: 'Our smart technology needs a smart meter.',

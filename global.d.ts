@@ -40,6 +40,10 @@ declare namespace EON {
           subTitle: string;
         };
         buttonRead: string;
+        filter: {
+          start: string;
+          end: string;
+        }
       };
       footer: {
         title: string;

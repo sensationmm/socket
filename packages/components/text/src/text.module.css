@@ -74,6 +74,11 @@
   }
 }
 
+.bodyFixed {
+  font-size: var(--font-size-s);
+  line-height: 1.56;
+}
+
 .segmentCopy {
   font-size: var(--font-size-3xs);
   line-height: 1.86;

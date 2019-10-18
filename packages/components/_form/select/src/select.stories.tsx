@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { object, select, withKnobs } from '@storybook/addon-knobs';
+import { object, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -13,10 +13,14 @@ const selectProps = {
   label: '',
   type: select('Type', types, types.Inline),
   onChange: action('onChange'),
-  options: object('Options', [{ val: 'opt1', label: 'option 1' }, { val: 'opt2', label: 'option 2' }]),
-  defaultOptionText: 'Select option',
+  options: object('Options', [
+    { val: 'opt1', label: 'option 1' },
+    { val: 'opt2', label: 'option 2' },
+    { val: 'opt3', label: 'option 3' },
+  ]),
+  defaultOptionText: text('Placeholder', 'Select option'),
   error: '',
-  value: '',
+  value: select('Value', ['option 1', 'option 2', 'option 3'], undefined),
 };
 
 storiesOf('Form Elements|select', module)

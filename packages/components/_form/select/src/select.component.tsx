@@ -20,7 +20,7 @@ export interface ISelectItem {
 
 export interface IFormSelectProps {
   label: string;
-  value: string;
+  value?: string;
   type: FormSelectType;
   onChange: (val) => void;
   options: ISelectItem[];

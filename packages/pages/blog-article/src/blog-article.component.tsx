@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import * as React from 'react';
 
 import Image from '@somo/pda-components-image/src';
@@ -31,23 +32,27 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n }) => {
         {content.map((item, count) => {
           if (item.type === 'text') {
             return (
-              <div key={`content-${count}`} className={styles.blogArticleContent}>
-                <Text
-                  element={item.tag}
-                  type={ContentTextStyles[item.tag || 'p']}
-                  color={ContentTextColorStyles[item.tag || 'p']}
-                >
-                  {item.content}
-                </Text>
-              </div>
+              <Text
+                key={`content-${count}`}
+                className={styles.blogArticleContent}
+                element={item.tag}
+                type={ContentTextStyles[item.tag || 'p']}
+                color={ContentTextColorStyles[item.tag || 'p']}
+              >
+                {item.content}
+              </Text>
             );
           }
 
           if (item.type === 'image') {
             return (
-              <div key={`content-${count}`} className={styles.blogArticleContent}>
-                <Image className={styles.image} src={item.src} alt={item.alt} isLazy={true} />
-              </div>
+              <Image
+                key={`content-${count}`}
+                className={cx(styles.image, styles.blogArticleContent)}
+                src={item.src}
+                alt={item.alt}
+                isLazy={true}
+              />
             );
           }
         })}

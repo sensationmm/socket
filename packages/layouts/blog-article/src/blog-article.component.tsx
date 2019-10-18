@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import * as React from 'react';
 
 import AppTemplate from '@somo/pda-components-app-template/src';
@@ -70,7 +71,6 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({
   footer,
   children,
 }) => {
-  // @ts-ignore
   return (
     <AppTemplate>
       <PageSection
@@ -114,9 +114,14 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({
           ))}
         </div>
         <div className={styles.blogArticleRelatedLinkWrapper}>
-          <a className={styles.blogArticleRelatedLink} href={relatedArticles.cta.link} target="_self">
+          <Link
+            className={styles.blogArticleRelatedLink}
+            to={relatedArticles.cta.link}
+            target="_self"
+            title={relatedArticles.cta.text}
+          >
             <PrimaryButton>{relatedArticles.cta.text}</PrimaryButton>
-          </a>
+          </Link>
         </div>
       </PageSection>
       <PageSection style={PageSectionStyle.PrimaryPattern}>

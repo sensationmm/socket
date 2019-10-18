@@ -1,5 +1,6 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
+import { Link } from 'gatsby';
 
 import Component from '.';
 
@@ -71,13 +72,14 @@ describe('@somo/pda-components-blog-post-card component', () => {
     expect(descriptionText.text()).toEqual('Some i...');
   });
 
-  it('should render a link', () => {
+  it('should render a gatsby link', () => {
     wrapper = shallow(<Component {...props} />);
-    const link = wrapper.find('a');
+    const link = wrapper.find(Link);
     const linkProps = link.props();
     expect(linkProps).toMatchObject({
-      href: props.link,
+      to: props.link,
       target: '_self',
+      title: props.cta,
     });
     expect(
       link

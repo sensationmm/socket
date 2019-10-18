@@ -63,7 +63,7 @@ const props = {
             shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
             cta: {
               text: 'Read article',
-              link: 'http://google.com',
+              link: '/blog/article-1',
             },
           },
           {
@@ -74,7 +74,7 @@ const props = {
             shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
             cta: {
               text: 'Read article',
-              link: 'http://google.com',
+              link: '/blog/article-2',
             },
           },
           {
@@ -85,7 +85,7 @@ const props = {
             shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
             cta: {
               text: 'Read article',
-              link: 'http://google.com',
+              link: '/blog/article-3',
             },
           },
           {
@@ -96,7 +96,7 @@ const props = {
             shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
             cta: {
               text: 'Read article',
-              link: 'http://google.com',
+              link: '/blog/article-4',
             },
           },
           {
@@ -107,7 +107,7 @@ const props = {
             shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
             cta: {
               text: 'Read article',
-              link: 'http://google.com',
+              link: '/blog/article-5',
             },
           },
           {
@@ -118,13 +118,13 @@ const props = {
             shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
             cta: {
               text: 'Read article',
-              link: 'http://google.com',
+              link: '/blog/article-6',
             },
           },
         ],
         cta: {
           text: 'See all news',
-          link: 'http://google.com/',
+          link: '/blog',
         },
       },
     },

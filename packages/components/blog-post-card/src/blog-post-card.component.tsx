@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import { Link } from 'gatsby';
 import * as React from 'react';
 
 import ArticleAuthor from '@somo/pda-components-article-author/src';
@@ -46,9 +47,9 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
     <Text className={styles.description} element="p" color={ColorStyles.secondary} type={TextStyles.caption}>
       {trimText(shortDescription, maxShortDescriptionLength)}
     </Text>
-    <a className={styles.link} href={link} target="_self">
+    <Link className={styles.link} to={link} target="_self" title={cta}>
       <Secondary>{cta}</Secondary>
-    </a>
+    </Link>
   </ContentBox>
 );
 

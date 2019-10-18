@@ -9,6 +9,7 @@ export enum TextStyles {
   h3 = 'h3',
   body = 'body',
   segmentCopy = 'segmentCopy',
+  segmentCopyFixed = 'segmentCopyFixed',
   caption = 'caption',
 }
 

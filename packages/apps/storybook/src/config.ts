@@ -43,4 +43,7 @@ addDecorator(appTemplateDecorator);
 //   action('NavigateTo:')(pathname);
 // };
 
+// @ts-ignore
+global.__PATH_PREFIX__ = '';
+
 configure(loadStories, module);

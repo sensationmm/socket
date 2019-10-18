@@ -13,18 +13,26 @@ interface IProps {
   picture?: string;
   alt?: string;
   isSmall?: boolean;
+  isResponsive?: boolean;
   additionalClass?: string;
 }
 
-const Avatar: React.FC<IProps> = ({ picture, alt, isSmall = false, additionalClass }) => {
+const Avatar: React.FC<IProps> = ({ picture, alt, isSmall = false, isResponsive = false, additionalClass }) => {
   const svgSize = isSmall ? AVATAR_SIZE_SMALL : AVATAR_SIZE;
-  const className = cx(styles.avatar, additionalClass, { [styles.small]: isSmall });
+  const className = cx(
+    styles.avatar,
+    additionalClass,
+    { [styles.small]: isSmall },
+    { [styles.responsive]: isResponsive },
+  );
 
-  return picture && picture.length ? (
-    <img className={className} src={picture} alt={alt} data-testid="avatar-image" />
-  ) : (
-    <div className={cx(styles.defaultAvatarWrapper, { [styles.small]: isSmall })}>
-      <SVG className={className} children={Profile} size={svgSize} data-testid="avatar-svg" />
+  return (
+    <div className={className}>
+      {picture && picture.length ? (
+        <img src={picture} alt={alt} data-testid="avatar-image" />
+      ) : (
+        <SVG children={Profile} size={svgSize} data-testid="avatar-svg" />
+      )}
     </div>
   );
 };

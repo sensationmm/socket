@@ -1,0 +1,12 @@
+{
+  "name": "@somo/pda-utils-arrays",
+  "version": "0.0.0",
+  "author": "Ionut Cirja <ionut.cirja@somoglobal.com> (http://www.somoglobal.com)",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "date-fns": "2.4.1"
+  }
+}

@@ -48,4 +48,3 @@ content:
     lobortis.
 author: Tom Maton
 ---
-

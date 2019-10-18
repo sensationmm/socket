@@ -19,6 +19,21 @@ const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
+      name: `blogs`,
+      path: `${__dirname}/src/content/blog`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `authors`,
+      path: `${__dirname}/src/content/authors`,
+    },
+  },
+  `gatsby-transformer-remark`,
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
       name: `images`,
       path: `${__dirname}/src/images/`,
     },

@@ -44,7 +44,7 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
     <Text className={styles.title} element="h3" color={ColorStyles.secondary} type={TextStyles.h2}>
       {trimText(title, maxTitleLength)}
     </Text>
-    <Text className={styles.description} element="p" color={ColorStyles.secondary} type={TextStyles.caption}>
+    <Text className={styles.description} element="p" color={ColorStyles.secondary} type={TextStyles.segmentCopyFixed}>
       {trimText(shortDescription, maxShortDescriptionLength)}
     </Text>
     <Link className={styles.link} to={link} target="_self" title={cta}>

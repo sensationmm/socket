@@ -25,7 +25,7 @@ const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, isAvatarSm
         {name}
       </Text>
       {date && (
-        <Text className={styles.date} color={ColorStyles.secondary} type={TextStyles.caption}>
+        <Text className={styles.date} color={ColorStyles.secondary} type={TextStyles.segmentCopyFixed}>
           {formatISODate(date)}
         </Text>
       )}

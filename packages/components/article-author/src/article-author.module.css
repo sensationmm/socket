@@ -10,6 +10,10 @@
   padding-left: var(--spacing-m);
 }
 
+.articleAuthor .date {
+  line-height: 1.14;
+}
+
 .articleAuthor.small .name,
 .articleAuthor.small .date {
   display: block;

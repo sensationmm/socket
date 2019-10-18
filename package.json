@@ -55,11 +55,8 @@
     "prettier": "1.18.2",
     "react": "16.9.0",
     "react-dom": "16.9.0",
-    "react-hooks-testing-library": "0.5.0",
-    "react-redux": "7.1.1",
     "react-router-dom": "5.0.1",
     "react-test-renderer": "16.9.0",
-    "redux": "4.0.4",
     "stylelint": "11.0.0",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-config-standard": "19.0.0",
@@ -73,13 +70,13 @@
   "dependencies": {
     "@testing-library/jest-dom": "4.1.0",
     "@testing-library/react": "9.3.0",
+    "@testing-library/react-hooks": "^2.0.3",
     "classnames": "2.2.6",
-    "gatsby": "2.15.28",
-    "gatsby-cli": "2.7.54",
+    "gatsby": "2.16.3",
+    "gatsby-cli": "2.8.1",
     "gatsby-link": "2.2.17",
     "graphql": "14.5.6",
     "lerna": "3.16.4",
-    "react-redux": "7.1.1",
     "tslib": "1.10.0"
   },
   "browserslist": [

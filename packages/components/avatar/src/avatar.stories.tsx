@@ -11,6 +11,7 @@ storiesOf('Components|avatar', module)
       picture={text('picture', 'https://picsum.photos/id/287/100/100')}
       alt={text('alt', '')}
       isSmall={boolean('isSmall', false)}
+      isResponsive={boolean('isResponsive', false)}
       additionalClass={text('additionalClass', '')}
     />
   ));

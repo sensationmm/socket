@@ -1,0 +1,10 @@
+.blogArticleContent {
+  margin-bottom: var(--spacing-xl);
+}
+
+.blogArticleContent.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

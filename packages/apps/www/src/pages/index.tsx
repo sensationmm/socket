@@ -14,6 +14,14 @@ const SEOprops = {
 const Home: React.FC = () => {
   const data: any = useStaticQuery(graphql`
     query HomeQuery {
+      allFile(filter: { relativeDirectory: { eq: "homepage" } }) {
+        edges {
+          node {
+            name
+            publicURL
+          }
+        }
+      }
       allTranslations {
         edges {
           node {
@@ -41,6 +49,7 @@ const Home: React.FC = () => {
                   subTitle
                   cta
                   image
+                  list
                 }
                 switchingSteps {
                   header
@@ -89,11 +98,12 @@ const Home: React.FC = () => {
     }
   `);
   const i18n = data.allTranslations.edges[0].node.site;
+  const imagery = data.allFile.edges;
 
   return (
     <>
       <SEO {...SEOprops} />
-      <HomePage i18n={i18n} />
+      <HomePage i18n={i18n} imagery={imagery} />
     </>
   );
 };

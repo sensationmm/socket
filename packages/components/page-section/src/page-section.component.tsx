@@ -15,11 +15,13 @@ export interface IPageSectionProps {
   element?: any;
   style?: PageSectionStyle;
   bgImage?: string[];
+  className?: string;
 }
 
-const PageSection: React.FC<IPageSectionProps> = ({ element, style, bgImage = {}, children }) => {
+const PageSection: React.FC<IPageSectionProps> = ({ element, style, bgImage = {}, className, children }) => {
   const finalClassName = classNames(
     styles.component,
+    className,
     { [styles.primary]: style === PageSectionStyle.Primary },
     { [styles.primaryPattern]: style === PageSectionStyle.PrimaryPattern },
     { [styles.secondary]: style === PageSectionStyle.Secondary },

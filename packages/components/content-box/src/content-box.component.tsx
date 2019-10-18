@@ -15,6 +15,7 @@ export enum ContentBoxStyle {
 
 export interface IContentBoxProps {
   style?: ContentBoxStyle;
+  className?: string;
   height?: number | string;
   isVerticallyCentered?: boolean;
   isHorizontallyCentered?: boolean;
@@ -22,6 +23,7 @@ export interface IContentBoxProps {
 
 const ContentBox: React.FC<IContentBoxProps> = ({
   style,
+  className,
   height,
   isVerticallyCentered,
   isHorizontallyCentered,
@@ -29,6 +31,7 @@ const ContentBox: React.FC<IContentBoxProps> = ({
 }) => (
   <div
     className={cx(
+      className,
       styles.contentBox,
       { [styles.primary]: style === ContentBoxStyle.Primary },
       { [styles.primaryPattern]: style === ContentBoxStyle.PrimaryPattern },

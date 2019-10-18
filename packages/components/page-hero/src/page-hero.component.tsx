@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import * as React from 'react';
 
 import { Secondary as Button } from '@somo/pda-components-button/src';
@@ -13,14 +14,15 @@ interface IPageHeroI18N {
 
 export interface IPageHeroProps {
   i18n: IPageHeroI18N;
+  className?: string;
   onClick?: () => void;
 }
 
-const PageHero: React.FC<IPageHeroProps> = ({ i18n, onClick }) => {
+const PageHero: React.FC<IPageHeroProps> = ({ i18n, className, onClick }) => {
   const { cta, heading, text } = i18n;
 
   return (
-    <div className={styles.component}>
+    <div className={cx(styles.component, className)}>
       <div className={styles.heading}>
         <Text type={TextStyles.h1} color={ColorStyles.secondary} data-test="page-hero-heading">
           {heading}

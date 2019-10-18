@@ -1,63 +1,34 @@
 import * as React from 'react';
 
-import { Outline } from '@somo/pda-components-button/src';
-import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
+import { Secondary } from '@somo/pda-components-button/src';
+import { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
+import Image from '@somo/pda-components-image/src';
+import List from '@somo/pda-components-list/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
+import StepCard from '@somo/pda-components-step-card/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
+import { getImagePath } from '@somo/pda-utils-imagery/src';
 
 import * as styles from './home.module.css';
 
+interface IImageProps {
+  node: {
+    name: string;
+    publicURL: string;
+  };
+}
+
 interface IHomePageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
+  imagery: IImageProps[];
 }
 
-interface IHomePageSwitchingStepProps extends EON.IHomepageSwitchingStep {
-  style: ContentBoxStyle;
-  isVerticallyCentered?: boolean;
-  isHorizontallyCentered?: boolean;
-}
-
-const HomepageSwitchingStep = ({
-  header,
-  body,
-  cta,
-  style,
-  isVerticallyCentered,
-  isHorizontallyCentered,
-}: IHomePageSwitchingStepProps) => (
-  <div className={styles.switchingStepsCard}>
-    <ContentBox
-      style={style}
-      height="100%"
-      isVerticallyCentered={isVerticallyCentered}
-      isHorizontallyCentered={isHorizontallyCentered}
-    >
-      {header && (
-        <Text
-          element="h3"
-          className={styles.switchingStepsCardHeader}
-          type={TextStyles.h2}
-          color={ColorStyles.secondary}
-        >
-          {header}
-        </Text>
-      )}
-      {body && (
-        <Text element="p" type={TextStyles.body} color={ColorStyles.secondary}>
-          {body}
-        </Text>
-      )}
-      {cta && <Outline size="mini">{cta}</Outline>}
-    </ContentBox>
-  </div>
-);
-
-const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
+const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
   const { homepage, footer } = i18n;
-  const { hero, mainFeatures, companyFeatures, switchingSteps } = homepage;
+  const { hero, mainFeatures, companyFeatures, switchingSteps, understandEnergy } = homepage;
 
   return (
     <RegularLayout hero={hero} footer={footer}>
@@ -70,23 +41,29 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
           })}
         </FlexRow>
       </PageSection>
-      {/* <PageSection style={PageSectionStyle.Primary}>
-        <FlexRow className={styles.narrowSection}>
+      <PageSection style={PageSectionStyle.PrimaryPattern}>
+        <FlexRow className={styles.narrowSection} layout={[60, 40]}>
           <div>
-            <Text element="h2" type={TextStyles.h2} color={ColorStyles.secondary}>
+            <Text
+              className={styles.understandEnergyTitle}
+              element="h2"
+              type={TextStyles.h2}
+              color={ColorStyles.secondary}
+            >
               {understandEnergy.title}
             </Text>
-            <ul>
-              <li>Set goals for how much you spend</li>
-              <li>Regular tips from our boffins to help you save</li>
-              <li>Easily check and compare your history</li>
-              <li>See forecasts based on what you use</li>
-            </ul>
+            <List
+              classNames={styles.understandEnergyList}
+              listContent={understandEnergy.list}
+              textColor={ColorStyles.secondary}
+            />
             <Secondary>{understandEnergy.cta}</Secondary>
           </div>
-          <div></div>
+          <div>
+            <Image src={getImagePath(imagery, understandEnergy.image)} alt={understandEnergy.title} isLazy={true} />
+          </div>
         </FlexRow>
-      </PageSection> */}
+      </PageSection>
       <PageSection style={PageSectionStyle.Secondary}>
         <div className={styles.switchingStepsHeader}>
           <Text element="h2" type={TextStyles.h2}>
@@ -94,17 +71,17 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n }) => {
           </Text>
         </div>
         <FlexRow className={styles.switchingStepsSection}>
-          <HomepageSwitchingStep
+          <StepCard
             header={switchingSteps.content.step1.header}
             body={switchingSteps.content.step1.body}
             style={ContentBoxStyle.SecondaryPattern}
           />
-          <HomepageSwitchingStep
+          <StepCard
             header={switchingSteps.content.step2.header}
             body={switchingSteps.content.step2.body}
             style={ContentBoxStyle.SecondaryPattern}
           />
-          <HomepageSwitchingStep
+          <StepCard
             cta={switchingSteps.content.step3.cta}
             style={ContentBoxStyle.TertiaryPattern}
             isVerticallyCentered={true}

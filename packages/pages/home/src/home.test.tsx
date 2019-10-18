@@ -42,7 +42,13 @@ describe('@somo/pda-pages-home', () => {
             title: 'Do you understand your energy?',
             subTitle: 'We make it easy',
             cta: 'Join us',
-            image: '',
+            image: 'energy-pie',
+            list: [
+              'Set goals for how much you spend',
+              'Regular tips from our boffins to help you save',
+              'Easily check and compare your history',
+              'See forecasts based on what you use',
+            ],
           },
           switchingSteps: {
             header: 'Switching is quick & painless.\nOver in seconds & no form filling.',
@@ -135,6 +141,11 @@ describe('@somo/pda-pages-home', () => {
           },
         },
       },
+      imagery: [
+        {
+          node: { name: 'energy-pie', publicURL: '/static/energy-pie-0d0ecc3fa9919bd77c050efd743dde01.png' },
+        },
+      ],
     };
     component = shallow(<Home {...props} />);
   });

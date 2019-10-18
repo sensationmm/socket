@@ -1,0 +1,12 @@
+.holdingImage {
+  background-color: var(--color-shade-xlight);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+}
+
+.icon {
+  color: var(--color-shade-medium);
+}

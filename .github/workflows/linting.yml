@@ -1,0 +1,31 @@
+name: Linting CSS & TypeScript
+
+on:
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  Linting:
+    name: Run
+    runs-on: ubuntu-latest
+
+    env:
+      CI: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Yarn install
+        run: yarn
+
+      - name: Linting CSS
+        run: yarn lint:css
+
+      - name: Linting TypeScript
+        run: yarn lint:ts

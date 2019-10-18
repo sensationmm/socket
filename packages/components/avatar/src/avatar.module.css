@@ -1,30 +1,42 @@
 :root {
-  --avatar-size-regular: 80px;
+  --avatar-size-xlarge: 80px;
+  --avatar-size-large: 70px;
+  --avatar-size-medium: 50px;
   --avatar-size-small: 40px;
 }
 
-.defaultAvatarWrapper {
+.avatar {
   align-items: center;
   background-color: var(--color-grey-light);
   border-radius: 50%;
-  height: var(--avatar-size-regular);
-  width: var(--avatar-size-regular);
+  height: var(--avatar-size-xlarge);
+  width: var(--avatar-size-xlarge);
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
-img.avatar {
-  height: var(--avatar-size-regular);
-  width: var(--avatar-size-regular);
+.avatar img {
+  height: 100%;
+  width: 100%;
 }
 
-.avatar {
-  border-radius: 50%;
-  flex-shrink: 0;
-  color: var(--color-grey-mid);
+.avatar.responsive {
+  width: var(--avatar-size-small);
+  height: var(--avatar-size-small);
+
+  @media (--s) {
+    width: var(--avatar-size-medium);
+    height: var(--avatar-size-mdium);
+  }
+
+  @media (--m) {
+    width: var(--avatar-size-large);
+    height: var(--avatar-size-large);
+  }
 }
 
-.small {
+.avatar.small {
   width: var(--avatar-size-small);
   height: var(--avatar-size-small);
 }

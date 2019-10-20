@@ -116,4 +116,8 @@ const plugins = [
   },
 ];
 
-export { plugins };
+const mapping = {
+  'MarkdownRemark.frontmatter.author': `MarkdownRemark.frontmatter.id`,
+};
+
+export { plugins, mapping };

@@ -46,16 +46,17 @@ collections:
         name: 'author'
         widget: 'relation'
         collection: 'authors'
-        searchFields: ['title']
-        valueField: 'title'
+        searchFields: ['id']
+        valueField: 'id'
         required: false
-        displayFields: ['title']
+        displayFields: ['id']
   - name: 'authors' # Used in routes, e.g., /admin/collections/blog
+    identifier_field: id
     label: 'Authors' # Used in the UI
     folder: 'packages/apps/www/src/content/authors' # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
-      - { name: title, label: 'Author name', required: true }
+      - { name: id, label: 'Author name', required: true }
       - { name: authorDescription, label: 'Author description', required: true }
       - { name: authorImage, label: 'Author image', widget: image, required: false }

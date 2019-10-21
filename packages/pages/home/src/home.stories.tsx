@@ -138,7 +138,7 @@ const props = {
   },
   imagery: [
     {
-      node: { name: 'energy-pie', publicURL: '/static/energy-pie-0d0ecc3fa9919bd77c050efd743dde01.png' },
+      node: { name: 'energy-pie', publicURL: '/static/energy-pie-10556973034b85890076c0dd1324ea97.png' },
     },
   ],
 };

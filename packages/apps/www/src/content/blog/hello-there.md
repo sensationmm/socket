@@ -5,7 +5,7 @@ seo:
   metaDescription: Hello there
   pageTitle: Hello there
 hero:
-  heroBackground: None
+  heroBackground: Primary
 content:
   body: Hello there
   excerpt: Hello there

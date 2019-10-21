@@ -4,12 +4,19 @@ import * as React from 'react';
 
 import Image from '.';
 
-const props = {
-  i18n: object('i18n', { noImage: 'Image Unavailable' }),
-  isLazy: boolean('isLazy', false),
-};
-
 storiesOf('Components|image', module)
   .addDecorator(withKnobs)
-  .add('Loading image', () => <Image src="https://bit.ly/2RXBzai" {...props} />)
-  .add('Failing image', () => <Image src="foo.bar" {...props} />);
+  .add('Loading image', () => {
+    return (
+      <Image
+        src="https://bit.ly/2RXBzai"
+        i18n={object('i18n', { noImage: 'Image Unavailable' })}
+        isLazy={boolean('isLazy', false)}
+      />
+    );
+  })
+  .add('Failing image', () => {
+    return (
+      <Image src="foo.bar" i18n={object('i18n', { noImage: 'Image Unavailable' })} isLazy={boolean('isLazy', false)} />
+    );
+  });

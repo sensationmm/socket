@@ -1,4 +1,6 @@
+import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
+
 import i18n from './src/locales/en';
 
 export async function createPages({ actions, graphql }) {
@@ -6,11 +8,14 @@ export async function createPages({ actions, graphql }) {
 
   const result = await graphql(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }, limit: 1000) {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
         edges {
           node {
-            frontmatter {
-              path
+            fields {
+              slug
             }
           }
         }
@@ -21,11 +26,27 @@ export async function createPages({ actions, graphql }) {
   // tslint:disable-next-line: no-console
   console.log('result', result);
 
-  createPage({
-    path: `/post/*`,
-    component: path.resolve(`./src/templates/blog-article.tsx`),
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    console.log('node', node);
+    createPage({
+      path: `/post${node.fields.slug}`,
+      component: path.resolve(`./src/templates/blog-article.tsx`),
+    });
   });
 }
+
+exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
+  const { createNodeField } = boundActionCreators;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value,
+    });
+  }
+};
 
 export function onCreateWebpackConfig({ loaders, actions }) {
   actions.setWebpackConfig({

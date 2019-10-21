@@ -117,7 +117,7 @@ const plugins = [
 ];
 
 const mapping = {
-  'MarkdownRemark.frontmatter.author': `MarkdownRemark.frontmatter.id`,
+  'MarkdownRemark.frontmatter.author': `MarkdownRemark.frontmatter.fullName`,
 };
 
 export { plugins, mapping };

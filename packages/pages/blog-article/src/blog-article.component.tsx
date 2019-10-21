@@ -1,35 +1,57 @@
-import cx from 'classnames';
+// import cx from 'classnames';
 import * as React from 'react';
 
-import Image from '@somo/pda-components-image/src';
+// import Image from '@somo/pda-components-image/src';
 import PageSection from '@somo/pda-components-page-section/src';
-import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
+// import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import BlogArticleLayout from '@somo/pda-layouts-blog-article/src';
 
-import * as styles from './blog-article.module.css';
+// import * as styles from './blog-article.module.css';
 
-interface IBlogArticlePageProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'blogArticle'>;
+interface IAuthor {
+  fullName: string;
+  bio?: string;
+  photo?: string;
 }
 
-const ContentTextStyles = {
-  h3: TextStyles.h2,
-  p: TextStyles.body,
-};
+interface IHero {
+  heroBackground?: string;
+  heroImage?: string;
+  title: string;
+  date: string;
+}
 
-const ContentTextColorStyles = {
-  h3: ColorStyles.primary,
-  p: ColorStyles.tertiary,
-};
+interface IContent {
+  excerpt: string;
+  body: string;
+}
 
-const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n }) => {
-  const { blogArticle, footer } = i18n;
-  const { hero, relatedArticles, content } = blogArticle;
+interface IBlogArticlePageProps {
+  i18n: Pick<EON.IWebAppTranslations['site'], 'footer'>;
+  author: IAuthor;
+  hero: IHero;
+  content: IContent;
+}
+
+// const ContentTextStyles = {
+//   h3: TextStyles.h2,
+//   p: TextStyles.body,
+// };
+
+// const ContentTextColorStyles = {
+//   h3: ColorStyles.primary,
+//   p: ColorStyles.tertiary,
+// };
+
+const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, author, hero, content }) => {
+  console.log('blog article', author, hero, content);
+  const { footer } = i18n;
+  // const { relatedArticles } = blogArticle;
 
   return (
-    <BlogArticleLayout hero={hero} footer={footer} relatedArticles={relatedArticles}>
+    <BlogArticleLayout hero={hero} footer={footer}>
       <PageSection>
-        {content.map((item, count) => {
+        {/* {content.map((item, count) => {
           if (item.type === 'text') {
             return (
               <Text
@@ -55,7 +77,7 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n }) => {
               />
             );
           }
-        })}
+        })} */}
       </PageSection>
     </BlogArticleLayout>
   );

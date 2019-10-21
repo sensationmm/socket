@@ -39,7 +39,7 @@ interface IAuthorProps {
 interface IRelatedArticleProps {
   authorAvatar: string;
   authorName: string;
-  publicationDate: string;
+  publicationDate?: string;
   title: string;
   shortDescription: string;
   cta: {

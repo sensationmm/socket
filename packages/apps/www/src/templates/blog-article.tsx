@@ -2,42 +2,71 @@ import { graphql } from 'gatsby';
 import * as React from 'react';
 // import { Article } from 'schema-dts';
 
-// import BlogArticle from '@somo/pda-pages-blog-article/src';
+import BlogArticle from '@somo/pda-pages-blog-article/src';
 
 const Page = ({ data }) => {
-  return <div>{data}</div>;
+  const doc = data.markdownRemark.frontmatter;
+  const i18n = data.allTranslations.edges[0].node.site;
+
+  if (!doc) {
+    return null;
+  }
+
+  const { author, content, date, hero, title } = doc;
+
+  const articleHero = {
+    ...hero,
+    author: author.frontmatter,
+    publishDate: date,
+    title,
+  };
+
+  return (
+    <BlogArticle i18n={i18n} author={author.frontmatter} content={content} publishDate={date} hero={articleHero} />
+  );
 };
 
 export default Page;
 
 export const query = graphql`
-  query ArticleQuery($title: String) {
-    allMarkdownRemark(filter: { frontmatter: { title: { eq: $title } } }) {
+  query ArticleQuery($slug: String) {
+    allTranslations {
       edges {
         node {
-          frontmatter {
-            date
-            content {
-              body
-              excerpt
-            }
-            hero {
-              heroBackground
-            }
-            seo {
-              metaDescription
-              pageTitle
-            }
-            title
-            id
-            author {
-              frontmatter {
-                id
-                authorDescription
-              }
+          site {
+            footer {
+              title
+              subTitle
+              copyright
             }
           }
         }
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      frontmatter {
+        author {
+          frontmatter {
+            bio
+            fullName
+            photo
+          }
+        }
+        content {
+          body
+          excerpt
+        }
+        date
+        hero {
+          heroBackground
+          heroImage
+        }
+        seo {
+          metaDescription
+          pageTitle
+        }
+        title
       }
     }
   }

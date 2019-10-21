@@ -51,6 +51,9 @@ export const query = graphql`
             bio
             fullName
             photo
+            hero {
+              heroBackground
+            }
           }
         }
         content {
@@ -60,13 +63,15 @@ export const query = graphql`
         date
         hero {
           heroBackground
-          heroImage
         }
         seo {
           metaDescription
           pageTitle
         }
         title
+      }
+      fields {
+        slug
       }
     }
   }

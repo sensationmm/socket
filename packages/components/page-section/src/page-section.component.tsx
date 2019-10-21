@@ -14,7 +14,7 @@ export enum PageSectionStyle {
 export interface IPageSectionProps {
   element?: any;
   style?: PageSectionStyle;
-  bgImage?: string;
+  bgImage?: string | string[];
   className?: string;
 }
 

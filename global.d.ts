@@ -43,7 +43,7 @@ declare namespace EON {
         filter: {
           start: string;
           end: string;
-        }
+        };
       };
       footer: {
         title: string;
@@ -97,16 +97,6 @@ declare namespace EON {
         };
       };
       blogArticle: {
-        hero: {
-          title: string;
-          bgImage: string[];
-          author: {
-            name: string;
-            avatar?: string;
-          };
-          publicationDate: string;
-        };
-        content: IBlogArticleContent[];
         relatedArticles: {
           title: string;
           list: IBlogArticleRelated[];

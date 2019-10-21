@@ -1,7 +1,14 @@
 .component {
   display: block;
-  padding: var(--spacing-m);
+  padding: var(--spacing-l);
 
+  @media (--s) {
+    padding: var(--spacing-xxl);
+  }
+}
+
+.component:first-child,
+.component:last-child {
   @media (--s) {
     padding: var(--spacing-xl);
   }

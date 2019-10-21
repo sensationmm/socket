@@ -90,5 +90,6 @@ content:
   excerpt: >-
     There are some things in life that are often considered to essential in
     modern society. Amongst these, energy is commonly considered to be vital.
+author: Tom Maton
 ---
 

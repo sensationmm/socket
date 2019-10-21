@@ -1,5 +1,6 @@
 ---
-id: Tom Maton
-authorDescription: I'm a Senior web developer working at Somo Global
+fullName: Tom Maton
+bio: Somo Senior Web Developer
+photo: /assets/logo.v2.png
 ---
 

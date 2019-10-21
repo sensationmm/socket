@@ -11,5 +11,6 @@ content:
   excerpt: >-
     They're taking over the world, but what even are they? We're talking Smart
     Meters, simply.
+author: Tom Maton
 ---
 

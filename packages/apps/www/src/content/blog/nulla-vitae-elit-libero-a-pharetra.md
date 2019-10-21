@@ -5,8 +5,8 @@ seo:
   metaDescription: Nulla vitae elit libero a pharetra.
   pageTitle: Nulla vitae elit libero a pharetra.
 hero:
+  bgImage: /assets/242-1200x300.jpg
   heroBackground: Image
-  heroImage: /assets/242-1200x300.jpg
 content:
   body: >-
     Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a

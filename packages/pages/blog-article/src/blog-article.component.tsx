@@ -28,7 +28,7 @@ interface IContent {
 }
 
 interface IBlogArticlePageProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer'>;
+  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'blogArticle'>;
   hero: IHero;
   content: IContent;
 }
@@ -44,12 +44,12 @@ interface IBlogArticlePageProps {
 // };
 
 const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) => {
-  const { footer } = i18n;
+  const { footer, blogArticle } = i18n;
   const { body, excerpt } = content;
-  // const { relatedArticles } = blogArticle;
+  const { relatedArticles } = blogArticle;
 
   return (
-    <BlogArticleLayout hero={hero} footer={footer}>
+    <BlogArticleLayout hero={hero} footer={footer} relatedArticles={relatedArticles}>
       <PageSection>
         {excerpt && (
           <Text element={'h2'} type={TextStyles.h2} color={ColorStyles.primary}>
@@ -57,9 +57,13 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) =
           </Text>
         )}
         {body && (
-          <Text element={'p'} type={TextStyles.body} color={ColorStyles.tertiary}>
-            {body}
-          </Text>
+          <>
+            {body.split('\n\n').map((paragraph) => (
+              <Text element={'p'} type={TextStyles.body} color={ColorStyles.tertiary}>
+                {paragraph}
+              </Text>
+            ))}
+          </>
         )}
         {/* {content.map((item, count) => {
           if (item.type === 'text') {

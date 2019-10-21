@@ -37,6 +37,26 @@ export const query = graphql`
               subTitle
               copyright
             }
+            blogArticle {
+              relatedArticles {
+                title
+                list {
+                  authorAvatar
+                  authorName
+                  publicationDate
+                  title
+                  shortDescription
+                  cta {
+                    text
+                    link
+                  }
+                }
+                cta {
+                  text
+                  link
+                }
+              }
+            }
           }
         }
       }

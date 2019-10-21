@@ -14,6 +14,32 @@ const SEOprops = {
 const Blog: React.FC = () => {
   const data: any = useStaticQuery(graphql`
     query BlogQuery {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/blog/" } }
+        sort: { fields: frontmatter___date, order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              content {
+                excerpt
+              }
+              author {
+                frontmatter {
+                  fullName
+                  bio
+                  photo
+                }
+              }
+              title
+              date
+            }
+          }
+        }
+      }
       allTranslations {
         edges {
           node {
@@ -41,65 +67,19 @@ const Blog: React.FC = () => {
     }
   `);
   const i18n = data.allTranslations.edges[0].node.site;
+  const blogPosts = data.allMarkdownRemark.edges;
 
-  const posts = [
-    {
-      id: '1',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-01',
-      title: 'Test blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-    {
-      id: '2',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-03',
-      title: 'Another blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-    {
-      id: '3',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-03',
-      title: 'Another blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-    {
-      id: '4',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-03',
-      title: 'Another blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-    {
-      id: '5',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-03',
-      title: 'Another blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-    {
-      id: '6',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-03',
-      title: 'Another blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-    {
-      id: '7',
-      authorName: 'Kevin Reynolds',
-      date: '2019-10-03',
-      title: 'Another blog post',
-      link: '/page',
-      shortDescription: 'This is a short intro of the topic.',
-    },
-  ];
+  const posts = blogPosts.map((post) => {
+    const { fields, frontmatter } = post.node;
+
+    return {
+      date: frontmatter.date,
+      title: frontmatter.title,
+      authorName: frontmatter.author.frontmatter.fullName,
+      link: `/post${fields.slug}`,
+      shortDescription: frontmatter.content.excerpt,
+    };
+  });
 
   return (
     <>

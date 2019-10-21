@@ -63,6 +63,9 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
             <Image src={getImagePath(imagery, understandEnergy.image)} alt={understandEnergy.title} isLazy={true} />
           </div>
         </FlexRow>
+        <FlexRow className={styles.narrowSectionMobileOnly}>
+          <Secondary>{understandEnergy.cta}</Secondary>
+        </FlexRow>
       </PageSection>
       <PageSection style={PageSectionStyle.Secondary}>
         <div className={styles.switchingStepsHeader}>

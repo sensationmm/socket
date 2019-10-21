@@ -3,10 +3,34 @@
 }
 
 .narrowSection {
+  margin-bottom: var(--spacing-l);
+
   @media (--m) {
     margin: 0 auto;
     max-width: 75%;
     width: 100%;
+  }
+}
+
+.narrowSection button {
+  display: none;
+
+  @media (--s) {
+    display: inline-block;
+  }
+}
+
+.narrowSection img {
+  margin: 0 auto;
+
+  @media (--s) {
+    margin: 0;
+  }
+}
+
+.narrowSectionMobileOnly {
+  @media (--s) {
+    display: none;
   }
 }
 

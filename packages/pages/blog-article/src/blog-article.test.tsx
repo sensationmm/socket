@@ -9,6 +9,19 @@ describe('@somo/pda-pages-blog-article', () => {
 
   beforeAll(() => {
     props = {
+      content: {
+        body: 'Body',
+        excerpt: 'Excerpt',
+      },
+      hero: {
+        heroBackground: 'heroBackground',
+        heroImage: 'heroImage',
+        author: {
+          bio: 'author bio',
+          fullName: 'fullname',
+          photo: 'photo',
+        },
+      },
       i18n: {
         footer: {
           title: 'Our smart technology needs a smart meter.',
@@ -16,33 +29,11 @@ describe('@somo/pda-pages-blog-article', () => {
           copyright: '2019 © Socket Energy. All rights reserved.',
         },
         blogArticle: {
-          hero: {
-            title: 'Take control. Own your energy.',
-            subTitle: "It's how energy should work.",
-            cta: 'Join the waiting list',
-          },
           author: {
             name: 'John Smith',
             avatar: '/path-to-image.jpg',
           },
           publicationDate: '2019-09-07T15:53:00+05:00',
-          content: [
-            {
-              type: 'text',
-              tag: 'h3',
-              content: 'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.',
-            },
-            {
-              type: 'text',
-              tag: 'p',
-              content: 'Nulla vitae elit libero, a pharetra augue.',
-            },
-            {
-              type: 'image',
-              src: '/path-to-image.jpg',
-              alt: 'image',
-            },
-          ],
           relatedArticles: {
             title: 'Related news',
             list: [

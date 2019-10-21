@@ -1,4 +1,4 @@
-// import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 import * as React from 'react';
 
 import AppTemplate from '@somo/pda-components-app-template/src';
@@ -59,7 +59,7 @@ interface IRelatedArticleI18nProps {
 
 interface IBlogArticleLayoutProps {
   hero: IHeroProps;
-  relatedArticles?: IRelatedArticleI18nProps;
+  relatedArticles: IRelatedArticleI18nProps;
   footer: IFooterI18nProps;
 }
 

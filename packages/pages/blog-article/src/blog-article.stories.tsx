@@ -5,6 +5,19 @@ import * as React from 'react';
 import BlogArticlePage from '.';
 
 const props = {
+  content: {
+    body: 'Body',
+    excerpt: 'Excerpt',
+  },
+  hero: {
+    heroBackground: 'heroBackground',
+    heroImage: 'heroImage',
+    author: {
+      bio: 'author bio',
+      fullName: 'fullname',
+      photo: 'photo',
+    },
+  },
   i18n: {
     footer: {
       title: 'Our smart technology needs a smart meter.',
@@ -12,46 +25,11 @@ const props = {
       copyright: '2019 © Socket Energy. All rights reserved.',
     },
     blogArticle: {
-      hero: {
-        title: 'Nulla vitae elit libero a pharetra.',
-        bgImage: ['https://picsum.photos/id/249/800/300'],
-        author: {
-          name: 'John Smith',
-          avatar: 'https://picsum.photos/id/287/100/100',
-        },
-        publicationDate: '2019-09-07T15:53:00+05:00',
+      author: {
+        name: 'John Smith',
+        avatar: '/path-to-image.jpg',
       },
-      content: [
-        {
-          type: 'text',
-          tag: 'h3',
-          content:
-            'Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Sed posuere consectetur est at lobortis.',
-        },
-        {
-          type: 'text',
-          tag: 'p',
-          content:
-            'Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-        },
-        {
-          type: 'image',
-          src: 'https://picsum.photos/id/242/800/300',
-          alt: 'image',
-        },
-        {
-          type: 'text',
-          tag: 'p',
-          content:
-            'Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada magna mollis euismod.',
-        },
-        {
-          type: 'text',
-          tag: 'p',
-          content:
-            'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.',
-        },
-      ],
+      publicationDate: '2019-09-07T15:53:00+05:00',
       relatedArticles: {
         title: 'Related news',
         list: [

@@ -78,7 +78,7 @@ export const query = graphql`
         date
         hero {
           heroBackground
-          heroImage
+          bgImage
         }
         seo {
           metaDescription

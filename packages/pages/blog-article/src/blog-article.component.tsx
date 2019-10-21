@@ -16,7 +16,7 @@ interface IAuthor {
 
 interface IHero {
   heroBackground?: string;
-  heroImage?: string;
+  bgImage?: string;
   title: string;
   publicationDate: string;
   author: IAuthor;
@@ -32,16 +32,6 @@ interface IBlogArticlePageProps {
   hero: IHero;
   content: IContent;
 }
-
-// const ContentTextStyles = {
-//   h3: TextStyles.h2,
-//   p: TextStyles.body,
-// };
-
-// const ContentTextColorStyles = {
-//   h3: ColorStyles.primary,
-//   p: ColorStyles.tertiary,
-// };
 
 const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) => {
   const { footer, blogArticle } = i18n;

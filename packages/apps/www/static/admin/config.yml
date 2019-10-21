@@ -35,7 +35,7 @@ collections:
               options: ['None', 'Primary', 'PrimaryPattern', 'Secondary', 'Image'],
               default: 'None',
             }
-          - { name: heroImage, label: 'Hero Image', widget: image, required: false }
+          - { name: bgImage, label: 'Hero Image', widget: image, required: false }
       - label: Content
         name: content
         widget: 'object'

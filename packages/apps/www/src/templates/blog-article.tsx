@@ -17,19 +17,17 @@ const Page = ({ data }) => {
   const articleHero = {
     ...hero,
     author: author.frontmatter,
-    publishDate: date,
+    publicationDate: date,
     title,
   };
 
-  return (
-    <BlogArticle i18n={i18n} author={author.frontmatter} content={content} publishDate={date} hero={articleHero} />
-  );
+  return <BlogArticle i18n={i18n} content={content} hero={articleHero} />;
 };
 
 export default Page;
 
 export const query = graphql`
-  query ArticleQuery($slug: String) {
+  query ArticleQuery($slug: String!) {
     allTranslations {
       edges {
         node {
@@ -51,9 +49,6 @@ export const query = graphql`
             bio
             fullName
             photo
-            hero {
-              heroBackground
-            }
           }
         }
         content {
@@ -63,6 +58,7 @@ export const query = graphql`
         date
         hero {
           heroBackground
+          heroImage
         }
         seo {
           metaDescription

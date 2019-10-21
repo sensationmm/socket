@@ -23,14 +23,13 @@ export async function createPages({ actions, graphql }) {
     }
   `);
 
-  // tslint:disable-next-line: no-console
-  console.log('result', result);
-
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    console.log('node', node);
     createPage({
       path: `/post${node.fields.slug}`,
       component: path.resolve(`./src/templates/blog-article.tsx`),
+      context: {
+        slug: node.fields.slug,
+      },
     });
   });
 }

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 // import Image from '@somo/pda-components-image/src';
 import PageSection from '@somo/pda-components-page-section/src';
-// import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
+import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import BlogArticleLayout from '@somo/pda-layouts-blog-article/src';
 
 // import * as styles from './blog-article.module.css';
@@ -18,7 +18,8 @@ interface IHero {
   heroBackground?: string;
   heroImage?: string;
   title: string;
-  date: string;
+  publicationDate: string;
+  author: IAuthor;
 }
 
 interface IContent {
@@ -28,7 +29,6 @@ interface IContent {
 
 interface IBlogArticlePageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer'>;
-  author: IAuthor;
   hero: IHero;
   content: IContent;
 }
@@ -43,14 +43,24 @@ interface IBlogArticlePageProps {
 //   p: ColorStyles.tertiary,
 // };
 
-const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, author, hero, content }) => {
-  console.log('blog article', author, hero, content);
+const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) => {
   const { footer } = i18n;
+  const { body, excerpt } = content;
   // const { relatedArticles } = blogArticle;
 
   return (
     <BlogArticleLayout hero={hero} footer={footer}>
       <PageSection>
+        {excerpt && (
+          <Text element={'h2'} type={TextStyles.h2} color={ColorStyles.primary}>
+            {excerpt}
+          </Text>
+        )}
+        {body && (
+          <Text element={'p'} type={TextStyles.body} color={ColorStyles.tertiary}>
+            {body}
+          </Text>
+        )}
         {/* {content.map((item, count) => {
           if (item.type === 'text') {
             return (

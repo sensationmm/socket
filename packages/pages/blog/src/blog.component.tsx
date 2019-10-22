@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Media from 'react-media';
 
 import tokens from '@somo/pda-utils-tokens/src';
@@ -20,9 +20,27 @@ const BlogPage: React.FC<IBlogPageProps> = ({ i18n, posts }) => {
   const { blog, footer } = i18n;
   const { hero, buttonRead, filter } = blog;
 
-  const onChange = () => {
-    return;
-  };
+  const [state, setState] = useState(1);
+
+  function usePrevious(value) {
+    // The ref object is a generic container whose current property is mutable ...
+    // ... and can hold any value, similar to an instance property on a class
+    const ref = useRef();
+
+    // Store current value in ref
+    useEffect(() => {
+      ref.current = value;
+    }, [value]); // Only re-run if value changes
+
+    // Return previous value (happens before update in useEffect above)
+    return ref.current;
+  }
+
+  const prevState = usePrevious(state);
+
+  if (prevState && state !== prevState) {
+    posts.reverse();
+  }
 
   return (
     <RegularLayout hero={hero} footer={footer}>
@@ -34,7 +52,7 @@ const BlogPage: React.FC<IBlogPageProps> = ({ i18n, posts }) => {
               type={FormSelectType.Inline}
               options={[{ val: '1', label: 'The Latest' }, { val: '-1', label: 'The Earliest' }]}
               value={'The Latest'}
-              onChange={onChange}
+              onChange={(val) => setState(val)}
             />
           </span>
           <span>{filter.end}</span>

@@ -51,8 +51,9 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) =
         )}
         {body && (
           <>
-            {body.split('\n\n').map((paragraph) => (
+            {body.split('\n\n').map((paragraph, count) => (
               <Text
+                key={`text-${count}`}
                 className={styles.blogArticleParagraph}
                 element={'p'}
                 type={TextStyles.body}

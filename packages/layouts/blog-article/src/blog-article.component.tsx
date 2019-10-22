@@ -1,18 +1,18 @@
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import * as React from 'react';
 
 import AppTemplate from '@somo/pda-components-app-template/src';
 import ArticleAuthor from '@somo/pda-components-article-author/src';
-import BlogPostCard from '@somo/pda-components-blog-post-card/src';
-import { Primary as PrimaryButton } from '@somo/pda-components-button/src';
-import FlexRow from '@somo/pda-components-flex-row/src';
+// import BlogPostCard from '@somo/pda-components-blog-post-card/src';
+// import { Primary as PrimaryButton } from '@somo/pda-components-button/src';
+// import FlexRow from '@somo/pda-components-flex-row/src';
 import Footer from '@somo/pda-components-footer/src';
 import NavBar from '@somo/pda-components-navbar/src';
 import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
-import Text, { TextStyles } from '@somo/pda-components-text/src';
+// import Text, { TextStyles } from '@somo/pda-components-text/src';
 import { FooterNavigation, HeaderNavigation } from '@somo/pda-layouts-regular/src/navigation';
-import { splitArrayIntoChunksOfN } from '@somo/pda-utils-arrays/src';
+// import { splitArrayIntoChunksOfN } from '@somo/pda-utils-arrays/src';
 
 import * as styles from './blog-article.module.css';
 
@@ -63,7 +63,7 @@ interface IBlogArticleLayoutProps {
   footer: IFooterI18nProps;
 }
 
-const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, children, relatedArticles }) => {
+const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, children }) => {
   return (
     <AppTemplate>
       <PageSection
@@ -88,7 +88,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, ch
         />
       </PageSection>
       {children}
-      <PageSection style={PageSectionStyle.Secondary}>
+      {/* <PageSection style={PageSectionStyle.Secondary}>
         <Text className={styles.blogArticleRelatedListTitle} element="p" type={TextStyles.h2}>
           {relatedArticles.title}
         </Text>
@@ -121,7 +121,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, ch
             <PrimaryButton>{relatedArticles.cta.text}</PrimaryButton>
           </Link>
         </div>
-      </PageSection>
+      </PageSection> */}
       <PageSection style={PageSectionStyle.PrimaryPattern}>
         <Footer i18n={footer} menu={FooterNavigation} />
       </PageSection>

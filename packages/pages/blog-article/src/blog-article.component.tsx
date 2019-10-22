@@ -43,7 +43,7 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) =
 
   return (
     <BlogArticleLayout hero={hero} footer={footer} relatedArticles={relatedArticles}>
-      <PageSection>
+      <PageSection className={styles.blogArticleContent}>
         {excerpt && (
           <Text className={styles.blogArticleExcerpt} element={'h2'} type={TextStyles.h2} color={ColorStyles.primary}>
             {excerpt}

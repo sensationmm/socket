@@ -1,5 +1,6 @@
 .blogArticleContent {
-  margin-bottom: var(--spacing-xl);
+  margin: 0 auto var(--spacing-xl);
+  max-width: calc(var(--breakpoint-m-min) * 1px);
 }
 
 .blogArticleContent.image {

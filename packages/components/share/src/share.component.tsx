@@ -18,7 +18,7 @@ const Share: React.FC<IShareProps> = ({ header, articleTitle, articleLink }) => 
     <Text className={styles.shareHeader} type={TextStyles.body} color={ColorStyles.tertiary} element="p">
       {header}
     </Text>
-    <a href={`mailto:subject=${articleTitle}&body=${articleLink}`}>
+    <a href={`mailto:?subject=${articleTitle}&body=${articleLink}`}>
       <RoundButton>
         <SVG children={Mail} size={'20px'} className={styles.shareIcon} />
       </RoundButton>

@@ -8,3 +8,19 @@
   height: auto;
   border-radius: 10px;
 }
+
+.blogArticleExcerpt {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.blogArticleParagraph {
+  margin-bottom: var(--spacing-m);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-l);
+  }
+}

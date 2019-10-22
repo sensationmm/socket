@@ -147,6 +147,7 @@ const data: EON.IWebAppTranslations = {
       },
     },
     blogArticle: {
+      sharePostHeader: 'Share this post',
       relatedArticles: {
         title: 'Related news',
         list: [

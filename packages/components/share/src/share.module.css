@@ -1,0 +1,8 @@
+.shareHeader {
+  margin-bottom: var(--spacing-l);
+  padding-top: var(--spacing-xl);
+}
+
+.shareIcon {
+  color: var(--color-basic-white);
+}

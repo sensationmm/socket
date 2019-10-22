@@ -38,6 +38,7 @@ export const query = graphql`
               copyright
             }
             blogArticle {
+              sharePostHeader
               relatedArticles {
                 title
                 list {

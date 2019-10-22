@@ -29,11 +29,7 @@ describe('@somo/pda-pages-blog-article', () => {
           copyright: '2019 © Socket Energy. All rights reserved.',
         },
         blogArticle: {
-          author: {
-            name: 'John Smith',
-            avatar: '/path-to-image.jpg',
-          },
-          publicationDate: '2019-09-07T15:53:00+05:00',
+          sharePostHeader: 'Share this post',
           relatedArticles: {
             title: 'Related news',
             list: [

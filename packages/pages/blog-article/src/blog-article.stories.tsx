@@ -27,6 +27,7 @@ const props = {
       copyright: '2019 © Socket Energy. All rights reserved.',
     },
     blogArticle: {
+      sharePostHeader: 'Share this post',
       relatedArticles: {
         title: 'Related news',
         list: [

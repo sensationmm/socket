@@ -97,6 +97,7 @@ declare namespace EON {
         };
       };
       blogArticle: {
+        sharePostHeader: string;
         relatedArticles: {
           title: string;
           list: IBlogArticleRelated[];

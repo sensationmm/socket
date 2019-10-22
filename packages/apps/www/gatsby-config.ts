@@ -109,7 +109,7 @@ const plugins = [
           policy: [{ userAgent: '*', disallow: '/' }],
         },
         production: {
-          policy: [{ userAgent: '*' }],
+          policy: [{ userAgent: '*', disallow: '/' }],
         },
       },
     },

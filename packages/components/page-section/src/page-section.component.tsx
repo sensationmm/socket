@@ -8,6 +8,8 @@ export enum PageSectionStyle {
   Primary,
   PrimaryPattern,
   Secondary,
+  Tertiary,
+  TertiaryPattern,
   Image,
 }
 
@@ -25,6 +27,8 @@ const PageSection: React.FC<IPageSectionProps> = ({ element, style, bgImage = {}
     { [styles.primary]: style === PageSectionStyle.Primary },
     { [styles.primaryPattern]: style === PageSectionStyle.PrimaryPattern },
     { [styles.secondary]: style === PageSectionStyle.Secondary },
+    { [styles.tertiary]: style === PageSectionStyle.Tertiary },
+    { [styles.tertiaryPattern]: style === PageSectionStyle.TertiaryPattern },
     { [styles.image]: style === PageSectionStyle.Image },
   );
   const inlineStyle = style === PageSectionStyle.Image ? { backgroundImage: `url(${bgImage})` } : {};

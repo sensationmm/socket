@@ -9,6 +9,8 @@ const PageSectionTypes = {
   Primary: PageSectionStyle.Primary,
   PrimaryPattern: PageSectionStyle.PrimaryPattern,
   Secondary: PageSectionStyle.Secondary,
+  Tertiary: PageSectionStyle.Tertiary,
+  TertiaryPattern: PageSectionStyle.TertiaryPattern,
   Image: PageSectionStyle.Image,
 };
 

@@ -32,6 +32,16 @@ declare namespace EON {
     };
   }
 
+  interface IAboutGoodBunch {
+    text: string;
+    list?: string[];
+  }
+
+  interface IRealPeople {
+    image: string;
+    text: string;
+  }
+
   interface IWebAppTranslations {
     site: {
       blog: {
@@ -105,6 +115,25 @@ declare namespace EON {
             text: string;
             link: string;
           };
+        };
+      };
+      about: {
+        hero: {
+          title: string;
+        };
+        energyMarket: {
+          title: string;
+          content: string[];
+        };
+        goodBunch: {
+          title: string;
+          content: IAboutGoodBunch[];
+          cta: string;
+        };
+        realPeople: {
+          title: string;
+          content: IRealPeople[];
+          cta: string;
         };
       };
     };

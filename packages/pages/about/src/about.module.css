@@ -1,0 +1,120 @@
+.energyMarket {
+  margin-top: var(--spacing-l);
+
+  @media (--s) {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media (--m) {
+    margin-top: var(--spacing-xxl);
+    display: block;
+  }
+}
+
+.energyMarket > div {
+  @media (--s) {
+    width: 50%;
+  }
+
+  @media (--m) {
+    width: 100%;
+  }
+}
+
+.energyMarket > div:first-of-type {
+  @media (--s) {
+    padding-right: var(--spacing-m);
+  }
+
+  @media (--m) {
+    padding-right: 0;
+  }
+}
+
+.energyMarket > div:last-of-type {
+  @media (--s) {
+    padding-left: var(--spacing-m);
+  }
+
+  @media (--m) {
+    padding-left: 0;
+  }
+}
+
+.energyMarketText {
+  margin-bottom: var(--spacing-xl);
+}
+
+.energyMarketText:last-of-type {
+  margin-bottom: 0;
+}
+
+.goodBunch {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.goodBunchTitle,
+.goodBunchBlock {
+  margin-bottom: var(--spacing-xl);
+}
+
+.goodBunchList {
+  margin-top: var(--spacing-xl);
+}
+
+.goodBunchBlock:last-of-type {
+  margin-bottom: 0;
+}
+
+.goodBunchListItem {
+  position: relative;
+  padding-left: 40px;
+}
+
+.goodBunchListItem::before {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  background-color: var(--color-text-body-secondary);
+}
+
+.realPeopleTitle {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.realPeopleList {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.goodBunchCta,
+.realPeopleCta {
+  display: flex;
+  flex-direction: row;
+
+  @media (--s) {
+    justify-content: center;
+  }
+
+  @media (--m) {
+    justify-content: start;
+  }
+}

@@ -117,3 +117,7 @@
   color: var(--color-grey-dark);
   font-weight: var(--font-weight-light);
 }
+
+.quaternary {
+  color: var(--color-brand-main);
+}

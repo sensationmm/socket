@@ -9,7 +9,7 @@ import * as styles from './text.stories.module.css';
 const elements = ['span', 'p', 'h1', 'h2', 'h3'];
 const types = ['h1', 'h2', 'h3', 'body', 'bodyFixed', 'segmentCopy', 'segmentCopyFixed', 'caption'];
 
-const color = ['primary', 'secondary', 'tertiary'];
+const color = ['primary', 'secondary', 'tertiary', 'quaternary'];
 
 const defaultText = `Take control. Own your energy.`;
 

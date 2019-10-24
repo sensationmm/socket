@@ -14,6 +14,14 @@ const SEOprops = {
 const About: React.FC = () => {
   const data: any = useStaticQuery(graphql`
     query AboutQuery {
+      allFile(filter: { relativeDirectory: { eq: "about" } }) {
+        edges {
+          node {
+            name
+            publicURL
+          }
+        }
+      }
       allTranslations {
         edges {
           node {
@@ -55,11 +63,12 @@ const About: React.FC = () => {
     }
   `);
   const i18n = data.allTranslations.edges[0].node.site;
+  const imagery = data.allFile.edges;
 
   return (
     <>
       <SEO {...SEOprops} />
-      <AboutPage i18n={i18n} />
+      <AboutPage i18n={i18n} imagery={imagery} />
     </>
   );
 };

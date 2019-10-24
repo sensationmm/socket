@@ -54,12 +54,12 @@ describe('@somo/pda-pages-about', () => {
               {
                 text:
                   'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
-                image: 'https://picsum.photos/id/950/400/300',
+                image: 'office',
               },
               {
                 text:
                   'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
-                image: 'https://picsum.photos/id/951/400/300',
+                image: 'reading',
               },
             ],
             cta: 'Follow us',
@@ -71,6 +71,14 @@ describe('@somo/pda-pages-about', () => {
           copyright: '2019 © Socket Energy. All rights reserved.',
         },
       },
+      imagery: [
+        {
+          node: { name: 'office', publicURL: 'https://picsum.photos/id/950/400/300' },
+        },
+        {
+          node: { name: 'reading', publicURL: 'https://picsum.photos/id/951/400/300' },
+        },
+      ],
     };
     component = shallow(<About {...props} />);
   });

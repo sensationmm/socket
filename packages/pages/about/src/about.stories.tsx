@@ -55,18 +55,26 @@ const props = {
           {
             text:
               'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
-            image: 'https://picsum.photos/id/950/400/300',
+            image: 'office',
           },
           {
             text:
               'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
-            image: 'https://picsum.photos/id/951/400/300',
+            image: 'reading',
           },
         ],
         cta: 'Follow us',
       },
     },
   },
+  imagery: [
+    {
+      node: { name: 'office', publicURL: 'https://picsum.photos/id/950/400/300' },
+    },
+    {
+      node: { name: 'reading', publicURL: 'https://picsum.photos/id/951/400/300' },
+    },
+  ],
 };
 
 storiesOf('Pages|about', module)

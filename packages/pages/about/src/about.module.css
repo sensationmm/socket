@@ -115,6 +115,6 @@
   }
 
   @media (--m) {
-    justify-content: start;
+    justify-content: flex-start;
   }
 }

@@ -109,6 +109,15 @@
   }
 }
 
+.supportCopy {
+  font-size: var(--font-size-3xs);
+  line-height: 1.14;
+
+  @media (--m) {
+    font-size: var(--font-size-2xs);
+  }
+}
+
 .secondary {
   color: var(--color-basic-white);
 }

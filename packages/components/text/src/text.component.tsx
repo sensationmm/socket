@@ -12,6 +12,7 @@ export enum TextStyles {
   segmentCopy = 'segmentCopy',
   segmentCopyFixed = 'segmentCopyFixed',
   caption = 'caption',
+  supportCopy = 'supportCopy',
 }
 
 export enum ColorStyles {

@@ -50,7 +50,7 @@ const AboutPage: React.FC<IAboutPageProps> = ({ i18n, imagery }) => {
           ))}
         </div>
       </PageSection>
-      <PageSection style={PageSectionStyle.TertiaryPattern}>
+      <PageSection style={PageSectionStyle.PrimaryPattern}>
         <Text className={styles.goodBunchTitle} element="h2" type={TextStyles.h2} color={ColorStyles.quaternary}>
           {goodBunch.title}
         </Text>

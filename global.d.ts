@@ -46,6 +46,15 @@ declare namespace EON {
         };
         body: string;
       };
+      login: {
+        hero: {
+          title: string;
+        };
+        form: {
+          username: string;
+          password: string;
+        };
+      };
       homepage: {
         hero: {
           title: string;

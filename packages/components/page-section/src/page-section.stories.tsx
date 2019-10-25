@@ -1,4 +1,4 @@
-import { files, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, files, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -22,6 +22,7 @@ storiesOf('Layout Elements|page-section', module)
         element={select('Element', elements, 'div')}
         style={select('Style', PageSectionTypes, PageSectionStyle.Default)}
         bgImage={files('Background Image (for Image style)', '.jpg, .svg, .gif, .png')}
+        isNarrow={boolean('isNarrow', false)}
       >
         {text('Content', 'This is my content')}
       </PageSection>

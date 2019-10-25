@@ -80,7 +80,7 @@ const AboutPage: React.FC<IAboutPageProps> = ({ i18n, imagery }) => {
           <SecondaryBtn>{goodBunch.cta}</SecondaryBtn>
         </div>
       </PageSection>
-      <PageSection className={styles.realPeopleSection}>
+      <PageSection isNarrow={true}>
         <Text className={styles.realPeopleTitle} element="h2" type={TextStyles.h2} color={ColorStyles.primary}>
           {realPeople.title}
         </Text>

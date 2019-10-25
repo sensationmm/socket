@@ -66,4 +66,14 @@ describe('@somo/pda-components-page-section component', () => {
 
     expect(wrapper.find('.component').props().style.backgroundImage).toEqual('url(filestub)');
   });
+
+  it('renders a narrow class if isNarrow prop value is truthy', () => {
+    props = {
+      style: PageSectionStyle.Primary,
+      isNarrow: true,
+    };
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('.component').hasClass('narrow')).toEqual(true);
+  });
 });

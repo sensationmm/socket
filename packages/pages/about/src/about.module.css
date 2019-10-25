@@ -89,13 +89,6 @@
   background-color: var(--color-text-body-secondary);
 }
 
-.realPeopleSection {
-  @media (--m) {
-    padding-left: calc(var(--spacing-xxl) * 3);
-    padding-right: calc(var(--spacing-xxl) * 3);
-  }
-}
-
 .realPeopleTitle {
   margin-bottom: var(--spacing-xl);
 

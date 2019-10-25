@@ -8,6 +8,13 @@
   }
 }
 
+.narrow {
+  @media (--m) {
+    padding-left: calc(var(--spacing-xxl) * 3);
+    padding-right: calc(var(--spacing-xxl) * 3);
+  }
+}
+
 .component:first-child,
 .component:last-child {
   @media (--s) {

@@ -4,6 +4,9 @@ module.exports = {
   collectCoverageFrom: [
     'packages/components/**/*.{ts,tsx,js}',
     'packages/pages/**/*.{ts,tsx,js}',
+    '!packages/{components,pages}/**/index.{ts,tsx,js}',
+    'packages/utils/**/*.{ts,tsx,js}',
+    '!packages/utils/{env,browser-support}/**',
     '!**/*.stories.{ts,tsx,js}',
     '!packages/**/*.mock.{js,ts,tsx}',
     '!**/node_modules/**',

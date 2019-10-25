@@ -19,7 +19,16 @@
     "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
-    "lib": ["es6", "dom", "es2015", "es2017.object", "es2016.array.include", "esnext.asynciterable"],
+    "lib": [
+      "es6",
+      "dom",
+      "es2015",
+      "es2017.object",
+      "es2016.array.include",
+      "esnext.asynciterable",
+      "esnext",
+      "es2018"
+    ],
     "allowSyntheticDefaultImports": true,
     "declarationMap": true,
     "strict": true,
@@ -29,7 +38,8 @@
       "@somo/pda-apps-*": ["./apps/*"],
       "@somo/pda-components-*": ["./components/*"],
       "@somo/pda-pages-*": ["./pages/*"],
-      "@somo/pda-utils-*": ["./utils/*"]
+      "@somo/pda-utils-*": ["./utils/*"],
+      "@somo/pda-graphql-*": ["./graphql/*"]
     }
   },
   "include": ["packages/**/*", "./global.d.ts", "./index.d.ts"],

@@ -25,7 +25,13 @@ const ContentPage: React.FC<IContentProps> = ({ i18n, hero, subTitle, body }) =>
           {subTitle}
         </Text>
         {body.split('\n\n').map((paragraph, count) => (
-          <Text key={`text-${count}`} element={'p'} type={TextStyles.body} color={ColorStyles.tertiary}>
+          <Text
+            key={`text-${count}`}
+            element={'p'}
+            type={TextStyles.body}
+            color={ColorStyles.tertiary}
+            className={styles.contentPageParagraph}
+          >
             {paragraph}
           </Text>
         ))}

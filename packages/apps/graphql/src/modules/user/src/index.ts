@@ -1,3 +1,13 @@
-import UserModule from './user.module';
+import 'graphql-import-node';
+import { GraphQLModule } from '@graphql-modules/core';
+import * as typeDefs from './schema.graphql';
+import resolvers from './resolvers';
+import { UserProvider } from './provider';
 
-export default UserModule;
+const Users = new GraphQLModule({
+  typeDefs,
+  resolvers,
+  providers: [UserProvider],
+});
+
+export default Users;

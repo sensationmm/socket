@@ -1,14 +1,35 @@
+.contentPageWrapper {
+  @media (--s) {
+    padding: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    padding: var(--spacing-xxl);
+  }
+}
+
 .contentPageSubTitle {
-  margin-bottom: var(--spacing-l);
   font-size: var(--font-size-m);
+  margin-bottom: var(--spacing-l);
 
   @media (--s) {
     font-size: var(--font-size-l);
   }
+
+  @media (--m) {
+    font-size: var(--font-size-3xl);
+    margin-top: var(--spacing-m);
+    margin-bottom: var(--spacing-l);
+  }
 }
 
 .contentPageParagraph {
-  margin-bottom: var(--spacing-l);
+  font-size: var(--font-size-m);
+  margin-bottom: var(--spacing-xl);
+}
+
+.contentPageParagraph:first-child {
+  margin-top: var(--spacing-s);
 }
 
 .contentPageParagraph:last-child {

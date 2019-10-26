@@ -17,20 +17,14 @@ const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {
 
   return (
     <div className={styles.component}>
-      {/* <Text element="h3" type={TextStyles.h2} color={ColorStyles.secondary}>
-        {title}
-      </Text>
-      <Text element="p" type={TextStyles.segmentCopy} color={ColorStyles.secondary}>
-        {subTitle}
-      </Text> */}
       <div className={styles.social}>
-        <RoundButton>
+        <RoundButton aria-label="Socket on Facebook">
           <SVG children={Facebook} size={'20px'} className={styles.socialIcon} />
         </RoundButton>
-        <RoundButton>
+        <RoundButton aria-label="Socket on Twitter">
           <SVG children={Twitter} size={'20px'} className={styles.socialIcon} />
         </RoundButton>
-        <RoundButton>
+        <RoundButton aria-label="Socket on Instagram">
           <SVG children={Instagram} size={'20px'} className={styles.socialIcon} />
         </RoundButton>
       </div>

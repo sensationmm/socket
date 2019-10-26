@@ -60,12 +60,10 @@ const plugins = [
       start_url: '/?utm_source=a2hs',
       background_color: tokens.customProperties.color.brand.main,
       theme_color: tokens.customProperties.color.brand.main,
-      // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
-      // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
       display: 'standalone',
       orientation: 'portrait',
-      icon: 'src/images/manifest-icon.png', // This path is relative to the root of the site.
-      include_favicon: true, // Include favicon
+      icon: 'src/images/manifest-icon.png',
+      include_favicon: true,
     },
   },
   'gatsby-plugin-offline',
@@ -78,8 +76,8 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-typescript',
     options: {
-      isTSX: true, // defaults to false
-      allExtensions: true, // defaults to false
+      isTSX: true,
+      allExtensions: true,
     },
   },
   {
@@ -91,14 +89,35 @@ const plugins = [
   'gatsby-plugin-netlify-cms',
   'gatsby-transformer-json',
   'gatsby-plugin-react-helmet',
-  // 'gatsby-plugin-remove-trailing-slashes',
-  // {
-  //   resolve: 'gatsby-plugin-advanced-sitemap',
-  //   options: {
-  //     exclude: ['/404', '/404.html', '/preview'],
-  //     createLinkInHead: true,
-  //   },
-  // },
+  {
+    resolve: 'gatsby-plugin-react-axe',
+    options: {
+      axeOptions: {
+        rules: [
+          {
+            id: 'document-title',
+            enabled: false,
+          },
+          {
+            id: 'landmark-one-main',
+            enabled: false,
+          },
+          {
+            id: 'html-has-lang',
+            enabled: false,
+          },
+          {
+            id: 'html-lang-valid',
+            enabled: false,
+          },
+          {
+            id: 'page-has-heading-one',
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
   {
     resolve: 'gatsby-plugin-robots-txt',
     options: {

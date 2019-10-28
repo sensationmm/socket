@@ -8,6 +8,8 @@ import PageHero from '@somo/pda-components-page-hero/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import { FooterNavigation, HeaderNavigation } from './navigation';
 
+import * as styles from './regular.module.css';
+
 interface IHeroI18nProps {
   title: string;
   subTitle?: string;
@@ -28,7 +30,7 @@ interface IRegularLayoutProps {
 const RegularLayout: React.FC<IRegularLayoutProps> = ({ hero, footer, children }) => {
   return (
     <AppTemplate>
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
+      <PageSection className={styles.navSection} style={PageSectionStyle.PrimaryPattern}>
         <NavBar menu={HeaderNavigation} />
 
         <PageHero

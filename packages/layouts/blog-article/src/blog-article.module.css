@@ -1,4 +1,5 @@
 .blogArticleHeroWrapper {
+  z-index: 1000;
   padding-bottom: var(--spacing-xxl);
 
   @media (--s) {

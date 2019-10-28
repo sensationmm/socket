@@ -1,8 +1,8 @@
-import 'graphql-import-node';
 import { GraphQLModule } from '@graphql-modules/core';
-import * as typeDefs from './schema.graphql';
-import resolvers from './resolvers';
+import 'graphql-import-node';
 import { UserProvider } from './provider';
+import resolvers from './resolvers';
+import * as typeDefs from './schema.graphql';
 
 const Users = new GraphQLModule({
   typeDefs,

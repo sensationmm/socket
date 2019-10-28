@@ -1,29 +1,58 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import { Profile } from '@somo/pda-components-icons/src';
+import { LogoMark, Profile } from '@somo/pda-components-icons/src';
 import SVG from '@somo/pda-components-svg/src';
 
 import styles from './avatar.module.css';
 
-const AVATAR_SIZE = '60px';
-const AVATAR_SIZE_SMALL = '30px';
+export enum AvatarStyles {
+  Primary,
+  Secondary,
+}
+
+export enum AvatarSizes {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large',
+}
+
+export enum SvgTypes {
+  Profile = 'Profile',
+  Logo = 'Logo',
+}
 
 interface IProps {
   picture?: string;
   alt?: string;
-  isSmall?: boolean;
+  size?: AvatarSizes;
   isResponsive?: boolean;
+  svgType?: SvgTypes;
+  style?: AvatarStyles;
   additionalClass?: string;
 }
 
-const Avatar: React.FC<IProps> = ({ picture, alt, isSmall = false, isResponsive = false, additionalClass }) => {
-  const svgSize = isSmall ? AVATAR_SIZE_SMALL : AVATAR_SIZE;
+const SvgList = {
+  [SvgTypes.Profile]: Profile,
+  [SvgTypes.Logo]: LogoMark,
+};
+
+const Avatar: React.FC<IProps> = ({
+  picture,
+  alt,
+  size = 'small',
+  isResponsive,
+  svgType = 'Profile',
+  additionalClass,
+  style,
+}) => {
   const className = cx(
     styles.avatar,
     additionalClass,
-    { [styles.small]: isSmall },
+    styles[size],
     { [styles.responsive]: isResponsive },
+    { [styles.primary]: style === AvatarStyles.Primary },
+    { [styles.secondary]: style === AvatarStyles.Secondary },
   );
 
   return (
@@ -31,7 +60,7 @@ const Avatar: React.FC<IProps> = ({ picture, alt, isSmall = false, isResponsive 
       {picture && picture.length ? (
         <img src={picture} alt={alt} data-testid="avatar-image" />
       ) : (
-        <SVG children={Profile} size={svgSize} data-testid="avatar-svg" />
+        <SVG children={SvgList[svgType]} size="80%" data-testid="avatar-svg" />
       )}
     </div>
   );

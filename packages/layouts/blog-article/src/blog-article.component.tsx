@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { AvatarSizes } from '@somo/oxd-components-avatar/src';
 import AppTemplate from '@somo/pda-components-app-template/src';
 import ArticleAuthor from '@somo/pda-components-article-author/src';
 import Footer from '@somo/pda-components-footer/src';
@@ -55,6 +56,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, ch
         <ArticleAuthor
           name={hero.author.fullName}
           avatar={hero.author.photo}
+          avatarSize={AvatarSizes.Medium}
           isAvatarResponsive={true}
           date={hero.publicationDate}
         />

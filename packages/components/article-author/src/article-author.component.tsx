@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import Avatar from '@somo/oxd-components-avatar/src';
+import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/oxd-components-avatar/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import { formatISODate } from '@somo/pda-utils-dates/src';
 
@@ -10,15 +10,22 @@ import * as styles from './article-author.module.css';
 export interface IArticleAuthorProps {
   name: string;
   avatar?: string;
-  isAvatarSmall?: boolean;
+  avatarSize: AvatarSizes;
   isAvatarResponsive?: boolean;
   date?: string;
 }
 
-const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, isAvatarSmall, isAvatarResponsive, date }) => (
-  <div className={cx(styles.articleAuthor, { [styles.small]: isAvatarSmall })}>
+const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, avatarSize, isAvatarResponsive, date }) => (
+  <div className={cx(styles.articleAuthor, styles[avatarSize])}>
     <div>
-      <Avatar picture={avatar} alt={name} isSmall={isAvatarSmall} isResponsive={isAvatarResponsive} />
+      <Avatar
+        picture={avatar}
+        alt={name}
+        size={AvatarSizes.Small}
+        style={AvatarStyles.Primary}
+        svgType={SvgTypes.Profile}
+        isResponsive={isAvatarResponsive}
+      />
     </div>
     <div>
       <Text className={styles.name} color={ColorStyles.secondary} type={TextStyles.body}>
@@ -32,9 +39,5 @@ const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, isAvatarSm
     </div>
   </div>
 );
-
-ArticleAuthor.defaultProps = {
-  isAvatarSmall: false,
-};
 
 export default ArticleAuthor;

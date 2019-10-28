@@ -5,8 +5,5 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "date-fns": "2.4.1"
-  }
+  "private": true
 }

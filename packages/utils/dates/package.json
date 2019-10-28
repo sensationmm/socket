@@ -7,6 +7,6 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
-    "date-fns": "2.4.1"
+    "moment": "2.24.0"
   }
 }

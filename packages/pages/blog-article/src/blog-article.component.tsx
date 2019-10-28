@@ -1,7 +1,5 @@
-// import cx from 'classnames';
 import * as React from 'react';
 
-// import Image from '@somo/pda-components-image/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Share from '@somo/pda-components-share/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
@@ -39,10 +37,10 @@ const getLocation = () => (typeof window !== 'undefined' ? window.location.href 
 const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) => {
   const { footer, blogArticle } = i18n;
   const { body, excerpt } = content;
-  const { relatedArticles, sharePostHeader } = blogArticle;
+  const { sharePostHeader } = blogArticle;
 
   return (
-    <BlogArticleLayout hero={hero} footer={footer} relatedArticles={relatedArticles}>
+    <BlogArticleLayout hero={hero} footer={footer}>
       <PageSection className={styles.blogArticleContent}>
         {excerpt && (
           <Text className={styles.blogArticleExcerpt} element={'h2'} type={TextStyles.h2} color={ColorStyles.primary}>

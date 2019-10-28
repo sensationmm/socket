@@ -12,26 +12,6 @@ declare namespace EON {
     cta?: string;
   }
 
-  interface IBlogArticleContent {
-    type: string;
-    tag?: string;
-    content?: string;
-    src?: string;
-    alt?: string;
-  }
-
-  interface IBlogArticleRelated {
-    authorAvatar: string;
-    authorName: string;
-    publicationDate: string;
-    title: string;
-    shortDescription: string;
-    cta: {
-      text: string;
-      link: string;
-    };
-  }
-
   interface IAboutGoodBunch {
     text: string;
     list?: string[];
@@ -108,14 +88,6 @@ declare namespace EON {
       };
       blogArticle: {
         sharePostHeader: string;
-        relatedArticles: {
-          title: string;
-          list: IBlogArticleRelated[];
-          cta: {
-            text: string;
-            link: string;
-          };
-        };
       };
       about: {
         hero: {

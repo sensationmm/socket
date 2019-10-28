@@ -16,12 +16,14 @@ export interface IPageSectionProps {
   style?: PageSectionStyle;
   bgImage?: string | string[];
   className?: string;
+  isNarrow?: boolean;
 }
 
-const PageSection: React.FC<IPageSectionProps> = ({ element, style, bgImage = {}, className, children }) => {
+const PageSection: React.FC<IPageSectionProps> = ({ element, style, bgImage = {}, className, isNarrow, children }) => {
   const finalClassName = classNames(
     styles.component,
     className,
+    { [styles.narrow]: isNarrow },
     { [styles.primary]: style === PageSectionStyle.Primary },
     { [styles.primaryPattern]: style === PageSectionStyle.PrimaryPattern },
     { [styles.secondary]: style === PageSectionStyle.Secondary },

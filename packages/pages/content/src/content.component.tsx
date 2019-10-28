@@ -9,6 +9,8 @@ import * as styles from './content.module.css';
 interface IContentProps {
   hero: {
     title: string;
+    subTitle?: string;
+    cta?: string;
   };
   subTitle: string;
   body: string;

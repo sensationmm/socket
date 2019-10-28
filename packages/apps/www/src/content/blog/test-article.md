@@ -18,20 +18,21 @@ content:
     Quisque eget volutpat quam.
 
 
+    Mauris posuere, ligula viverra finibus sceleri
 
 
-    Mauris posuere, ligula viverra finibus scelerisque, tellus nibh faucibus
-    elit, facilisis ullamcorper velit purus a purus. Nullam finibus sagittis dui
-    ac fringilla. Aliquam augue magna, tempor in nisi ut, condimentum fringilla
-    leo. Fusce ut diam nec nisl vehicula vestibulum. Mauris id ex non nunc
-    gravida iaculis. Maecenas hendrerit iaculis metus, id finibus urna tempor
-    in. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
-    ridiculus mus. Ut in dolor non nunc tincidunt egestas. Morbi vel augue
-    auctor, aliquet arcu ut, lacinia nunc. Aliquam pellentesque, dolor id mattis
-    venenatis, mauris mauris dictum mi, a vulputate enim ipsum a mi. In
-    vestibulum sapien et lobortis gravida.
+    ![Splash](/assets/splash.webp)
 
 
+    sque, tellus nibh faucibus elit, facilisis ullamcorper velit purus a purus.
+    Nullam finibus sagittis dui ac fringilla. Aliquam augue magna, tempor in
+    nisi ut, condimentum fringilla leo. Fusce ut diam nec nisl vehicula
+    vestibulum. Mauris id ex non nunc gravida iaculis. Maecenas hendrerit
+    iaculis metus, id finibus urna tempor in. Orci varius natoque penatibus et
+    magnis dis parturient montes, nascetur ridiculus mus. Ut in dolor non nunc
+    tincidunt egestas. Morbi vel augue auctor, aliquet arcu ut, lacinia nunc.
+    Aliquam pellentesque, dolor id mattis venenatis, mauris mauris dictum mi, a
+    vulputate enim ipsum a mi. In vestibulum sapien et lobortis gravida.
 
 
     Aenean in erat at lectus pellentesque tincidunt. Sed nec accumsan erat.
@@ -42,8 +43,6 @@ content:
     vel leo et, mollis fringilla ligula. Ut in tortor felis. Aliquam in mi
     lacinia, lobortis nunc vitae, pharetra elit. Vivamus viverra mattis ligula,
     vel imperdiet mauris venenatis id. Suspendisse potenti.
-
-
 
 
     Quisque ac nisi sed ipsum consectetur tempus sed eu lorem. Vestibulum ac

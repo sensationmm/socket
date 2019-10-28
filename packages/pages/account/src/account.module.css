@@ -18,8 +18,11 @@
 .avatarWrapper {
   display: flex;
   height: 100%;
-  align-items: center;
   justify-content: center;
+
+  @media (--m) {
+    align-items: center;
+  }
 }
 
 .personalDetails .personalDetailsFirstRow {

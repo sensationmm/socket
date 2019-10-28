@@ -13,19 +13,31 @@ import * as styles from './account.module.css';
 
 interface IAccountPageProps {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'account'>;
-  values: {
-    name: string;
-    accountNumber: string;
-    supplyAddress: string;
-    email: string;
-    phone: string;
-    password: string;
-    correspondenceAddress: string;
-  };
 }
 
-const AccountPage: React.FC<IAccountPageProps> = ({ i18n, values }) => {
+interface IValues {
+  name?: string;
+  accountNumber?: string;
+  supplyAddress?: string;
+  email?: string;
+  phone?: string;
+  password?: string;
+  correspondenceAddress?: string;
+}
+
+const VALUES = {
+  name: 'John Smith',
+  accountNumber: '123-4568-9876-AB',
+  supplyAddress: '84 Boroughbridge Road, Penboyr, Swansea, SA44 1HR',
+  email: 'john.smith@somoglobal.com',
+  phone: '0750 884 63 45',
+  password: '********',
+  correspondenceAddress: '65 Shire Oak Road, Scarcewater, Truro, TR2 2RD',
+};
+
+const AccountPage: React.FC<IAccountPageProps> = ({ i18n }) => {
   const { account, footer } = i18n;
+  const [values] = React.useState<IValues>(VALUES);
 
   return (
     <AccountLayout footer={footer}>

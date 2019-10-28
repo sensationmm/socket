@@ -1,3 +1,4 @@
+// TODO this is a component we will use just to demo this story and it needs to be removed when input fields will be in place
 import cx from 'classnames';
 import React from 'react';
 

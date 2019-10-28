@@ -204,6 +204,20 @@ const data: EON.IWebAppTranslations = {
         cta: 'Follow us',
       },
     },
+    account: {
+      title: 'Account',
+      personal: {
+        title: 'Personal Deets',
+        subtitle: "That's you!",
+        nameLabel: 'Name',
+        accountNumberLabel: 'Account Number',
+        supplyAddressLabel: 'Supply Address',
+        emailLabel: 'Email',
+        phoneLabel: 'Phone Number',
+        passwordLabel: 'Password',
+        correspondenceAddressLabel: 'Correspondence Address',
+      },
+    },
   },
 };
 

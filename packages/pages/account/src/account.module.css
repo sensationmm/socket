@@ -1,0 +1,59 @@
+.personalDetails {
+  position: relative;
+  margin-top: var(--spacing-l);
+
+  @media (--s) {
+    margin-top: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    margin-top: var(--spacing-xxl);
+  }
+}
+
+.personalDetails > div[class^='header'] {
+  margin-bottom: 2px;
+}
+
+.personalDetails > div[class^='content'] {
+  padding: 0;
+}
+
+.avatarWrapper {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.personalDetails .personalDetailsFirstRow {
+  background-color: var(--color-grey-light);
+}
+
+.personalDetails .personalDetailsFirstRow,
+.personalDetails .personalDetailsSecondRow {
+  position: relative;
+  padding: var(--spacing-l);
+
+  @media (--m) {
+    padding: var(--spacing-xl);
+  }
+}
+
+.accountField .label {
+  margin-bottom: var(--spacing-xs);
+}
+
+.accountField .value {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  line-height: 1.62;
+}
+
+.accountField.dark .value {
+  border-bottom-color: var(--color-grey-midDarker);
+}
+
+.accountField.light .value {
+  border-bottom-color: var(--color-grey-light);
+}

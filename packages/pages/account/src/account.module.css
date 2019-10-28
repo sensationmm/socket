@@ -11,10 +11,6 @@
   }
 }
 
-.personalDetails > div[class^='header'] {
-  margin-bottom: 2px;
-}
-
 .personalDetails > div[class^='content'] {
   padding: 0;
 }

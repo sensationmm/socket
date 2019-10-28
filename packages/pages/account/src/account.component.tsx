@@ -37,6 +37,7 @@ const AccountPage: React.FC<IAccountPageProps> = ({ i18n, values }) => {
           className={styles.personalDetails}
           title={account.personal.title}
           subtitle={account.personal.subtitle}
+          hasGap={true}
         >
           <div className={styles.personalDetailsFirstRow}>
             <FlexRow layout={[35, 65]}>

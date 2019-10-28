@@ -31,13 +31,22 @@
   background-color: var(--color-text-body-secondary);
 }
 
+.accountSection.gap .header {
+  margin-bottom: 2px;
+}
+
 .accountSection .content {
   position: relative;
   border-radius: 0 0 10px 10px;
   border: 2px solid var(--color-grey-light);
+  border-top: 0;
   padding: var(--spacing-l);
 
   @media (--m) {
     padding: var(--spacing-xl);
   }
+}
+
+.accountSection.gap .content {
+  border-top: 2px solid var(--color-grey-light);
 }

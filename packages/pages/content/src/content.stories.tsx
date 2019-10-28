@@ -7,7 +7,7 @@ import Component from './content.component';
 const contentPageKnobs = () => ({
   hero: {
     title: text('Hero title', 'Default Template'),
-    subTitle: text('Heru subtitle', ''),
+    subTitle: text('Hero subtitle', ''),
     cta: text('CTA', ''),
   },
   subTitle: text('Subtitle', 'Cum sociis natoque penatibus et magnis dis.'),

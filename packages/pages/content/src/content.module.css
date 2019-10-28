@@ -20,8 +20,7 @@
 
   @media (--m) {
     font-size: var(--font-size-3xl);
-    margin-top: var(--spacing-m);
-    margin-bottom: var(--spacing-xl);
+    margin: var(--spacing-m) 0 var(--spacing-xl) 0;
   }
 }
 

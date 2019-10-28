@@ -9,23 +9,18 @@
 }
 
 .contentPageSubTitle {
-  font-size: var(--font-size-m);
-  font-weight: var(--font-weight-semibold);
   margin-bottom: var(--spacing-l);
 
   @media (--s) {
-    font-size: var(--font-size-l);
     margin-bottom: var(--spacing-xl);
   }
 
   @media (--m) {
-    font-size: var(--font-size-3xl);
     margin: var(--spacing-m) 0 var(--spacing-xl) 0;
   }
 }
 
 .contentPageParagraph {
-  font-size: var(--font-size-xxs);
   margin-bottom: var(--spacing-xl);
 }
 

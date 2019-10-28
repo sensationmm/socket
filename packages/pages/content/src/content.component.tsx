@@ -24,7 +24,7 @@ const ContentPage: React.FC<IContentPageProps> = ({ i18n, hero, subTitle, body }
 
   return (
     <RegularLayout hero={hero} footer={footer}>
-      <PageSection className={styles.contentPageWrapper}>
+      <PageSection isNarrow={true} className={styles.contentPageWrapper}>
         <Text element="h3" type={TextStyles.h3} className={styles.contentPageSubTitle}>
           {subTitle}
         </Text>

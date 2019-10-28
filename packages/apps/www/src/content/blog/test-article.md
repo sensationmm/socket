@@ -3,7 +3,7 @@ date: 2019-10-22T10:40:14.491Z
 title: Test article
 seo:
   metaDescription: testr article
-  pageTitle: Test
+  pageTitle: Test 2
 hero:
   heroBackground: Primary
 content:

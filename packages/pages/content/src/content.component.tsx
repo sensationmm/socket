@@ -6,18 +6,20 @@ import RegularLayout from '@somo/pda-layouts-regular/src';
 
 import * as styles from './content.module.css';
 
-interface IContentProps {
-  hero: {
-    title: string;
-    subTitle?: string;
-    cta?: string;
-  };
+interface IHero {
+  title: string;
+  subTitle?: string;
+  cta?: string;
+}
+
+interface IContentPageProps {
+  hero: IHero;
   subTitle: string;
   body: string;
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer'>;
 }
 
-const ContentPage: React.FC<IContentProps> = ({ i18n, hero, subTitle, body }) => {
+const ContentPage: React.FC<IContentPageProps> = ({ i18n, hero, subTitle, body }) => {
   const { footer } = i18n;
 
   return (

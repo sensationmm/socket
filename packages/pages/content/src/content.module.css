@@ -1,10 +1,10 @@
 .contentPageWrapper {
   @media (--s) {
-    padding: var(--spacing-xl);
+    padding: var(--spacing-l);
   }
 
   @media (--m) {
-    padding: var(--spacing-xxl);
+    padding: var(--spacing-xl);
   }
 }
 

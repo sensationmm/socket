@@ -1,7 +1,7 @@
 {
-  "name": "@somo/pda-utils-arrays",
+  "name": "@somo/pda-utils-i18n",
   "version": "0.0.0",
-  "author": "Ionut Cirja <ionut.cirja@somoglobal.com> (http://www.somoglobal.com)",
+  "author": "Kevin Reynolds <kevin.reynolds@somoglobal.com> (http://www.somoglobal.com)",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "UNLICENSED",

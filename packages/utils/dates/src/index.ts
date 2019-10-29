@@ -1,3 +1,7 @@
-import { format, parseISO } from 'date-fns';
+import moment from 'moment';
 
-export const formatISODate = (date: string) => format(parseISO(date), 'dd LLL yyyy');
+export const formatISODate = (date: string, format: string = 'DD MMM YYYY') => {
+  return moment(date)
+    .utc()
+    .format(format);
+};

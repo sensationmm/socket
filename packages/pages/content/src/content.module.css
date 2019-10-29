@@ -1,0 +1,33 @@
+.contentPageWrapper {
+  @media (--s) {
+    padding: var(--spacing-l);
+  }
+
+  @media (--m) {
+    padding: var(--spacing-xl);
+  }
+}
+
+.contentPageSubTitle {
+  margin-bottom: var(--spacing-l);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    margin: var(--spacing-m) 0 var(--spacing-xl) 0;
+  }
+}
+
+.contentPageParagraph {
+  margin-bottom: var(--spacing-xl);
+}
+
+.contentPageParagraph:first-child {
+  margin-top: var(--spacing-s);
+}
+
+.contentPageParagraph:last-child {
+  margin-bottom: var(--spacing-xs);
+}

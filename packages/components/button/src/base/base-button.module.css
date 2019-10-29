@@ -2,9 +2,7 @@
   position: relative;
   cursor: pointer;
   border: 0;
-  border-radius: var(--spacing-xl);
   line-height: normal;
-  padding: var(--spacing-m) var(--spacing-xl);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +12,7 @@
   white-space: nowrap;
   text-transform: uppercase;
   width: 100%;
+  padding: 4px;
 
   @media (--s) {
     width: auto;
@@ -25,10 +24,13 @@
 
   &:focus::after {
     position: absolute;
-    top: -4px;
-    left: -4px;
+    top: 0;
+    left: 0;
     content: '';
+    width: 100%;
+    height: 100%;
     border: 2px solid var(--color-brand-main);
+    border-radius: var(--spacing-xl);
     z-index: -1;
   }
 
@@ -49,35 +51,31 @@ a.base:focus {
 }
 
 .mini {
-  height: 36px;
-  padding: 0 20px;
+  height: 44px;
   font-size: var(--font-size-3xs);
 
   @media (--s) {
-    min-width: 170px;
-  }
-
-  &:focus::after {
-    width: 178px;
-    height: 44px;
-    border-radius: 89px;
+    min-width: 178px;
   }
 }
 
+.mini .baseContent {
+  padding: 0 20px;
+  height: 36px;
+}
+
 .regular {
-  height: 50px;
-  padding: 0 40px;
+  height: 58px;
   font-size: var(--font-size-xs);
 
   @media (--s) {
-    min-width: 254px;
+    min-width: 262px;
   }
+}
 
-  &:focus::after {
-    width: 262px;
-    height: 58px;
-    border-radius: 109px;
-  }
+.regular .baseContent {
+  padding: 0 40px;
+  height: 50px;
 }
 
 .full-width {
@@ -95,13 +93,15 @@ a.base:focus {
   justify-content: center;
 }
 
-.content {
-  min-width: 100%;
+.baseContent {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 1;
   white-space: nowrap;
+  border-radius: var(--spacing-xl);
+  flex: 1;
 }
 
 .iconLoading {

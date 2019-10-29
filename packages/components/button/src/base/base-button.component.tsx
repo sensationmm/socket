@@ -58,7 +58,9 @@ const BaseButton: React.FC<IBaseButtonProps> = ({
 
   return (
     <button className={buttonClass} {...props} disabled={disabled || isLoading}>
-      <div className={cx(mergedStyles.content, { [baseStyles.contentLoading]: isLoading })}>{children}</div>
+      <div className={cx(mergedStyles.baseContent, mergedStyles.content, { [baseStyles.contentLoading]: isLoading })}>
+        {children}
+      </div>
     </button>
   );
 };

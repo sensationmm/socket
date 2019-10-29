@@ -1,8 +1,6 @@
 import * as types from '../types';
 
-const initialState = {
-  user: {},
-};
+const initialState = {};
 
 export default (state = initialState, action) => {
   const { type, payload } = action;

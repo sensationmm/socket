@@ -3,34 +3,36 @@
 version: 0.2
 env:
   variables:
-    environment: "Testing"
-    S3Bucket: "s3://da-monorepo-source-bucket"
-    BRAND_NAME_LONG: "SOCKET"
-    BRAND_NAME_SHORT: "SOCKET"
-    SITE_URL: "https://localhost:8000"
-    GTM_ID: "GTM-T4ZQZNK"
+    environment: 'Testing'
+    S3Bucket: 's3://da-monorepo-source-bucket'
+    BRAND_NAME_LONG: 'SOCKET'
+    BRAND_NAME_SHORT: 'SOCKET'
+    SITE_URL: 'https://localhost:8000'
+    GTM_ID: 'GTM-T4ZQZNK'
+    API_BASE_URL: 'https://api-uk.integration.gentrack.cloud/v1'
+    AUTHORISATION_HEADER: 'Basic NzhkNGQ2MmMtNjJkYS00YTI0LTkwYjAtMjM1MjkwYzVlMzZjOkowZjMrc3Z4TFd6clRxSlUyQ3pXYjJCV3pac0FDSFF3OFVNK2hlOU54TU09'
 phases:
-    install:
-      runtime-versions:
-        nodejs: 10
-      commands:
-            - 'touch .yarnignore'
-            - 'yarn global add gatsby-cli'
-    pre_build:
-        commands:
-            - echo Installing source yarn dependencies...
-            - 'yarn install'
-    build:
-        commands:
-            - echo Build started on `date`
-            - 'cd ./packages/apps/storybook'
-            - 'yarn build'
-            - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/build --delete --acl "public-read"'
-            - 'cd ../www'
-            - 'yarn build'
-    post_build:
-        commands:
-            - 'aws s3 sync "./public" $S3Bucket/$CODEBUILD_SOURCE_VERSION/public --delete --acl "public-read"'
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - 'touch .yarnignore'
+      - 'yarn global add gatsby-cli'
+  pre_build:
+    commands:
+      - echo Installing source yarn dependencies...
+      - 'yarn install'
+  build:
+    commands:
+      - echo Build started on `date`
+      - 'cd ./packages/apps/storybook'
+      - 'yarn build'
+      - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/build --delete --acl "public-read"'
+      - 'cd ../www'
+      - 'yarn build'
+  post_build:
+    commands:
+      - 'aws s3 sync "./public" $S3Bucket/$CODEBUILD_SOURCE_VERSION/public --delete --acl "public-read"'
 artifacts:
   files:
     - '**/*'

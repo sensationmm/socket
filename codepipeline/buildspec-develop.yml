@@ -3,37 +3,39 @@
 version: 0.2
 env:
   variables:
-    environment: "Develop"
-    S3Bucket: "s3://da-codepipeline-bucket"
-    SiteBucket: "s3://da-gatsby-bucket"
-    BRAND_NAME_LONG: "SOCKET"
-    BRAND_NAME_SHORT: "SOCKET"
-    SITE_URL: "https://localhost:8000"
-    GTM_ID: "GTM-T4ZQZNK"
+    environment: 'Develop'
+    S3Bucket: 's3://da-codepipeline-bucket'
+    SiteBucket: 's3://da-gatsby-bucket'
+    BRAND_NAME_LONG: 'SOCKET'
+    BRAND_NAME_SHORT: 'SOCKET'
+    SITE_URL: 'https://localhost:8000'
+    GTM_ID: 'GTM-T4ZQZNK'
+    API_BASE_URL: 'https://api-uk.integration.gentrack.cloud/v1'
+    AUTHORISATION_HEADER: 'Basic NzhkNGQ2MmMtNjJkYS00YTI0LTkwYjAtMjM1MjkwYzVlMzZjOkowZjMrc3Z4TFd6clRxSlUyQ3pXYjJCV3pac0FDSFF3OFVNK2hlOU54TU09'
 phases:
-    install:
-      runtime-versions:
-        nodejs: 10
-      commands:
-            - 'touch .yarnignore'
-            - 'yarn global add gatsby-cli'
-    pre_build:
-        commands:
-            - echo Installing source yarn dependencies...
-            - 'yarn install'
-    build:
-        commands:
-            - echo Build started on `date`
-            - 'cd ./packages/apps/storybook'
-            - 'yarn build'
-            - 'aws s3 sync "./build" $S3Bucket/build --delete --acl "public-read"'
-            - 'aws s3 sync "./build" $SiteBucket/build --delete --acl "public-read"'
-            - 'cd ../www'
-            - 'yarn build'
-    post_build:
-        commands:
-            - 'aws s3 sync "./public" $S3Bucket/public --delete --acl "public-read"'
-            - 'aws s3 sync "./public" $SiteBucket --delete --acl "public-read"'
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - 'touch .yarnignore'
+      - 'yarn global add gatsby-cli'
+  pre_build:
+    commands:
+      - echo Installing source yarn dependencies...
+      - 'yarn install'
+  build:
+    commands:
+      - echo Build started on `date`
+      - 'cd ./packages/apps/storybook'
+      - 'yarn build'
+      - 'aws s3 sync "./build" $S3Bucket/build --delete --acl "public-read"'
+      - 'aws s3 sync "./build" $SiteBucket/build --delete --acl "public-read"'
+      - 'cd ../www'
+      - 'yarn build'
+  post_build:
+    commands:
+      - 'aws s3 sync "./public" $S3Bucket/public --delete --acl "public-read"'
+      - 'aws s3 sync "./public" $SiteBucket --delete --acl "public-read"'
 artifacts:
-    files:
-        - '**/*'
+  files:
+    - '**/*'

@@ -5,9 +5,20 @@ import reducer from './reducer';
 
 const initialState = {};
 
-const composeEnhancers = ((window as any) && (window as any).__REDUX_DEVTOOLS_EXTENSION__) || compose;
+const windowGlobal = typeof window !== 'undefined' && window;
 
-const createStoreWithMiddleware = composeEnhancers(applyMiddleware(thunk))(createStore);
-const store = createStoreWithMiddleware(reducer, initialState);
+const devtools =
+  process.env.NODE_ENV === 'development' && (windowGlobal as any).devToolsExtension
+    ? (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+    : (f) => f;
+
+const store = createStore(
+  reducer,
+  initialState,
+  compose(
+    applyMiddleware(thunk),
+    devtools,
+  ),
+);
 
 export default store;

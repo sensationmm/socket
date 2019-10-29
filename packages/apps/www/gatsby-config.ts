@@ -7,7 +7,14 @@ config({ path: envPath });
 import postCssPlugins from '@somo/pda-utils-postcss-plugins/src';
 import tokens from '@somo/pda-utils-tokens/src';
 
-const requiredEnv = ['GTM_ID', 'BRAND_NAME_LONG', 'BRAND_NAME_SHORT', 'SITE_URL']
+const requiredEnv = [
+  'GTM_ID',
+  'BRAND_NAME_LONG',
+  'BRAND_NAME_SHORT',
+  'SITE_URL',
+  'API_BASE_URL',
+  'AUTHORISATION_HEADER',
+]
   .filter((v) => !process.env[v])
   .join(', ');
 

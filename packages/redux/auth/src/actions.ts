@@ -1,8 +1,9 @@
 import axios from 'axios';
 
+import { Env, getEnv } from '@somo/pda-utils-env/src';
 import * as types from './types';
 
-const auth = axios.create({ baseURL: 'https://api-uk.integration.gentrack.cloud/v1' });
+const auth = axios.create({ baseURL: getEnv(Env.ApiBaseUrl) });
 
 export const getTokenSuccess = () => {
   return (dispatch) => {
@@ -14,15 +15,14 @@ export const getTokenSuccess = () => {
       .request({
         url: `/token`,
         method: 'POST',
-        data: {
-          username: '78d4d62c-62da-4a24-90b0-235290c5e36c',
-          password: 'J0f3+svxLWzrTqJU2CzWb2BWzZsACHQw8UM+he9NxMM=',
+        headers: {
+          Authorization: getEnv(Env.AuthorisationHeader),
         },
       })
-      .then((response) => {
+      .then(({ data }) => {
         return dispatch({
           type: types.GET_TOKEN_SUCCESS,
-          payload: response,
+          payload: data,
         });
       })
       .catch((error) =>

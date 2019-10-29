@@ -33,6 +33,13 @@ const plugins = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
+      name: `pages`,
+      path: `${__dirname}/src/content/pages`,
+    },
+  },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
       name: `authors`,
       path: `${__dirname}/src/content/authors`,
     },

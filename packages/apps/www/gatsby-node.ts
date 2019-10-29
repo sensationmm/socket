@@ -6,7 +6,7 @@ import i18n from './src/locales/en';
 export async function createPages({ actions, graphql }) {
   const { createPage } = actions;
 
-  const result = await graphql(`
+  const blogs = await graphql(`
     {
       allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/blog/" } }
@@ -23,10 +23,34 @@ export async function createPages({ actions, graphql }) {
     }
   `);
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  blogs.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: `/post${node.fields.slug}`,
       component: path.resolve(`./src/templates/blog-article.tsx`),
+      context: {
+        slug: node.fields.slug,
+      },
+    });
+  });
+
+  const contentPages = await graphql(`
+    {
+      allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/pages/" } }) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  contentPages.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    createPage({
+      path: `${node.fields.slug}`,
+      component: path.resolve(`./src/templates/content-page.tsx`),
       context: {
         slug: node.fields.slug,
       },

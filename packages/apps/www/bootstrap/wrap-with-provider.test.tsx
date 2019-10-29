@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import WrapWithProvider from './wrap-with-provider';
 
-describe('@somo/oxd-apps-www', () => {
+describe('@somo/pda-apps-www', () => {
   describe('bootstrap/wrap-with-provider', () => {
     it("renders it's element prop", () => {
       const Children = () => <div />;

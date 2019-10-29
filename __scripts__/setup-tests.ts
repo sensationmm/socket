@@ -26,8 +26,8 @@ const jestWindowEnv = {
   [Env.BrandShort]: 'BRAND_NAME_SHORT',
   [Env.BuildId]: 'BUILD_ID',
   [Env.SiteUrl]: 'SITE_URL',
-  [Env.ApiBaseUrl]: process.env.API_BASE_URL,
-  [Env.AuthorisationHeader]: process.env.AUTHORISATION_HEADER,
+  [Env.ApiBaseUrl]: 'API_BASE_URL',
+  [Env.AuthorisationHeader]: 'AUTHORISATION_HEADER',
 };
 
 setEnv(jestWindowEnv);

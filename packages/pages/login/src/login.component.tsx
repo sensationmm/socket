@@ -12,7 +12,7 @@ export interface ILoginPageProps extends IPropsFromDispatch, IPropsFromReduxStat
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'login'>;
 }
 
-const LoginPage: React.FC<ILoginPageProps> = ({ i18n, handleLogin, isAuthenticated }) => {
+const LoginPage: React.FC<ILoginPageProps> = ({ i18n, handleLogin, isAuthenticated = false }) => {
   if (isAuthenticated) {
     navigate('/account');
   }

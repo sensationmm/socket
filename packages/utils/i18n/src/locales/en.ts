@@ -22,6 +22,15 @@ const data: EON.IWebAppTranslations = {
       },
       body: "We haven't built this page yet! Come back soon",
     },
+    login: {
+      hero: {
+        title: 'Login page',
+      },
+      form: {
+        username: 'Username',
+        password: 'Password',
+      },
+    },
     homepage: {
       hero: {
         title: 'Take control. Own your energy.',

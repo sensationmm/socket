@@ -101,7 +101,7 @@ a.base:focus {
   z-index: 1;
   white-space: nowrap;
   border-radius: var(--spacing-xl);
-  flex: 1;
+  flex: 1 1 auto;
 }
 
 .iconLoading {

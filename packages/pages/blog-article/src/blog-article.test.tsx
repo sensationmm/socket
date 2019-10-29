@@ -30,26 +30,6 @@ describe('@somo/pda-pages-blog-article', () => {
         },
         blogArticle: {
           sharePostHeader: 'Share this post',
-          relatedArticles: {
-            title: 'Related news',
-            list: [
-              {
-                authorAvatar: 'https://picsum.photos/id/287/100/100',
-                authorName: 'John Smith',
-                publicationDate: '2019-09-07T15:53:00+05:00',
-                title: 'Nulla vitae elit libero a pharetra.',
-                shortDescription: 'Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
-                cta: {
-                  text: 'Read article',
-                  link: 'http://google.com',
-                },
-              },
-            ],
-            cta: {
-              text: 'See all news',
-              link: 'http://google.com/',
-            },
-          },
         },
       },
     };

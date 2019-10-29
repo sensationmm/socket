@@ -7,7 +7,7 @@ on:
 
 jobs:
   Linting:
-    name: Run
+    name: Run lint jobs
     runs-on: ubuntu-latest
 
     env:

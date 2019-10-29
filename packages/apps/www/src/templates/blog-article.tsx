@@ -1,6 +1,5 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
-// import { Article } from 'schema-dts';
 
 import BlogArticle from '@somo/pda-pages-blog-article/src';
 
@@ -39,24 +38,6 @@ export const query = graphql`
             }
             blogArticle {
               sharePostHeader
-              relatedArticles {
-                title
-                list {
-                  authorAvatar
-                  authorName
-                  publicationDate
-                  title
-                  shortDescription
-                  cta {
-                    text
-                    link
-                  }
-                }
-                cta {
-                  text
-                  link
-                }
-              }
             }
           }
         }

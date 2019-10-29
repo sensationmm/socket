@@ -11,6 +11,8 @@ const colors = {
   grey: {
     light: '#f0f0f0',
     mid: '#eaeaea',
+    midDarker: '#aeaeae',
+    darkLighter: '#6a6a6a',
     dark: '#2d2d2d',
   },
   text: {

@@ -21,6 +21,13 @@ storiesOf('Components|account-section', module)
       <div>This is my third line of content</div>
     </AccountSection>
   ))
+  .add('with Gap', () => (
+    <AccountSection title="Preferences" subtitle="Stay in the loop" disabled={false} hasGap={true}>
+      <div>This is my first line of content</div>
+      <div>This is my second line of content</div>
+      <div>This is my third line of content</div>
+    </AccountSection>
+  ))
   .add('Disabled', () => (
     <AccountSection title="Preferences" disabled={true}>
       <div>This is my first line of content</div>

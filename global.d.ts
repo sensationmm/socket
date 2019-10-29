@@ -108,6 +108,20 @@ declare namespace EON {
           cta: string;
         };
       };
+      account: {
+        title: string;
+        personal: {
+          title: string;
+          subtitle: string;
+          nameLabel: string;
+          accountNumberLabel: string;
+          supplyAddressLabel: string;
+          emailLabel: string;
+          phoneLabel: string;
+          passwordLabel: string;
+          correspondenceAddressLabel: string;
+        };
+      };
     };
     validation?: {
       [key: string]: string;

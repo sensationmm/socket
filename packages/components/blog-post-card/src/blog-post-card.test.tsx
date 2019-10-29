@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import { Link } from 'gatsby';
 import * as React from 'react';
 
+import { AvatarSizes } from '@somo/oxd-components-avatar/src';
 import Component from '.';
 
 describe('@somo/pda-components-blog-post-card component', () => {
@@ -32,7 +33,7 @@ describe('@somo/pda-components-blog-post-card component', () => {
       name: props.authorName,
       avatar: props.authorAvatar,
       date: props.date,
-      isAvatarSmall: true,
+      avatarSize: AvatarSizes.Small,
     });
   });
 

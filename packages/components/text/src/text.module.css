@@ -118,6 +118,15 @@
   }
 }
 
+.label {
+  font-size: var(--font-size-3xs);
+  line-height: 1.63;
+
+  @media (--m) {
+    font-size: var(--font-size-2xs);
+  }
+}
+
 .secondary {
   color: var(--color-basic-white);
 }
@@ -129,4 +138,8 @@
 
 .quaternary {
   color: var(--color-brand-main);
+}
+
+.quinary {
+  color: var(--color-grey-darkLighter);
 }

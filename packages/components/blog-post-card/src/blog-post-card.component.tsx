@@ -2,6 +2,7 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import * as React from 'react';
 
+import { AvatarSizes } from '@somo/oxd-components-avatar/src';
 import ArticleAuthor from '@somo/pda-components-article-author/src';
 import { Secondary } from '@somo/pda-components-button/src';
 import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
@@ -40,7 +41,7 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
   className,
 }) => (
   <ContentBox className={cx(styles.blogPostCard, className)} style={ContentBoxStyle.PrimaryPattern} height={height}>
-    <ArticleAuthor name={authorName} avatar={authorAvatar} date={date} isAvatarSmall={true} />
+    <ArticleAuthor name={authorName} avatar={authorAvatar} date={date} avatarSize={AvatarSizes.Small} />
     <Text className={styles.title} element="h3" color={ColorStyles.secondary} type={TextStyles.h2}>
       {trimText(title, maxTitleLength)}
     </Text>

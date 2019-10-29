@@ -13,6 +13,7 @@ export enum TextStyles {
   segmentCopyFixed = 'segmentCopyFixed',
   caption = 'caption',
   supportCopy = 'supportCopy',
+  label = 'label',
 }
 
 export enum ColorStyles {
@@ -20,6 +21,7 @@ export enum ColorStyles {
   secondary = 'secondary',
   tertiary = 'tertiary',
   quaternary = 'quaternary',
+  quinary = 'quinary',
 }
 
 interface ITextProps {

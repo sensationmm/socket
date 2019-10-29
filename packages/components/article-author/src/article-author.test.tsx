@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import { AvatarSizes } from '@somo/oxd-components-avatar/src';
 import Component from '.';
 
 describe('@somo/pda-components-article-author component', () => {
@@ -9,6 +10,7 @@ describe('@somo/pda-components-article-author component', () => {
     name: 'John Smith',
     avatar: '/path-to-image.png',
     date: '2019-09-07T15:53:00+05:00',
+    avatarSize: AvatarSizes.Small,
   };
 
   it('should render without error', () => {
@@ -26,6 +28,7 @@ describe('@somo/pda-components-article-author component', () => {
     expect(avatarProps).toMatchObject({
       picture: props.avatar,
       alt: props.name,
+      size: props.avatarSize,
     });
   });
 

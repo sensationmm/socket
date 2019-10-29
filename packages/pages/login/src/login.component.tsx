@@ -1,17 +1,22 @@
+import { navigate } from 'gatsby';
 import * as React from 'react';
 
 import { Primary } from '@somo/pda-components-button/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
-import { IPropsFromDispatch } from './login.container';
+import { IPropsFromDispatch, IPropsFromReduxState } from './login.container';
 
 // import * as styles from './login.module.css';
 
-export interface ILoginPageProps extends IPropsFromDispatch {
+export interface ILoginPageProps extends IPropsFromDispatch, IPropsFromReduxState {
   i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'login'>;
 }
 
-const LoginPage: React.FC<ILoginPageProps> = ({ i18n, handleLogin }) => {
+const LoginPage: React.FC<ILoginPageProps> = ({ i18n, handleLogin, isAuthenticated }) => {
+  if (isAuthenticated) {
+    navigate('/account');
+  }
+
   const { login, footer } = i18n;
   const { hero } = login;
 

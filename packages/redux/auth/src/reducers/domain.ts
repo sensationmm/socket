@@ -1,6 +1,9 @@
+import { get as storageGet, StorageKeys, update as updateStorage } from '@somo/pda-utils-storage/src';
 import * as types from '../types';
 
-const initialState = {};
+const initialState = {
+  ...storageGet(StorageKeys.auth),
+};
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
@@ -10,9 +13,9 @@ export default (state = initialState, action) => {
       return { ...state, fetchStatus: 'PENDING' };
     }
     case types.GET_TOKEN_SUCCESS: {
-      const user = payload;
+      updateStorage(StorageKeys.auth, payload);
 
-      return { ...state, user };
+      return { ...state, ...payload, fetchStatus: 'COMPLETE' };
     }
     case types.GET_TOKEN_FAILURE: {
       return { ...state, fetchStatus: 'ERROR' };

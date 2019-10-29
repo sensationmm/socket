@@ -109,12 +109,10 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
   }
 
   public setSelectedListItem(e) {
-    if (typeof document !== `undefined`) {
-      const selectedTextToAppend = document.createTextNode(e.target.innerText);
-      this.dropdownSelectedNode.innerHTML = null;
-      this.dropdownSelectedNode.appendChild(selectedTextToAppend);
-      this.props.onChange(e.target.dataset.val);
-    }
+    const selectedTextToAppend = document.createTextNode(e.target.innerText);
+    this.dropdownSelectedNode.innerHTML = null;
+    this.dropdownSelectedNode.appendChild(selectedTextToAppend);
+    this.props.onChange(e.target.dataset.val);
   }
 
   public closeList() {
@@ -145,33 +143,31 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
 
   /* istanbul ignore next */
   public focusNextListItem(direction) {
-    if (typeof document !== `undefined`) {
-      const node = ReactDOM.findDOMNode(this) as HTMLElement;
-      const activeElementId = document.activeElement && (document.activeElement.id as string);
+    const node = ReactDOM.findDOMNode(this) as HTMLElement;
+    const activeElementId = document.activeElement && (document.activeElement.id as string);
 
-      if (activeElementId === 'dropdown-selected') {
-        const temp = node.querySelector(`#${this.listItemIds[0]}`) as HTMLElement;
-        temp.focus();
-      } else {
-        const currentActiveElementIndex = activeElementId && this.listItemIds.indexOf(activeElementId);
+    if (activeElementId === 'dropdown-selected') {
+      const temp = node.querySelector(`#${this.listItemIds[0]}`) as HTMLElement;
+      temp.focus();
+    } else {
+      const currentActiveElementIndex = activeElementId && this.listItemIds.indexOf(activeElementId);
 
-        if (currentActiveElementIndex !== null) {
-          if (direction === KEYS.KEY_ARROW_DOWN) {
-            const currentActiveElementIsNotLastItem = currentActiveElementIndex < this.listItemIds.length - 1;
+      if (currentActiveElementIndex !== null) {
+        if (direction === KEYS.KEY_ARROW_DOWN) {
+          const currentActiveElementIsNotLastItem = currentActiveElementIndex < this.listItemIds.length - 1;
 
-            if (currentActiveElementIsNotLastItem) {
-              const nextListItemId = this.listItemIds[(currentActiveElementIndex as number) + 1];
-              const temp = node.querySelector(`#${nextListItemId}`) as HTMLElement;
-              temp.focus();
-            }
-          } else if (direction === KEYS.KEY_ARROW_UP) {
-            const currentActiveElementIsNotFirstItem = currentActiveElementIndex > 0;
+          if (currentActiveElementIsNotLastItem) {
+            const nextListItemId = this.listItemIds[(currentActiveElementIndex as number) + 1];
+            const temp = node.querySelector(`#${nextListItemId}`) as HTMLElement;
+            temp.focus();
+          }
+        } else if (direction === KEYS.KEY_ARROW_UP) {
+          const currentActiveElementIsNotFirstItem = currentActiveElementIndex > 0;
 
-            if (currentActiveElementIsNotFirstItem) {
-              const nextListItemId = this.listItemIds[(currentActiveElementIndex as number) - 1];
-              const temp = node.querySelector(`#${nextListItemId}`) as HTMLElement;
-              temp.focus();
-            }
+          if (currentActiveElementIsNotFirstItem) {
+            const nextListItemId = this.listItemIds[(currentActiveElementIndex as number) - 1];
+            const temp = node.querySelector(`#${nextListItemId}`) as HTMLElement;
+            temp.focus();
           }
         }
       }

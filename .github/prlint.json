@@ -21,11 +21,5 @@
       "pattern": "^(feature|fix)/",
       "message": "Your branch name is invalid"
     }
-  ],
-  "additions": [
-    {
-      "pattern": "0|^[1-9]$|^[1-9]\\d$",
-      "message": "Your PR is too big (over 99 additions)"
-    }
   ]
 }

@@ -11,7 +11,7 @@
   }
 }
 
-.personalDetails > div[class^='content'] {
+.personalDetails > div:last-of-type {
   padding: 0;
 }
 

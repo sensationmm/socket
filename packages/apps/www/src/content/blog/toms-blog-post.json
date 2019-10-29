@@ -1,0 +1,16 @@
+{
+"date": "2019-10-30T17:37:45.496Z",
+  "title": "Toms Blog post",
+  "seo": {
+    "pageTitle": "Toms Blog post",
+    "metaDescription": "Toms Blog post"
+  },
+  "hero": {
+    "heroBackground": "None"
+  },
+  "content": {
+    "excerpt": "Toms Blog post",
+    "body": "The UK has a long history with the coal industry. The engine of the Industrial Revolution was fuelled by the dirty black rock and led to this small island nation becoming a superpower and a world leader in engineering. By 1920, 1.19m people worked in coal mines stretching from the Central Belt of Scotland to Kent. However, the industry suffered a steep decline in the 1950s and the next 3 decades saw the decimation of King Coal. By the 21st century hardly any mines remained open with the UK instead relying on imports from Russia, The US and Columbia. A remarkable milestone in the transition to low-carbon energy generation was reached on 21st April 2017 when the UK went a whole day without burning coal for electricity for the first time in 135 years.\n\nAn estimated 59,000 mine shafts lie dark and disused today. The closures of these mines left some communities enduring decades of unemployment, but this could all be about to change, and the whirr and clank of motors and winches could be heard again.\n\nDisused mine shafts around the UK could soon be given a new lease of life and used as giant gravity batteries, capable of reacting to grid demands in under a second. This novel form of energy storage under development by a Scottish engineering company could be used like chemical batteries to rapidly respond to fluctuating grid demands.\n\nEdinburgh based start-up, Gravitricity which has just received a £650,000 grant from Innovate UK is developing a surprising new source of “gravity energy”. They hope to use Britain’s long abandoned mines to make better use of clean electricity at half the cost of lithium-ion batteries.\n\nBritain’s least expensive “virtual battery” could be produced by hoisting and dropping 12,000-tonne weights (half the weight of the Statue of liberty) down disused mine shafts according to London’s Imperial College. Gravitricity plans to supply enormous weights and winches for these disused mine shafts. When energy is plentiful, the weights will be winched towards the surface, in much the same way that water is driven uphill in pumped hydro storage. However, unlike pumped hydro, the system should be able to respond to variations in demand almost instantly as well as having a potential degradation-free operational lifespan of 50 years. Surplus power will be drawn from the grid to raise the weights closer to ground level. When the time comes to inject energy back into the grid, the weights can be released for a burst of power generation by dropping the weights hundreds of metres down vertical shafts.\n\nThe scheme imitates the way that hydropower projects work. Hydropower projects have played a key role in helping to balance the electricity grid since the Dinorwig project in Wales began operating in the mid-1970s.\n\nImperial’s report found that electricity released by a typical 10MW lithium-ion battery project, capable of releasing 24MW of electricity per hour, would cost $367 (£283) per megawatt-hour over its lifetime compared with a cost of $171 (£132)/MWh for electricity from a Gravitricity project."
+  }
+}
+

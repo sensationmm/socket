@@ -17,18 +17,10 @@ describe('My Profile container', () => {
         expect(props.isAuthenticated).toBeFalsy();
       });
 
-      it('isAuthenticated is false where user is defined but isLoadingUser is true', () => {
-        const props = mapStateToProps({
-          ...state,
-          user: {},
-        });
-        expect(props.isAuthenticated).toBeFalsy();
-      });
-
       it('isAuthenticated is true where user is defined and isLoadingUser is false', () => {
         const props = mapStateToProps({
           ...state,
-          oidc: { user: {}, isLoadingUser: false },
+          user: { accessToken: '1234567890' },
         });
         expect(props.isAuthenticated).toBeTruthy();
       });

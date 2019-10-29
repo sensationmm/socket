@@ -5,6 +5,8 @@ import { GlobalWithFetchMock } from 'jest-fetch-mock';
 // https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+import { Env, setEnv } from '@somo/pda-utils-env/src';
+
 configure({ adapter: new Adapter() });
 
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
@@ -19,8 +21,13 @@ window.matchMedia = () => ({
 });
 
 // ADD ENV
-// const jestWindowEnv = {
+const jestWindowEnv = {
+  [Env.BrandLong]: 'BRAND_NAME_LONG',
+  [Env.BrandShort]: 'BRAND_NAME_SHORT',
+  [Env.BuildId]: 'BUILD_ID',
+  [Env.SiteUrl]: 'SITE_URL',
+  [Env.ApiBaseUrl]: process.env.API_BASE_URL,
+  [Env.AuthorisationHeader]: process.env.AUTHORISATION_HEADER,
+};
 
-// };
-
-// setEnv(jestWindowEnv);
+setEnv(jestWindowEnv);

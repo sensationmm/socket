@@ -21,7 +21,7 @@ const ArticleAuthor: React.FC<IArticleAuthorProps> = ({ name, avatar, avatarSize
       <Avatar
         picture={avatar}
         alt={name}
-        size={AvatarSizes.Small}
+        size={avatarSize}
         style={AvatarStyles.Primary}
         svgType={SvgTypes.Profile}
         isResponsive={isAvatarResponsive}

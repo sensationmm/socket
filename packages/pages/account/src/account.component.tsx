@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/oxd-components-avatar/src';
 import AccountSection from '@somo/pda-components-account-section/src';
+import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/pda-components-avatar/src';
 import FlexRowGrid from '@somo/pda-components-flex-row-grid/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import PageSection from '@somo/pda-components-page-section/src';

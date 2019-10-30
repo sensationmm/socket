@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { AvatarSizes } from '@somo/oxd-components-avatar/src';
 import AppTemplate from '@somo/pda-components-app-template/src';
 import ArticleAuthor from '@somo/pda-components-article-author/src';
+import { AvatarSizes } from '@somo/pda-components-avatar/src';
 import Footer from '@somo/pda-components-footer/src';
 import NavBar from '@somo/pda-components-navbar/src';
 import PageHero from '@somo/pda-components-page-hero/src';

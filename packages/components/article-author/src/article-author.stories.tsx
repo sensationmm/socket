@@ -2,7 +2,7 @@ import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import { AvatarSizes } from '@somo/oxd-components-avatar/src';
+import { AvatarSizes } from '@somo/pda-components-avatar/src';
 import ArticleAuthor from '.';
 
 const Sizes = {

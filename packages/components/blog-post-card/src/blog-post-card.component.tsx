@@ -2,8 +2,8 @@ import cx from 'classnames';
 import { Link } from 'gatsby';
 import * as React from 'react';
 
-import { AvatarSizes } from '@somo/oxd-components-avatar/src';
 import ArticleAuthor from '@somo/pda-components-article-author/src';
+import { AvatarSizes } from '@somo/pda-components-avatar/src';
 import { Secondary } from '@somo/pda-components-button/src';
 import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';

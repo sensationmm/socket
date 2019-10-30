@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { AvatarSizes } from '@somo/oxd-components-avatar/src';
+import { AvatarSizes } from '@somo/pda-components-avatar/src';
 import Component from '.';
 
 describe('@somo/pda-components-article-author component', () => {

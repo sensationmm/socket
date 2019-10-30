@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/oxd-components-avatar/src';
+import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/pda-components-avatar/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import { formatISODate } from '@somo/pda-utils-dates/src';
 

@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import { Link } from 'gatsby';
 import * as React from 'react';
 
-import { AvatarSizes } from '@somo/oxd-components-avatar/src';
+import { AvatarSizes } from '@somo/pda-components-avatar/src';
 import Component from '.';
 
 describe('@somo/pda-components-blog-post-card component', () => {

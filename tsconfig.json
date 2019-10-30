@@ -40,7 +40,7 @@
       "@somo/pda-components-*": ["./components/*"],
       "@somo/pda-pages-*": ["./pages/*"],
       "@somo/pda-utils-*": ["./utils/*"],
-      "@somo/pda-graphql-*": ["./graphql/*"]
+      "@somo/pda-graphql-*": ["./graphql/*"],
     }
   },
   "include": ["packages/**/*", "./global.d.ts", "./index.d.ts"],

@@ -1,7 +1,7 @@
 import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
 
-import i18n from './src/locales/en';
+import i18n from '@somo/pda-utils-i18n/src/locales/en';
 
 export async function createPages({ actions, graphql }) {
   const { createPage } = actions;

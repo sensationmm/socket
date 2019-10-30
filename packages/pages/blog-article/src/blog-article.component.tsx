@@ -47,21 +47,7 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) =
             {excerpt}
           </Text>
         )}
-        {body && (
-          <>
-            {body.split('\n\n').map((paragraph, count) => (
-              <Text
-                key={`text-${count}`}
-                className={styles.blogArticleParagraph}
-                element={'p'}
-                type={TextStyles.body}
-                color={ColorStyles.tertiary}
-              >
-                {paragraph}
-              </Text>
-            ))}
-          </>
-        )}
+        {body && <div className={styles.blogArticleContentBody} dangerouslySetInnerHTML={{ __html: body }} />}
         <Share header={sharePostHeader} articleTitle={hero.title} articleLink={getLocation()} />
       </PageSection>
     </BlogArticleLayout>

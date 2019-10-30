@@ -1,5 +1,7 @@
 import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
+import remark from 'remark';
+import remarkHTML from 'remark-html';
 
 import i18n from '@somo/pda-utils-i18n/src/locales/en';
 
@@ -60,6 +62,14 @@ export async function createPages({ actions, graphql }) {
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators;
+
+  const markdown = ((node.frontmatter || {}).content || {}).body;
+  if (markdown) {
+    node.frontmatter.content.body = remark()
+      .use(remarkHTML)
+      .processSync(markdown)
+      .toString();
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });

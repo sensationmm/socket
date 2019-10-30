@@ -10,7 +10,7 @@ describe('@somo/pda-pages-blog-article', () => {
   beforeAll(() => {
     props = {
       content: {
-        body: 'Body',
+        body: '<p>Body</p>',
         excerpt: 'Excerpt',
       },
       hero: {

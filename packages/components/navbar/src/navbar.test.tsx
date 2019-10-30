@@ -1,3 +1,4 @@
+import { fireEvent, render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import { navigate } from 'gatsby';
 import * as React from 'react';
@@ -41,10 +42,10 @@ describe('@somo/pda-components-page-hero component', () => {
   });
 
   it('triggers mobile menu', () => {
-    wrapper = shallow(<Component menu={MenuMock} />);
-
-    wrapper.find('.mobileMenu').simulate('click');
-
-    expect(wrapper.state().menuOpen).toEqual(true);
+    const { container, getByRole } = render(<Component menu={MenuMock} />);
+    fireEvent.click(getByRole('button'));
+    // @ts-ignore
+    expect(container.firstChild.childNodes[1].classList.contains('mobileOpen')).toEqual(true);
+    expect(document.body.classList.contains('bodyOverflowHidden')).toEqual(true);
   });
 });

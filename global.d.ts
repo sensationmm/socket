@@ -132,7 +132,7 @@ declare namespace EON {
         };
       };
     };
-    validation?: {
+    validation: {
       [key: string]: string;
     }
   }

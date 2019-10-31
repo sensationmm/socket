@@ -22,6 +22,7 @@ describe('icons component', () => {
       preserveAspectRatio: 'xMidYMid',
       style: {
         display: 'flex',
+        margin: 'auto',
         fill: 'currentColor',
         height: '100%',
         stroke: 'none',
@@ -44,6 +45,7 @@ describe('icons component', () => {
       preserveAspectRatio: 'xMidYMid',
       style: {
         display: 'flex',
+        margin: 'auto',
         fill: 'currentColor',
         height: '100%',
         stroke: props.stroke,
@@ -66,6 +68,7 @@ describe('icons component', () => {
       preserveAspectRatio: 'xMidYMid',
       style: {
         display: 'flex',
+        margin: 'auto',
         fill: 'currentColor',
         height: '100%',
         stroke: 'none',
@@ -88,6 +91,7 @@ describe('icons component', () => {
       preserveAspectRatio: 'xMidYMid',
       style: {
         display: 'flex',
+        margin: 'auto',
         fill: 'currentColor',
         height: props.size,
         stroke: 'none',

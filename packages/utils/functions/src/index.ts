@@ -18,10 +18,14 @@ export const getByValue = (arr: any[], key: string, value: any) => {
 };
 
 // outputs number as currency with thousands separator
-export const formatCurrency = (amount: number, thousands: string = ',') => {
-  amount = Math.abs(Number(amount));
+export const formatCurrency = (amount?: string | number, thousands: string = ',') => {
+  if (!amount && amount !== 0) {
+    return;
+  }
 
-  const i = amount.toString();
+  const parsedAmount = Math.abs(Number(amount));
+
+  const i = parsedAmount.toString();
   const j = i.length > 3 ? i.length % 3 : 0;
 
   return (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, `$1${thousands}`);
@@ -36,6 +40,8 @@ const functions = {
   inArray,
   objectKeyExists,
   getByValue,
+  formatCurrency,
+  stripCurrency,
 };
 
 export default functions;

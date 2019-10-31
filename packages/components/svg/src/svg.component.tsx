@@ -56,6 +56,7 @@ const SVG: React.FC<ISVGProps> = ({
         fill={fill}
         style={{
           display: 'flex',
+          margin: 'auto',
           width: finalWidth,
           height: finalHeight,
           fill,

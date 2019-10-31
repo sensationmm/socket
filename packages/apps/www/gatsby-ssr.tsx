@@ -14,6 +14,7 @@ export function onRenderBody({ setPreBodyComponents }) {
     [Env.SiteUrl]: process.env.SITE_URL || '',
     [Env.ApiBaseUrl]: process.env.API_BASE_URL || '',
     [Env.AuthorisationHeader]: process.env.AUTHORISATION_HEADER || '',
+    [Env.GraphqlUrl]: process.env.GRAPHQL_URL || '',
   };
 
   setPreBodyComponents([

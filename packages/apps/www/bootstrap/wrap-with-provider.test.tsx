@@ -1,6 +1,8 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
+
+import { Provider as Apollo } from '@somo/pda-graphql-apollo/src';
 import WrapWithProvider from './wrap-with-provider';
 
 describe('@somo/pda-apps-www', () => {
@@ -14,6 +16,11 @@ describe('@somo/pda-apps-www', () => {
       const Children = () => <div />;
       const wrapper = shallow(<WrapWithProvider element={Children} />);
       expect(wrapper.find(Provider)).toBeDefined();
+    });
+    it('renders an Apollo provider', () => {
+      const Children = () => <div />;
+      const wrapper = shallow(<WrapWithProvider element={Children} />);
+      expect(wrapper.find(Apollo)).toBeDefined();
     });
   });
 });

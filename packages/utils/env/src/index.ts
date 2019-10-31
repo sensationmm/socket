@@ -1,6 +1,5 @@
 const globalCacheKey = 'env';
 
-// ADD ENV
 export enum Env {
   BrandLong = 'BRAND_NAME_LONG',
   BrandShort = 'BRAND_NAME_SHORT',
@@ -8,6 +7,7 @@ export enum Env {
   SiteUrl = 'SITE_URL',
   ApiBaseUrl = 'API_BASE_URL',
   AuthorisationHeader = 'AUTHORISATION_HEADER',
+  GraphqlUrl = 'GRAPHQL_URL',
 }
 
 export const setEnv = (obj: { [key in Env]: string }) => {

@@ -12,6 +12,7 @@ env:
     GTM_ID: 'GTM-T4ZQZNK'
     API_BASE_URL: 'https://api-uk.integration.gentrack.cloud/v1'
     AUTHORISATION_HEADER: 'Basic NzhkNGQ2MmMtNjJkYS00YTI0LTkwYjAtMjM1MjkwYzVlMzZjOkowZjMrc3Z4TFd6clRxSlUyQ3pXYjJCV3pac0FDSFF3OFVNK2hlOU54TU09'
+    GRAPHQL_URL: 'http://localhost:4000'
 phases:
   install:
     runtime-versions:

@@ -1,4 +1,4 @@
-import Apollo from '@somo/pda-graphql-apollo/src';
+import { Provider as Apollo } from '@somo/pda-graphql-apollo/src';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';

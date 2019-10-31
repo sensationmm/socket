@@ -1,6 +1,5 @@
 const globalCacheKey = 'env';
 
-// ADD ENV
 export enum Env {
   BrandLong = 'BRAND_NAME_LONG',
   BrandShort = 'BRAND_NAME_SHORT',

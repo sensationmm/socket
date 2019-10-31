@@ -6,9 +6,12 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "develop": "nodemon --exec ts-node src/index.ts",
     "start": "ts-node ./src/index.ts",
     "build": "tsc"
+  },
+  "nodemonConfig" : {
+    "ext": "ts,json,graphql"
   },
   "dependencies": {
     "@graphql-modules/core": "0.7.13",

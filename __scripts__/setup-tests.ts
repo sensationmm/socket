@@ -28,6 +28,7 @@ const jestWindowEnv = {
   [Env.SiteUrl]: 'SITE_URL',
   [Env.ApiBaseUrl]: 'API_BASE_URL',
   [Env.AuthorisationHeader]: 'AUTHORISATION_HEADER',
+  [Env.GraphqlUrl]: 'GRAPHQL_URL',
 };
 
 setEnv(jestWindowEnv);

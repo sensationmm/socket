@@ -21,7 +21,8 @@
     "test:clearCache": "jest --clearCache",
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
     "tsc:e2e": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "gatsby": "(cd packages/apps/www && yarn develop) & (cd packages/apps/api && yarn develop)"
   },
   "devDependencies": {
     "@commitlint/cli": "8.1.0",

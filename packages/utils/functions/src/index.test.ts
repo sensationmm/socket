@@ -1,4 +1,4 @@
-import * as functions from './';
+import functions from './';
 
 describe('Functions', () => {
   describe('inArray()', () => {
@@ -76,21 +76,33 @@ describe('Functions', () => {
 
   describe('formatCurrency()', () => {
     test('returns currency value', () => {
-      const value = 1000000;
+      const value = '1000000';
       const result = functions.formatCurrency(value);
       expect(result).toEqual('1,000,000');
     });
 
     test('returns shortcurrency value', () => {
-      const value = 100;
+      const value = '100';
       const result = functions.formatCurrency(value);
       expect(result).toEqual('100');
     });
 
     test('returns currency value with custom separator', () => {
-      const value = 1000000;
+      const value = '1000000';
       const result = functions.formatCurrency(value, '.');
       expect(result).toEqual('1.000.000');
+    });
+
+    test('handles 0 as a valid input', () => {
+      const result = functions.formatCurrency(0);
+
+      expect(result).toEqual('0');
+    });
+
+    test('handles no value passed', () => {
+      const result = functions.formatCurrency();
+
+      expect(result).toEqual(undefined);
     });
   });
 

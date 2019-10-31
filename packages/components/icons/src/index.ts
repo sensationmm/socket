@@ -8,5 +8,6 @@ export { default as LinkedIn } from './assets/linkedin.svg';
 export { default as Logo } from './assets/logo.svg';
 export { default as Mail } from './assets/mail.svg';
 export { default as Profile } from './assets/profile.svg';
+export { default as Tick } from './assets/tick.svg';
 export { default as Twitter } from './assets/twitter.svg';
 export { default as LogoMark } from './assets/logomark.svg';

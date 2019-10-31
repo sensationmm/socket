@@ -9,7 +9,7 @@ const types = {
   Inline: FormSelectType.Inline,
 };
 
-storiesOf('Form Elements|select', module)
+storiesOf('Form Elements|Select', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => {

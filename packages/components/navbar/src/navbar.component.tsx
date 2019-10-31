@@ -12,41 +12,34 @@ interface INavbarProps {
   menu?: IMenuProps['links'];
 }
 
-interface INavbarState {
-  menuOpen: boolean;
-}
+const Navbar: React.FC<INavbarProps> = ({ menu }) => {
+  const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
 
-class Navbar extends React.Component<INavbarProps, INavbarState> {
-  constructor(props: INavbarProps) {
-    super(props);
+  React.useEffect(() => {
+    if (menuOpen) {
+      document.body.classList.add(styles.bodyOverflowHidden);
+    } else {
+      document.body.classList.remove(styles.bodyOverflowHidden);
+    }
+  }, [menuOpen]);
 
-    this.state = {
-      menuOpen: false,
-    };
-  }
-
-  public render() {
-    const { menu } = this.props;
-    const { menuOpen } = this.state;
-
-    return (
-      <div className={styles.navbar}>
-        <div className={styles.logo} onClick={() => navigate('/')}>
-          <SVG children={Logo} />
-        </div>
-
-        {menu && (
-          <div className={cx(styles.headerMenu, { [styles.mobileOpen]: menuOpen })}>
-            <Menu links={menu} />
-          </div>
-        )}
-
-        <div className={styles.mobileMenu} onClick={() => this.setState({ menuOpen: !menuOpen })}>
-          <SVG children={BurgerMenu} />
-        </div>
+  return (
+    <div className={styles.navbar}>
+      <div className={styles.logo} onClick={() => navigate('/')}>
+        <SVG children={Logo} />
       </div>
-    );
-  }
-}
+
+      {menu && (
+        <div className={cx(styles.headerMenu, { [styles.mobileOpen]: menuOpen })}>
+          <Menu links={menu} />
+        </div>
+      )}
+
+      <div role="button" className={styles.mobileMenu} onClick={() => setMenuOpen(!menuOpen)}>
+        <SVG children={BurgerMenu} />
+      </div>
+    </div>
+  );
+};
 
 export default Navbar;

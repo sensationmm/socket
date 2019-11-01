@@ -1,46 +1,23 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
-// import { RESTDataSource } from 'apollo-datasource-rest';
-
-// @Injectable({
-//   scope: ProviderScope.Session,
-// })
-// export class UserProvider extends RESTDataSource {
-//   public baseURL = 'https://movies-api.example.com/';
-
-//   public async getUserById(id) {
-//     return this.get(`/junifer/customers/${id}`);
-//   }
-// }
+import { RESTDataSource } from 'apollo-datasource-rest';
 
 @Injectable({
   scope: ProviderScope.Session,
 })
-export class UserProvider {
-  private users = [
-    {
-      _id: '0',
-      name: 'Tom',
-      email: 'tm@sg.com',
-      phone: '1234567890',
-    },
-    {
-      _id: '1',
-      name: 'George',
-    },
-    {
-      _id: '2',
-      name: 'Kevin',
-    },
-    {
-      _id: '3',
-      name: 'Ralph',
-    },
-    {
-      _id: '4',
-      name: 'Ionut',
-    },
-  ];
-  public getUserById(id) {
-    return this.users.find((user) => user._id === id);
+export class UserProvider extends RESTDataSource {
+  public baseURL = 'https://api-uk.integration.gentrack.cloud/v1';
+
+  public async getUserById(id) {
+    try {
+      const userData = await this.get(`/junifer/customers/${id}`);
+      const accountData = await this.get(`/junifer/accounts/${id}/productDetails`);
+
+      return {
+        ...userData,
+        ...accountData,
+      };
+    } catch (error) {
+      throw error;
+    }
   }
 }

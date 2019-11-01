@@ -10,9 +10,9 @@ hero:
   heroBackground: PrimaryPattern
 content:
   body: >-
-    However, looking after a household’s energy is not something that is easy
-    for everybody. There are many vulnerable people in the UK who struggle to
-    set up and maintain this essential service.  Millions of Britons are in fuel
+    looking after a household’s energy is not something that is easy for
+    everybody. There are many vulnerable people in the UK who struggle to set up
+    and maintain this essential service.  Millions of Britons are in fuel
     poverty alone.
 
 

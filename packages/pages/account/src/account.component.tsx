@@ -18,7 +18,7 @@ const AccountPage: React.FC<IAccountPageProps> = ({ i18n }) => {
         <Text element="h1" type={TextStyles.h1}>
           {account.title}
         </Text>
-        <PersonalDetails i18n={i18n.account.personal} />
+        <PersonalDetails i18n={account.personal} />
       </PageSection>
     </AccountLayout>
   );

@@ -2,7 +2,6 @@ import { MockedProvider } from '@apollo/react-testing';
 import { render } from '@testing-library/react';
 import { GraphQLError } from 'graphql';
 import React from 'react';
-import { MemoryRouter } from 'react-router';
 import wait from 'waait';
 import Component, { GET_USER_QUERY } from './personal-details.component';
 
@@ -27,9 +26,7 @@ describe('PersonalDetails component', () => {
   it('should render a loading message on query start', () => {
     const { getByText } = render(
       <MockedProvider mocks={[]} addTypename={false}>
-        <MemoryRouter>
-          <Component {...props} />
-        </MemoryRouter>
+        <Component {...props} />
       </MockedProvider>,
     );
 
@@ -57,9 +54,7 @@ describe('PersonalDetails component', () => {
     ];
     const { getByText } = render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <MemoryRouter>
-          <Component {...props} />
-        </MemoryRouter>
+        <Component {...props} />
       </MockedProvider>,
     );
     await wait(0);
@@ -99,9 +94,7 @@ describe('PersonalDetails component', () => {
     ];
     const { getByText } = render(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <MemoryRouter>
-          <Component {...props} />
-        </MemoryRouter>
+        <Component {...props} />
       </MockedProvider>,
     );
     await wait(0);

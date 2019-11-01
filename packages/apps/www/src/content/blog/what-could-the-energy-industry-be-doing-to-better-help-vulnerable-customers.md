@@ -1,6 +1,8 @@
 ---
 date: 2019-10-21T21:13:00.404Z
-title: What could the energy industry be doing to better help vulnerable customers?
+title: >-
+  Tom - What could the energy industry be doing to better help vulnerable
+  customers?
 seo:
   metaDescription: What could the energy industry be doing to better help vulnerable customers?
   pageTitle: What could the energy industry be doing to better help vulnerable customers?

@@ -22,6 +22,8 @@ const checkbox: React.FC<ICheckboxProps> = ({ id, label, checked, onChange, erro
         data-test="component-checkbox-layout"
         className={styles.checkboxLayout}
         onClick={() => (disabled ? null : onChange(!checked))}
+        role="checkbox"
+        aria-checked={checked}
       >
         <div
           data-test="component-checkbox-toggle"

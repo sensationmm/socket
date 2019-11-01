@@ -66,7 +66,6 @@ const Input: React.FC<IInputProps> = ({
           type={type}
           id={id}
           onFocus={(e) => {
-            /* istanbul ignore else */
             if (handleFocus) {
               handleFocus(e);
             }

@@ -22,7 +22,10 @@ export const getTokenSuccess = () => {
       .then(({ data }) => {
         return dispatch({
           type: types.GET_TOKEN_SUCCESS,
-          payload: data,
+          payload: {
+            ...data,
+            userId: '15',
+          },
         });
       })
       .catch((error) =>

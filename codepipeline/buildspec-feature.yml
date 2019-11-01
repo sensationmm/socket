@@ -29,6 +29,9 @@ phases:
       - 'yarn build'
       - 'aws s3 sync "./build" $S3Bucket/$CODEBUILD_SOURCE_VERSION/build --delete --acl "public-read"'
       - 'cd ../www'
+      - cd ../www
+      - printenv > ./.env.production
+      - cat ./.env.production 
       - 'yarn build'
   post_build:
     commands:

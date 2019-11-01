@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: SomoGlobal/pureda-mono
-  branch: develop
+  branch: fix/DA_UK-693
   accept_roles: #optional - accepts all users if left out
     - admin
     - editor
@@ -60,12 +60,12 @@ collections:
       - { name: fullName, label: 'Author name', required: true }
       - { name: bio, label: 'Author description', required: true }
       - { name: photo, label: 'Author image', widget: image, required: false }
-  - name: 'pages' 
+  - name: 'pages'
     label: 'Page'
-    folder: 'packages/apps/www/src/content/pages' 
-    create: true 
-    slug: '{{slug}}' 
-    fields: 
+    folder: 'packages/apps/www/src/content/pages'
+    create: true
+    slug: '{{slug}}'
+    fields:
       - { name: title, label: 'Title', required: true }
       - label: SEO
         name: seo

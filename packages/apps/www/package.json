@@ -47,7 +47,9 @@
     "remark": "11.0.1",
     "remark-html": "10.0.0",
     "schema-dts": "0.4.1",
-    "ts-node": "8.4.1"
+    "ts-node": "8.4.1",
+    "unified": "8.4.1",
+    "remark-parse": "7.0.1"
   },
   "resolutions": {
     "gatsby-source-graphql": "2.1.2"

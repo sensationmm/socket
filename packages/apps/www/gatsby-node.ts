@@ -1,7 +1,7 @@
 import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
-import remark from 'remark';
-import remarkHTML from 'remark-html';
+import parsed from 'remark-parse';
+import unified from 'unified';
 
 import i18n from '@somo/pda-utils-i18n/src/locales/en';
 
@@ -65,10 +65,17 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 
   const markdown = ((node.frontmatter || {}).content || {}).body;
   if (markdown) {
-    node.frontmatter.content.body = remark()
-      .use(remarkHTML)
-      .processSync(markdown)
-      .toString();
+    createNodeField({
+      name: `unified`,
+      node,
+      value: unified()
+        .use(parsed)
+        .parse(markdown),
+    });
+    // node.frontmatter.content.body = unified()
+    //   .use(remarkHTML)
+    //   .processSync(markdown)
+    //   .toString();
   }
 
   if (node.internal.type === `MarkdownRemark`) {

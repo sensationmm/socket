@@ -1,17 +1,19 @@
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
+import htmlSerializer from '../utils/html-serializer';
+
 import BlogArticle from '@somo/pda-pages-blog-article/src';
 
 const Page = ({ data }) => {
-  const doc = data.markdownRemark.frontmatter;
+  const { frontmatter, fields } = data.markdownRemark;
   const i18n = data.allTranslations.edges[0].node.site;
 
-  if (!doc) {
+  if (!frontmatter) {
     return null;
   }
 
-  const { author, content, date, hero, title } = doc;
+  const { author, content, date, hero, title } = frontmatter;
 
   const articleHero = {
     ...hero,
@@ -19,6 +21,8 @@ const Page = ({ data }) => {
     publicationDate: date,
     title,
   };
+
+  content.body = htmlSerializer(fields.unified);
 
   return <BlogArticle i18n={i18n} content={content} hero={articleHero} />;
 };
@@ -70,6 +74,31 @@ export const query = graphql`
       }
       fields {
         slug
+        unified {
+          type
+          children {
+            type
+            value
+            children {
+              type
+              value
+              children {
+                type
+                value
+                children {
+                  type
+                  url
+                  value
+                  children {
+                    type
+                    value
+                  }
+                }
+              }
+              url
+            }
+          }
+        }
       }
     }
   }

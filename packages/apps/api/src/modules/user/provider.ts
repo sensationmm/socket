@@ -1,46 +1,69 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
-// import { RESTDataSource } from 'apollo-datasource-rest';
+import { RequestOptions, RESTDataSource } from 'apollo-datasource-rest';
 
-// @Injectable({
-//   scope: ProviderScope.Session,
-// })
-// export class UserProvider extends RESTDataSource {
-//   public baseURL = 'https://movies-api.example.com/';
+interface IAddress {
+  address1: string;
+  address2: string;
+  address3: string;
+  address4: string;
+  address5: string;
+  postcode: string;
+}
 
-//   public async getUserById(id) {
-//     return this.get(`/junifer/customers/${id}`);
-//   }
-// }
+const computeLineAddress = (addressLine: string) => (addressLine ? `, ${addressLine}` : '');
+
+const computeAddress = (address: IAddress) => {
+  const fields = ['address1', 'address2', 'address3', 'address4', 'address5', 'postcode'];
+
+  return fields.reduce((acc, curr, currentIndex) => {
+    if (currentIndex === 0) {
+      return `${acc}${address[curr]}`;
+    }
+
+    if (currentIndex === fields.length - 1) {
+      return `${acc}, ${address[curr]}`;
+    }
+
+    return `${acc}${computeLineAddress(address[curr])}`;
+  }, '');
+};
 
 @Injectable({
   scope: ProviderScope.Session,
 })
-export class UserProvider {
-  private users = [
-    {
-      _id: '0',
-      name: 'Tom',
-      email: 'tm@sg.com',
-      phone: '1234567890',
-    },
-    {
-      _id: '1',
-      name: 'George',
-    },
-    {
-      _id: '2',
-      name: 'Kevin',
-    },
-    {
-      _id: '3',
-      name: 'Ralph',
-    },
-    {
-      _id: '4',
-      name: 'Ionut',
-    },
-  ];
-  public getUserById(id) {
-    return this.users.find((user) => user._id === id);
+export class UserProvider extends RESTDataSource {
+  public baseURL = 'https://api-uk.integration.gentrack.cloud/v1';
+
+  public willSendRequest(request: RequestOptions) {
+    request.headers.set('Authorization', this.context.token);
+  }
+
+  public async getUserById(userId) {
+    try {
+      const {
+        id,
+        forename,
+        surname,
+        primaryContact: { email, phoneNumber1 },
+      } = await this.get(`/junifer/customers/${userId}`);
+
+      const { results } = await this.get(`/junifer/customers/${userId}/accounts`);
+      const account = results[0];
+
+      const { Electricity, Gas } = await this.get(`/junifer/accounts/${account.id}/productDetails`);
+      const product = Electricity || Gas;
+
+      return {
+        id,
+        name: `${forename} ${surname}`,
+        email,
+        phone: phoneNumber1,
+        accountNumber: account.number,
+        correspondenceAddress: computeAddress(account.billingAddress),
+        supplyAddress: computeAddress(product.supplyAddress),
+      };
+    } catch (error) {
+      throw error;
+    }
   }
 }

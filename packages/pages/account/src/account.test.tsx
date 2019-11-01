@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import About from '.';
+import PersonalDetails from './personal-details.container';
 
 describe('@somo/pda-pages-about', () => {
   let component;
@@ -30,20 +31,19 @@ describe('@somo/pda-pages-about', () => {
           },
         },
       },
-      values: {
-        name: 'John Smith',
-        accountNumber: '123-4568-9876-AB',
-        supplyAddress: '84 Boroughbridge Road, Penboyr, Swansea, SA44 1HR',
-        email: 'john.smith@somoglobal.com',
-        phone: '0750 884 63 45',
-        password: '********',
-        correspondenceAddress: '65 Shire Oak Road, Scarcewater, Truro, TR2 2RD',
-      },
     };
     component = shallow(<About {...props} />);
   });
 
   it('should render the component successfully', () => {
     expect(component).toBeDefined();
+  });
+
+  it('should render a personal details section', () => {
+    const personalDetails = component.find(PersonalDetails);
+    expect(personalDetails.length).toEqual(1);
+    expect(personalDetails.props()).toMatchObject({
+      i18n: props.i18n.account.personal,
+    });
   });
 });

@@ -63,10 +63,10 @@
   width: calc(100% - 10px);
 }
 
-input[type=text],
-input[type=email],
-input[type=password],
-input[type=number],
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
 textarea {
   box-sizing: border-box;
   width: 100%;
@@ -79,32 +79,32 @@ textarea {
   border: 0;
 }
 
-input[type=text]:placeholder,
-input[type=email]:placeholder,
-input[type=password]:placeholder,
-input[type=number]:placeholder,
-textarea:placeholder {
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+input[type='password']::placeholder,
+input[type='number']::placeholder,
+textarea::placeholder {
   color: var(--color-brand-main);
   opacity: 0.5;
 }
 
-input[type=text]:focus,
-input[type=email]:focus,
-input[type=password]:focus,
-input[type=number]:focus,
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
 textarea:focus {
   outline: 0;
   border: 0;
   background: none;
 }
 
-input[type=text]:focus .formatted-currency,
-input[type=number]:focus .formatted-currency,
+input[type='text']:focus .formatted-currency,
+input[type='number']:focus .formatted-currency,
 textarea:focus .formatted-currency {
   display: flex;
 }
 
-input[type=text]#datepicker-field {
+input[type='text']#datepicker-field {
   background: none;
   border: 0;
 }
@@ -113,8 +113,8 @@ textarea {
   height: 120px;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

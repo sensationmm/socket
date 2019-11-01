@@ -21,16 +21,9 @@ const componentFormatter = (component) => {
   //   let props = {};
 
   switch (component.type) {
-    case 'heading2': // Heading 2
+    case 'heading': // Heading 2
       return (
         <Text element="h2" type={TextStyles.h2} color={ColorStyles.primary}>
-          {component.children[0].value}
-        </Text>
-      );
-
-    case 'heading3': // Heading 2
-      return (
-        <Text element="h3" type={TextStyles.h3} color={ColorStyles.primary}>
           {component.children[0].value}
         </Text>
       );
@@ -45,11 +38,15 @@ const componentFormatter = (component) => {
     //   return React.createElement('h6', propsWithUniqueKey(props, key), children);
 
     case 'paragraph': // Paragraph
-      return (
-        <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary}>
-          {component.children[0].value}
-        </Text>
-      );
+      if (component.children[0].type === 'text') {
+        return (
+          <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary}>
+            {component.children[0].value}
+          </Text>
+        );
+      } else if (component.children[0].type === 'image') {
+        return <Image alt={component.children[0].alt || ''} src={component.children[0].url} isLazy={true} />;
+      }
 
     // case Elements.preformatted: // Preformatted
     //   return React.createElement('pre', propsWithUniqueKey(props, key), children);
@@ -72,11 +69,8 @@ const componentFormatter = (component) => {
     // case Elements.oList: // Ordered List
     //   return React.createElement('ol', propsWithUniqueKey(props, key), children);
 
-    // case Elements.image: // Image
-    //   const linkUrl = element.linkTo ? element.linkTo.url || linkResolver(element.linkTo) : null;
-    //   const linkTarget = element.linkTo && element.linkTo.target ? { target: element.linkTo.target } : {};
-    //   const linkRel = linkTarget.target ? { rel: 'noopener' } : {};
-    //   const img = <Image alt={element.alt || ''} src={element.url} isLazy={true} />;
+    // case 'image': // Image
+    //   return <Image alt={component.children[0].alt || ''} src={component.children[0].url} isLazy={true} />;
 
     //   return React.createElement(
     //     'p',

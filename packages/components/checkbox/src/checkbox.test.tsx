@@ -45,6 +45,20 @@ describe('<Input />', () => {
     expect(mockOnChange).toHaveBeenCalledTimes(0);
   });
 
+  test('shows error state if set', () => {
+    const props = {
+      id: 'input-checkbox',
+      label: 'Please click to confirm',
+      onChange: mockOnChange,
+      error: 'Must click',
+    };
+
+    wrapper = shallow(<Component {...props} />);
+    const checkbox = wrapper.find('[data-test="component-checkbox-toggle"]');
+
+    expect(checkbox.props().className).toContain('error');
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });

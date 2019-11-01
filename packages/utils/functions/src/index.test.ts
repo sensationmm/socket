@@ -76,7 +76,7 @@ describe('Functions', () => {
 
   describe('formatCurrency()', () => {
     test('returns currency value', () => {
-      const value = '1000000';
+      const value = 1000000;
       const result = functions.formatCurrency(value);
       expect(result).toEqual('1,000,000');
     });

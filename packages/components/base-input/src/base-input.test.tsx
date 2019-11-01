@@ -125,6 +125,11 @@ describe('<Input />', () => {
       wrapper = shallow(<Component type="text" {...props} />);
       component = wrapper.find('[data-test="component-input"]');
 
+      input = wrapper.find('[data-test="component-input-field"]');
+      input.simulate('focus', {
+        target: { value: focusMock },
+      });
+
       expect(component.props().style.display).toEqual('none');
     });
   });

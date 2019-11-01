@@ -11,7 +11,7 @@
   padding-left: var(--spacing-s);
   font-weight: bold;
   margin-bottom: var(--spacing-xs);
-  font-size: 14px;
+  font-size: var(--font-size-3xs);
 }
 
 .textInputRequired {
@@ -21,7 +21,7 @@
   color: var(--color-ui-error) !important;
   text-transform: uppercase;
   font-weight: bold;
-  font-size: 14px;
+  font-size: var(--font-size-3xs);
 }
 
 .textInputWrapper {
@@ -48,7 +48,7 @@
 .textCurrencySymbol {
   color: var(--color-grey-dark);
   padding-right: var(--spacing-s);
-  font-size: 14px;
+  font-size: var(--font-size-3xs);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,7 +71,7 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   background: none !important;
-  font-size: 14px;
+  font-size: var(--font-size-3xs);
   color: var(--color-text-body-primary);
   outline: 0;
   box-shadow: 0 0 0 0 var(--color-basic-white) inset !important;

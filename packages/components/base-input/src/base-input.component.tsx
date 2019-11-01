@@ -1,41 +1,35 @@
 import classNames from 'classnames';
 import React from 'react';
 
-import Text from '@somo/pda-components-text/src';
+import Text, { TextStyles } from '@somo/pda-components-text/src';
 import Functions from '@somo/pda-utils-functions/src';
 
 import * as styles from './base-input.module.css';
 
 type InputType = 'text' | 'number' | 'password';
 
-interface IInputProps {
-  id: string;
+export interface IInputProps extends React.InputHTMLAttributes<any> {
   type: InputType;
   label?: string;
-  onChange: (value: string) => void;
-  onKeyPress?: () => void;
-  value?: string | number;
   validate?: () => void;
-  onFocus?: (e: React.FocusEvent<any>) => void;
-  readOnly?: boolean;
+  handleChange: (value: string) => void;
+  handleKeyPress?: () => void;
+  handleFocus?: (e: React.FocusEvent<any>) => void;
   note?: string;
   error?: string;
-  min?: number;
-  max?: number;
   hidden?: boolean;
   wrapperClass?: string;
-  placeholder?: string;
 }
 
 const Input: React.FC<IInputProps> = ({
   id,
   type,
   label,
-  onChange,
-  onKeyPress,
+  handleChange,
+  handleKeyPress,
   value,
   validate,
-  onFocus,
+  handleFocus,
   readOnly,
   note,
   error,
@@ -73,8 +67,8 @@ const Input: React.FC<IInputProps> = ({
           id={id}
           onFocus={(e) => {
             /* istanbul ignore else */
-            if (onFocus) {
-              onFocus(e);
+            if (handleFocus) {
+              handleFocus(e);
             }
           }}
           placeholder={placeholder}
@@ -84,10 +78,10 @@ const Input: React.FC<IInputProps> = ({
             }
           }}
           onChange={(e) =>
-            isCurrencyField ? onChange(Functions.stripCurrency(e.target.value)) : onChange(e.target.value)
+            isCurrencyField ? handleChange(Functions.stripCurrency(e.target.value)) : handleChange(e.target.value)
           }
-          onKeyPress={onKeyPress}
-          value={isCurrencyField ? Functions.formatCurrency(value) : value}
+          onKeyPress={handleKeyPress}
+          value={isCurrencyField ? Functions.formatCurrency(value as string | number) : value}
           readOnly={readOnly}
           min={min}
           max={max}
@@ -96,7 +90,7 @@ const Input: React.FC<IInputProps> = ({
 
       {note && (
         <div className={styles.textInputNote} data-test="text-input-note">
-          <Text element="span" type="caption">
+          <Text element="span" type={TextStyles.caption}>
             {note}
           </Text>
         </div>

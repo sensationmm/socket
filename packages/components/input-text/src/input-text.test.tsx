@@ -10,7 +10,7 @@ describe('<InputText />', () => {
     const props = {
       id: 'input-name',
       label: 'Name',
-      onChange: jest.fn(),
+      handleChange: jest.fn(),
       validationFunction: 'validateRequired',
       value: 'boo',
     };

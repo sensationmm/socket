@@ -10,7 +10,7 @@ describe('<InputCurrency />', () => {
     const props = {
       id: 'input-currency',
       label: 'Name',
-      onChange: jest.fn(),
+      handleChange: jest.fn(),
       validationFunction: 'validateRequired',
       value: 1,
     };

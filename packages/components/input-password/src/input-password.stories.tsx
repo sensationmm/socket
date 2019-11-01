@@ -16,6 +16,6 @@ storiesOf('Form Elements|InputPassword', module)
       value={text('value', '')}
       note={text('note', '')}
       error={text('error', '')}
-      onChange={action('onChange()')}
+      handleChange={action('handleChange()')}
     />
   ));

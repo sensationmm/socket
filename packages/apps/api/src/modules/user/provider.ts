@@ -13,11 +13,19 @@ interface IAddress {
 const computeLineAddress = (addressLine: string) => (addressLine ? `, ${addressLine}` : '');
 
 const computeAddress = (address: IAddress) => {
-  const { address1, address2, address3, address4, address5, postcode } = address;
+  const fields = ['address1', 'address2', 'address3', 'address4', 'address5', 'postcode'];
 
-  return `${address1}${computeLineAddress(address2)}${computeLineAddress(address3)}${computeLineAddress(
-    address4,
-  )}${computeLineAddress(address5)}, ${postcode}`;
+  return fields.reduce((acc, curr, currentIndex) => {
+    if (currentIndex === 0) {
+      return `${acc}${address[curr]}`;
+    }
+
+    if (currentIndex === fields.length - 1) {
+      return `${acc}, ${address[curr]}`;
+    }
+
+    return `${acc}${computeLineAddress(address[curr])}`;
+  }, '');
 };
 
 @Injectable({
@@ -32,19 +40,24 @@ export class UserProvider extends RESTDataSource {
 
   public async getUserById(userId) {
     try {
-      const userData = await this.get(`/junifer/customers/${userId}`);
+      const {
+        id,
+        forename,
+        surname,
+        primaryContact: { email, phoneNumber1 },
+      } = await this.get(`/junifer/customers/${userId}`);
 
-      const accountsData = await this.get(`/junifer/customers/${userId}/accounts`);
-      const account = accountsData.results[0];
+      const { results } = await this.get(`/junifer/customers/${userId}/accounts`);
+      const account = results[0];
 
-      const productsData = await this.get(`/junifer/accounts/${account.id}/productDetails`);
-      const product = productsData.Electricity || productsData.Gas;
+      const { Electricity, Gas } = await this.get(`/junifer/accounts/${account.id}/productDetails`);
+      const product = Electricity || Gas;
 
       return {
-        id: userData.id,
-        name: `${userData.forename} ${userData.surname}`,
-        email: userData.primaryContact.email,
-        phone: userData.primaryContact.phoneNumber1,
+        id,
+        name: `${forename} ${surname}`,
+        email,
+        phone: phoneNumber1,
         accountNumber: account.number,
         correspondenceAddress: computeAddress(account.billingAddress),
         supplyAddress: computeAddress(product.supplyAddress),

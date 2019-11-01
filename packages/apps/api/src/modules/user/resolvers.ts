@@ -9,5 +9,8 @@ export default {
     name: (user) => user.name,
     email: (user) => user.email,
     phone: (user) => user.phone,
+    accountNumber: (user) => user.accountNumber,
+    correspondenceAddress: (user) => user.correspondenceAddress,
+    supplyAddress: (user) => user.supplyAddress,
   },
 };

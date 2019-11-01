@@ -1,0 +1,11 @@
+#Dependencies
+.terraform/plugins/
+
+# Terraform credentials
+.shared_credentials
+secrets.tf
+
+#State files
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info

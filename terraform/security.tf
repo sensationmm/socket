@@ -27,16 +27,6 @@ resource "aws_security_group_rule" "allow_ssh" {
   security_group_id = "${aws_security_group.somo_webteam.id}"
 }
 
-resource "aws_security_group_rule" "allow_CNC" {
-  type              = "ingress"
-  description       = "CNC port in"
-  from_port         = 3000
-  to_port           = 3000
-  protocol          = "tcp"
-  cidr_blocks       = var.our_cidr_block
-  security_group_id = "${aws_security_group.somo_webteam.id}"
-}
-
 resource "aws_security_group_rule" "allow_https" {
   type              = "ingress"
   description       = "HTTPS in"
@@ -83,15 +73,6 @@ resource "aws_security_group_rule" "allow_app_port_out" {
   description       = "app port out"
   from_port         = var.app_port
   to_port           = var.app_port
-  protocol          = "tcp"
-  cidr_blocks       = var.our_cidr_block
-  security_group_id = "${aws_security_group.somo_webteam.id}"
-}
-resource "aws_security_group_rule" "allow_CNC_out" {
-  type              = "egress"
-  description       = "CNC port out"
-  from_port         = 3000
-  to_port           = 3000
   protocol          = "tcp"
   cidr_blocks       = var.our_cidr_block
   security_group_id = "${aws_security_group.somo_webteam.id}"

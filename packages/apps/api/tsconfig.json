@@ -1,3 +1,37 @@
 {
-  "extends": "../../../tsconfig"
+  "compileOnSave": true,
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "diagnostics": true,
+    "extendedDiagnostics": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "declaration": true,
+    "strictNullChecks": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "noLib": false,
+    "noEmit": true,
+    "moduleResolution": "node",
+    "target": "esnext",
+    "lib": [
+      "es6",
+      "dom",
+      "es2015",
+      "es2017.object",
+      "es2016.array.include",
+      "esnext.asynciterable",
+      "esnext",
+      "es2018"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "declarationMap": true,
+    "strict": true,
+    "composite": true
+  }
 }

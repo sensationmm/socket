@@ -1,3 +1,5 @@
-import Login from './login.container';
+import Login, { IAuthReducer, IPropsFromReduxState } from './login.container';
+
+export { IAuthReducer, IPropsFromReduxState };
 
 export default Login;

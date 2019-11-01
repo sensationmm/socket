@@ -9,6 +9,7 @@ export interface IAuthReducer {
   accessToken: string;
   expiresIn: number;
   tokenType: string;
+  userId: string;
 }
 
 export interface IPropsFromReduxState {

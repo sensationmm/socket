@@ -8,6 +8,9 @@ const Users = new GraphQLModule({
   typeDefs,
   resolvers,
   providers: [UserProvider],
+  context: ({ req }) => ({
+    token: req.headers.authorization,
+  }),
 });
 
 export default Users;

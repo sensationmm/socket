@@ -8,15 +8,15 @@ interface IValidationMessages {
 const validationMessages: IValidationMessages = {};
 
 // validates email address
-export const validateEmail = (email) => {
+const validateEmail = (email) => {
   const re = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-  return re.test(email);
+  return !email || re.test(email);
 };
 validationMessages.validateEmail = i18n.t('validation.validateEmail');
 
 // validates numeric entry
-export const validateNumeric = (input) => {
+const validateNumeric = (input) => {
   if (input === '') {
     return false;
   }
@@ -26,13 +26,13 @@ export const validateNumeric = (input) => {
 validationMessages.validateNumeric = i18n.t('validation.validateNumeric');
 
 // validates required input
-export const validateRequired = (input) => {
+const validateRequired = (input) => {
   return !!input && input !== '[undefined] undefined' && input !== '[null] null';
 };
 validationMessages.validateRequired = i18n.t('validation.validateRequired');
 
 // validates phone number entry ie. (+00)00000...
-export const validatePhone = (input) => {
+const validatePhone = (input) => {
   const inputVal = input ? input.substr(input.indexOf(')') + 1) : '';
 
   if (inputVal === '') {
@@ -44,13 +44,13 @@ export const validatePhone = (input) => {
 validationMessages.validatePhone = i18n.t('validation.validatePhone');
 
 // validates input matches given argument
-export const validateMatching = (input, inputToMatch) => {
+const validateMatching = (input, inputToMatch) => {
   return input === inputToMatch && !!input;
 };
 validationMessages.validateMatching = i18n.t('validation.validateMatching');
 
 // validates input not matching given existing arguments
-export const validateNotDuplicate = (input, inputToMatch: any[]) => {
+const validateNotDuplicate = (input, inputToMatch: any[]) => {
   let notExisting = true;
 
   inputToMatch.forEach((existing) => {
@@ -64,46 +64,46 @@ export const validateNotDuplicate = (input, inputToMatch: any[]) => {
 validationMessages.validateNotDuplicate = i18n.t('validation.validateNotMatching');
 
 // validates letters only input
-export const validateLettersOnly = (input) => {
+const validateLettersOnly = (input) => {
   return !/[^a-zA-Z-\s]/.test(input);
 };
 validationMessages.validateLettersOnly = i18n.t('validation.validateLettersOnly');
 
 // validates based on given cumulative total
-export const validateTotal = (input: number, { total, maxValue }) => {
+const validateTotal = (input: number, { total, maxValue }) => {
   validationMessages.validateTotal = i18n.t('validation.validateTotal', { max: { maxValue } });
 
   return input && total <= maxValue;
 };
 
 // validates on a minimum character length
-export const validateMinimum = (value, min) => {
+const validateMinimum = (value, min) => {
   validationMessages.validateMinimum = i18n.t('validation.validateMinimum', { min: { min } });
 
   return !value || (value && value.length >= min);
 };
 
 // validates minimum allowed value
-export const validateMinValue = (value, min) => {
+const validateMinValue = (value, min) => {
   validationMessages.validateMinValue = i18n.t('validation.validateMinValue', { min: { min } });
 
   return value >= min;
 };
 
 // validates no space chars
-export const validateNoSpaces = (input) => {
+const validateNoSpaces = (input) => {
   return !/[\s]/.test(input);
 };
 validationMessages.validateNoSpaces = i18n.t('validation.validateNoSpaces');
 
 // validates date input
-export const validateDate = (input) => {
+const validateDate = (input) => {
   return /^(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[012])[/]\d{4}$/.test(input);
 };
 validationMessages.validateDate = i18n.t('validation.validateDate');
 
 // validates date in future
-export const validateFutureDate = (input) => {
+const validateFutureDate = (input) => {
   const dateInput = moment(input, 'DD/MM/YYYY').format('YYYY-MM-DD');
   const today = moment().format('YYYY-MM-DD');
 
@@ -112,7 +112,7 @@ export const validateFutureDate = (input) => {
 validationMessages.validateFutureDate = i18n.t('validation.validateFutureDate');
 
 // validates date minimum
-export const validateMinDate = (value, min) => {
+const validateMinDate = (value, min) => {
   validationMessages.validateMinDate = i18n.t('validation.validateMinDate', { min: min.replace('/', '/') });
 
   const isAfter = moment(value, 'DD/MM/YYYY').isAfter(moment(min, 'DD/MM/YYYY'));
@@ -122,7 +122,7 @@ export const validateMinDate = (value, min) => {
 };
 
 // validates no special characters
-export const validateNoSpecial = (input) => {
+const validateNoSpecial = (input) => {
   return !/[^a-zA-Z0-9,.-\s]/.test(input);
 };
 validationMessages.validateNoSpecial = i18n.t('validation.validateNoSpecial');

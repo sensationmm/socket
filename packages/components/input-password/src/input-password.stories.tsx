@@ -13,7 +13,7 @@ storiesOf('Form Elements|InputPassword', module)
       id={'input-password'}
       label={text('label', 'Some field')}
       placeholder={text('placeholder', 'Enter password...')}
-      value={''}
+      value={text('value', '')}
       note={text('note', '')}
       error={text('error', '')}
       onChange={action('onChange()')}

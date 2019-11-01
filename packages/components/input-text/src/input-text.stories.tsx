@@ -13,7 +13,7 @@ storiesOf('Form Elements|InputText', module)
       id={'input-text'}
       label={text('label', 'Some field')}
       placeholder={text('placeholder', 'Enter value...')}
-      value={''}
+      value={text('value', '')}
       readOnly={boolean('readOnly', false)}
       note={text('note', '')}
       error={text('error', '')}

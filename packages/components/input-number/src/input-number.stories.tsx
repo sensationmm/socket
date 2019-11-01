@@ -13,6 +13,7 @@ storiesOf('Form Elements|InputNumber', module)
       id={'input-number'}
       label={text('label', 'Some field')}
       placeholder={text('placeholder', 'Enter value...')}
+      value={number('value', 0)}
       readOnly={boolean('readOnly', false)}
       min={number('Min Value', 0)}
       max={number('Max Value', 0)}

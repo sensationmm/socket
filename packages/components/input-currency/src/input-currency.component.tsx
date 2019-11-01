@@ -5,11 +5,11 @@ import Input from '@somo/pda-components-base-input/src';
 interface IInputCurrency {
   id: string;
   label?: string;
-  onChange: (value: string) => void;
-  onKeyPress?: () => void;
+  handleChange: (value: string) => void;
+  handleKeyPress?: () => void;
   value: string | number;
   validate?: () => void;
-  onFocus?: (e: React.FocusEvent<any>) => void;
+  handleFocus?: (e: React.FocusEvent<any>) => void;
   readOnly?: boolean;
   note?: string;
   error?: string;

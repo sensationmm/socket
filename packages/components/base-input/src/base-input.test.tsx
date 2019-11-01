@@ -23,8 +23,8 @@ describe('<Input />', () => {
         id: 'input-name',
         label: 'Name',
         stateKey: 'name',
-        onChange: changeMock,
-        onFocus: focusMock,
+        handleChange: changeMock,
+        handleFocus: focusMock,
         validate: validateMock,
         note: 'test note',
         value: '',
@@ -65,8 +65,8 @@ describe('<Input />', () => {
         id: 'input-name',
         label: 'Name',
         stateKey: 'name',
-        onChange: changeMock,
-        onFocus: focusMock,
+        handleChange: changeMock,
+        handleFocus: focusMock,
         validate: validateMock,
         note: 'test note',
         value: '',
@@ -88,7 +88,7 @@ describe('<Input />', () => {
     test('does not render note if none passed', () => {
       const props = {
         id: 'input-name',
-        onChange: changeMock,
+        handleChange: changeMock,
         value: '',
       };
 
@@ -100,7 +100,7 @@ describe('<Input />', () => {
     test('renders currency field', () => {
       const props = {
         id: 'input-name',
-        onChange: changeMock,
+        handleChange: changeMock,
         value: '',
         wrapperClass: 'currency',
       };
@@ -117,7 +117,7 @@ describe('<Input />', () => {
     test('renders hidden field', () => {
       const props = {
         id: 'input-name',
-        onChange: changeMock,
+        handleChange: changeMock,
         value: '',
         hidden: true,
       };
@@ -134,7 +134,7 @@ describe('<Input />', () => {
       const props = {
         id: 'input-name',
         label: 'Name',
-        onChange: changeMock,
+        handleChange: changeMock,
         error: 'field required',
         value: '',
       };

@@ -20,8 +20,8 @@ storiesOf('Form Elements|InputNumber', module)
       note={text('note', '')}
       error={text('error', '')}
       hidden={boolean('hidden', false)}
-      onChange={action('onChange()')}
-      onKeyPress={action('onKeyPress()')}
-      onFocus={action('onFocus()')}
+      handleChange={action('handleChange()')}
+      handleKeyPress={action('handleKeyPress()')}
+      handleFocus={action('handleFocus()')}
     />
   ));

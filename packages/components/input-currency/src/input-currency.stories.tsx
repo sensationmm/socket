@@ -17,6 +17,6 @@ storiesOf('Form Elements|InputCurrency', module)
       readOnly={true}
       note={text('note', '')}
       error={text('error', '')}
-      onChange={action('onChange')}
+      handleChange={action('handleChange()')}
     />
   ));

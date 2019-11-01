@@ -10,7 +10,7 @@ describe('<InputPassword />', () => {
     const props = {
       id: 'input-password',
       label: 'Name',
-      onChange: jest.fn(),
+      handleChange: jest.fn(),
       validationFunction: 'validateRequired',
       value: 'boo',
     };

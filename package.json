@@ -54,6 +54,7 @@
     "jest-fetch-mock": "2.1.2",
     "jest-junit": "8.0.0",
     "jest-mock-axios": "3.1.1",
+    "jest-transform-graphql": "2.1.0",
     "lint-staged": "9.2.5",
     "prettier": "1.18.2",
     "react": "16.9.0",

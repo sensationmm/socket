@@ -1,6 +1,7 @@
 module.exports = {
   automock: false,
   collectCoverage: false,
+  moduleFileExtensions: ['js', 'ts', 'tsx', 'graphql'],
   collectCoverageFrom: [
     'packages/components/**/*.{ts,tsx,js}',
     'packages/pages/**/*.{ts,tsx,js}',
@@ -35,6 +36,9 @@ module.exports = {
     '<rootDir>/packages/apps/www/.cache',
     '<rootDir>/packages/apps/www/public',
   ],
+  transform: {
+    '\\.(gql|graphql)$': 'jest-transform-graphql',
+  },
   globals: {
     __PATH_PREFIX__: '',
     ___loader: '',

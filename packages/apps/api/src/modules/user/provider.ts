@@ -1,5 +1,5 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
-import { RequestOptions, RESTDataSource } from 'apollo-datasource-rest';
+import BaseProvider from '../base-provider';
 
 interface IAddress {
   address1: string;
@@ -31,13 +31,7 @@ const computeAddress = (address: IAddress) => {
 @Injectable({
   scope: ProviderScope.Session,
 })
-export class UserProvider extends RESTDataSource {
-  public baseURL = 'https://api-uk.integration.gentrack.cloud/v1';
-
-  public willSendRequest(request: RequestOptions) {
-    request.headers.set('Authorization', this.context.token);
-  }
-
+export class UserProvider extends BaseProvider {
   public async getUserById(userId) {
     try {
       const {

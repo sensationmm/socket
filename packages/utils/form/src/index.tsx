@@ -157,7 +157,9 @@ export const renderForm = (config: IFormConfig[], arrayIndex?: number) => {
         </div>
       )}
 
-      <div data-test="form-fields" className={styles.formFields}>{formUtils.renderFormFields(config, arrayIndex)}</div>
+      <div data-test="form-fields" className={styles.formFields}>
+        {formUtils.renderFormFields(config, arrayIndex)}
+      </div>
     </div>
   );
 };

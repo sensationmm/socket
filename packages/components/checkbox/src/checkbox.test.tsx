@@ -14,7 +14,7 @@ describe('<Input />', () => {
     const props = {
       id: 'input-checkbox',
       label: 'Please click to confirm',
-      onChange: mockOnChange,
+      handleChange: mockOnChange,
     };
 
     wrapper = shallow(<Component {...props} />);
@@ -35,7 +35,7 @@ describe('<Input />', () => {
     const props = {
       id: 'input-checkbox',
       label: 'Please click to confirm',
-      onChange: mockOnChange,
+      handleChange: mockOnChange,
       disabled: true,
     };
 
@@ -49,7 +49,7 @@ describe('<Input />', () => {
     const props = {
       id: 'input-checkbox',
       label: 'Please click to confirm',
-      onChange: mockOnChange,
+      handleChange: mockOnChange,
       error: 'Must click',
     };
 

@@ -10,18 +10,18 @@ interface ICheckboxProps {
   id: string;
   label: string;
   checked?: boolean;
-  onChange: (value: boolean) => void;
+  handleChange: (value: boolean) => void;
   error?: string;
   disabled?: boolean;
 }
 
-const checkbox: React.FC<ICheckboxProps> = ({ id, label, checked, onChange, error, disabled }) => {
+const checkbox: React.FC<ICheckboxProps> = ({ id, label, checked, handleChange, error, disabled }) => {
   return (
     <div className={styles.checkbox} data-test="component-checkbox">
       <div
         data-test="component-checkbox-layout"
         className={styles.checkboxLayout}
-        onClick={() => (disabled ? null : onChange(!checked))}
+        onClick={() => (disabled ? null : handleChange(!checked))}
         role="checkbox"
         aria-checked={checked}
       >

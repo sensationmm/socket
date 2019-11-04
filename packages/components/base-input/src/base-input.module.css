@@ -7,7 +7,7 @@
 .textInputLabel {
   display: block;
   text-transform: uppercase;
-  color: var(--color-brand-main);
+  color: var(--color-brand-secondary);
   padding-left: var(--spacing-s);
   font-weight: bold;
   margin-bottom: var(--spacing-xs);

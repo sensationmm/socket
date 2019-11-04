@@ -15,6 +15,6 @@ storiesOf('Form Elements|Checkbox', module)
       checked={boolean('checked', false)}
       disabled={boolean('disabled', false)}
       error={text('error', '')}
-      onChange={action('onChange()')}
+      handleChange={action('handleChange()')}
     />
   ));

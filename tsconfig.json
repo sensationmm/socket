@@ -37,6 +37,7 @@
     "baseUrl": "./packages",
     "paths": {
       "@somo/pda-apps-*": ["./apps/*"],
+      "@somo/pda-www-*": ["./apps/www/src/*"],
       "@somo/pda-components-*": ["./components/*"],
       "@somo/pda-pages-*": ["./pages/*"],
       "@somo/pda-utils-*": ["./utils/*"],

@@ -1,8 +1,8 @@
 import { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
 
 export interface IFormState {
-  values: {} | { [key: string]: string };
-  errors: {} | { [key: string]: string };
+  values: { [key: string]: any };
+  errors: { [key: string]: any };
   showErrorMessage: boolean;
 }
 

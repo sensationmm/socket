@@ -30,7 +30,8 @@
 }
 
 .personalDetails .personalDetailsFirstRow,
-.personalDetails .personalDetailsSecondRow {
+.personalDetails .personalDetailsSecondRow,
+.personalDetails .messageContainer {
   position: relative;
   padding: var(--spacing-l);
 
@@ -55,4 +56,11 @@
 
 .accountField.light .value {
   border-bottom-color: var(--color-grey-light);
+}
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
 }

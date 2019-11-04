@@ -22,6 +22,18 @@ declare namespace EON {
     text: string;
   }
 
+  interface IAccountPersonal {
+    title: string;
+    subtitle: string;
+    nameLabel: string;
+    accountNumberLabel: string;
+    supplyAddressLabel: string;
+    emailLabel: string;
+    phoneLabel: string;
+    passwordLabel: string;
+    correspondenceAddressLabel: string;
+  }
+
   interface IWebAppTranslations {
     site: {
       blog: {
@@ -119,21 +131,11 @@ declare namespace EON {
       };
       account: {
         title: string;
-        personal: {
-          title: string;
-          subtitle: string;
-          nameLabel: string;
-          accountNumberLabel: string;
-          supplyAddressLabel: string;
-          emailLabel: string;
-          phoneLabel: string;
-          passwordLabel: string;
-          correspondenceAddressLabel: string;
-        };
+        personal: IAccountPersonal;
       };
     };
     validation: {
       [key: string]: string;
-    }
+    };
   }
 }

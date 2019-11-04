@@ -1,8 +1,11 @@
+import withApollo from '@somo/pda-apps-storybook/src/decorators/apollo';
+import withProvider from '@somo/pda-apps-storybook/src/decorators/redux';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 import AccountPage from '@somo/pda-pages-account/src';
+import { GET_USER_QUERY } from '@somo/pda-pages-account/src/personal-details.component';
 
 const props = {
   i18n: {
@@ -28,9 +31,48 @@ const props = {
   },
 };
 
+const state = {
+  user: {
+    userId: '15',
+    accessToken: 't123',
+    tokenType: 'Bearer',
+  },
+};
+
+const mocks = [
+  {
+    request: {
+      query: GET_USER_QUERY,
+      variables: {
+        id: state.user.userId,
+      },
+      context: {
+        headers: {
+          Authorization: `${state.user.tokenType} ${state.user.accessToken}`,
+        },
+      },
+    },
+    result: {
+      data: {
+        user: {
+          id: '15',
+          name: 'John Smith',
+          email: 'john.smith@somoglobal.com',
+          phone: '07563458747',
+          accountNumber: '123234556',
+          correspondenceAddress: '145 Regents Park Road',
+          supplyAddress: '147 Regents Park Road',
+        },
+      },
+    },
+  },
+];
+
 storiesOf('Pages|account', module)
   .addDecorator(withKnobs)
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
+  .addDecorator(withProvider(state))
+  .addDecorator(withApollo(mocks))
   .add('default', () => {
     return <AccountPage {...props} />;
   });

@@ -47,7 +47,7 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) =
             {excerpt}
           </Text>
         )}
-        {body && body}
+        {body}
         <Share header={sharePostHeader} articleTitle={hero.title} articleLink={getLocation()} />
       </PageSection>
     </BlogArticleLayout>

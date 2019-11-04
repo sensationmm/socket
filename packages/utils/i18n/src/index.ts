@@ -2,7 +2,7 @@ import i18n from 'i18next';
 // import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-import translationEnglish from '@somo/pda-utils-i18n/src';
+import translationEnglish from '@somo/pda-utils-i18n/src/locales/en';
 
 i18n
   // learn more: https://github.com/i18next/i18next-browser-languageDetector

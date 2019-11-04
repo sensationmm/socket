@@ -4,7 +4,9 @@ import { isArray } from 'util';
 
 import { actions } from '@somo/pda-redux-form/src';
 import validation from '@somo/pda-utils-validation/src';
-import store from '@somo/pda-www-state/store';
+import store from '../../../apps/www/src/state/store';
+
+import * as styles from './form.module.css';
 
 const { initForm, clearForm, updateForm, setErrors, setFormErrors } = actions;
 
@@ -145,6 +147,23 @@ export const validateForm = (config: IFormConfig[], arrayIndex?: number) => {
 
 // Renders form defined in this.config of parent
 export const renderForm = (config: IFormConfig[], arrayIndex?: number) => {
+  const { errors, showErrorMessage } = store.getState().form;
+
+  return (
+    <div>
+      {showErrorMessage && (
+        <div className={styles.errorBox} data-test="create-error-box">
+          {errors.form ? errors.form : 'Please correct all errors to proceed'}
+        </div>
+      )}
+
+      <div data-test="form-fields" className={styles.formFields}>{formUtils.renderFormFields(config, arrayIndex)}</div>
+    </div>
+  );
+};
+
+// Renders form fields
+export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => {
   const { errors } = store.getState().form;
 
   return config.map((item, key) => {
@@ -196,6 +215,7 @@ const formUtils = {
   validateField,
   validateForm,
   renderForm,
+  renderFormFields,
 };
 
 export default formUtils;

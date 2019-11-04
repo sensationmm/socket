@@ -2,7 +2,7 @@ import formUtils, { IFormConfig } from '.';
 
 import functions from '@somo/pda-utils-functions/src';
 import validation from '@somo/pda-utils-validation/src';
-import store from '@somo/pda-www-state/store';
+import store from '../../../apps/www/src/state/store';
 
 import Checkbox from '@somo/pda-components-checkbox/src';
 import InputPassword from '@somo/pda-components-input-password/src';
@@ -124,11 +124,11 @@ describe('Form', () => {
     });
   });
 
-  describe('renderForm()', () => {
+  describe('renderFormFields()', () => {
     let form;
 
     beforeEach(() => {
-      form = formUtils.renderForm(configMock);
+      form = formUtils.renderFormFields(configMock);
     });
 
     test('renders form', () => {
@@ -183,7 +183,7 @@ describe('Form', () => {
 
     test('error set if invalid field', () => {
       formUtils.validateField(configMock, 'passwordConfirm');
-      const form = formUtils.renderForm(configMock);
+      const form = formUtils.renderFormFields(configMock);
 
       expect(store.getState().form.errors).toEqual(expect.objectContaining({ passwordConfirm: expect.any(String) }));
       if (form[3]) {
@@ -238,7 +238,7 @@ describe('Form', () => {
         expect(store.getState().form.errors.fields).toEqual(
           expect.arrayContaining([expect.objectContaining({ passwordConfirm: expect.any(String) })]),
         );
-        const form = formUtils.renderForm(configMock, 0);
+        const form = formUtils.renderFormFields(configMock, 0);
 
         if (form[3]) {
           expect(form[3].props.error).toEqual(expect.any(String));
@@ -251,7 +251,7 @@ describe('Form', () => {
           passwordConfirm: 'test',
         });
         formUtils.validateField(configMock, 'passwordConfirm', 0);
-        const form = formUtils.renderForm(configMock, 0);
+        const form = formUtils.renderFormFields(configMock, 0);
 
         expect(store.getState().form.errors.fields).toEqual([{}, {}, {}]);
         if (form[2]) {
@@ -261,10 +261,10 @@ describe('Form', () => {
     });
 
     test('renderForm', () => {
-      const arrayForm = formUtils.renderForm(configMock, 2);
+      const arrayForm = formUtils.renderFormFields(configMock, 2);
       expect(arrayForm.length).toEqual(configMock.length);
 
-      const arrayForm2 = formUtils.renderForm(configMock);
+      const arrayForm2 = formUtils.renderFormFields(configMock);
       expect(arrayForm2.length).toEqual(configMock.length);
     });
 

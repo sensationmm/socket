@@ -32,6 +32,8 @@ phases:
       - 'aws s3 sync "./build" $S3Bucket/build --delete --acl "public-read"'
       - 'aws s3 sync "./build" $SiteBucket/build --delete --acl "public-read"'
       - 'cd ../www'
+      - 'printenv > ./.env.production'
+      - 'cat ./.env.production'
       - 'yarn build'
   post_build:
     commands:

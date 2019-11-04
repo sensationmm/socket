@@ -72,10 +72,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
         .use(parsed)
         .parse(markdown),
     });
-    // node.frontmatter.content.body = unified()
-    //   .use(remarkHTML)
-    //   .processSync(markdown)
-    //   .toString();
   }
 
   if (node.internal.type === `MarkdownRemark`) {

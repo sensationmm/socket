@@ -25,29 +25,29 @@ resource "aws_subnet" "public" {
   }
 }
 
-resource "aws_nat_gateway" "gw" {
-  count         = var.az_count
-  subnet_id     = element(aws_subnet.public.*.id, count.index)
-  allocation_id = element(aws_eip.da_elastic_ip.*.id, count.index)
-}
+#resource "aws_nat_gateway" "gw" {
+#  count         = var.az_count
+#  subnet_id     = element(aws_subnet.public.*.id, count.index)
+#  allocation_id = element(aws_eip.da_elastic_ip.*.id, count.index)
+#}
 
 # Create a new route table for the private subnets, make it route non-local traffic through the NAT gateway to the internet
 resource "aws_route_table" "private" {
   count  = var.az_count
   vpc_id = aws_vpc.da_vpc.id
 
-  route {
-    cidr_block     = "0.0.0.0/0"
-    nat_gateway_id = element(aws_nat_gateway.gw.*.id, count.index)
-  }
+#  route {
+#    cidr_block     = "0.0.0.0/0"
+    #nat_gateway_id = element(aws_nat_gateway.gw.*.id, count.index)
+#  }
 }
 
 # Explicitly associate the newly created route tables to the private subnets (so they don't default to the main route table)
-resource "aws_route_table_association" "private" {
-  count          = var.az_count
-  subnet_id      = element(aws_subnet.da_vpc_subnet.*.id, count.index)
-  route_table_id = element(aws_route_table.private.*.id, count.index)
-}
+#resource "aws_route_table_association" "private" {
+#  count          = var.az_count
+#  subnet_id      = element(aws_subnet.da_vpc_subnet.*.id, count.index)
+#  route_table_id = element(aws_route_table.private.*.id, count.index)
+#}
 
 # Fetch AZs in the current region
 data "aws_availability_zones" "available" {
@@ -78,18 +78,6 @@ resource "aws_route" "internet_access" {
   gateway_id             = aws_internet_gateway.vpc_gw.id
 }
 
-resource "aws_network_interface" "da_gatsby_primary_network_interface" {
-  count  = var.az_count
-  subnet_id       = element(aws_subnet.da_vpc_subnet.*.id, count.index)
-
-  security_groups = [aws_security_group.somo_webteam.id]
-
-  tags = {
-    Name = "da_gatsby_network_interface"
-  }
-}
-
-
 resource "aws_network_interface" "da_c_and_c_primary_network_interface" {
   count  = var.az_count
   subnet_id       = element(aws_subnet.da_vpc_subnet.*.id, count.index)
@@ -102,8 +90,8 @@ resource "aws_network_interface" "da_c_and_c_primary_network_interface" {
 }
 
 #Elastic IP for NAT Gateway - for each private subnet to get internet connectivity
-resource "aws_eip" "da_elastic_ip" {
-  vpc = true
-  count      = var.az_count
-  depends_on                = [aws_internet_gateway.vpc_gw]
-}
+#resource "aws_eip" "da_elastic_ip" {
+#  vpc = true
+#  count      = var.az_count
+#  depends_on                = [aws_internet_gateway.vpc_gw]
+#}

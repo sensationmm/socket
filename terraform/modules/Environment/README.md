@@ -3,6 +3,11 @@
 - set up 2 keypairs
   - DAGatsby
   - DAApollo
+- review the provider.tf and supply variables for apollo module
+  - vpc with id
+  - private subnet with id
+  - public subnet with id
+
 - set up .shared_credentials file in the following format:
 
   > [Terraform]
@@ -18,9 +23,3 @@
 
 > initial set up will require using the -lock=false parameter until the database responsible for storing lock info is created.
 > `terraform init terraform plan terraform apply`
-
-# Destroy
-- on destruction the remaining components may not be removed:
-  - S3 buckets with content
-  - dynamoDB Databases
-  - IAM roles

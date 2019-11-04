@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"environment","Source":"./modules/environment","Dir":"modules\\environment"},{"Key":"environment.apollo","Source":"./modules/apollo","Dir":"modules\\environment\\modules\\apollo"},{"Key":"environment.gatsby","Source":"./modules/gatsby","Dir":"modules\\environment\\modules\\Gatsby"}]}

@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: SomoGlobal/pureda-mono
-  branch: fix/DA_UK-693
+  branch: develop
   accept_roles: #optional - accepts all users if left out
     - admin
     - editor

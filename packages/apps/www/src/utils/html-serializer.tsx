@@ -30,7 +30,7 @@ const componentFormatter = (component) => {
           </Text>
         );
       } else if (component.children[0].type === 'image') {
-        return <Image alt={component.children[0].alt || ''} src={`static${component.children[0].url}`} isLazy={true} />;
+        return <Image alt={component.children[0].alt || ''} src={component.children[0].url} isLazy={true} />;
       }
 
     case 'list': // Unordered List

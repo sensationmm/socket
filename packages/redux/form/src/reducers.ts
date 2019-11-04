@@ -1,6 +1,12 @@
 import { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
 
-export const initialState = {
+export interface IFormState {
+  values: {} | { [key: string]: string };
+  errors: {} | { [key: string]: string };
+  showErrorMessage: boolean;
+}
+
+export const initialState: IFormState = {
   values: {},
   errors: {},
   showErrorMessage: false,

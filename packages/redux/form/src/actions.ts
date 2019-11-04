@@ -1,6 +1,7 @@
+import { IFormState } from './reducers';
 import { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
 
-export const initForm = (payload) => {
+export const initForm = (payload: IFormState) => {
   return {
     type: INIT_FORM,
     payload,
@@ -13,7 +14,7 @@ export const clearForm = () => {
   };
 };
 
-export const updateForm = (key, value, arrayUpdate = false) => {
+export const updateForm = (key: string, value: any, arrayUpdate = false) => {
   return {
     type: UPDATE_FORM,
     key,
@@ -22,7 +23,7 @@ export const updateForm = (key, value, arrayUpdate = false) => {
   };
 };
 
-export const setErrors = (errorsList, showErrorMessage = false) => {
+export const setErrors = (errorsList: IFormState['errors'], showErrorMessage = false) => {
   return {
     type: SET_ERRORS,
     errorsList,
@@ -30,7 +31,7 @@ export const setErrors = (errorsList, showErrorMessage = false) => {
   };
 };
 
-export const setFormErrors = (error) => {
+export const setFormErrors = (error: string) => {
   return {
     type: SET_FORM_ERRORS,
     error,

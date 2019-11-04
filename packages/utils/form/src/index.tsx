@@ -4,7 +4,7 @@ import { isArray } from 'util';
 
 import { actions } from '@somo/pda-redux-form/src';
 import validation from '@somo/pda-utils-validation/src';
-import store from '../../../apps/www/src/state/store';
+import store from '@somo/pda-www-state/store';
 
 const { initForm, clearForm, updateForm, setErrors, setFormErrors } = actions;
 

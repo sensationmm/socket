@@ -16,8 +16,10 @@ describe('Loader actions', () => {
   });
 
   test('initForm', () => {
-    store.dispatch(initForm({ values: {} }));
-    expect(store.getActions()).toEqual([{ type: INIT_FORM, payload: { values: {} } }]);
+    store.dispatch(initForm({ values: {}, errors: {}, showErrorMessage: false }));
+    expect(store.getActions()).toEqual([
+      { type: INIT_FORM, payload: { values: {}, errors: {}, showErrorMessage: false } },
+    ]);
   });
 
   test('clearForm', () => {
@@ -43,8 +45,8 @@ describe('Loader actions', () => {
   });
 
   test('setFormErrors', () => {
-    store.dispatch(setFormErrors({ invalidAddress: true }));
-    expect(store.getActions()).toEqual([{ type: SET_FORM_ERRORS, error: { invalidAddress: true } }]);
+    store.dispatch(setFormErrors('Your address in invalid'));
+    expect(store.getActions()).toEqual([{ type: SET_FORM_ERRORS, error: 'Your address in invalid' }]);
   });
 
   test('clearFormErrors', () => {

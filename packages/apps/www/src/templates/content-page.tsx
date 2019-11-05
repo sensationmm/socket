@@ -48,7 +48,6 @@ export const query = graphql`
         }
         hero {
           heroBackground
-          bgImage
         }
         seo {
           metaDescription

@@ -64,7 +64,6 @@ export const query = graphql`
         date
         hero {
           heroBackground
-          bgImage
         }
         seo {
           metaDescription
@@ -75,27 +74,21 @@ export const query = graphql`
       fields {
         slug
         unified {
-          type
           children {
             type
-            value
             children {
               type
               value
+              url
+              alt
               children {
                 type
                 value
                 children {
                   type
-                  url
                   value
-                  children {
-                    type
-                    value
-                  }
                 }
               }
-              url
             }
           }
         }

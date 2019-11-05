@@ -1,6 +1,11 @@
+variables:
+  environment: "Develop"
+  GIT_SSL_NO_VERIFY: "true"
+
 
 stages:
   - build
+  - deploy
   - scan code
 
 
@@ -8,6 +13,7 @@ build:
   stage: build
   tags:
      - Paul Test
+
   script:
     - yarn install
     - yarn global add gatsby-cli
@@ -29,7 +35,7 @@ scan code:
             - /root/.sonar/cache
     variables:
         SONAR_URL: https://sonar.eon-cds.de
-        allow_failure: true
+#allow_failure: true
     script:
         - sonar-scanner
           -Dsonar.host.url=$SONAR_URL
@@ -39,7 +45,3 @@ scan code:
           -Dsonar.projectBaseDir=.
           -Dsonar.sources=./
           -Dsonar.login=$SONAR_TOKEN
-
-
-
-

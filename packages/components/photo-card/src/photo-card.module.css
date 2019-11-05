@@ -1,0 +1,31 @@
+.photoCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  padding-bottom: 66%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.photoCard .inner {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-xl) var(--spacing-l) var(--spacing-m) var(--spacing-l);
+
+  @media (--m) {
+    padding: var(--spacing-xxl) var(--spacing-xxl) var(--spacing-m) var(--spacing-l);
+  }
+}
+
+.primary .inner {
+  background-image: linear-gradient(to bottom, rgba(var(--color-brand-secondary), 0) 64%, var(--color-brand-secondary));
+}
+
+.secondary .inner {
+  background-image: linear-gradient(to bottom, rgba(var(--color-grey-dark), 0) 41%, var(--color-grey-dark));
+}

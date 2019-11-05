@@ -1,0 +1,95 @@
+@import 'reset-css';
+@import 'normalize.css';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: initial;
+  margin: initial;
+}
+
+html,
+body {
+  box-sizing: border-box;
+  font-size: 16px;
+  min-height: 100vh;
+  font-variant-ligatures: none;
+  font-family: 'SofiaPro', Futura, Avenir, Arial, SansSerif, sans-serif;
+  padding: 0 !important;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:any-link {
+  color: inherit; /* stylelint-disable-line */
+}
+
+/* stylelint-disable */
+@font-face {
+  font-display: fallback;
+  font-family: 'SofiaPro';
+  src:
+    url('./assets/SofiaProLight.woff2') format('woff2'),
+    url('./assets/SofiaProLight.woff') format('woff'),
+    url('./assets/SofiaProLight.eot'),
+    url('./assets/SofiaProLight.eot?#iefix') format('embedded-opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: fallback;
+  font-family: 'SofiaPro';
+  src:
+    url('./assets/SofiaProSemiBold.woff2') format('woff2'),
+    url('./assets/SofiaProSemiBold.woff') format('woff'),
+    url('./assets/SofiaProSemiBold.eot'),
+    url('./assets/SofiaProSemiBold.eot?#iefix') format('embedded-opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: fallback;
+  font-family: 'SofiaPro';
+  src:
+    url('./assets/SofiaProBold.woff2') format('woff2'),
+    url('./assets/SofiaProBold.woff') format('woff'),
+    url('./assets/SofiaProBold.eot'),
+    url('./assets/SofiaProBold.eot?#iefix') format('embedded-opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}
+
+@font-face {
+  font-display: fallback;
+  font-family: 'SofiaPro';
+  src:
+    url('./assets/SofiaProRegular.woff2') format('woff2'),
+    url('./assets/SofiaProRegular.woff') format('woff'),
+    url('./assets/SofiaProRegular.eot'),
+    url('./assets/SofiaProRegular.eot?#iefix') format('embedded-opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+000D-FB04;
+}

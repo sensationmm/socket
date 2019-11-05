@@ -1,0 +1,23 @@
+# Default build spec to create build artifacts
+version: 0.2
+phases:
+    install:
+      runtime-versions:
+        nodejs: 10
+      commands:
+            - 'touch .yarnignore'
+            - 'yarn global add gatsby-cli'
+    pre_build:
+        commands:
+            - echo Installing source yarn dependencies...
+            - 'yarn install'
+    build:
+        commands:
+            - echo Build started on `date`
+            - 'cd ./packages/apps/storybook'
+            - 'yarn build'
+    post_build:
+        commands:
+artifacts:
+    files:
+        - '**/*'

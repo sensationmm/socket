@@ -1,0 +1,12 @@
+.blogArticleContent {
+  margin: 0 auto var(--spacing-xl);
+  max-width: calc(var(--breakpoint-m-min) * 1px);
+}
+
+.blogArticleExcerpt {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xl);
+  }
+}

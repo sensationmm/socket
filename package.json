@@ -1,0 +1,130 @@
+{
+  "name": "digital_attacker",
+  "version": "0.1",
+  "main": "index.js",
+  "repository": "git@github.com:SomoGlobal/TDA_FrontEnd.git",
+  "author": "Tom Maton <thomas.maton@somoglobal.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*/*"
+  ],
+  "scripts": {
+    "tslint-check": "tslint-config-prettier-check ./tslint.json",
+    "lint": "yarn lint:css && yarn lint:ts",
+    "lint:ts": "tslint -c tslint.json -p tsconfig.json",
+    "lint:css": "stylelint \"**/*.module.css\"",
+    "lint:fix": "yarn lint:css --fix && yarn lint:ts --fix && yarn prettier:fix",
+    "prettier:fix": "prettier \"./packages/**/*\" --check --write",
+    "test": "jest ./packages",
+    "test:ci": "jest ./packages --coverage --ci",
+    "test:clearCache": "jest --clearCache",
+    "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
+    "tsc:e2e": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
+    "storybook": "start-storybook",
+    "gatsby": "(cd packages/apps/www && yarn develop) & (cd packages/apps/api && yarn develop)"
+  },
+  "devDependencies": {
+    "@apollo/react-testing": "3.1.3",
+    "@commitlint/cli": "8.1.0",
+    "@commitlint/config-conventional": "8.1.0",
+    "@commitlint/config-lerna-scopes": "8.1.0",
+    "@somo/browserslist-config": "0.0.4",
+    "@somo/postcss-plugins": "0.0.4",
+    "@somo/tslint-preset": "0.0.4",
+    "@storybook/react": "5.2.0",
+    "@types/classnames": "2.2.9",
+    "@types/enzyme": "3.10.3",
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.5",
+    "@types/react-dom": "16.9.0",
+    "@types/react-redux": "7.1.2",
+    "autoprefixer": "9.6.1",
+    "axios": "0.19.0",
+    "codecov": "3.5.0",
+    "codeowner": "1.0.3",
+    "cross-env": "5.2.1",
+    "enzyme": "3.10.0",
+    "enzyme-adapter-react-16": "1.14.0",
+    "html-webpack-plugin": "3.2.0",
+    "husky": "3.0.5",
+    "jest": "24.9.0",
+    "jest-environment-enzyme": "7.1.1",
+    "jest-enzyme": "7.1.1",
+    "jest-fetch-mock": "2.1.2",
+    "jest-junit": "8.0.0",
+    "jest-mock-axios": "3.1.1",
+    "jest-transform-graphql": "2.1.0",
+    "lint-staged": "9.2.5",
+    "prettier": "1.18.2",
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "react-hooks-testing-library": "0.5.0",
+    "react-redux": "7.1.1",
+    "react-router-dom": "5.0.1",
+    "react-test-renderer": "16.9.0",
+    "redux": "4.0.4",
+    "redux-mock-store": "1.5.3",
+    "redux-thunk": "2.3.0",
+    "stylelint": "11.0.0",
+    "stylelint-config-recommended": "3.0.0",
+    "stylelint-config-standard": "19.0.0",
+    "stylelint-declaration-use-variable": "1.7.0",
+    "ts-jest": "24.1.0",
+    "ts-loader": "6.1.0",
+    "ts-node": "8.4.1",
+    "tslint": "5.20.0",
+    "typescript": "3.6.3",
+    "waait": "1.0.5"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "3.1.3",
+    "@testing-library/jest-dom": "4.1.0",
+    "@testing-library/react": "9.3.0",
+    "apollo-boost": "0.4.4",
+    "classnames": "2.2.6",
+    "gatsby": "2.16.3",
+    "gatsby-cli": "2.8.1",
+    "gatsby-link": "2.2.22",
+    "graphql": "14.5.6",
+    "i18next": "18.0.0",
+    "i18next-browser-languagedetector": "4.0.0",
+    "isomorphic-fetch": "2.2.1",
+    "lerna": "3.16.4",
+    "moment": "2.24.0",
+    "react-i18next": "11.0.0",
+    "react-media": "1.10.0",
+    "redux": "4.0.4",
+    "redux-thunk": "2.3.0",
+    "tslib": "1.10.0"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "jest-junit": {
+    "suiteName": "Pure DA Web",
+    "output": "./build/reports/junit/junit.xml"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test:clearCache && yarn tsc:repo && yarn lint && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "!(node_modules)/*.{ts,tsx}": [
+      "tslint --fix",
+      "jest --bail --findRelatedTests",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{md,html}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{css}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  }
+}

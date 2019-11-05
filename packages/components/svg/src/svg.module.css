@@ -1,0 +1,10 @@
+.container {
+  line-height: 0;
+  margin: auto;
+}
+
+.gradient {
+  width: 0;
+  height: 0;
+  position: absolute;
+}

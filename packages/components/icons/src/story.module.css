@@ -1,0 +1,10 @@
+.page {
+  padding: 4%;
+  display: flex;
+  flex-wrap: wrap;
+  color: var(--color-brand-main);
+}
+
+.svg {
+  margin: var(--spacing-m);
+}

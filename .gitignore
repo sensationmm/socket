@@ -1,0 +1,36 @@
+# dependencies
+node_modules
+
+# testing
+/coverage
+junit.xml
+
+# storybook
+**/storybook/build
+
+# production
+dist
+.cache/
+.vscode/
+build/
+
+# misc
+.DS_Store
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.env.*
+
+#packages
+/packages/apps/www/public
+/public
+
+# cypress
+/packages/apps/e2e/cypress/videos/*
+packages/apps/e2e/cypress/screenshots/*
+packages/apps/e2e/cypress/results
+
+# IDEs
+.idea/

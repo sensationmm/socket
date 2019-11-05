@@ -1,0 +1,25 @@
+{
+  "title": [
+    {
+      "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|style|test):\\s",
+      "message": "Your title needs to be prefixed with a topic"
+    }
+  ],
+  "body": [
+    {
+      "pattern": "DA_UK-\\d{1,4}",
+      "flags": ["i"],
+      "message": "You need a JIRA ticket in your description"
+    },
+    {
+      "pattern": ".{1,}",
+      "message": "You need literally something in your description"
+    }
+  ],
+  "head.ref": [
+    {
+      "pattern": "^(feature|fix)/",
+      "message": "Your branch name is invalid"
+    }
+  ]
+}

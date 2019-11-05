@@ -1,0 +1,9 @@
+{
+  "name": "@somo/pda-utils-env",
+  "version": "0.0.0",
+  "author": "Edward Knowles <edward.knowles@somoglobal.com> (http://www.somoglobal.com)",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

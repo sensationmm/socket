@@ -1,0 +1,84 @@
+.home {
+  background: var(--color-basic-white);
+}
+
+.narrowSection {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
+    margin: 0 auto;
+    max-width: 75%;
+    width: 100%;
+  }
+}
+
+.narrowSection button {
+  display: none;
+
+  @media (--s) {
+    display: inline-block;
+  }
+}
+
+.narrowSection img {
+  margin: 0 auto;
+
+  @media (--s) {
+    margin: 0;
+  }
+}
+
+.narrowSectionMobileOnly {
+  @media (--s) {
+    display: none;
+  }
+}
+
+.featureContentCard {
+  margin-top: var(--spacing-xl);
+
+  @media (--m) {
+    margin-top: var(--spacing-xxl);
+  }
+}
+
+.switchingStepsSection {
+  position: relative;
+}
+
+.switchingStepsSection::before {
+  @media (--m) {
+    content: '';
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+    border: 1px solid var(--color-brand-secondary);
+  }
+}
+
+.switchingStepsHeader {
+  white-space: pre-wrap;
+  margin-bottom: var(--spacing-xl);
+
+  @media (--m) {
+    text-align: center;
+  }
+}
+
+.understandEnergyTitle {
+  margin-bottom: var(--spacing-l);
+
+  @media (--l) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.understandEnergyList {
+  margin-bottom: var(--spacing-l);
+
+  @media (--l) {
+    margin-bottom: var(--spacing-xl);
+  }
+}

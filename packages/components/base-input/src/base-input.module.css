@@ -1,0 +1,120 @@
+.textInput {
+  margin-bottom: 2px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.textInputLabel {
+  display: block;
+  text-transform: uppercase;
+  color: var(--color-brand-secondary);
+  padding-left: var(--spacing-s);
+  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-3xs);
+}
+
+.textInputRequired {
+  position: absolute;
+  right: var(--spacing-s);
+  top: 0;
+  color: var(--color-ui-error) !important;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: var(--font-size-3xs);
+}
+
+.textInputWrapper {
+  width: 100%; /* this used calc to minus padding before */
+  border: 1px solid var(--color-grey-mid);
+  border-radius: 5px;
+  padding: var(--spacing-m);
+  background: var(--color-basic-white);
+  display: flex;
+}
+
+.textInputWrapper.readOnly {
+  background: var(--color-grey-mid);
+}
+
+.textInputWrapper.error {
+  border-color: var(--color-ui-error) !important;
+}
+
+.textInputNote {
+  padding: var(--spacing-s) var(--spacing-xs);
+}
+
+.textCurrencySymbol {
+  color: var(--color-grey-dark);
+  padding-right: var(--spacing-s);
+  font-size: var(--font-size-3xs);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.textInput.error .textInputWrapper {
+  border-color: var(--color-ui-error) !important;
+}
+
+.textInput.currency .textInputWrapper input {
+  margin-left: 10px;
+  width: calc(100% - 10px);
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  background: none !important;
+  font-size: var(--font-size-3xs);
+  color: var(--color-text-body-primary);
+  outline: 0;
+  box-shadow: 0 0 0 0 var(--color-basic-white) inset !important;
+  transition: all 0.3s;
+  border: 0;
+}
+
+input[type='text']::placeholder,
+input[type='email']::placeholder,
+input[type='password']::placeholder,
+input[type='number']::placeholder,
+textarea::placeholder {
+  color: var(--color-brand-main);
+  opacity: 0.5;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='password']:focus,
+input[type='number']:focus,
+textarea:focus {
+  outline: 0;
+  border: 0;
+  background: none;
+}
+
+input[type='text']:focus .formatted-currency,
+input[type='number']:focus .formatted-currency,
+textarea:focus .formatted-currency {
+  display: flex;
+}
+
+input[type='text']#datepicker-field {
+  background: none;
+  border: 0;
+}
+
+textarea {
+  height: 120px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

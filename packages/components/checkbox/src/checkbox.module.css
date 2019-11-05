@@ -1,0 +1,51 @@
+.checkbox {
+  font-size: var(--font-size-3xs);
+  cursor: pointer;
+}
+
+.checkboxLayout {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.checkboxToggle {
+  border: 1px solid var(--color-grey-mid);
+  border-radius: 5px;
+  width: 39px;
+  height: 39px;
+  margin-right: 10px;
+  background: var(--color-basic-white);
+}
+
+.checkboxToggle svg {
+  color: var(--color-grey-mid);
+}
+
+.checkboxToggle.disabled {
+  border-color: var(--color-grey-mid);
+  background: var(--color-grey-mid);
+  pointer-events: none;
+}
+
+.checkboxToggle.disabled svg {
+  color: var(--color-basic-white);
+}
+
+.checkboxToggle.checked svg,
+.checkboxToggle.disabled.checked svg {
+  color: var(--color-brand-main);
+}
+
+.checkboxToggle.error {
+  border-color: var(--color-ui-error);
+}
+
+.checkboxLabel.disabled {
+  color: var(--color-grey-mid);
+}
+
+.checkboxLabel a {
+  color: var(--color-brand-main);
+  text-decoration: underline;
+}

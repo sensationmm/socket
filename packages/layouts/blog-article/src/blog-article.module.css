@@ -1,0 +1,64 @@
+.blogArticleHeroWrapper {
+  z-index: 1000;
+  padding-bottom: var(--spacing-xxl);
+
+  @media (--s) {
+    padding-bottom: 100px;
+  }
+
+  @media (--m) {
+    padding-bottom: 120px;
+  }
+}
+
+.blogArticleHero {
+  @media (--s) {
+    padding-bottom: var(--spacing-m);
+  }
+}
+
+.blogArticleRelatedListRow {
+  margin-bottom: var(--spacing-xl);
+}
+
+.blogArticleRelatedListWrapper::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.blogArticleRelatedListItem {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    margin-bottom: 0;
+  }
+}
+
+.blogArticleRelatedListTitle {
+  margin-bottom: var(--spacing-m);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.blogArticleRelatedLinkWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: var(--spacing-l);
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-l);
+  }
+}
+
+.blogArticleRelatedLinkWrapper a {
+  width: 100%;
+
+  @media (--s) {
+    width: auto;
+  }
+}

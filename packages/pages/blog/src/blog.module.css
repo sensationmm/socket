@@ -1,0 +1,10 @@
+.filter {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: var(--spacing-l);
+}
+
+.filter span {
+  margin-right: var(--spacing-s);
+}

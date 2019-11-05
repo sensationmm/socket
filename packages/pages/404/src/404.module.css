@@ -1,0 +1,24 @@
+.errorPageContent {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.errorPageTitle {
+  color: var(--color-link-default);
+  font-size: var(--font-size-xxl);
+  font-weight: var(--font-weight-semibold);
+  margin: var(--spacing-m) 0;
+}
+
+.errorPageSubTitle {
+  color: var(--color-text-primaryblack);
+  font-size: var(--font-size-l);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-xl);
+}
+
+.errorPageImage {
+  margin: 0 0 var(--spacing-xl) var(--spacing-xl);
+}

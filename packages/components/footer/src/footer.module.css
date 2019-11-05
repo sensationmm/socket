@@ -1,0 +1,44 @@
+.component {
+  position: relative;
+  width: 100%;
+  display: block;
+  color: var(--color-basic-white);
+}
+
+.social {
+  margin-bottom: var(--spacing-xxl);
+}
+
+.social > button {
+  margin-right: var(--spacing-l);
+}
+
+.socialIcon {
+  color: var(--color-basic-white);
+}
+
+.copyright {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-book);
+  margin-bottom: var(--spacing-xxl);
+
+  @media (--s) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+  }
+}
+
+.nav {
+  width: 100%;
+}
+
+.nav ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav ul li {
+  margin-left: var(--spacing-xl);
+}

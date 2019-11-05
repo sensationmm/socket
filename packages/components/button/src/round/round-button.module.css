@@ -1,0 +1,32 @@
+.button {
+  width: 52px;
+  height: 52px;
+  padding: 4px;
+  min-width: 0;
+}
+
+.button .content {
+  padding: 0;
+  background: var(--color-brand-secondary);
+  color: var(--color-basic-white);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  height: 44px;
+}
+
+.button:focus::after,
+.button .content {
+  border-radius: 50%;
+}
+
+.button:not(:disabled):hover .content {
+  background: rgba(var(--color-brand-secondary), 0.9);
+}
+
+.disabled .content {
+  background: var(--color-grey-mid);
+  color: var(--color-basic-white);
+}
+
+.selected .content {
+  background: var(--color-brand-tertiary) !important;
+}

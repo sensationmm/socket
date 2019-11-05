@@ -1,0 +1,19 @@
+/* stylelint-disable */
+.table {
+  table {
+    th {
+      color: #192222;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
+
+    td,
+    th {
+      color: #3e5454;
+      vertical-align: middle;
+      text-align: left;
+      padding: 4px 64px 4px 0;
+    }
+  }
+}

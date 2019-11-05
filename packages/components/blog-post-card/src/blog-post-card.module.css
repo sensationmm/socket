@@ -1,0 +1,24 @@
+.blogPostCard .authorWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.blogPostCard .authorName,
+.blogPostCard .date {
+  display: block;
+  padding-left: var(--spacing-s);
+}
+
+.blogPostCard .title {
+  margin-top: var(--spacing-m);
+}
+
+.blogPostCard .description {
+  margin-top: var(--spacing-s);
+  margin-bottom: var(--spacing-m);
+}
+
+.blogPostCard .link {
+  margin-top: auto;
+}

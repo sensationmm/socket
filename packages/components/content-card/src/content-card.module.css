@@ -1,0 +1,25 @@
+.contentCard {
+  padding-right: var(--spacing-xl);
+}
+
+.contentCardHeader {
+  align-items: center;
+  display: flex;
+  margin-bottom: var(--spacing-s);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-m);
+  }
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.contentCardTitle {
+  margin-left: var(--spacing-s);
+
+  @media (--m) {
+    margin-left: var(--spacing-l);
+  }
+}

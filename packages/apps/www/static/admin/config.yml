@@ -1,0 +1,92 @@
+backend:
+  name: github
+  repo: SomoGlobal/pureda-mono
+  branch: develop
+  accept_roles: #optional - accepts all users if left out
+    - admin
+    - editor
+# This line should *not* be indented
+# publish_mode: editorial_workflow
+media_folder: 'packages/apps/www/static/assets' # Media files will be stored in the repo under images/uploads
+public_folder: 'assets' # The src attribute for uploaded media will begin with /images/uploads
+site_url: https://localhost:8000
+collections:
+  - name: 'blog' # Used in routes, e.g., /admin/collections/blog
+    label: 'Blog' # Used in the UI
+    folder: 'packages/apps/www/src/content/blog' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { name: date, label: 'Published Date', widget: datetime }
+      - { name: title, label: Title, required: true }
+      - label: SEO
+        name: seo
+        widget: 'object'
+        fields:
+          - { name: pageTitle, label: Title }
+          - { name: metaDescription, label: Description }
+      - label: Hero
+        name: hero
+        widget: 'object'
+        fields:
+          - {
+              name: heroBackground,
+              widget: 'select',
+              options: ['None', 'Primary', 'PrimaryPattern', 'Secondary', 'Image'],
+              default: 'None',
+            }
+          - { name: bgImage, label: 'Hero Image', widget: image, required: false }
+      - label: Content
+        name: content
+        widget: 'object'
+        fields:
+          - { name: excerpt, label: Excerpt, required: false }
+          - { name: body, label: Body, widget: markdown, required: true }
+      - label: 'Post Author'
+        name: 'author'
+        widget: 'relation'
+        collection: 'authors'
+        searchFields: ['fullName']
+        valueField: 'fullName'
+        required: false
+        displayFields: ['fullName']
+  - name: 'authors' # Used in routes, e.g., /admin/collections/blog
+    identifier_field: fullName
+    label: 'Authors' # Used in the UI
+    folder: 'packages/apps/www/src/content/authors' # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { name: fullName, label: 'Author name', required: true }
+      - { name: bio, label: 'Author description', required: true }
+      - { name: photo, label: 'Author image', widget: image, required: false }
+  - name: 'pages'
+    label: 'Page'
+    folder: 'packages/apps/www/src/content/pages'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: 'Title', required: true }
+      - label: SEO
+        name: seo
+        widget: 'object'
+        fields:
+          - { name: pageTitle, label: 'Title' }
+          - { name: metaDescription, label: 'Description' }
+      - label: Hero
+        name: hero
+        widget: 'object'
+        fields:
+          - {
+              name: heroBackground,
+              widget: 'select',
+              options: ['None', 'Primary', 'PrimaryPattern', 'Secondary', 'Image'],
+              default: 'None',
+            }
+          - { name: bgImage, label: 'Hero Image', widget: image, required: false }
+      - label: Content
+        name: content
+        widget: 'object'
+        fields:
+          - { name: subTitle, label: 'Subtitle', required: false }
+          - { name: body, label: 'Body', widget: markdown, required: true }

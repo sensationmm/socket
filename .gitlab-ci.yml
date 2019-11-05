@@ -33,7 +33,7 @@ scan code:
             - /root/.sonar/cache
     variables:
         SONAR_URL: https://sonar.eon-cds.de
-allow_failure: true
+        allow_failure: true
     script:
         - sonar-scanner
           -Dsonar.host.url=$SONAR_URL

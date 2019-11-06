@@ -1,0 +1,17 @@
+stages:
+  - lint
+
+eslint:
+  stage: lint
+  tags:
+    - gitlab-aws
+  image:
+    name: node:latest
+
+#allow_failure: true
+  script:
+    - yarn install
+    - yarn lint:css
+    - yarn lint:ts
+    - yarn test
+

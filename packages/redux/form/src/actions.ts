@@ -1,20 +1,33 @@
 import { IFormState } from './reducers';
-import { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
+import {
+  CLEAR_FORM,
+  CLEAR_FORM_ERRORS,
+  IClearForm,
+  IClearFormErrors,
+  IInitForm,
+  INIT_FORM,
+  ISetErrors,
+  ISetFormErrors,
+  IUpdateForm,
+  SET_ERRORS,
+  SET_FORM_ERRORS,
+  UPDATE_FORM,
+} from './types';
 
-export const initForm = (payload: IFormState) => {
+export const initForm = (payload: IFormState): IInitForm => {
   return {
     type: INIT_FORM,
     payload,
   };
 };
 
-export const clearForm = () => {
+export const clearForm = (): IClearForm => {
   return {
     type: CLEAR_FORM,
   };
 };
 
-export const updateForm = (key: string, value: any, arrayUpdate = false) => {
+export const updateForm = (key: string, value: any, arrayUpdate = false): IUpdateForm => {
   return {
     type: UPDATE_FORM,
     key,
@@ -23,7 +36,7 @@ export const updateForm = (key: string, value: any, arrayUpdate = false) => {
   };
 };
 
-export const setErrors = (errorsList: IFormState['errors'], showErrorMessage = false) => {
+export const setErrors = (errorsList: IFormState['errors'], showErrorMessage = false): ISetErrors => {
   return {
     type: SET_ERRORS,
     errorsList,
@@ -31,14 +44,14 @@ export const setErrors = (errorsList: IFormState['errors'], showErrorMessage = f
   };
 };
 
-export const setFormErrors = (error: string) => {
+export const setFormErrors = (error: string): ISetFormErrors => {
   return {
     type: SET_FORM_ERRORS,
     error,
   };
 };
 
-export const clearFormErrors = () => {
+export const clearFormErrors = (): IClearFormErrors => {
   return {
     type: CLEAR_FORM_ERRORS,
   };

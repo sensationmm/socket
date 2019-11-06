@@ -6,7 +6,7 @@ const { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, U
 describe('documents reducer', () => {
   test('INIT_FORM', () => {
     const action = {
-      type: INIT_FORM,
+      type: INIT_FORM as typeof INIT_FORM,
       payload: {
         values: {
           test: 'test1',
@@ -28,7 +28,7 @@ describe('documents reducer', () => {
 
   test('UPDATE_FORM without arrayUpdate', () => {
     const action = {
-      type: UPDATE_FORM,
+      type: UPDATE_FORM as typeof UPDATE_FORM,
       key: 'date',
       value: '04/20/69',
     };
@@ -46,7 +46,7 @@ describe('documents reducer', () => {
 
   test('UPDATE_FORM with arrayUpdate', () => {
     const action = {
-      type: UPDATE_FORM,
+      type: UPDATE_FORM as typeof UPDATE_FORM,
       key: 'date',
       value: '20/05/97',
       arrayUpdate: true,
@@ -72,7 +72,7 @@ describe('documents reducer', () => {
 
   test('SET_ERRORS', () => {
     const action = {
-      type: SET_ERRORS,
+      type: SET_ERRORS as typeof SET_ERRORS,
       errorsList: {
         isInvalidAddress: true,
       },
@@ -91,36 +91,24 @@ describe('documents reducer', () => {
 
   test('SET_FORM_ERRORS', () => {
     const action = {
-      type: SET_FORM_ERRORS,
-      error: {
-        isInvalidAddress: true,
-      },
-    };
-
-    const newInitialState = {
-      ...initialState,
-      errors: {
-        isInvalidDate: true,
-      },
+      type: SET_FORM_ERRORS as typeof SET_FORM_ERRORS,
+      error: 'Your address is invalid',
     };
 
     const expectedState = {
       values: {},
       errors: {
-        isInvalidDate: true,
-        form: {
-          isInvalidAddress: true,
-        },
+        form: 'Your address is invalid',
       },
       showErrorMessage: true,
     };
 
-    expect(form(newInitialState, action)).toEqual(expectedState);
+    expect(form(initialState, action)).toEqual(expectedState);
   });
 
   test('CLEAR_FORM_ERRORS', () => {
     const action = {
-      type: CLEAR_FORM_ERRORS,
+      type: CLEAR_FORM_ERRORS as typeof CLEAR_FORM_ERRORS,
     };
 
     const newInitialState = {
@@ -147,7 +135,7 @@ describe('documents reducer', () => {
 
   test('CLEAR_FORM', () => {
     const action = {
-      type: CLEAR_FORM,
+      type: CLEAR_FORM as typeof CLEAR_FORM,
     };
 
     const newInitialState = {

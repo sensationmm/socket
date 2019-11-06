@@ -1,4 +1,4 @@
-import { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
+import { Action, CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
 
 export interface IFormState {
   values: { [key: string]: any };
@@ -12,7 +12,7 @@ export const initialState: IFormState = {
   showErrorMessage: false,
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action: Action): IFormState => {
   let newValues;
 
   switch (action.type) {

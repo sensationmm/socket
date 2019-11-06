@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*/*"
+    "packages/**"
   ],
   "scripts": {
     "tslint-check": "tslint-config-prettier-check ./tslint.json",

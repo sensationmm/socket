@@ -1,10 +1,9 @@
-import functions from '@somo/pda-utils-functions/src';
 import React from 'react';
-import { isArray } from 'util';
 
 import { actions } from '@somo/pda-redux-form/src';
+import functions from '@somo/pda-utils-functions/src';
 import validation from '@somo/pda-utils-validation/src';
-import store from '../../../apps/www/src/state/store';
+import store from '@somo/pda-www-state/store';
 
 import * as styles from './form.module.css';
 
@@ -14,7 +13,7 @@ export interface IFormConfig {
   id: string;
   label: string;
   value?: string;
-  component: React.ReactType;
+  component: React.ElementType;
   stateKey: string;
   onChange?: () => void;
   validationFunction?: string | string[];
@@ -23,16 +22,15 @@ export interface IFormConfig {
   callback?: () => void;
 }
 
-// Output default values/error state required by form setup
 export const initFormState = (fieldsInit: object, fieldsValues?: object) => {
-  const fields = !isArray(fieldsInit) ? fieldsInit : new Array(...fieldsInit);
-  const errors = !isArray(fieldsInit) ? {} : { fields: fieldsInit.map(() => new Object()) };
+  const fields = !Array.isArray(fieldsInit) ? fieldsInit : new Array(...fieldsInit);
+  const errors = !Array.isArray(fieldsInit) ? {} : { fields: fieldsInit.map(() => new Object()) };
 
   const fieldsKeys = Object.keys(fields);
 
   if (fieldsValues) {
     fieldsKeys.forEach((key) => {
-      fields[key] = fieldsValues[key]; // @TODO ideally only this line should be necessary...
+      fields[key] = fieldsValues[key];
     });
   }
 
@@ -45,20 +43,17 @@ export const initFormState = (fieldsInit: object, fieldsValues?: object) => {
   );
 };
 
-// Clears all form config from redux
 export const clearFormState = () => {
   store.dispatch(clearForm());
 };
 
-// Sets form error in redux
 export const setFormError = (error: string) => {
   store.dispatch(setFormErrors(error));
 
   window.scrollTo(0, 0);
 };
 
-// Helper function to update state.values item
-export const updateValue = (stateKey: string, value: any, callback?, arrayUpdate: boolean = false) => {
+export const updateValue = (stateKey: string, value: any, callback?, arrayUpdate = false) => {
   store.dispatch(updateForm(stateKey, value, arrayUpdate));
 
   if (callback) {
@@ -66,7 +61,6 @@ export const updateValue = (stateKey: string, value: any, callback?, arrayUpdate
   }
 };
 
-// Validates field, sets state.error value for field if validation fails
 export const validateField = (config: IFormConfig[], stateID: string, arrayIndex?: number) => {
   const { values, errors } = store.getState().form;
   const errorsList = !errors.fields ? errors : errors.fields;
@@ -75,13 +69,13 @@ export const validateField = (config: IFormConfig[], stateID: string, arrayIndex
 
   const valueToCheck = arrayIndex === undefined ? values[stateID] : values[arrayIndex][stateID];
 
-  const validationList = !isArray(configItem.validationFunction)
+  const validationList = !Array.isArray(configItem.validationFunction)
     ? configItem.validationFunction
       ? new Array(configItem.validationFunction)
       : undefined
     : configItem.validationFunction;
 
-  const validationParamList = !isArray(configItem.validationParam)
+  const validationParamList = !Array.isArray(configItem.validationParam)
     ? new Array(configItem.validationParam)
     : configItem.validationParam;
 
@@ -121,8 +115,7 @@ export const validateField = (config: IFormConfig[], stateID: string, arrayIndex
   }
 };
 
-// Validates every field defined in the this.config parent object that has a validationFunction prop defined
-export const validateForm = (config: IFormConfig[], arrayIndex?: number) => {
+export const validateForm = (config: IFormConfig[], arrayIndex?: number): boolean => {
   config.forEach((configItem) => {
     if (configItem.stateKey && configItem.validationFunction) {
       formUtils.validateField(config, configItem.stateKey, arrayIndex);
@@ -140,13 +133,12 @@ export const validateForm = (config: IFormConfig[], arrayIndex?: number) => {
     window.scrollTo(0, 0);
 
     return false;
-  } else {
-    return true;
   }
+
+  return true;
 };
 
-// Renders form defined in this.config of parent
-export const renderForm = (config: IFormConfig[], arrayIndex?: number) => {
+export const renderForm = (config: IFormConfig[], arrayIndex?: number): JSX.Element => {
   const { errors, showErrorMessage } = store.getState().form;
 
   return (
@@ -164,7 +156,6 @@ export const renderForm = (config: IFormConfig[], arrayIndex?: number) => {
   );
 };
 
-// Renders form fields
 export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => {
   const { errors } = store.getState().form;
 
@@ -193,7 +184,7 @@ export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => 
       }
     }
 
-    const Component: React.ReactType = item.component;
+    const Component: React.ElementType = item.component;
 
     return (
       <Component

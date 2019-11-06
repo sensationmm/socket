@@ -2,7 +2,7 @@ import formUtils, { IFormConfig } from '.';
 
 import functions from '@somo/pda-utils-functions/src';
 import validation from '@somo/pda-utils-validation/src';
-import store from '../../../apps/www/src/state/store';
+import store from '@somo/pda-www-state/store';
 
 import Checkbox from '@somo/pda-components-checkbox/src';
 import InputPassword from '@somo/pda-components-input-password/src';

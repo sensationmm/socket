@@ -16,6 +16,7 @@ build:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/storybook
+    - yarn test
     - yarn build
     - cd ../www
     - yarn build

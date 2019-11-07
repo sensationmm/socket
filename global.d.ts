@@ -34,17 +34,22 @@ declare namespace EON {
     correspondenceAddressLabel: string;
   }
 
+  interface IHeroTranslations {
+    title: string;
+    subTitle?: string;
+    cta?: string;
+  }
+
   interface IWebAppTranslations {
     site: {
       blog: {
-        hero: {
-          title: string;
-          subTitle: string;
-        };
+        hero: IHeroTranslations;
         buttonRead: string;
         filter: {
           start: string;
           end: string;
+          latest: string;
+          earliest: string;
         };
       };
       footer: {
@@ -53,26 +58,18 @@ declare namespace EON {
         copyright: string;
       };
       fourOhFour: {
-        hero: {
-          title: string;
-        };
+        hero: IHeroTranslations;
         body: string;
       };
       login: {
-        hero: {
-          title: string;
-        };
+        hero: IHeroTranslations;
         form: {
           username: string;
           password: string;
         };
       };
       homepage: {
-        hero: {
-          title: string;
-          subTitle: string;
-          cta: string;
-        };
+        hero: IHeroTranslations;
         mainFeatures: {
           content: IHomepageFeatures[];
         };
@@ -88,7 +85,6 @@ declare namespace EON {
           title: string;
           subTitle: string;
           cta: string;
-          image: string;
           list: string[];
         };
         companyFeatures: {
@@ -111,9 +107,7 @@ declare namespace EON {
         sharePostHeader: string;
       };
       about: {
-        hero: {
-          title: string;
-        };
+        hero: IHeroTranslations;
         energyMarket: {
           title: string;
           content: string[];

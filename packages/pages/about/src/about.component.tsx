@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
@@ -19,83 +20,103 @@ interface IImageProps {
 }
 
 interface IAboutPageProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'about'>;
   imagery: IImageProps[];
 }
 
-const AboutPage: React.FC<IAboutPageProps> = ({ i18n, imagery }) => {
-  const { about, footer } = i18n;
-  const { hero, energyMarket, goodBunch, realPeople } = about;
+interface IGoodBunch {
+  text: string;
+  list: [];
+}
+
+interface IRealPeople {
+  text: string;
+  image: string;
+}
+
+const AboutPage: React.FC<IAboutPageProps> = ({ imagery }) => {
+  const [t] = useTranslation();
+
+  const energy = t('site.about.energyMarket.content', { returnObjects: true }) as [];
+  const goodBunch = t('site.about.goodBunch.content', { returnObjects: true }) as IGoodBunch[];
+  const realPeople = t('site.about.realPeople.content', { returnObjects: true }) as IRealPeople[];
 
   return (
-    <RegularLayout hero={hero} footer={footer}>
+    <RegularLayout hero={t('site.about.hero', { returnObjects: true })}>
       <PageSection>
         <Text element="h2" type={TextStyles.h2}>
-          {energyMarket.title}
+          {t('site.about.energyMarket.title')}
         </Text>
         <div className={styles.energyMarket}>
-          {splitArrayIntoChunksOfN(energyMarket.content, 4).map((chunk, count) => (
-            <div key={`energy-market-chunk-${count}`}>
-              {chunk.map((item, index) => (
-                <Text
-                  className={styles.energyMarketText}
-                  key={`energy-market-item-${index}`}
-                  element="p"
-                  color={ColorStyles.tertiary}
-                >
-                  {item}
-                </Text>
-              ))}
-            </div>
-          ))}
+          {Array.isArray(energy) &&
+            splitArrayIntoChunksOfN(energy, 4).map((chunk, count) => (
+              <div key={`energy-market-chunk-${count}`}>
+                {chunk.map((item, index) => (
+                  <Text
+                    className={styles.energyMarketText}
+                    key={`energy-market-item-${index}`}
+                    element="p"
+                    color={ColorStyles.tertiary}
+                  >
+                    {item}
+                  </Text>
+                ))}
+              </div>
+            ))}
         </div>
       </PageSection>
       <PageSection style={PageSectionStyle.PrimaryPattern}>
         <Text className={styles.goodBunchTitle} element="h2" type={TextStyles.h2} color={ColorStyles.quaternary}>
-          {goodBunch.title}
+          {t('site.about.goodBunch.title')}
         </Text>
         <div className={styles.goodBunch}>
-          {goodBunch.content.map((item, count) => (
-            <div className={styles.goodBunchBlock} key={`good-bunch-${count}`}>
-              {item.text && (
-                <Text className={styles.goodBunchText} type={TextStyles.body} color={ColorStyles.secondary} element="p">
-                  {item.text}
-                </Text>
-              )}
-              {item.list && item.list.length > 0 && (
-                <ul className={styles.goodBunchList}>
-                  {item.list.map((listItem, index) => (
-                    <li key={`good-bunch-list-item-${index}`} className={styles.goodBunchListItem}>
-                      <Text type={TextStyles.body} color={ColorStyles.secondary}>
-                        {listItem}
-                      </Text>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+          {Array.isArray(goodBunch) &&
+            goodBunch.map((item, count) => (
+              <div className={styles.goodBunchBlock} key={`good-bunch-${count}`}>
+                {item.text && (
+                  <Text
+                    className={styles.goodBunchText}
+                    type={TextStyles.body}
+                    color={ColorStyles.secondary}
+                    element="p"
+                  >
+                    {item.text}
+                  </Text>
+                )}
+                {item.list && item.list.length > 0 && (
+                  <ul className={styles.goodBunchList}>
+                    {item.list.map((listItem, index) => (
+                      <li key={`good-bunch-list-item-${index}`} className={styles.goodBunchListItem}>
+                        <Text type={TextStyles.body} color={ColorStyles.secondary}>
+                          {listItem}
+                        </Text>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
         </div>
         <div className={styles.goodBunchCta}>
-          <SecondaryBtn>{goodBunch.cta}</SecondaryBtn>
+          <SecondaryBtn>{t('site.about.goodBunch.cta')}</SecondaryBtn>
         </div>
       </PageSection>
       <PageSection isNarrow={true}>
         <Text className={styles.realPeopleTitle} element="h2" type={TextStyles.h2} color={ColorStyles.primary}>
-          {realPeople.title}
+          {t('site.about.realPeople.title')}
         </Text>
         <FlexRow className={styles.realPeopleList} layout={[50, 50]}>
-          {realPeople.content.map((item, count) => (
-            <PhotoCard
-              key={`real-people-${count}`}
-              style={PhotoCardStyle.Secondary}
-              text={item.text}
-              image={getImagePath(imagery, item.image)}
-            />
-          ))}
+          {Array.isArray(realPeople) &&
+            realPeople.map((item, count) => (
+              <PhotoCard
+                key={`real-people-${count}`}
+                style={PhotoCardStyle.Secondary}
+                text={item.text}
+                image={getImagePath(imagery, item.image)}
+              />
+            ))}
         </FlexRow>
         <div className={styles.realPeopleCta}>
-          <SecondaryBtn>{realPeople.cta}</SecondaryBtn>
+          <SecondaryBtn>{t('site.about.realPeople.cta')}</SecondaryBtn>
         </div>
       </PageSection>
     </RegularLayout>

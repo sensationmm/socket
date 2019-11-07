@@ -7,13 +7,6 @@ const renderComponent = (props) => render(<Content {...props} />);
 
 describe('@somo/pda-pages-content', () => {
   const props = {
-    i18n: {
-      footer: {
-        title: 'Our smart technology needs a smart meter.',
-        subTitle: "Check you're on the latest smart meter and start taking control your energy.",
-        copyright: '2019 © Socket Energy. All rights reserved.',
-      },
-    },
     hero: {
       title: 'Content Page',
     },

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Secondary } from '@somo/pda-components-button/src';
 import { ContentBoxStyle } from '@somo/pda-components-content-box/src';
@@ -22,25 +23,39 @@ interface IImageProps {
 }
 
 interface IHomePageProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'homepage'>;
   imagery: IImageProps[];
 }
 
-const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
-  const { homepage, footer } = i18n;
-  const { hero, mainFeatures, companyFeatures, switchingSteps, understandEnergy } = homepage;
+interface IMainFeatures {
+  icon: string;
+  header: string;
+  body: string;
+}
+
+const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
+  const [t] = useTranslation();
+
+  const mainFeatures = t('site.homepage.mainFeatures.content', { returnObjects: true }) as IMainFeatures[];
+
+  const thingsWeDoDo = t('site.homepage.companyFeatures.thingsWeDoDo.content', {
+    returnObjects: true,
+  }) as IMainFeatures[];
+  const thingsWeDontDo = t('site.homepage.companyFeatures.thingsWeDontDo.content', {
+    returnObjects: true,
+  }) as IMainFeatures[];
 
   return (
-    <RegularLayout hero={hero} footer={footer}>
+    <RegularLayout hero={t('site.homepage.hero', { returnObjects: true })}>
       <PageSection>
         <FlexRow>
-          {mainFeatures.content.map((feature, count) => {
+          {mainFeatures.map((feature, count) => {
             return (
               <ContentCard key={`feature-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
             );
           })}
         </FlexRow>
       </PageSection>
+
       <PageSection style={PageSectionStyle.PrimaryPattern}>
         <FlexRow className={styles.narrowSection} layout={[60, 40]}>
           <div>
@@ -50,55 +65,61 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
               type={TextStyles.h2}
               color={ColorStyles.secondary}
             >
-              {understandEnergy.title}
+              {t('site.homepage.understandEnergy.title')}
             </Text>
             <List
               classNames={styles.understandEnergyList}
-              listContent={understandEnergy.list}
+              listContent={t('site.homepage.understandEnergy.list', { returnObjects: true })}
               textColor={ColorStyles.secondary}
             />
-            <Secondary>{understandEnergy.cta}</Secondary>
+            <Secondary>{t('site.homepage.understandEnergy.cta')}</Secondary>
           </div>
           <div>
-            <Image src={getImagePath(imagery, understandEnergy.image)} alt={understandEnergy.title} isLazy={true} />
+            <Image
+              src={getImagePath(imagery, 'energy-pie')}
+              alt={t('site.homepage.understandEnergy.title')}
+              isLazy={true}
+            />
           </div>
         </FlexRow>
         <FlexRow className={styles.narrowSectionMobileOnly}>
-          <Secondary>{understandEnergy.cta}</Secondary>
+          <Secondary>{t('site.homepage.understandEnergy.cta')}</Secondary>
         </FlexRow>
       </PageSection>
+
       <PageSection style={PageSectionStyle.Secondary}>
         <div className={styles.switchingStepsHeader}>
           <Text element="h2" type={TextStyles.h2}>
-            {switchingSteps.header}
+            {t('site.homepage.switchingSteps.header')}
           </Text>
         </div>
         <FlexRow className={styles.switchingStepsSection}>
           <StepCard
-            header={switchingSteps.content.step1.header}
-            body={switchingSteps.content.step1.body}
+            header={t('site.homepage.switchingSteps.content.step1.header')}
+            body={t('site.homepage.switchingSteps.content.step1.body')}
             style={ContentBoxStyle.SecondaryPattern}
           />
           <StepCard
-            header={switchingSteps.content.step2.header}
-            body={switchingSteps.content.step2.body}
+            header={t('site.homepage.switchingSteps.content.step2.header')}
+            body={t('site.homepage.switchingSteps.content.step2.body')}
             style={ContentBoxStyle.SecondaryPattern}
           />
           <StepCard
-            cta={switchingSteps.content.step3.cta}
+            cta={t('site.homepage.switchingSteps.content.step3.cta')}
             style={ContentBoxStyle.TertiaryPattern}
             isVerticallyCentered={true}
             isHorizontallyCentered={true}
           />
         </FlexRow>
       </PageSection>
+
       <PageSection>
         <FlexRow>
           <div>
             <Text element="h2" type={TextStyles.h2}>
-              {companyFeatures.thingsWeDontDo.header}
+              {t('site.homepage.companyFeatures.thingsWeDontDo.header')}
             </Text>
-            {companyFeatures.thingsWeDontDo.content.map((feature, count) => {
+            {thingsWeDontDo.map((feature, count) => {
               return (
                 <ContentCard
                   key={`dontDo-${count}`}
@@ -113,9 +134,9 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
 
           <div>
             <Text element="h2" type={TextStyles.h2}>
-              {companyFeatures.thingsWeDoDo.header}
+              {t('site.homepage.companyFeatures.thingsWeDoDo.header')}
             </Text>
-            {companyFeatures.thingsWeDoDo.content.map((feature, count) => {
+            {thingsWeDoDo.map((feature, count) => {
               return (
                 <ContentCard
                   key={`doDo-${count}`}
@@ -129,6 +150,7 @@ const HomePage: React.FC<IHomePageProps> = ({ i18n, imagery }) => {
           </div>
         </FlexRow>
       </PageSection>
+
       {/* <PageSection style={PageSectionStyle.Secondary}>
         <FlexRow className={styles.narrowSection}>
           <div>

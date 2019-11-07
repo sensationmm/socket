@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Media from 'react-media';
 
 import tokens from '@somo/pda-utils-tokens/src';
@@ -12,27 +13,21 @@ import RegularLayout from '@somo/pda-layouts-regular/src';
 import * as styles from './blog.module.css';
 
 interface IBlogPageProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'blog'>;
   posts: Array<Omit<IBlogPostCardProps, 'cta'>>;
 }
 
-const BlogPage: React.FC<IBlogPageProps> = ({ i18n, posts }) => {
-  const { blog, footer } = i18n;
-  const { hero, buttonRead, filter } = blog;
+const BlogPage: React.FC<IBlogPageProps> = ({ posts }) => {
+  const [t] = useTranslation();
 
   const [state, setState] = useState(1);
 
   function usePrevious(value) {
-    // The ref object is a generic container whose current property is mutable ...
-    // ... and can hold any value, similar to an instance property on a class
     const ref = useRef();
 
-    // Store current value in ref
     useEffect(() => {
       ref.current = value;
-    }, [value]); // Only re-run if value changes
+    }, [value]);
 
-    // Return previous value (happens before update in useEffect above)
     return ref.current;
   }
 
@@ -43,19 +38,22 @@ const BlogPage: React.FC<IBlogPageProps> = ({ i18n, posts }) => {
   }
 
   return (
-    <RegularLayout hero={hero} footer={footer}>
+    <RegularLayout hero={t('site.blog.hero', { returnObjects: true })}>
       <PageSection>
         <div className={styles.filter}>
-          <span>{filter.start}</span>
+          <span>{t('site.blog.filter.start')}</span>
           <span>
             <Select
               type={FormSelectType.Inline}
-              options={[{ val: '1', label: 'The Latest' }, { val: '-1', label: 'The Earliest' }]}
-              value={'The Latest'}
+              options={[
+                { val: '1', label: t('site.blog.filter.latest') },
+                { val: '-1', label: t('site.blog.filter.earliest') },
+              ]}
+              value={t('site.blog.filter.latest')}
               onChange={(val) => setState(val)}
             />
           </span>
-          <span>{filter.end}</span>
+          <span>{t('site.blog.filter.end')}</span>
         </div>
 
         <Media query={tokens.customMedia.m}>
@@ -69,7 +67,7 @@ const BlogPage: React.FC<IBlogPageProps> = ({ i18n, posts }) => {
                 title: post.title,
                 link: post.link,
                 shortDescription: post.shortDescription,
-                cta: buttonRead,
+                cta: t('site.blog.buttonRead'),
               }))}
             />
           )}

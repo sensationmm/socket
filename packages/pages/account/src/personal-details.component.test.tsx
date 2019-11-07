@@ -7,17 +7,6 @@ import Component, { GET_USER_QUERY } from './personal-details.component';
 
 describe('PersonalDetails component', () => {
   const props = {
-    i18n: {
-      title: 'Personal Deets',
-      subtitle: "That's you!",
-      nameLabel: 'Name',
-      accountNumberLabel: 'Account Number',
-      supplyAddressLabel: 'Supply Address',
-      emailLabel: 'Email',
-      phoneLabel: 'Phone Number',
-      passwordLabel: 'Password',
-      correspondenceAddressLabel: 'Correspondence Address',
-    },
     userId: 'u1',
     token: 't123',
     tokenType: 'Bearer',

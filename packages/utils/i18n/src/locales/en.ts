@@ -9,6 +9,8 @@ const data: EON.IWebAppTranslations = {
       filter: {
         start: 'Show me',
         end: 'articles',
+        latest: 'The Latest',
+        earliest: 'The Earliest',
       },
     },
     footer: {
@@ -62,7 +64,6 @@ const data: EON.IWebAppTranslations = {
         title: 'Do you understand your energy?',
         subTitle: 'We make it easy',
         cta: 'Join us',
-        image: 'energy-pie',
         list: [
           'Set goals for how much you spend',
           'Regular tips from our boffins to help you save',

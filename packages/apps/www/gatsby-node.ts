@@ -3,8 +3,6 @@ import * as path from 'path';
 import parsed from 'remark-parse';
 import unified from 'unified';
 
-import i18n from '@somo/pda-utils-i18n/src/locales/en';
-
 export async function createPages({ actions, graphql }) {
   const { createPage } = actions;
 
@@ -96,25 +94,4 @@ export function onCreateWebpackConfig({ loaders, actions }) {
       ],
     },
   });
-}
-
-export function sourceNodes({ actions, createNodeId, createContentDigest }) {
-  const { createNode } = actions;
-
-  const nodeId = createNodeId('i18n');
-  const nodeContent = JSON.stringify(i18n);
-
-  const nodeData = Object.assign({}, i18n, {
-    id: nodeId,
-    parent: null,
-    children: [],
-    internal: {
-      type: 'Translations',
-      content: nodeContent,
-      contentDigest: createContentDigest(i18n),
-    },
-  });
-  createNode(nodeData);
-
-  return;
 }

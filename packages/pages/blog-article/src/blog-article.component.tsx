@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import PageSection from '@somo/pda-components-page-section/src';
 import Share from '@somo/pda-components-share/src';
@@ -27,20 +28,18 @@ interface IContent {
 }
 
 interface IBlogArticlePageProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer' | 'blogArticle'>;
   hero: IHero;
   content: IContent;
 }
 
 const getLocation = () => (typeof window !== 'undefined' ? window.location.href : '/');
 
-const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) => {
-  const { footer, blogArticle } = i18n;
+const BlogArticle: React.FC<IBlogArticlePageProps> = ({ hero, content }) => {
   const { body, excerpt } = content;
-  const { sharePostHeader } = blogArticle;
+  const [t] = useTranslation();
 
   return (
-    <BlogArticleLayout hero={hero} footer={footer}>
+    <BlogArticleLayout hero={hero}>
       <PageSection className={styles.blogArticleContent}>
         {excerpt && (
           <Text className={styles.blogArticleExcerpt} element={'h2'} type={TextStyles.h2} color={ColorStyles.primary}>
@@ -48,7 +47,7 @@ const BlogArticle: React.FC<IBlogArticlePageProps> = ({ i18n, hero, content }) =
           </Text>
         )}
         {body}
-        <Share header={sharePostHeader} articleTitle={hero.title} articleLink={getLocation()} />
+        <Share header={t('site.blogArticle.sharePostHeader')} articleTitle={hero.title} articleLink={getLocation()} />
       </PageSection>
     </BlogArticleLayout>
   );

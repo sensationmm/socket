@@ -9,19 +9,6 @@ describe('@somo/pda-pages-blog', () => {
 
   beforeAll(() => {
     props = {
-      i18n: {
-        blog: {
-          hero: {
-            title: 'Musings & News-things.',
-            subTitle: 'It’s the latest info, news and updates from the Socket Team.',
-          },
-          buttonRead: 'Read article',
-          filter: {
-            start: 'Show me',
-            end: 'articles',
-          },
-        },
-      },
       posts: [
         {
           id: '1',

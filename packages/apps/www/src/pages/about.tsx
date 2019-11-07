@@ -22,53 +22,14 @@ const About: React.FC = () => {
           }
         }
       }
-      allTranslations {
-        edges {
-          node {
-            site {
-              footer {
-                title
-                subTitle
-                copyright
-              }
-              about {
-                hero {
-                  title
-                }
-                energyMarket {
-                  title
-                  content
-                }
-                goodBunch {
-                  title
-                  content {
-                    text
-                    list
-                  }
-                  cta
-                }
-                realPeople {
-                  title
-                  content {
-                    text
-                    image
-                  }
-                  cta
-                }
-              }
-            }
-          }
-        }
-      }
     }
   `);
-  const i18n = data.allTranslations.edges[0].node.site;
   const imagery = data.allFile.edges;
 
   return (
     <>
       <SEO {...SEOprops} />
-      <AboutPage i18n={i18n} imagery={imagery} />
+      <AboutPage imagery={imagery} />
     </>
   );
 };

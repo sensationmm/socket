@@ -20,12 +20,6 @@ interface IHeroProps {
   publicationDate: string;
 }
 
-interface IFooterI18nProps {
-  title: string;
-  subTitle: string;
-  copyright: string;
-}
-
 interface IAuthorProps {
   fullName: string;
   photo?: string;
@@ -33,10 +27,9 @@ interface IAuthorProps {
 
 interface IBlogArticleLayoutProps {
   hero: IHeroProps;
-  footer: IFooterI18nProps;
 }
 
-const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, children }) => {
+const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, children }) => {
   return (
     <AppTemplate>
       <PageSection
@@ -45,14 +38,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, ch
         className={styles.blogArticleHeroWrapper}
       >
         <NavBar menu={HeaderNavigation} />
-        <PageHero
-          className={styles.blogArticleHero}
-          i18n={{
-            heading: hero.title,
-            text: hero.subTitle,
-            cta: hero.cta,
-          }}
-        />
+        <PageHero className={styles.blogArticleHero} heading={hero.title} text={hero.subTitle} cta={hero.cta} />
         <ArticleAuthor
           name={hero.author.fullName}
           avatar={hero.author.photo}
@@ -63,7 +49,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, footer, ch
       </PageSection>
       {children}
       <PageSection style={PageSectionStyle.PrimaryPattern}>
-        <Footer i18n={footer} menu={FooterNavigation} />
+        <Footer menu={FooterNavigation} />
       </PageSection>
     </AppTemplate>
   );

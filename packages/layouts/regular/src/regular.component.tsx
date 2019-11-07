@@ -16,35 +16,21 @@ interface IHeroI18nProps {
   cta?: string;
 }
 
-interface IFooterI18nProps {
-  title: string;
-  subTitle: string;
-  copyright: string;
-}
-
 interface IRegularLayoutProps {
   hero: IHeroI18nProps;
-  footer: IFooterI18nProps;
 }
 
-const RegularLayout: React.FC<IRegularLayoutProps> = ({ hero, footer, children }) => {
+const RegularLayout: React.FC<IRegularLayoutProps> = ({ hero, children }) => {
   return (
     <AppTemplate>
       <PageSection className={styles.navSection} style={PageSectionStyle.PrimaryPattern}>
         <NavBar menu={HeaderNavigation} />
 
-        <PageHero
-          i18n={{
-            heading: hero.title,
-            text: hero.subTitle,
-            cta: hero.cta,
-          }}
-          onClick={() => navigate('/page')}
-        />
+        <PageHero heading={hero.title} text={hero.subTitle} cta={hero.cta} onClick={() => navigate('/page')} />
       </PageSection>
       <main>{children}</main>
       <PageSection style={PageSectionStyle.PrimaryPattern}>
-        <Footer i18n={footer} menu={FooterNavigation} />
+        <Footer menu={FooterNavigation} />
       </PageSection>
     </AppTemplate>
   );

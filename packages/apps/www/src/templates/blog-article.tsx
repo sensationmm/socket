@@ -7,7 +7,6 @@ import BlogArticle from '@somo/pda-pages-blog-article/src';
 
 const Page = ({ data }) => {
   const { frontmatter, fields } = data.markdownRemark;
-  const i18n = data.allTranslations.edges[0].node.site;
 
   if (!frontmatter) {
     return null;
@@ -24,29 +23,13 @@ const Page = ({ data }) => {
 
   content.body = htmlSerializer(fields.unified);
 
-  return <BlogArticle i18n={i18n} content={content} hero={articleHero} />;
+  return <BlogArticle content={content} hero={articleHero} />;
 };
 
 export default Page;
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
-    allTranslations {
-      edges {
-        node {
-          site {
-            footer {
-              title
-              subTitle
-              copyright
-            }
-            blogArticle {
-              sharePostHeader
-            }
-          }
-        }
-      }
-    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

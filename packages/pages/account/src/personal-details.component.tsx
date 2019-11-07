@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import AccountSection from '@somo/pda-components-account-section/src';
 import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/pda-components-avatar/src';
@@ -12,7 +13,6 @@ import Field, { BorderStyles } from './field.component';
 import * as styles from './account.module.css';
 
 export interface IPersonalDetailsProps {
-  i18n: EON.IAccountPersonal;
   userId: string;
   token: string;
   tokenType: string;
@@ -48,7 +48,7 @@ interface IQueryVars {
   id: string;
 }
 
-const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ i18n, userId, token, tokenType }) => {
+const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ userId, token, tokenType }) => {
   const { loading, error, data } = useQuery<IUserResponse, IQueryVars>(GET_USER_QUERY, {
     variables: { id: userId },
     context: {
@@ -58,8 +58,15 @@ const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ i18n, userId, token,
     },
   });
 
+  const [t] = useTranslation();
+
   return (
-    <AccountSection className={styles.personalDetails} title={i18n.title} subtitle={i18n.subtitle} hasGap={true}>
+    <AccountSection
+      className={styles.personalDetails}
+      title={t('site.account.personal.title')}
+      subtitle={t('site.account.personal.subtitle')}
+      hasGap={true}
+    >
       {loading && (
         <div className={styles.messageContainer}>
           <Text element="p" type={TextStyles.body} color={ColorStyles.primary}>
@@ -91,19 +98,19 @@ const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ i18n, userId, token,
                   component={Field}
                   content={[
                     {
-                      label: i18n.nameLabel,
+                      label: t('site.account.personal.nameLabel'),
                       value: data.user.name,
                       disabled: true,
                       borderStyle: BorderStyles.dark,
                     },
                     {
-                      label: i18n.accountNumberLabel,
+                      label: t('site.account.personal.accountNumberLabel'),
                       value: data.user.accountNumber,
                       disabled: true,
                       borderStyle: BorderStyles.dark,
                     },
                     {
-                      label: i18n.supplyAddressLabel,
+                      label: t('site.account.personal.supplyAddressLabel'),
                       value: data.user.supplyAddress,
                       borderStyle: BorderStyles.dark,
                     },
@@ -117,10 +124,13 @@ const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ i18n, userId, token,
             <FlexRowGrid
               component={Field}
               content={[
-                { label: i18n.emailLabel, value: data.user.email },
-                { label: i18n.phoneLabel, value: data.user.phone },
-                { label: i18n.passwordLabel, value: '*******' },
-                { label: i18n.correspondenceAddressLabel, value: data.user.correspondenceAddress },
+                { label: t('site.account.personal.emailLabel'), value: data.user.email },
+                { label: t('site.account.personal.phoneLabel'), value: data.user.phone },
+                { label: t('site.account.personal.passwordLabel'), value: '*******' },
+                {
+                  label: t('site.account.personal.correspondenceAddressLabel'),
+                  value: data.user.correspondenceAddress,
+                },
               ]}
               cols={2}
             />

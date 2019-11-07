@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
@@ -18,29 +17,10 @@ interface IFormProps {
 }
 
 const Form: React.FC<IFormProps> = ({ form }) => {
-  const data: any = useStaticQuery(graphql`
-    query FormQuery {
-      allTranslations {
-        edges {
-          node {
-            site {
-              footer {
-                title
-                subTitle
-                copyright
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  const i18n = data.allTranslations.edges[0].node.site;
-
   return (
     <>
       <SEO {...SEOprops} />
-      <FormExample i18n={i18n} form={form} />
+      <FormExample form={form} />
     </>
   );
 };

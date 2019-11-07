@@ -31,13 +31,13 @@ describe('@somo/pda-layouts-regular component', () => {
   });
 
   it('should render a hero', () => {
-    props.hero = <PageHero i18n={props.hero} />;
+    props.hero = <PageHero {...props.hero} />;
     wrapper = shallow(<RegularLayout {...props} />);
     expect(wrapper.find('PageHero').length).toBe(1);
   });
 
   it('should render a footer', () => {
-    props.hero = <Footer i18n={props.footer} />;
+    props.hero = <Footer />;
     wrapper = shallow(<RegularLayout {...props} />);
     expect(wrapper.find('Footer').length).toBe(1);
   });

@@ -40,33 +40,8 @@ const Blog: React.FC = () => {
           }
         }
       }
-      allTranslations {
-        edges {
-          node {
-            site {
-              blog {
-                hero {
-                  title
-                  subTitle
-                }
-                buttonRead
-                filter {
-                  start
-                  end
-                }
-              }
-              footer {
-                title
-                subTitle
-                copyright
-              }
-            }
-          }
-        }
-      }
     }
   `);
-  const i18n = data.allTranslations.edges[0].node.site;
   const blogPosts = data.allMarkdownRemark.edges;
 
   const posts = blogPosts.map((post) => {
@@ -84,7 +59,7 @@ const Blog: React.FC = () => {
   return (
     <>
       <SEO {...SEOprops} />
-      <BlogPage i18n={i18n} posts={posts} />
+      <BlogPage posts={posts} />
     </>
   );
 };

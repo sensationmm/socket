@@ -12,7 +12,6 @@ import InputPassword from '@somo/pda-components-input-password/src';
 import InputText from '@somo/pda-components-input-text/src';
 
 interface IFormExampleProps {
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer'>;
   form: IFormState;
 }
 
@@ -37,10 +36,7 @@ class FormExample extends React.Component<IFormExampleProps> {
   }
 
   public render() {
-    const {
-      i18n: { footer },
-      form,
-    } = this.props;
+    const { form } = this.props;
 
     const { values } = form;
 
@@ -90,7 +86,7 @@ class FormExample extends React.Component<IFormExampleProps> {
     ];
 
     return (
-      <RegularLayout hero={{ title: 'Form Example' }} footer={footer}>
+      <RegularLayout hero={{ title: 'Form Example' }}>
         <PageSection>
           {formUtils.renderForm(config)}
 

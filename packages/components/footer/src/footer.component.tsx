@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Round as RoundButton } from '@somo/pda-components-button/src';
 import { Facebook, Instagram, Twitter } from '@somo/pda-components-icons/src';
@@ -8,12 +9,11 @@ import SVG from '@somo/pda-components-svg/src';
 import * as styles from './footer.module.css';
 
 export interface IFooterProps {
-  i18n: EON.IWebAppTranslations['site']['footer'];
   menu?: IMenuProps['links'];
 }
 
-const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {
-  const { copyright } = i18n;
+const Footer: React.FC<IFooterProps> = ({ menu }) => {
+  const [t] = useTranslation();
 
   return (
     <div className={styles.component}>
@@ -29,7 +29,7 @@ const Footer: React.FC<IFooterProps> = ({ i18n, menu }) => {
         </RoundButton>
       </div>
 
-      <div className={styles.copyright}>{copyright}</div>
+      <div className={styles.copyright}>{t('site.footer.copyright')}</div>
 
       {menu && <Menu links={menu} />}
     </div>

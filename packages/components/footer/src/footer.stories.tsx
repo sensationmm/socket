@@ -10,12 +10,6 @@ const menuMock = [
   { label: 'Link 3', link: 'http://www.google.com' },
 ];
 
-const i18n = {
-  title: 'Our smart technology needs a smart meter.',
-  subTitle: "Check you're on the latest smart meter and start taking control your energy.",
-  copyright: '2019 © Socket Energy. All rights reserved.',
-};
-
 storiesOf('Components|footer', module)
   .addDecorator(withKnobs({ escapeHTML: false }))
   .addParameters({
@@ -24,6 +18,6 @@ storiesOf('Components|footer', module)
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => (
     <div style={{ width: '800px' }}>
-      <Footer i18n={object('i18n', i18n)} menu={object('Menu', menuMock)} />
+      <Footer menu={object('Menu', menuMock)} />
     </div>
   ));

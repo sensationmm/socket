@@ -6,21 +6,15 @@ import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
 import * as styles from './page-hero.module.css';
 
-interface IPageHeroI18N {
+export interface IPageHeroProps {
   heading: string;
   text?: string | null;
   cta?: string | null;
-}
-
-export interface IPageHeroProps {
-  i18n: IPageHeroI18N;
   className?: string;
   onClick?: () => void;
 }
 
-const PageHero: React.FC<IPageHeroProps> = ({ i18n, className, onClick }) => {
-  const { cta, heading, text } = i18n;
-
+const PageHero: React.FC<IPageHeroProps> = ({ heading, text, cta, className, onClick }) => {
   return (
     <div className={cx(styles.component, className)}>
       <div className={styles.heading}>

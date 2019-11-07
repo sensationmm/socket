@@ -15,9 +15,7 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render without error', () => {
     props = {
-      i18n: {
-        heading: headingString,
-      },
+      heading: headingString,
     };
     wrapper = shallow(<Component {...props} />);
     expect(wrapper).toBeDefined();
@@ -25,11 +23,9 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render full content', () => {
     props = {
-      i18n: {
-        heading: headingString,
-        text: textString,
-        cta: ctaString,
-      },
+      heading: headingString,
+      text: textString,
+      cta: ctaString,
       onClick: onClickMock,
     };
 
@@ -53,10 +49,8 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render heading and text only', () => {
     props = {
-      i18n: {
-        heading: headingString,
-        text: textString,
-      },
+      heading: headingString,
+      text: textString,
     };
 
     wrapper = shallow(<Component {...props} />);
@@ -78,10 +72,8 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render heading and cta only', () => {
     props = {
-      i18n: {
-        heading: headingString,
-        cta: ctaString,
-      },
+      heading: headingString,
+      cta: ctaString,
       onClick: onClickMock,
     };
 
@@ -100,9 +92,7 @@ describe('@somo/pda-components-page-hero component', () => {
 
   it('should render heading only', () => {
     props = {
-      i18n: {
-        heading: headingString,
-      },
+      heading: headingString,
     };
 
     wrapper = shallow(<Component {...props} />);

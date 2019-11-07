@@ -16,14 +16,11 @@ interface IContentPageProps {
   hero: IHero;
   subTitle: string;
   body: string;
-  i18n: Pick<EON.IWebAppTranslations['site'], 'footer'>;
 }
 
-const ContentPage: React.FC<IContentPageProps> = ({ i18n, hero, subTitle, body }) => {
-  const { footer } = i18n;
-
+const ContentPage: React.FC<IContentPageProps> = ({ hero, subTitle, body }) => {
   return (
-    <RegularLayout hero={hero} footer={footer}>
+    <RegularLayout hero={hero}>
       <PageSection isNarrow={true} className={styles.contentPageWrapper}>
         <Text element="h3" type={TextStyles.h3} className={styles.contentPageSubTitle}>
           {subTitle}

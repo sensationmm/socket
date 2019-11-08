@@ -9,14 +9,23 @@ export interface IAccountSectionProps {
   className?: string;
   title: string;
   subtitle?: string;
+  actionPane?: any;
   disabled?: boolean;
   hasGap?: boolean;
 }
 
-const AccountSection: React.FC<IAccountSectionProps> = ({ className, title, subtitle, disabled, hasGap, children }) => (
+const AccountSection: React.FC<IAccountSectionProps> = ({
+  className,
+  title,
+  subtitle,
+  actionPane,
+  disabled,
+  hasGap,
+  children,
+}) => (
   <div className={cx(className, styles.accountSection, { [styles.disabled]: disabled }, { [styles.gap]: hasGap })}>
     <div className={styles.header}>
-      <div className={styles.leftPanel}>
+      <div>
         <Text type={TextStyles.h2} color={ColorStyles.primary} element="h2">
           {title}
         </Text>
@@ -26,6 +35,7 @@ const AccountSection: React.FC<IAccountSectionProps> = ({ className, title, subt
           </Text>
         )}
       </div>
+      {actionPane && <div>{actionPane}</div>}
     </div>
     <div className={styles.content}>{children}</div>
   </div>

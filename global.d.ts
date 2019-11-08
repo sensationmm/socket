@@ -48,6 +48,12 @@ declare namespace EON {
     title: string;
     subTitle?: string;
     cta?: string;
+  };
+  
+  interface IAccountGoal {
+    title: string;
+    subTitle: string;
+    content: string;
   }
 
   interface IWebAppTranslations {
@@ -139,6 +145,7 @@ declare namespace EON {
         errorGenericMessage: string;
         personal: IAccountPersonal;
         payment: IAccountPayment;
+        goal: IAccountGoal;
       };
     };
     validation: {

@@ -23,4 +23,6 @@ i18n
     },
   });
 
+export { translationEnglish as en };
+
 export default i18n;

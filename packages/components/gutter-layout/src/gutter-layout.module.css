@@ -1,0 +1,15 @@
+.gutter > div {
+  margin-bottom: var(--spacing-l);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.gutter > div:last-child {
+  margin-bottom: 0;
+}

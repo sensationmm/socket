@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   height: 68px;
+  justify-content: space-between;
   padding: 0 var(--spacing-l);
   background-color: var(--color-grey-light);
   border: 2px solid var(--color-grey-light);

@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -48,6 +49,18 @@ describe('@somo/pda-components-account-section component', () => {
         .childAt(0)
         .text(),
     ).toEqual(props.subtitle);
+  });
+
+  it('should render content if the actionPane prop value is truthy', () => {
+    const props = {
+      title: 'Preferences',
+      subtitle: 'Stay in the loop',
+      actionPane: 'Action Pane',
+    };
+
+    const { getByText } = render(<Component {...props} />);
+
+    getByText(props.actionPane);
   });
 
   it('should render a disabled class name if disabled prop value is truthy', () => {

@@ -2,17 +2,18 @@ import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import * as React from 'react';
 
+import GutterLayout from '@somo/pda-components-gutter-layout/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
 import UserSwitch from '@somo/pda-components-user-switch/src';
 import AccountLayout from '@somo/pda-layouts-account/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
 import { useTranslation } from 'react-i18next';
+import * as styles from './account.module.css';
+import Goal from './components/goal.component';
 import PaymentDetails from './components/payment-details.component';
 import PersonalDetails from './components/personal-details.component';
 import QuerySection from './components/query-section.component';
-
-import * as styles from './account.module.css';
 
 export interface IAccountPageProps {
   userId: string;
@@ -87,24 +88,27 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId, token, tokenT
         <Text element="h1" type={TextStyles.h1}>
           {t('site.account.title')}
         </Text>
-        <QuerySection
-          className={styles.personalDetailsSection}
-          title={t('site.account.personal.title')}
-          subtitle={t('site.account.personal.subtitle')}
-          hasGap={true}
-          loading={loading}
-          error={!!error}
-          Component={PersonalDetails}
-          values={personalDetails}
-        />
-        <QuerySection
-          title={t('site.account.payment.title')}
-          subtitle={t('site.account.payment.subtitle')}
-          loading={loading}
-          error={!!error}
-          Component={PaymentDetails}
-          values={paymentDetails}
-        />
+        <GutterLayout>
+          <QuerySection
+            className={styles.personalDetailsSection}
+            title={t('site.account.personal.title')}
+            subtitle={t('site.account.personal.subtitle')}
+            hasGap={true}
+            loading={loading}
+            error={!!error}
+            Component={PersonalDetails}
+            values={personalDetails}
+          />
+          <QuerySection
+            title={t('site.account.payment.title')}
+            subtitle={t('site.account.payment.subtitle')}
+            loading={loading}
+            error={!!error}
+            Component={PaymentDetails}
+            values={paymentDetails}
+          />
+          <Goal />
+        </GutterLayout>
       </PageSection>
     </AccountLayout>
   );

@@ -238,6 +238,11 @@ const data: EON.IWebAppTranslations = {
         accountNumberLabel: 'Bank Account Number',
         sortCodeLabel: 'Sort Code',
       },
+      goal: {
+        title: 'Goals',
+        subTitle: 'COMING SOON',
+        content: 'This feature will enable you to set your own spending or usage goals',
+      },
     },
   },
   validation: {

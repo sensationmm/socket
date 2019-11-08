@@ -32,7 +32,6 @@
   font-size: var(--font-size-m);
   font-weight: var(--font-weight-semibold);
   line-height: 1.5;
-  margin-bottom: var(--spacing-l);
 
   @media (--s) {
     font-size: var(--font-size-l);
@@ -42,6 +41,13 @@
   @media (--m) {
     font-size: var(--font-size-3xl);
     line-height: 1.06;
+  }
+}
+
+.h2.cmsContent {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
     margin-bottom: var(--spacing-xl);
   }
 }
@@ -64,7 +70,6 @@
 .body {
   font-size: var(--font-size-xxs);
   line-height: 1.63;
-  margin-bottom: var(--spacing-l);
 
   @media (--s) {
     font-size: var(--font-size-s);
@@ -74,6 +79,13 @@
   @media (--m) {
     font-size: var(--font-size-xl);
     line-height: 1.25;
+  }
+}
+
+.body.cmsContent {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
     margin-bottom: var(--spacing-xl);
   }
 }

@@ -4,3 +4,11 @@
   list-style: disc;
   margin-left: var(--font-size-s);
 }
+
+.cmsContent {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xl);
+  }
+}

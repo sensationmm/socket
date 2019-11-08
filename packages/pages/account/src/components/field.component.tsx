@@ -4,7 +4,7 @@ import React from 'react';
 
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
-import * as styles from './account.module.css';
+import * as styles from './field.module.css';
 
 interface IFieldProps {
   label: string;

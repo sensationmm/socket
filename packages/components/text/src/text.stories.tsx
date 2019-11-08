@@ -1,4 +1,4 @@
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -23,6 +23,7 @@ storiesOf('Components|text', module)
         color={select('color', color, 'primary')}
         className={text('className', '')}
         children={text('children', defaultText)}
+        isCMSContent={boolean('isCMSContent', false)}
       />
     </div>
   ));

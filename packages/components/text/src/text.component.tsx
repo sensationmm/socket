@@ -30,12 +30,22 @@ interface ITextProps {
   element?: any;
   type?: any;
   color?: any;
-
+  isCMSContent?: boolean;
   [prop: string]: any;
 }
 
-const Text: React.FC<ITextProps> = ({ className, children, element, type, color = 'primary', ...props }) => {
-  const finalClassName = cx(className, baseStyles.base, baseStyles[type], baseStyles[color]);
+const Text: React.FC<ITextProps> = ({
+  className,
+  children,
+  element,
+  type,
+  color = 'primary',
+  isCMSContent,
+  ...props
+}) => {
+  const finalClassName = cx(className, baseStyles.base, baseStyles[type], baseStyles[color], {
+    [baseStyles.cmsContent]: isCMSContent,
+  });
 
   return React.createElement(element, { className: finalClassName, ...props }, children);
 };
@@ -43,6 +53,7 @@ const Text: React.FC<ITextProps> = ({ className, children, element, type, color 
 Text.defaultProps = {
   element: 'span',
   type: TextStyles.body,
+  isCMSContent: false,
 };
 
 export default Text;

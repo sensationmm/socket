@@ -17,7 +17,7 @@ const componentFormatter = (component) => {
   switch (component.type) {
     case 'heading': // Heading 2
       return (
-        <Text element="h2" type={TextStyles.h2} color={ColorStyles.primary}>
+        <Text element="h2" type={TextStyles.h2} color={ColorStyles.primary} isCMSContent={true}>
           {component.children[0].value}
         </Text>
       );
@@ -25,16 +25,25 @@ const componentFormatter = (component) => {
     case 'paragraph': // Paragraph
       if (component.children[0].type === 'text') {
         return (
-          <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary}>
+          <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary} isCMSContent={true}>
             {component.children[0].value}
           </Text>
         );
       } else if (component.children[0].type === 'image') {
-        return <Image alt={component.children[0].alt || ''} src={component.children[0].url} isLazy={true} />;
+        return (
+          <Image
+            alt={component.children[0].alt || ''}
+            src={component.children[0].url}
+            isLazy={true}
+            isCMSContent={true}
+          />
+        );
       }
 
     case 'list': // Unordered List
-      return <List listContent={listContent(component.children)} textColor={ColorStyles.tertiary} />;
+      return (
+        <List listContent={listContent(component.children)} textColor={ColorStyles.tertiary} isCMSContent={true} />
+      );
 
     default:
       // Always include a default that returns null

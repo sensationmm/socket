@@ -216,6 +216,8 @@ const data: EON.IWebAppTranslations = {
     },
     account: {
       title: 'Account',
+      loadingGenericMessage: 'Loading...',
+      errorGenericMessage: 'Something happened on our end. Please try again later.',
       personal: {
         title: 'Personal Deets',
         subtitle: "That's you!",
@@ -226,6 +228,15 @@ const data: EON.IWebAppTranslations = {
         phoneLabel: 'Phone Number',
         passwordLabel: 'Password',
         correspondenceAddressLabel: 'Correspondence Address',
+      },
+      payment: {
+        title: 'Payment Details',
+        subtitle: 'The bit we all hate!',
+        dateLabel: 'Monthly payment (DD) date',
+        noPaymentDate: 'Not applicable',
+        nameLabel: 'Name of Account Holder',
+        accountNumberLabel: 'Bank Account Number',
+        sortCodeLabel: 'Sort Code',
       },
     },
   },

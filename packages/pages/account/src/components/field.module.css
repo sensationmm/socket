@@ -1,0 +1,17 @@
+.accountField .label {
+  margin-bottom: var(--spacing-xs);
+}
+
+.accountField .value {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  line-height: 1.62;
+}
+
+.accountField.dark .value {
+  border-bottom-color: var(--color-grey-midDarker);
+}
+
+.accountField.light .value {
+  border-bottom-color: var(--color-grey-light);
+}

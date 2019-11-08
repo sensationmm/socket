@@ -40,4 +40,11 @@ describe('@somo/pda-components-text component', () => {
     wrapper = shallow(<Text {...props} />);
     expect(wrapper.find(`.${props.type}`)).toHaveLength(1);
   });
+
+  it('should render a cmsContent class if isCMSContent prop value is truthy ', () => {
+    props.type = TextStyles.h1;
+    props.isCMSContent = true;
+    wrapper = shallow(<Text {...props} />);
+    expect(wrapper.find('.cmsContent')).toHaveLength(1);
+  });
 });

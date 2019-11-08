@@ -27,13 +27,29 @@ jest.mock('apollo-datasource-rest', () => {
           },
         ],
       })
-      .mockReturnValue({
+      .mockReturnValueOnce({
         Electricity: {
           supplyAddress: {
             address1: "147 Regent's Park Road",
             postcode: 'NW1 8XL',
           },
         },
+      })
+      .mockReturnValueOnce({
+        results: [
+          {
+            id: '56',
+            paymentMethodType: 'Direct Debit',
+          },
+        ],
+      })
+      .mockReturnValueOnce({
+        accountName: 'John Smith',
+        accountNumber: '1234567789',
+        sortCode: '34-45-55',
+      })
+      .mockReturnValueOnce({
+        results: [],
       });
   }
 
@@ -59,12 +75,19 @@ describe('UserModule', () => {
         query {
           user(id: "15") {
             id
-            name
-            email
-            phone
-            accountNumber
-            correspondenceAddress
-            supplyAddress
+            personalDetails {
+              name
+              email
+              phone
+              accountNumber
+              correspondenceAddress
+              supplyAddress
+            }
+            paymentDetails {
+              accountName
+              accountNumber
+              sortCode
+            }
           }
         }
       `,
@@ -74,12 +97,19 @@ describe('UserModule', () => {
     expect(result.data).toEqual({
       user: {
         id: '23',
-        name: 'John Smith',
-        email: 'john.smith@somoglobal.com',
-        phone: '07456548679',
-        accountNumber: '54388543',
-        correspondenceAddress: '145 Royal College Street, NW1 0TH',
-        supplyAddress: "147 Regent's Park Road, NW1 8XL",
+        personalDetails: {
+          name: 'John Smith',
+          email: 'john.smith@somoglobal.com',
+          phone: '07456548679',
+          accountNumber: '54388543',
+          correspondenceAddress: '145 Royal College Street, NW1 0TH',
+          supplyAddress: "147 Regent's Park Road, NW1 8XL",
+        },
+        paymentDetails: {
+          accountName: 'John Smith',
+          accountNumber: '1234567789',
+          sortCode: '34-45-55',
+        },
       },
     });
   });

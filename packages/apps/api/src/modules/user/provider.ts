@@ -34,6 +34,21 @@ const computeAddress = (address: IAddress) => {
 export class UserProvider extends BaseProvider {
   public async getUserById(userId) {
     try {
+      const { id, accountId, ...rest } = await this.getPersonalDetails(userId);
+      const paymentDetails = await this.getPaymentDetails(accountId);
+
+      return {
+        id,
+        personalDetails: rest,
+        paymentDetails,
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private async getPersonalDetails(userId) {
+    try {
       const {
         id,
         forename,
@@ -49,12 +64,33 @@ export class UserProvider extends BaseProvider {
 
       return {
         id,
+        accountId: account.id,
         name: `${forename} ${surname}`,
         email,
         phone: phoneNumber1,
         accountNumber: account.number,
         correspondenceAddress: computeAddress(account.billingAddress),
         supplyAddress: computeAddress(product.supplyAddress),
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private async getPaymentDetails(accountId) {
+    try {
+      const paymentMethods = await this.get(`/junifer/accounts/${accountId}/paymentMethods`);
+      const directDebitId = paymentMethods.results.filter((item) => item.paymentMethodType === 'Direct Debit')[0].id;
+
+      const { accountName, accountNumber, sortCode } = await this.get(`/junifer/directDebits/${directDebitId}`);
+
+      const { results } = await this.get(`/junifer/accounts/${accountId}/paymentSchedulePeriods`);
+
+      return {
+        accountName,
+        accountNumber,
+        sortCode,
+        monthlyPaymentDate: results.length === 0 ? '' : '15',
       };
     } catch (error) {
       throw error;

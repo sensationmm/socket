@@ -1,3 +1,11 @@
 .fallback {
   width: 100%;
 }
+
+.cmsContent {
+  margin-bottom: var(--spacing-l);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xl);
+  }
+}

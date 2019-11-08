@@ -1,4 +1,9 @@
-import { get as storageGet, StorageKeys, update as updateStorage } from '@somo/pda-utils-storage/src';
+import {
+  clear as clearStorage,
+  get as storageGet,
+  StorageKeys,
+  update as updateStorage,
+} from '@somo/pda-utils-storage/src';
 import * as types from '../types';
 
 const initialState = {
@@ -27,6 +32,11 @@ export default (state = initialState, action) => {
       updateStorage(StorageKeys.auth, user);
 
       return { ...state, ...user, fetchStatus: 'COMPLETE' };
+    }
+    case types.UNAUTHENTICATED: {
+      clearStorage(StorageKeys.auth);
+
+      return {};
     }
     default:
       return state;

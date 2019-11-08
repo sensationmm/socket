@@ -12,11 +12,17 @@ storiesOf('Components|image', module)
         src="https://bit.ly/2RXBzai"
         i18n={object('i18n', { noImage: 'Image Unavailable' })}
         isLazy={boolean('isLazy', false)}
+        isCMSContent={boolean('isCMSContent', false)}
       />
     );
   })
   .add('Failing image', () => {
     return (
-      <Image src="foo.bar" i18n={object('i18n', { noImage: 'Image Unavailable' })} isLazy={boolean('isLazy', false)} />
+      <Image
+        src="foo.bar"
+        i18n={object('i18n', { noImage: 'Image Unavailable' })}
+        isLazy={boolean('isLazy', false)}
+        isCMSContent={boolean('isCMSContent', false)}
+      />
     );
   });

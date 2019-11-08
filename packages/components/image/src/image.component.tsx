@@ -8,6 +8,7 @@ interface IImageProps extends React.DetailedHTMLProps<React.ImgHTMLAttributes<HT
   i18n?: { noImage: string };
   isLazy?: boolean;
   onError?: (event?: any) => void;
+  isCMSContent?: boolean;
 }
 
 import * as styles from './image.module.css';
@@ -17,6 +18,7 @@ const Image: React.FC<IImageProps> = ({
   isLazy,
   className = '',
   onError,
+  isCMSContent,
   ...props
 }) => {
   const [hasError, updateErrorState] = React.useState(false);
@@ -24,12 +26,16 @@ const Image: React.FC<IImageProps> = ({
     updateErrorState(true);
   };
 
+  const classes = cx({ [styles.fallback]: !props.src || hasError }, className, {
+    [styles.cmsContent]: isCMSContent,
+  });
+
   return !props.src || hasError ? (
-    <HoldingImage className={cx(styles.fallback, className)} text={i18n.noImage} />
+    <HoldingImage className={classes} text={i18n.noImage} />
   ) : isLazy ? (
-    <LazyImage {...props} className={className} onError={onError || updateError} />
+    <LazyImage {...props} className={classes} onError={onError || updateError} />
   ) : (
-    <img className={className} alt={props.alt || ''} src={props.src || ''} onError={onError || updateError} />
+    <img className={classes} alt={props.alt || ''} src={props.src || ''} onError={onError || updateError} />
   );
 };
 

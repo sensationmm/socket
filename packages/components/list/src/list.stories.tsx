@@ -1,4 +1,4 @@
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -13,4 +13,6 @@ const content = [
 
 storiesOf('Components|list', module)
   .addDecorator(withKnobs)
-  .add('Default', () => <Component listContent={object('listContent', content)} />);
+  .add('Default', () => (
+    <Component listContent={object('listContent', content)} isCMSContent={boolean('isCMSContent', false)} />
+  ));

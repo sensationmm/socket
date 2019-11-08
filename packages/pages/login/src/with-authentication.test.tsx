@@ -1,6 +1,6 @@
-import { mapStateToProps } from './personal-details.container';
+import { mapStateToProps } from './with-authentication';
 
-describe('PersonalDetails container', () => {
+describe('withAuthentication hoc', () => {
   const state = {
     user: {
       fetchStatus: 'complete',

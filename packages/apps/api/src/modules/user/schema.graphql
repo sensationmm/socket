@@ -2,12 +2,24 @@ type Query {
   user(id: ID!): User
 }
 
-type User {
-  id: ID!
+type PersonalDetails {
   name: String
   email: String
   phone: String
-  accountNumber: String,
+  accountNumber: String
   correspondenceAddress: String
   supplyAddress: String
+}
+
+type PaymentDetails {
+  accountName: String
+  accountNumber: String
+  sortCode: String
+  monthlyPaymentDate: String
+}
+
+type User {
+  id: ID!
+  personalDetails: PersonalDetails
+  paymentDetails: PaymentDetails
 }

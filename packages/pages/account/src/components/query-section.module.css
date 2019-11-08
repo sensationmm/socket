@@ -1,0 +1,19 @@
+.querySection {
+  position: relative;
+  margin-top: var(--spacing-l);
+
+  @media (--s) {
+    margin-top: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    margin-top: var(--spacing-xxl);
+  }
+}
+
+.messageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}

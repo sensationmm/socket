@@ -26,4 +26,9 @@ describe('Image', () => {
 
     expect(component.find('HoldingImage').exists()).toBeTruthy();
   });
+
+  it('should render a cmsContent class if isCMSContent prop value is truthy ', () => {
+    const component = shallow(<Image src="foo.bar" i18n={{ noImage: 'foo' }} isCMSContent={true} />);
+    expect(component.find('.cmsContent')).toHaveLength(1);
+  });
 });

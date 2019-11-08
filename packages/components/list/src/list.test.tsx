@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import Component from '.';
 
-describe('checkbox component', () => {
+describe('List component', () => {
   let wrapper;
   let props;
 
@@ -24,6 +24,11 @@ describe('checkbox component', () => {
 
       expect(wrapper).toBeDefined();
       expect(wrapper.find('ul li').length).toBe(props.listContent.length);
+    });
+
+    it('should render a cmsContent class if isCMSContent prop value is truthy ', () => {
+      wrapper = shallow(<Component {...props} isCMSContent={true} />);
+      expect(wrapper.find('.cmsContent')).toHaveLength(1);
     });
   });
 });

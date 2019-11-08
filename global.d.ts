@@ -34,6 +34,16 @@ declare namespace EON {
     correspondenceAddressLabel: string;
   }
 
+  interface IAccountPayment {
+    title: string;
+    subtitle: string;
+    dateLabel: string;
+    noPaymentDate: string;
+    nameLabel: string;
+    accountNumberLabel: string;
+    sortCodeLabel: string;
+  }
+
   interface IHeroTranslations {
     title: string;
     subTitle?: string;
@@ -125,7 +135,10 @@ declare namespace EON {
       };
       account: {
         title: string;
+        loadingGenericMessage: string;
+        errorGenericMessage: string;
         personal: IAccountPersonal;
+        payment: IAccountPayment;
       };
     };
     validation: {

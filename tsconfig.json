@@ -42,6 +42,7 @@
       "@somo/pda-pages-*": ["./pages/*"],
       "@somo/pda-utils-*": ["./utils/*"],
       "@somo/pda-graphql-*": ["./graphql/*"],
+      "@somo/pda-hooks-*": ["./hooks/*"]
     }
   },
   "include": ["packages/**/*", "./global.d.ts", "./index.d.ts"],

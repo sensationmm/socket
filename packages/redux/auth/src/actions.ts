@@ -24,7 +24,6 @@ export const getTokenSuccess = () => {
           type: types.GET_TOKEN_SUCCESS,
           payload: {
             ...data,
-            userId: '15',
           },
         });
       })
@@ -36,3 +35,8 @@ export const getTokenSuccess = () => {
       );
   };
 };
+
+export const setUserId = (userId: string) => ({
+  type: types.SET_USER_ID,
+  payload: userId,
+});

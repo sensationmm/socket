@@ -20,6 +20,14 @@ export default (state = initialState, action) => {
     case types.GET_TOKEN_FAILURE: {
       return { ...state, fetchStatus: 'ERROR' };
     }
+    case types.SET_USER_ID: {
+      const user = {
+        userId: payload,
+      };
+      updateStorage(StorageKeys.auth, user);
+
+      return { ...state, ...user, fetchStatus: 'COMPLETE' };
+    }
     default:
       return state;
   }

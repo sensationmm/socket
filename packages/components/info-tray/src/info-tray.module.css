@@ -1,0 +1,41 @@
+
+.collapse {
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+  background: var(--color-grey-mid);
+  border-radius: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  background: white;
+  border: solid 1px var(--color-grey-mid);
+  outline: none;
+  border-radius: 25px;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-3xs);
+  min-width: 180px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.chevron {
+  color: var(--color-brand-secondary);
+  padding: 5px;
+  margin: 2px 15px 0 0;
+}
+
+.chevron > svg {
+  transition: all 200ms linear;
+}
+
+.chevron.open > svg {
+  transform: scaleY(-1);
+}

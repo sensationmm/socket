@@ -29,6 +29,8 @@ build:
     - cd ./packages/apps/storybook
     - yarn build
     - cd ../www
+    - printenv > ./.env.production
+    - cat ./.env.production
     - yarn build
     - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
 

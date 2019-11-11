@@ -39,6 +39,7 @@ declare namespace EON {
     subtitle: string;
     dateLabel: string;
     noPaymentDate: string;
+    dateValueSuffix: string;
     nameLabel: string;
     accountNumberLabel: string;
     sortCodeLabel: string;

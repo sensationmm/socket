@@ -1,4 +1,5 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
+import { findPaymentDate } from '@somo/pda-utils-dates/src';
 import BaseProvider from '../base-provider';
 
 interface IAddress {
@@ -90,7 +91,7 @@ export class UserProvider extends BaseProvider {
         accountName,
         accountNumber,
         sortCode,
-        monthlyPaymentDate: results.length === 0 ? '' : '15',
+        monthlyPaymentDate: findPaymentDate(results) || null,
       };
     } catch (error) {
       throw error;

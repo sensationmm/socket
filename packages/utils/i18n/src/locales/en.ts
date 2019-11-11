@@ -233,6 +233,7 @@ const data: EON.IWebAppTranslations = {
         title: 'Payment Details',
         subtitle: 'The bit we all hate!',
         dateLabel: 'Monthly payment (DD) date',
+        dateValueSuffix: 'day of every month',
         noPaymentDate: 'Not applicable',
         nameLabel: 'Name of Account Holder',
         accountNumberLabel: 'Bank Account Number',

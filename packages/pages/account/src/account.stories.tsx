@@ -44,7 +44,7 @@ const mocks = [
             accountName: 'John Smith',
             accountNumber: '*******545',
             sortCode: '554-**-**',
-            monthlyPaymentDate: '15th day of every month',
+            monthlyPaymentDate: '2019-11-28',
           },
         },
       },

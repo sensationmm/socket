@@ -1,3 +1,4 @@
+import { formatISODate } from '@somo/pda-utils-dates/src';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -22,7 +23,9 @@ const PaymentDetails: React.FC<IPaymentDetailsProps> = ({ values }) => {
       content={[
         {
           label: t('site.account.payment.dateLabel'),
-          value: values.monthlyPaymentDate || t('site.account.payment.noPaymentDate'),
+          value: values.monthlyPaymentDate
+            ? `${formatISODate(values.monthlyPaymentDate, 'Do')} ${t('site.account.payment.dateValueSuffix')}`
+            : t('site.account.payment.noPaymentDate'),
         },
         { label: t('site.account.payment.nameLabel'), value: values.accountName },
         { label: t('site.account.payment.accountNumberLabel'), value: values.accountNumber },

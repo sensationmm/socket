@@ -41,14 +41,14 @@ const QuerySection: React.FC<IQuerySectionProps> = ({
           </Text>
         </div>
       )}
-      {error && (
+      {!loading && error && (
         <div className={styles.messageContainer}>
           <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary}>
             {t('site.account.errorGenericMessage')}
           </Text>
         </div>
       )}
-      {values && <Component values={values} />}
+      {!loading && !error && values && <Component values={values} />}
     </AccountSection>
   );
 };

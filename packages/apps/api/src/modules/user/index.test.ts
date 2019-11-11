@@ -1,56 +1,92 @@
 import { execute } from 'graphql';
 import gql from 'graphql-tag';
 import 'reflect-metadata';
+
+import { findPaymentDate } from '@somo/pda-utils-dates/src';
 import UserModule from '.';
+
+jest.mock('@somo/pda-utils-dates/src', () => ({
+  findPaymentDate: jest.fn().mockReturnValue('2019-10-21'),
+}));
+
+const personalDetails = {
+  id: '23',
+  forename: 'John',
+  surname: 'Smith',
+  primaryContact: {
+    email: 'john.smith@somoglobal.com',
+    phoneNumber1: '07456548679',
+  },
+};
+
+const accountDetails = {
+  results: [
+    {
+      number: '54388543',
+      billingAddress: {
+        address1: '145 Royal College Street',
+        postcode: 'NW1 0TH',
+      },
+    },
+  ],
+};
+
+const paymentTypes = {
+  results: [
+    {
+      id: '56',
+      paymentMethodType: 'Direct Debit',
+    },
+  ],
+};
+
+const products = {
+  Electricity: {
+    supplyAddress: {
+      address1: "147 Regent's Park Road",
+      postcode: 'NW1 8XL',
+    },
+  },
+};
+
+const paymentAccountDetails = {
+  accountName: 'John Smith',
+  accountNumber: '1234567789',
+  sortCode: '34-45-55',
+};
+
+const paymentsList = {
+  results: [
+    {
+      fromDt: '2019-09-12',
+      frequencyAlignmentDt: '2019-10-26',
+    },
+    {
+      fromDt: '2020-10-17',
+      frequencyAlignmentDt: '2019-10-25',
+    },
+    {
+      fromDt: '2019-10-19',
+      frequencyAlignmentDt: '2019-10-21',
+    },
+    {
+      fromDt: '2019-10-17',
+      toDt: '2020-11-29',
+      frequencyAlignmentDt: '2019-10-19',
+    },
+  ],
+};
 
 jest.mock('apollo-datasource-rest', () => {
   class MockRESTDataSource {
     public get = jest
       .fn()
-      .mockReturnValueOnce({
-        id: '23',
-        forename: 'John',
-        surname: 'Smith',
-        primaryContact: {
-          email: 'john.smith@somoglobal.com',
-          phoneNumber1: '07456548679',
-        },
-      })
-      .mockReturnValueOnce({
-        results: [
-          {
-            number: '54388543',
-            billingAddress: {
-              address1: '145 Royal College Street',
-              postcode: 'NW1 0TH',
-            },
-          },
-        ],
-      })
-      .mockReturnValueOnce({
-        Electricity: {
-          supplyAddress: {
-            address1: "147 Regent's Park Road",
-            postcode: 'NW1 8XL',
-          },
-        },
-      })
-      .mockReturnValueOnce({
-        results: [
-          {
-            id: '56',
-            paymentMethodType: 'Direct Debit',
-          },
-        ],
-      })
-      .mockReturnValueOnce({
-        accountName: 'John Smith',
-        accountNumber: '1234567789',
-        sortCode: '34-45-55',
-      })
-      .mockReturnValueOnce({
-        results: [],
-      });
+      .mockReturnValueOnce(personalDetails)
+      .mockReturnValueOnce(accountDetails)
+      .mockReturnValueOnce(products)
+      .mockReturnValueOnce(paymentTypes)
+      .mockReturnValueOnce(paymentAccountDetails)
+      .mockReturnValueOnce(paymentsList);
   }
 
   return {
@@ -87,6 +123,7 @@ describe('UserModule', () => {
               accountName
               accountNumber
               sortCode
+              monthlyPaymentDate
             }
           }
         }
@@ -94,6 +131,7 @@ describe('UserModule', () => {
     });
 
     expect(result.errors).toBeFalsy();
+    expect(findPaymentDate).toHaveBeenCalledWith(paymentsList.results);
     expect(result.data).toEqual({
       user: {
         id: '23',
@@ -109,6 +147,7 @@ describe('UserModule', () => {
           accountName: 'John Smith',
           accountNumber: '1234567789',
           sortCode: '34-45-55',
+          monthlyPaymentDate: '2019-10-21',
         },
       },
     });

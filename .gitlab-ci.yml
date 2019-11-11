@@ -1,5 +1,11 @@
+variables:
+  environment: "Develop"
+
+
 stages:
   - lint
+  - build
+  - scan code
 
 eslint:
   stage: lint
@@ -7,11 +13,46 @@ eslint:
     - gitlab-aws
   image:
     name: node:latest
-
-#allow_failure: true
   script:
     - yarn install
     - yarn lint:css
     - yarn lint:ts
-    - yarn test
+    
+build:
+  stage: build
+  tags:
+     - Paul Test
 
+  script:
+    - yarn install
+    - yarn global add gatsby-cli
+    - cd ./packages/apps/storybook
+    - yarn build
+    - cd ../www
+    - printenv > ./.env.production
+    - cat ./.env.production
+    - yarn build
+    - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
+
+scan code:
+    type: build
+    tags:
+        - gitlab-aws
+    image:
+        name: newtmitch/sonar-scanner
+        entrypoint: ['']
+    cache:
+        paths:
+            - /root/.sonar/cache
+    variables:
+        SONAR_URL: https://sonar.eon-cds.de
+#allow_failure: true
+    script:
+        - sonar-scanner
+          -Dsonar.host.url=$SONAR_URL
+          -Dsonar.projectKey=$CI_PROJECT_NAME
+          -Dsonar.projectName=$CI_PROJECT_NAME
+          -Dsonar.projectVersion=$CI_PIPELINE_ID
+          -Dsonar.projectBaseDir=.
+          -Dsonar.sources=./
+          -Dsonar.login=$SONAR_TOKEN

@@ -1,0 +1,19 @@
+.emoji {
+  display: inline-block;
+  margin: 0 5px 0 5px;
+}
+
+.emoji.small {
+  width: 16px;
+  height: 16px;
+}
+
+.emoji.med {
+  width: 24px;
+  height: 24px;
+}
+
+.emoji.large {
+  width: 32px;
+  height: 32px;
+}

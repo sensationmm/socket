@@ -1,0 +1,62 @@
+.tabList {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid var(--color-brand-secondary);
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.tab {
+  border-width: 2px 2px 0 0;
+  border-style: solid;
+  border-color: var(--color-brand-secondary);
+  padding: var(--spacing-s) var(--spacing-xs);
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  cursor: pointer;
+  transition: all linear 0.2s;
+}
+
+.tab.activeTab {
+  background: var(--color-brand-secondary);
+  color: var(--color-basic-white);
+}
+
+.tab:first-child {
+  border-width: 2px 2px 0 2px;
+  border-radius: 10px 0 0 0;
+}
+
+.tab:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+.tabContent {
+  position: relative;
+}
+
+.tabContentItem {
+  height: 100%;
+  opacity: 0;
+  padding-top: var(--spacing-l);
+  transition: opacity linear 0.2s;
+  position: absolute;
+  top: 0;
+}
+
+.tabContentItem.fixedHeight {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.tabContentItem.activeContent {
+  opacity: 1;
+  z-index: 2;
+}

@@ -3,6 +3,7 @@ import * as React from 'react';
 import AppTemplate from '@somo/pda-components-app-template/src';
 import ArticleAuthor from '@somo/pda-components-article-author/src';
 import { AvatarSizes } from '@somo/pda-components-avatar/src';
+import Emoji from '@somo/pda-components-emoji/src';
 import Footer from '@somo/pda-components-footer/src';
 import NavBar from '@somo/pda-components-navbar/src';
 import PageHero from '@somo/pda-components-page-hero/src';
@@ -47,7 +48,9 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, children }
           date={hero.publicationDate}
         />
       </PageSection>
-      {children}
+
+      <Emoji size={24}>{children}</Emoji>
+
       <PageSection style={PageSectionStyle.PrimaryPattern}>
         <Footer menu={FooterNavigation} />
       </PageSection>

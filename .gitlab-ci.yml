@@ -22,7 +22,6 @@ build:
   stage: build
   tags:
      - Paul Test
-
   script:
     - yarn install
     - yarn global add gatsby-cli
@@ -39,6 +38,8 @@ build:
     - ls
     - pwd
     - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
+  only:
+    - master
 
 
 scan code:
@@ -63,3 +64,5 @@ scan code:
           -Dsonar.projectBaseDir=.
           -Dsonar.sources=./
           -Dsonar.login=$SONAR_TOKEN
+    only:
+      - master

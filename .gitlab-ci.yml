@@ -38,7 +38,9 @@ build:
     - ls
     - pwd
     - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
-    - aws s3 sync ./packages/apps/storybook/build s3://puredauk-gats-s3-dev-01/build --delete --acl "public-read"
+    - cd ./packages/apps/storybook
+    - pwd
+    - aws s3 sync ./build s3://puredauk-gats-s3-dev-01/build --delete --acl "public-read"
 
 scan code:
     type: build

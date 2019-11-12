@@ -43,6 +43,13 @@ declare namespace EON {
     nameLabel: string;
     accountNumberLabel: string;
     sortCodeLabel: string;
+    noDirectDebit: {
+      text: string;
+      cta: {
+        text: string;
+        link: string;
+      };
+    };
   }
 
   interface IHeroTranslations {

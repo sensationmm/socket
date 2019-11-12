@@ -1,0 +1,15 @@
+.noDirectDebit {
+  text-align: center;
+  white-space: pre-wrap;
+  padding: var(--spacing-xl) 0;
+}
+
+.noDirectDebit a {
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  color: var(--color-brand-secondary);
+}
+
+.noDirectDebit a:hover {
+  text-decoration: none;
+}

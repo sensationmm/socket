@@ -13,17 +13,19 @@ interface IQuerySectionProps {
   subtitle: string;
   hasGap?: boolean;
   Component: React.ComponentType<any>;
+  ErrorComponent?: React.ComponentType<any>;
   loading?: boolean;
   error?: boolean;
   values?: {
     [key: string]: any;
-  };
+  } | null;
 }
 
 const QuerySection: React.FC<IQuerySectionProps> = ({
   title,
   subtitle,
   Component,
+  ErrorComponent,
   loading,
   error,
   values,
@@ -49,6 +51,7 @@ const QuerySection: React.FC<IQuerySectionProps> = ({
         </div>
       )}
       {!loading && !error && values && <Component values={values} />}
+      {!loading && !error && values === null && ErrorComponent && <ErrorComponent />}
     </AccountSection>
   );
 };

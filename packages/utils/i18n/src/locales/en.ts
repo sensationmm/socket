@@ -238,6 +238,13 @@ const data: EON.IWebAppTranslations = {
         nameLabel: 'Name of Account Holder',
         accountNumberLabel: 'Bank Account Number',
         sortCodeLabel: 'Sort Code',
+        noDirectDebit: {
+          text: 'There is currently no Direct Debit set up for this account.\nTo set one up',
+          cta: {
+            text: 'get in touch',
+            link: '/contact-us',
+          },
+        },
       },
       goal: {
         title: 'Goals',

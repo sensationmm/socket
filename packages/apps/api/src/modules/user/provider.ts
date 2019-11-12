@@ -81,9 +81,13 @@ export class UserProvider extends BaseProvider {
   private async getPaymentDetails(accountId) {
     try {
       const paymentMethods = await this.get(`/junifer/accounts/${accountId}/paymentMethods`);
-      const directDebitId = paymentMethods.results.filter((item) => item.paymentMethodType === 'Direct Debit')[0].id;
+      const { id } = paymentMethods.results.filter((item) => item.paymentMethodType === 'Direct Debit')[0] || {};
 
-      const { accountName, accountNumber, sortCode } = await this.get(`/junifer/directDebits/${directDebitId}`);
+      if (!id) {
+        return null;
+      }
+
+      const { accountName, accountNumber, sortCode } = await this.get(`/junifer/directDebits/${id}`);
 
       const { results } = await this.get(`/junifer/accounts/${accountId}/paymentSchedulePeriods`);
 

@@ -11,6 +11,7 @@ import { withAuthentication } from '@somo/pda-pages-login/src';
 import { useTranslation } from 'react-i18next';
 import * as styles from './account.module.css';
 import Goal from './components/goal.component';
+import NoDirectDebit from './components/no-direct-debit.component';
 import PaymentDetails from './components/payment-details.component';
 import PersonalDetails from './components/personal-details.component';
 import QuerySection from './components/query-section.component';
@@ -105,6 +106,7 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId, token, tokenT
             loading={loading}
             error={!!error}
             Component={PaymentDetails}
+            ErrorComponent={NoDirectDebit}
             values={paymentDetails}
           />
           <Goal />

@@ -5,6 +5,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { GraphQLError } from 'graphql';
 import wait from 'waait';
 import { AccountPage, GET_USER_QUERY } from './account.component';
+import NoDirectDebit from './components/no-direct-debit.component';
 import PaymentDetails from './components/payment-details.component';
 import PersonalDetails from './components/personal-details.component';
 
@@ -41,6 +42,7 @@ describe('@somo/pda-pages-account', () => {
     ).toMatchObject({
       loading: true,
       Component: PaymentDetails,
+      ErrorComponent: NoDirectDebit,
     });
   });
 

@@ -5,6 +5,7 @@ import * as React from 'react';
 import Component from './query-section.component';
 
 const Details = ({ values }) => <span>{values.name}</span>;
+const Error = () => <span>error</span>;
 
 describe('QuerySection component', () => {
   const props = {
@@ -33,5 +34,10 @@ describe('QuerySection component', () => {
     expect(component.find(Details).props()).toMatchObject({
       values,
     });
+  });
+
+  it('should render an error component if values prop value is null and error component is defined', async () => {
+    const component = shallow(<Component {...props} values={null} ErrorComponent={Error} />);
+    expect(component.find(Error).length).toEqual(1);
   });
 });

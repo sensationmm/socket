@@ -39,7 +39,7 @@ build:
     - pwd
     - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
   only:
-    - master
+    - develop
 
 
 scan code:
@@ -65,4 +65,4 @@ scan code:
           -Dsonar.sources=./
           -Dsonar.login=$SONAR_TOKEN
     only:
-      - master
+      - develop

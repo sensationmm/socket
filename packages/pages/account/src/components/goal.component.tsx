@@ -10,7 +10,12 @@ const Goal: React.FC = () => {
   const [t] = useTranslation();
 
   return (
-    <AccountSection title={t('site.account.goal.title')} disabled={true} actionPane={t('site.account.goal.subTitle')}>
+    <AccountSection
+      title={t('site.account.goal.title')}
+      disabled={true}
+      actionPane={t('site.account.goal.subTitle')}
+      className={styles.title}
+    >
       <div className={styles.goalContent}>
         <Text type={TextStyles.body} color={ColorStyles.tertiary}>
           {t('site.account.goal.content')}

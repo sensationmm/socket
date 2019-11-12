@@ -63,4 +63,18 @@ describe('base button', () => {
       expect(wrapper.props().className).toEqual('regular');
     });
   });
+
+  describe('when size is medium', () => {
+    beforeEach(() => {
+      props = {
+        onClick: jest.fn(() => null),
+        size: 'medium',
+      };
+      wrapper = shallow(<Component {...props} />);
+    });
+
+    it('should set a class of medium', () => {
+      expect(wrapper.props().className).toEqual('medium');
+    });
+  });
 });

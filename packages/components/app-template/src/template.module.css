@@ -1,3 +1,22 @@
 .app {
   min-height: 100vh;
 }
+
+.cookieNoticeWrapper {
+  width: 100%;
+  position: fixed;
+  bottom: var(--spacing-s);
+  padding: var(--spacing-l);
+  max-width: 1260px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  @media (--s) {
+    padding: calc(var(--spacing-l) * 2);
+  }
+
+  @media (--m) {
+    bottom: var(--spacing-l);
+  }
+}

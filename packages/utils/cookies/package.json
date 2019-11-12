@@ -1,0 +1,12 @@
+{
+  "name": "@somo/pda-utils-cookies",
+  "version": "0.0.0",
+  "author": "Ionut Cirja <ionut.cirja@somoglobal.com> (http://www.somoglobal.com)",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "js-cookie": "2.2.1"
+  }
+}

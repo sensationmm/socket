@@ -1,0 +1,90 @@
+.cookieNotice {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-basic-white);
+  border-radius: 10px;
+  box-shadow: 0 0 8px 2px rgba(var(--color-brand-secondary), 0.3);
+  padding: var(--spacing-m);
+
+  @media (--s) {
+    padding: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.textWrapper {
+  margin-bottom: var(--spacing-s);
+
+  @media (--m) {
+    flex-basis: 65%;
+    margin-bottom: 0;
+    padding-right: var(--spacing-xl);
+  }
+}
+
+.ctaWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  @media (--m) {
+    flex-basis: 35%;
+  }
+}
+
+.ctaWrapper > button {
+  @media (--m) {
+    margin-right: var(--spacing-s);
+  }
+}
+
+.ctaWrapper > button:last-of-type {
+  @media (--m) {
+    margin-right: 0;
+  }
+}
+
+.title {
+  margin-bottom: var(--spacing-s);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-m);
+  }
+}
+
+.text a {
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+}
+
+.text a,
+.text a:link,
+.text a:visited {
+  color: var(--color-brand-secondary);
+}
+
+.text a:hover {
+  text-decoration: none;
+}
+
+.cookieNoticeFadeEnter {
+  opacity: 0;
+}
+
+.cookieNoticeFadeEnterActive {
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+.cookieNoticeFadeExit {
+  opacity: 1;
+}
+
+.cookieNoticeFadeExitActive {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}

@@ -7,7 +7,19 @@ import * as baseStyles from './text.module.css';
 import * as styles from './text.stories.module.css';
 
 const elements = ['span', 'p', 'h1', 'h2', 'h3'];
-const types = ['h1', 'h2', 'h3', 'body', 'bodyFixed', 'segmentCopy', 'segmentCopyFixed', 'caption', 'supportCopy'];
+const types = [
+  'h1',
+  'h2',
+  'h3',
+  'body',
+  'bodyFixed',
+  'segmentCopy',
+  'segmentCopyFixed',
+  'caption',
+  'supportCopy',
+  'cookieTitle',
+  'cookieBody',
+];
 
 const color = ['primary', 'secondary', 'tertiary', 'quaternary'];
 

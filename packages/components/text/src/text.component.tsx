@@ -14,6 +14,8 @@ export enum TextStyles {
   caption = 'caption',
   supportCopy = 'supportCopy',
   label = 'label',
+  cookieTitle = 'cookieTitle',
+  cookieBody = 'cookieBody',
 }
 
 export enum ColorStyles {

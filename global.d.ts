@@ -81,6 +81,18 @@ declare namespace EON {
         subTitle: string;
         copyright: string;
       };
+      cookieNotice: {
+        title: string;
+        text: string;
+        link: {
+          text: string;
+          address: string;
+        };
+        cta: {
+          agree: string;
+          disagree: string;
+        };
+      };
       fourOhFour: {
         hero: IHeroTranslations;
         body: string;

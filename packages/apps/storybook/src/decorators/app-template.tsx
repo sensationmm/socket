@@ -6,6 +6,6 @@ import i18n from '@somo/pda-utils-i18n/src';
 
 export default (story) => (
   <I18nextProvider i18n={i18n}>
-    <Tpl>{story()}</Tpl>
+    <Tpl hideCookieNotice={true}>{story()}</Tpl>
   </I18nextProvider>
 );

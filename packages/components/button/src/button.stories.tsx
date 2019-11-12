@@ -9,7 +9,7 @@ const buttonKnobs = () => ({
   children: text('children', 'Register'),
   isFullWidth: boolean('isFullWidth', false),
   isLoading: boolean('isLoading', false),
-  size: select('size', ['mini', 'regular'], 'regular'),
+  size: select('size', ['mini', 'medium', 'regular'], 'regular'),
 });
 
 const roundButtonKnobs = () => ({

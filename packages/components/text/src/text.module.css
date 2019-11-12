@@ -52,6 +52,22 @@
   }
 }
 
+.cookieTitle {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.41;
+
+  @media (--s) {
+    font-size: var(--font-size-m);
+    line-height: 1.35;
+  }
+
+  @media (--m) {
+    font-size: var(--font-size-xxl);
+    line-height: 1.2;
+  }
+}
+
 .h3 {
   font-size: var(--font-size-xs);
   line-height: 1.41;
@@ -79,6 +95,21 @@
   @media (--m) {
     font-size: var(--font-size-xl);
     line-height: 1.25;
+  }
+}
+
+.cookieBody {
+  font-size: var(--font-size-3xs);
+  line-height: 1.86;
+
+  @media (--s) {
+    font-size: var(--font-size-s);
+    line-height: 1.56;
+  }
+
+  @media (--m) {
+    font-size: var(--font-size-m);
+    line-height: 1.4;
   }
 }
 

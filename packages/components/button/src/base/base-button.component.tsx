@@ -17,14 +17,17 @@ export interface IBaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonE
   isLoading?: boolean;
   styles?: IButtonStyles;
   className?: string;
-  size?: 'mini' | 'regular';
+  size?: 'mini' | 'medium' | 'regular';
   isSelected?: boolean;
+  width?: string | number;
 }
 
 function getButtonSizeStyle(size) {
   switch (size) {
     case 'mini':
       return baseStyles.mini;
+    case 'medium':
+      return baseStyles.medium;
     case 'regular':
     default:
       return baseStyles.regular;
@@ -40,6 +43,7 @@ const BaseButton: React.FC<IBaseButtonProps> = ({
   isSelected,
   size,
   className,
+  width,
   ...props
 }) => {
   const mergedStyles: any = { ...baseStyles, ...styles };

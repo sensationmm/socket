@@ -18,6 +18,19 @@ const data: EON.IWebAppTranslations = {
       subTitle: "Check you're on the latest smart meter and start taking control your energy.",
       copyright: '2019 © Socket Energy. All rights reserved.',
     },
+    cookieNotice: {
+      title: 'Privacy Policy',
+      text:
+        'We use cookies to give you the best possible online experience, ensuring our websites are reliable and secure. By agreeing, you allow the use of cookies for marketing purposes. You can read more about',
+      link: {
+        text: 'how we use cookies and how you can control them',
+        address: 'http://google.com/',
+      },
+      cta: {
+        agree: 'I agree',
+        disagree: 'No thanks!',
+      },
+    },
     fourOhFour: {
       hero: {
         title: 'Coming Soon',

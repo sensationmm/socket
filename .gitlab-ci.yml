@@ -28,10 +28,15 @@ build:
     - yarn global add gatsby-cli
     - cd ./packages/apps/storybook
     - yarn build
+    - pwd
+    - ls
     - cd ../www
+    - pwd
     - printenv > ./.env.production
     - cat ./.env.production
     - yarn build
+    - ls
+    - pwd
     - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
     - aws s3 sync ./packages/apps/storybook/build s3://puredauk-gats-s3-dev-01/build --delete --acl "public-read"
 

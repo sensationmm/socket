@@ -1,9 +1,9 @@
 variables:
-  environment: "Develop"
-
+  environment: 'Develop'
 
 stages:
   - lint
+  - unit tests
   - build
   - scan code
 
@@ -17,11 +17,21 @@ eslint:
     - yarn install
     - yarn lint:css
     - yarn lint:ts
-    
+
+unit-tests:
+  stage: unit tests
+  tags:
+    - gitlab-aws
+  image:
+    name: node:latest
+  script:
+    - yarn install
+    - yarn test
+
 build:
   stage: build
   tags:
-     - Paul Test
+    - Paul Test
   script:
     - yarn install
     - yarn global add gatsby-cli
@@ -41,28 +51,27 @@ build:
   only:
     - develop
 
-
 scan code:
-    type: build
-    tags:
-        - gitlab-aws
-    image:
-        name: newtmitch/sonar-scanner
-        entrypoint: ['']
-    cache:
-        paths:
-            - /root/.sonar/cache
-    variables:
-        SONAR_URL: https://sonar.eon-cds.de
-#allow_failure: true
-    script:
-        - sonar-scanner
-          -Dsonar.host.url=$SONAR_URL
-          -Dsonar.projectKey=$CI_PROJECT_NAME
-          -Dsonar.projectName=$CI_PROJECT_NAME
-          -Dsonar.projectVersion=$CI_PIPELINE_ID
-          -Dsonar.projectBaseDir=.
-          -Dsonar.sources=./
-          -Dsonar.login=$SONAR_TOKEN
-    only:
-      - develop
+  type: build
+  tags:
+    - gitlab-aws
+  image:
+    name: newtmitch/sonar-scanner
+    entrypoint: ['']
+  cache:
+    paths:
+      - /root/.sonar/cache
+  variables:
+    SONAR_URL: https://sonar.eon-cds.de
+  #allow_failure: true
+  script:
+    - sonar-scanner
+      -Dsonar.host.url=$SONAR_URL
+      -Dsonar.projectKey=$CI_PROJECT_NAME
+      -Dsonar.projectName=$CI_PROJECT_NAME
+      -Dsonar.projectVersion=$CI_PIPELINE_ID
+      -Dsonar.projectBaseDir=.
+      -Dsonar.sources=./
+      -Dsonar.login=$SONAR_TOKEN
+  only:
+    - develop

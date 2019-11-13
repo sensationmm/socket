@@ -227,6 +227,57 @@ const data: EON.IWebAppTranslations = {
         cta: 'Follow us',
       },
     },
+    energy: {
+      hero: {
+        title: 'Keeping it renewable.',
+        subTitle: '*Respiration! Lol… but seriously…',
+      },
+      renewable: {
+        title: 'Keeping it renewable.',
+        content: [
+          'Stay classy planet earth. 100% renewable electricity with Socket, it’s how energy should be.\nWe’re not just saying it – compare us to the rest of the market.',
+        ],
+      },
+      whereEnergyComesFrom: {
+        title: 'Where our energy comes from.',
+        content: [
+          'Because we’re backed by the big wigs at E.ON we can rely on a super dependable network.',
+          'There is a Kardashian sized but to think about, and that is once energy has reached the national grid, it becomes hard to trace the source of that power.',
+          'So, to make sure your energy is renewable, we match the amount of electricity you use with our own renewable generation assets, along with the power we buy directly from independent generators around the UK.',
+          'The rest is backed by renewable electricity certificates known as REGOs, this guarantees electricity is generated from a renewable source. It also rewards renewable power generators and promotes future investment in renewables.',
+          'Say what?',
+          'Basically, it means the power we supply will be from E.ON’s renewable resources or backed by renewable electricity certificates.',
+          'Good work for getting through that techy bit, here’s a nice picture to break it down.',
+        ],
+      },
+      scoop: {
+        title: 'The scoop on REGOs.',
+        content: [
+          'Some certificates are more valuable than others, imagine trying to apply for a passport with your escape room cert – well-earned but not useful.',
+          'REGO’s, or Renewable Energy Guarantees of Origin (REGO), are handy, traceable certificates that give you piece of mind to know your energy has come from a renewable source.',
+          'It’s regulated by OfGEM (super official) and suppliers are issued with one certificate per megawatt hour (MWh) of eligible renewable electricity.',
+          'A REGO certificate is your proof that energy was produced from renewable sources. As a result, the primary use of REGOs is for Fuel Mix Disclosure (known as FMD to energy boffins). FMD requires electricity suppliers to disclose the mix of fuels (coal, gas, nuclear, renewable and other) used to generate the electricity supplied.',
+          'Phew – good work for sticking around. Hopefully that clears up how super renewable we are.',
+          'You deserve a brew️.',
+        ],
+      },
+      realPeople: {
+        title: "Wow, we're real actual people not stock images!",
+        content: [
+          {
+            text:
+              'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
+            image: 'office',
+          },
+          {
+            text:
+              'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
+            image: 'reading',
+          },
+        ],
+        cta: 'Follow us',
+      },
+    },
     account: {
       title: 'Account',
       loadingGenericMessage: 'Loading...',

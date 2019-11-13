@@ -15,13 +15,6 @@
   }
 }
 
-.component:first-child,
-.component:last-child {
-  @media (--s) {
-    padding: var(--spacing-xl);
-  }
-}
-
 .inner {
   position: relative;
   width: 100%;

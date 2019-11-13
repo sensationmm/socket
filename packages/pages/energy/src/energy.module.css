@@ -1,0 +1,72 @@
+.renewableTitle,
+.energyTitle,
+.scoopTitle {
+  margin-bottom: var(--spacing-l);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.renewableText {
+  white-space: pre-wrap;
+}
+
+.energy {
+  @media (--s) {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @media (--m) {
+    display: block;
+  }
+}
+
+.energy > div {
+  @media (--s) {
+    width: 50%;
+  }
+
+  @media (--m) {
+    width: 100%;
+  }
+}
+
+.energy > div:first-of-type {
+  @media (--s) {
+    padding-right: var(--spacing-m);
+  }
+
+  @media (--m) {
+    padding-right: 0;
+  }
+}
+
+.energy > div:last-of-type {
+  @media (--s) {
+    padding-left: var(--spacing-m);
+  }
+
+  @media (--m) {
+    padding-left: 0;
+  }
+}
+
+.energyText,
+.scoopText {
+  margin-bottom: var(--spacing-xl);
+}
+
+.energyText:last-of-type,
+.scoopText:last-of-type {
+  margin-bottom: 0;
+}
+
+.realPeopleTitle {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}

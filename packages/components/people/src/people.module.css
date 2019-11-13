@@ -1,0 +1,28 @@
+.title {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.list {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.ctaWrapper {
+  display: flex;
+  flex-direction: row;
+
+  @media (--s) {
+    justify-content: center;
+  }
+
+  @media (--m) {
+    justify-content: flex-start;
+  }
+}

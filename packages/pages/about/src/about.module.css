@@ -89,28 +89,7 @@
   background-color: var(--color-text-body-secondary);
 }
 
-.realPeopleTitle {
-  margin-bottom: var(--spacing-xl);
-
-  @media (--m) {
-    margin-bottom: var(--spacing-xxl);
-  }
-}
-
-.realPeopleList {
-  margin-bottom: var(--spacing-xl);
-
-  @media (--s) {
-    margin-bottom: var(--spacing-xxl);
-  }
-
-  @media (--s) {
-    margin-bottom: var(--spacing-xxl);
-  }
-}
-
-.goodBunchCta,
-.realPeopleCta {
+.goodBunchCta {
   display: flex;
   flex-direction: row;
 

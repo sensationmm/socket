@@ -2,9 +2,8 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
-import FlexRow from '@somo/pda-components-flex-row/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
-import PhotoCard, { PhotoCardStyle } from '@somo/pda-components-photo-card/src';
+import People from '@somo/pda-components-people/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { splitArrayIntoChunksOfN } from '@somo/pda-utils-arrays/src';
@@ -101,23 +100,15 @@ const AboutPage: React.FC<IAboutPageProps> = ({ imagery }) => {
         </div>
       </PageSection>
       <PageSection isNarrow={true}>
-        <Text className={styles.realPeopleTitle} element="h2" type={TextStyles.h2} color={ColorStyles.primary}>
-          {t('site.about.realPeople.title')}
-        </Text>
-        <FlexRow className={styles.realPeopleList} layout={[50, 50]}>
-          {Array.isArray(realPeople) &&
-            realPeople.map((item, count) => (
-              <PhotoCard
-                key={`real-people-${count}`}
-                style={PhotoCardStyle.Secondary}
-                text={item.text}
-                image={getImagePath(imagery, item.image)}
-              />
-            ))}
-        </FlexRow>
-        <div className={styles.realPeopleCta}>
-          <SecondaryBtn>{t('site.about.realPeople.cta')}</SecondaryBtn>
-        </div>
+        <People
+          title={t('site.about.realPeople.title')}
+          list={
+            Array.isArray(realPeople)
+              ? realPeople.map(({ text, image }) => ({ text, image: getImagePath(imagery, image) }))
+              : []
+          }
+          cta={t('site.energy.realPeople.cta')}
+        />
       </PageSection>
     </RegularLayout>
   );

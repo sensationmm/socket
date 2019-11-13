@@ -159,6 +159,26 @@ declare namespace EON {
           cta: string;
         };
       };
+      energy: {
+        hero: IHeroTranslations;
+        renewable: {
+          title: string;
+          content: string[];
+        };
+        whereEnergyComesFrom: {
+          title: string;
+          content: string[];
+        };
+        scoop: {
+          title: string;
+          content: string[];
+        };
+        realPeople: {
+          title: string;
+          content: IRealPeople[];
+          cta: string;
+        };
+      };
       account: {
         title: string;
         loadingGenericMessage: string;

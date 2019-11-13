@@ -36,6 +36,7 @@ const paymentTypes = {
     {
       id: '56',
       paymentMethodType: 'Direct Debit',
+      status: 'Active',
     },
   ],
 };

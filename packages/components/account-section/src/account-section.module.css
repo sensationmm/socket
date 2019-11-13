@@ -23,9 +23,10 @@
 }
 
 .accountSection.disabled .header h2,
-.accountSection.disabled .header p {
-  color: var(--color-grey-dark);
-  opacity: 0.3;
+.accountSection.disabled .header p,
+.accountSection.disabled .content p,
+.accountSection.disabled .actionPane {
+  color: var(--color-grey-darkLighter);
 }
 
 .accountSection.disabled .header {

@@ -35,7 +35,7 @@ const AccountSection: React.FC<IAccountSectionProps> = ({
           </Text>
         )}
       </div>
-      {actionPane && <div>{actionPane}</div>}
+      {actionPane && <div className={styles.actionPane}>{actionPane}</div>}
     </div>
     <div className={styles.content}>{children}</div>
   </div>

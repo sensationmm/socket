@@ -17,7 +17,7 @@ const Goal: React.FC = () => {
       className={styles.title}
     >
       <div className={styles.goalContent}>
-        <Text type={TextStyles.body} color={ColorStyles.tertiary}>
+        <Text element="p" type={TextStyles.body} color={ColorStyles.tertiary}>
           {t('site.account.goal.content')}
         </Text>
       </div>

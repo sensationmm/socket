@@ -1,4 +1,5 @@
-.formFields > div {
+.formFields > div,
+.formFields > fieldset {
   margin-bottom: var(--spacing-xl);
 }
 

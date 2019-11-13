@@ -10,6 +10,7 @@ import { Primary as Button } from '@somo/pda-components-button/src';
 import Checkbox from '@somo/pda-components-checkbox/src';
 import InputPassword from '@somo/pda-components-input-password/src';
 import InputText from '@somo/pda-components-input-text/src';
+import Radio, { RadioType } from '@somo/pda-components-radio/src';
 
 interface IFormExampleProps {
   form: IFormState;
@@ -28,6 +29,7 @@ class FormExample extends React.Component<IFormExampleProps> {
       passwordConfirm: '',
       optin: false,
       privacy: false,
+      choice: '',
     });
   }
 
@@ -74,6 +76,16 @@ class FormExample extends React.Component<IFormExampleProps> {
         value: values.passwordConfirm,
         validationFunction: ['validateRequired', 'validateMatching'],
         validationParam: [null, values.password],
+      },
+      {
+        id: 'input-choice',
+        stateKey: 'choice',
+        component: Radio,
+        type: RadioType.Button,
+        items: [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }, { value: 'maybe', label: 'Maybe' }],
+        label: 'All good?',
+        value: values.choice,
+        validationFunction: ['validateRequired'],
       },
       {
         id: 'input-optin',

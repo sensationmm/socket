@@ -1,0 +1,49 @@
+.radio {
+  border: 2px solid var(--color-brand-secondary);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--color-brand-secondary);
+  padding: var(--spacing-s) var(--spacing-m);
+  margin-bottom: var(--spacing-s);
+
+  @media (--s) {
+    margin-bottom: 0;
+    margin-right: var(--spacing-s);
+  }
+}
+
+.radioGroup.button .radio {
+  text-transform: uppercase;
+  border-radius: 50px;
+  min-width: 124px;
+}
+
+.radioGroup.button .radio.checked {
+  background: var(--color-brand-secondary);
+  color: var(--color-basic-white);
+}
+
+.radio input {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  background: none;
+  opacity: 0;
+}
+
+.radioGroupWrapper {
+  display: block;
+
+  @media (--s) {
+    display: flex;
+  }
+}

@@ -5,6 +5,8 @@ import functions from '@somo/pda-utils-functions/src';
 import validation from '@somo/pda-utils-validation/src';
 import store from '@somo/pda-www-state/store';
 
+import Radio from '@somo/pda-components-radio/src';
+
 import * as styles from './form.module.css';
 
 const { initForm, clearForm, updateForm, setErrors, setFormErrors } = actions;
@@ -20,6 +22,8 @@ export interface IFormConfig {
   validationParam?: string | any[];
   hidden?: boolean;
   callback?: () => void;
+  groupLabel?: string;
+  selectedValue?: string;
 }
 
 export const initFormState = (fieldsInit: object, fieldsValues?: object) => {
@@ -185,6 +189,13 @@ export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => 
     }
 
     const Component: React.ElementType = item.component;
+
+    if (Component === Radio) {
+      item.selectedValue = item.value;
+      item.groupLabel = item.label;
+      delete item.value;
+      delete item.label;
+    }
 
     return (
       <Component

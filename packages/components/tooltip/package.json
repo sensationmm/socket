@@ -1,0 +1,9 @@
+{
+  "name": "@somo/pda-components-tooltip",
+  "version": "0.0.0",
+  "author": "Ralph Wengerek <ralph.wengerek@somoglobal.com> (http://www.somoglobal.com)",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "license": "UNLICENSED",
+  "private": true
+}

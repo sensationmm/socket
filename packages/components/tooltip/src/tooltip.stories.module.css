@@ -1,0 +1,14 @@
+.story {
+  margin-bottom: 20px;
+  margin-left: 20px;
+  line-height: 1;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section > * {
+  margin: 20px;
+}

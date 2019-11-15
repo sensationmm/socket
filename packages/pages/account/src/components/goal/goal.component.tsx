@@ -13,7 +13,11 @@ const Goal: React.FC = () => {
     <AccountSection
       title={t('site.account.goal.title')}
       disabled={true}
-      actionPane={t('site.account.goal.subTitle')}
+      actionPane={
+        <Text type={TextStyles.caption} color={ColorStyles.tertiary} className={styles.actionPaneText}>
+          {t('site.account.goal.subTitle')}
+        </Text>
+      }
       className={styles.title}
     >
       <div className={styles.goalContent}>

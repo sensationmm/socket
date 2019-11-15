@@ -1,8 +1,29 @@
 .goalContent {
-  padding: 0 var(--spacing-xxl);
+  padding: 0;
   text-align: center;
+
+  @media (--s) {
+    padding: var(--spacing-l);
+  }
+
+  @media (--m) {
+    padding: var(--spacing-xl);
+  }
+}
+
+.goalContent > p {
+  color: var(--color-grey-dark) !important;
 }
 
 .title h2:first-child {
+  color: var(--color-grey-dark) !important;
   opacity: 1 !important;
+}
+
+.actionPaneText {
+  font-weight: var(--font-weight-semibold);
+
+  @media (--m) {
+    font-size: var(--font-size-xxs);
+  }
 }

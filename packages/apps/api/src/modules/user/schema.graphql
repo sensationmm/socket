@@ -18,8 +18,34 @@ type PaymentDetails {
   monthlyPaymentDate: String
 }
 
+type ProductTilItem {
+  itemValue: String
+  inclVAT: String
+}
+
+type ProductTilInformation {
+  tariff: ProductTilItem
+  contractType: ProductTilItem
+  paymentMethod: ProductTilItem
+  unitRate: ProductTilItem
+  standingChargeDd: ProductTilItem
+  billingFrequency: ProductTilItem
+}
+
+type ProductInformation {
+  name: String
+  endDate: String
+  TIL: ProductTilInformation
+}
+
+type ProductDetails {
+  electricity: ProductInformation
+  gas: ProductInformation
+}
+
 type User {
   id: ID!
   personalDetails: PersonalDetails
   paymentDetails: PaymentDetails
+  productDetails: ProductDetails
 }

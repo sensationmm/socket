@@ -5,9 +5,10 @@ import { MockedProvider } from '@apollo/react-testing';
 import { GraphQLError } from 'graphql';
 import wait from 'waait';
 import { AccountPage, GET_USER_QUERY } from './account.component';
-import NoDirectDebit from './components/no-direct-debit.component';
-import PaymentDetails from './components/payment-details.component';
-import PersonalDetails from './components/personal-details.component';
+import NoDirectDebit from './components/no-direct-debit/no-direct-debit.component';
+import PaymentDetails from './components/payment-details/payment-details.component';
+import PersonalDetails from './components/personal-details/personal-details.component';
+import ProductDetails from './components/product-details/product-details.component';
 
 jest.mock('@somo/pda-components-user-switch/src', () => () => <span />);
 
@@ -38,6 +39,15 @@ describe('@somo/pda-pages-account', () => {
       component
         .find('QuerySection')
         .at(1)
+        .props(),
+    ).toMatchObject({
+      loading: true,
+      Component: ProductDetails,
+    });
+    expect(
+      component
+        .find('QuerySection')
+        .at(2)
         .props(),
     ).toMatchObject({
       loading: true,
@@ -89,6 +99,14 @@ describe('@somo/pda-pages-account', () => {
     ).toMatchObject({
       error: true,
     });
+    expect(
+      component
+        .find('QuerySection')
+        .at(2)
+        .props(),
+    ).toMatchObject({
+      error: true,
+    });
   });
 
   it('should pass necessary values to the account sections on query success', async () => {
@@ -107,6 +125,34 @@ describe('@somo/pda-pages-account', () => {
         accountNumber: '534534534',
         sortCode: '05-34-56',
         monthlyPaymentDate: '15th',
+      },
+      productDetails: {
+        electricity: {
+          __typename: 'ProductInformation',
+          name: 'Electricity 1-Rate | Fixed - 12 | 3012',
+          endDate: '',
+          TIL: {
+            tariff: { itemValue: 'Electricity 1-Rate | Fixed - 12 | 3012', inclVAT: '' },
+            contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
+            paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
+            unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
+            standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
+            billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
+          },
+        },
+        gas: {
+          __typename: 'ProductInformation',
+          name: 'Gas - 12M | 2012',
+          endDate: '',
+          TIL: {
+            tariff: { itemValue: 'Gas - 12M | 2012', inclVAT: '' },
+            contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
+            paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
+            unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
+            standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
+            billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
+          },
+        },
       },
     };
     const mocks = [
@@ -149,6 +195,14 @@ describe('@somo/pda-pages-account', () => {
       component
         .find('QuerySection')
         .at(1)
+        .props(),
+    ).toMatchObject({
+      values: user.productDetails,
+    });
+    expect(
+      component
+        .find('QuerySection')
+        .at(2)
         .props(),
     ).toMatchObject({
       values: user.paymentDetails,

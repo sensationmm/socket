@@ -46,6 +46,30 @@ const mocks = [
             sortCode: '554-**-**',
             monthlyPaymentDate: '2019-11-28',
           },
+          productDetails: {
+            electricity: {
+              name: 'Electricity 1-Rate | Fixed - 12 | 3012',
+              TIL: {
+                tariff: { itemValue: 'Electricity 1-Rate | Fixed - 12 | 3012', inclVAT: '' },
+                contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
+                paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
+                unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
+                standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
+                billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
+              },
+            },
+            gas: {
+              name: 'Gas - 12M | 2012',
+              TIL: {
+                tariff: { itemValue: 'Gas - 12M | 2012', inclVAT: '' },
+                contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
+                paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
+                unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
+                standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
+                billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
+              },
+            },
+          },
         },
       },
     },

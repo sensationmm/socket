@@ -1,5 +1,7 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
+
 import { findPaymentDate } from '@somo/pda-utils-dates/src';
+import { camelize } from '@somo/pda-utils-strings/src';
 import BaseProvider from '../base-provider';
 
 interface IAddress {
@@ -9,6 +11,25 @@ interface IAddress {
   address4: string;
   address5: string;
   postcode: string;
+}
+
+interface ITilInformation {
+  itemName: string;
+  itemValue: string;
+  exclVAT: string;
+  inclVAT: string;
+}
+
+interface ITariffInformation {
+  productCode: string;
+  paymentMethod: string;
+  accountManagementType: string;
+}
+
+interface IProductDetails {
+  name: string;
+  endDate: string;
+  TIL: {};
 }
 
 const computeLineAddress = (addressLine: string) => (addressLine ? `, ${addressLine}` : '');
@@ -35,13 +56,15 @@ const computeAddress = (address: IAddress) => {
 export class UserProvider extends BaseProvider {
   public async getUserById(userId) {
     try {
-      const { id, accountId, ...rest } = await this.getPersonalDetails(userId);
+      const { id, accountId, billDelivery, products, ...rest } = await this.getPersonalDetails(userId);
       const paymentDetails = await this.getPaymentDetails(accountId);
+      const productDetails = await this.getProductDetails(accountId, billDelivery, products);
 
       return {
         id,
         personalDetails: rest,
         paymentDetails,
+        productDetails,
       };
     } catch (error) {
       throw error;
@@ -72,6 +95,11 @@ export class UserProvider extends BaseProvider {
         accountNumber: account.number,
         correspondenceAddress: computeAddress(account.billingAddress),
         supplyAddress: computeAddress(product.supplyAddress),
+        billDelivery: account.billDelivery,
+        products: {
+          Electricity,
+          Gas,
+        },
       };
     } catch (error) {
       throw error;
@@ -99,6 +127,84 @@ export class UserProvider extends BaseProvider {
         accountNumber,
         sortCode,
         monthlyPaymentDate: findPaymentDate(results) || null,
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private async getProductDetails(userId: string, billDelivery: string, products) {
+    try {
+      let electricity;
+      let gas;
+      const accountManagementType = billDelivery === 'Email' ? 'Online' : 'Offline';
+      const electricTIL = {};
+      const gasTIL = {};
+
+      const { Electricity, Gas } = products;
+      const tariffInformation = await this.get(`/junifer/accounts/${userId}/tariffInformation`);
+
+      const tilItemNames = [
+        'Tariff',
+        'Contract Type',
+        'Payment Method',
+        'Unit Rate',
+        'Standing Charge (DD)',
+        'Billing Frequency',
+      ];
+
+      if (Electricity) {
+        electricity = {} as IProductDetails;
+
+        const { code, directDebit, name, toDt } = Electricity;
+        const paymentMethod = directDebit ? 'DD' : 'NonDD';
+        const [{ TIL }] = tariffInformation.Electricity.filter(
+          (product: ITariffInformation) =>
+            product.productCode === code &&
+            product.paymentMethod === paymentMethod &&
+            product.accountManagementType === accountManagementType,
+        );
+
+        TIL.forEach((info: ITilInformation) => {
+          if (tilItemNames.includes(info.itemName)) {
+            electricTIL[camelize(info.itemName)] = {
+              itemValue: info.itemValue,
+              inclVAT: info.inclVAT,
+            };
+          }
+        });
+        electricity.name = name;
+        electricity.endDate = toDt;
+        electricity.TIL = electricTIL;
+      }
+
+      if (Gas) {
+        gas = {} as IProductDetails;
+        const { code, directDebit, name, toDt } = Gas;
+        const paymentMethod = directDebit ? 'DD' : 'NonDD';
+        const [{ TIL }] = tariffInformation.Gas.filter(
+          (product: ITariffInformation) =>
+            product.productCode === code &&
+            product.paymentMethod === paymentMethod &&
+            product.accountManagementType === accountManagementType,
+        );
+
+        TIL.forEach((info: ITilInformation) => {
+          if (tilItemNames.includes(info.itemName)) {
+            gasTIL[camelize(info.itemName)] = {
+              itemValue: info.itemValue,
+              inclVAT: info.inclVAT,
+            };
+          }
+        });
+        gas.name = name;
+        gas.endDate = toDt;
+        gas.TIL = gasTIL;
+      }
+
+      return {
+        electricity,
+        gas,
       };
     } catch (error) {
       throw error;

@@ -8,5 +8,6 @@ export default {
     id: (user) => user.id,
     personalDetails: (user) => user.personalDetails,
     paymentDetails: (user) => user.paymentDetails,
+    productDetails: (user) => user.productDetails,
   },
 };

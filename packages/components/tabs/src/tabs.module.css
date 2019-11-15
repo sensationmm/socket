@@ -58,5 +58,6 @@
 
 .tabContentItem.activeContent {
   opacity: 1;
+  position: static;
   z-index: 2;
 }

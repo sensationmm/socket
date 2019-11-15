@@ -310,6 +310,28 @@ const data: EON.IWebAppTranslations = {
           },
         },
       },
+      product: {
+        title: 'Product Details',
+        subtitle: 'Your tariff',
+        tabs: {
+          electricity: 'Electricity',
+          gas: 'Gas',
+        },
+        product: {
+          nameLabel: 'Product Name',
+          endDateLabel: 'End Date',
+          supplierLabel: 'Supplier',
+          tariffLabel: 'Tariff',
+          paymentMethodLabel: 'Payment Method',
+          unitRateLabel: 'Unit Rate',
+          standingChargeLabel: 'Standing Charge',
+          exitFeesLabel: 'Exit Fees',
+          discountsLabel: 'Discounts and additional charges',
+          additionalLabel: 'Additional products',
+        },
+        notApplicable: 'Not Applicable',
+        supplierName: 'Socket Energy',
+      },
       goal: {
         title: 'Goals',
         subTitle: 'COMING SOON',

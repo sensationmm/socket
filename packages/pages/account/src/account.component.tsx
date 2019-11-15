@@ -9,12 +9,14 @@ import UserSwitch from '@somo/pda-components-user-switch/src';
 import AccountLayout from '@somo/pda-layouts-account/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
 import { useTranslation } from 'react-i18next';
+import Goal from './components/goal/goal.component';
+import NoDirectDebit from './components/no-direct-debit/no-direct-debit.component';
+import PaymentDetails from './components/payment-details/payment-details.component';
+import PersonalDetails from './components/personal-details/personal-details.component';
+import ProductDetails from './components/product-details/product-details.component';
+import QuerySection from './components/query-section/query-section.component';
+
 import * as styles from './account.module.css';
-import Goal from './components/goal.component';
-import NoDirectDebit from './components/no-direct-debit.component';
-import PaymentDetails from './components/payment-details.component';
-import PersonalDetails from './components/personal-details.component';
-import QuerySection from './components/query-section.component';
 
 export interface IAccountPageProps {
   userId: string;
@@ -40,29 +42,51 @@ export const GET_USER_QUERY = gql`
         sortCode
         monthlyPaymentDate
       }
+      productDetails {
+        electricity {
+          __typename
+          ...productInfo
+        }
+        gas {
+          __typename
+          ...productInfo
+        }
+      }
+    }
+  }
+
+  fragment productInfo on ProductInformation {
+    __typename
+    name
+    endDate
+    TIL {
+      tariff {
+        itemValue
+        inclVAT
+      }
+      contractType {
+        itemValue
+        inclVAT
+      }
+      paymentMethod {
+        itemValue
+        inclVAT
+      }
+      unitRate {
+        itemValue
+        inclVAT
+      }
+      standingChargeDd {
+        itemValue
+        inclVAT
+      }
+      billingFrequency {
+        itemValue
+        inclVAT
+      }
     }
   }
 `;
-
-interface IUserResponse {
-  user: {
-    id: string;
-    personalDetails: {
-      name: string;
-      email: string;
-      phone: string;
-      accountNumber: string;
-      correspondenceAddress: string;
-      supplyAddress: string;
-    };
-    paymentDetails: {
-      accountName: string;
-      accountNumber: string;
-      sortCode: string;
-      monthlyPaymentDate: string;
-    };
-  };
-}
 
 interface IQueryVars {
   id: string;
@@ -71,7 +95,7 @@ interface IQueryVars {
 export const AccountPage: React.FC<IAccountPageProps> = ({ userId, token, tokenType }) => {
   const [t] = useTranslation();
 
-  const { loading, error, data } = useQuery<IUserResponse, IQueryVars>(GET_USER_QUERY, {
+  const { loading, error, data } = useQuery<EON.IUserResponse, IQueryVars>(GET_USER_QUERY, {
     variables: { id: userId },
     context: {
       headers: {
@@ -80,7 +104,7 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId, token, tokenT
     },
   });
 
-  const { personalDetails, paymentDetails } = (data || {}).user || {};
+  const { personalDetails, paymentDetails, productDetails } = (data || {}).user || {};
 
   return (
     <AccountLayout>
@@ -99,6 +123,14 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId, token, tokenT
             error={!!error}
             Component={PersonalDetails}
             values={personalDetails}
+          />
+          <QuerySection
+            title={t('site.account.product.title')}
+            subtitle={t('site.account.product.subtitle')}
+            loading={loading}
+            error={!!error}
+            Component={ProductDetails}
+            values={productDetails}
           />
           <QuerySection
             title={t('site.account.payment.title')}

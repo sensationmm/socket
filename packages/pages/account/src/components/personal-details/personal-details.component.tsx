@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Avatar, { AvatarSizes, AvatarStyles, SvgTypes } from '@somo/pda-components-avatar/src';
 import FlexRowGrid from '@somo/pda-components-flex-row-grid/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
-import Field, { BorderStyles } from './field.component';
+import Field, { BorderStyles } from '../field/field.component';
 
 import * as styles from './personal-details.module.css';
 

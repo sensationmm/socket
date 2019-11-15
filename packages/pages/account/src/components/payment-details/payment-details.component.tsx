@@ -3,7 +3,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import FlexRowGrid from '@somo/pda-components-flex-row-grid/src';
-import Field from './field.component';
+import Field from '../field/field.component';
 
 export interface IPaymentDetailsProps {
   values: {

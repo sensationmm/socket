@@ -1,0 +1,24 @@
+.avatarWrapper {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+
+  @media (--m) {
+    align-items: center;
+  }
+}
+
+.personalDetailsFirstRow {
+  background-color: var(--color-grey-light);
+}
+
+.personalDetailsFirstRow,
+.personalDetailsSecondRow,
+.messageContainer {
+  position: relative;
+  padding: var(--spacing-l);
+
+  @media (--m) {
+    padding: var(--spacing-xl);
+  }
+}

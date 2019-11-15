@@ -1,5 +1,57 @@
 // tslint:disable-next-line:no-namespace
 declare namespace EON {
+  interface IPersonalDetails {
+    name: string;
+    email: string;
+    phone: string;
+    accountNumber: string;
+    correspondenceAddress: string;
+    supplyAddress: string;
+  }
+
+  interface IPaymentDetails {
+    accountName: string;
+    accountNumber: string;
+    sortCode: string;
+    monthlyPaymentDate: string;
+  }
+
+  interface IProductTilItem {
+    itemValue: string;
+    inclVAT: string;
+  }
+
+  interface IProductTilInformation {
+    tariff: IProductTilItem;
+    contractType: IProductTilItem;
+    paymentMethod: IProductTilItem;
+    unitRate: IProductTilItem;
+    standingChargeDd: IProductTilItem;
+    billingFrequency: IProductTilItem;
+  }
+
+  interface IProductDetails {
+    electricity?: {
+      name: string;
+      endDate: string;
+      TIL: IProductTilInformation;
+    };
+    gas?: {
+      name: string;
+      endDate: string;
+      TIL: IProductTilInformation;
+    };
+  }
+
+  interface IUserResponse {
+    user: {
+      id: string;
+      personalDetails: IPersonalDetails;
+      paymentDetails: IPaymentDetails;
+      productDetails: IProductDetails;
+    };
+  }
+
   interface IHomepageFeatures {
     icon: string;
     header: string;
@@ -34,6 +86,29 @@ declare namespace EON {
     correspondenceAddressLabel: string;
   }
 
+  interface IAccountProducts {
+    title: string;
+    subtitle: string;
+    tabs: {
+      electricity: string;
+      gas: string;
+    };
+    product: {
+      nameLabel: string;
+      endDateLabel: string;
+      supplierLabel: string;
+      tariffLabel: string;
+      paymentMethodLabel: string;
+      unitRateLabel: string;
+      standingChargeLabel: string;
+      exitFeesLabel: string;
+      discountsLabel: string;
+      additionalLabel: string;
+    };
+    notApplicable: string;
+    supplierName: string;
+  }
+
   interface IAccountPayment {
     title: string;
     subtitle: string;
@@ -56,8 +131,8 @@ declare namespace EON {
     title: string;
     subTitle?: string;
     cta?: string;
-  };
-  
+  }
+
   interface IAccountGoal {
     title: string;
     subTitle: string;
@@ -185,6 +260,7 @@ declare namespace EON {
         errorGenericMessage: string;
         personal: IAccountPersonal;
         payment: IAccountPayment;
+        product: IAccountProducts;
         goal: IAccountGoal;
       };
     };

@@ -27,13 +27,13 @@ describe('@somo/pda-components-page-hero component', () => {
     expect(wrapper.find(Menu).exists()).toBe(false);
   });
 
-  it('should render menu if given', () => {
+  it('should render a menu if given', () => {
     wrapper = shallow(<Component menu={MenuMock} />);
 
     expect(wrapper.find(Menu).exists()).toBe(true);
   });
 
-  it('logo links to homepage', () => {
+  it('should render a logo link to homepage', () => {
     wrapper = shallow(<Component menu={MenuMock} />);
 
     wrapper.find('.logo').simulate('click');
@@ -41,11 +41,11 @@ describe('@somo/pda-components-page-hero component', () => {
     expect(navigate).toHaveBeenCalledWith('/');
   });
 
-  it('triggers mobile menu', () => {
+  it('should open mobile menu on menu button click', () => {
     const { container, getByRole } = render(<Component menu={MenuMock} />);
     fireEvent.click(getByRole('button'));
     // @ts-ignore
-    expect(container.firstChild.childNodes[1].classList.contains('mobileOpen')).toEqual(true);
+    expect(container.firstChild.childNodes[2].classList.contains('open')).toEqual(true);
     expect(document.body.classList.contains('bodyOverflowHidden')).toEqual(true);
   });
 });

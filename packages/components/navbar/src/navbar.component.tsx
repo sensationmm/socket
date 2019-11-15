@@ -2,7 +2,7 @@ import cx from 'classnames';
 import { navigate } from 'gatsby';
 import * as React from 'react';
 
-import { BurgerMenu, Logo } from '@somo/pda-components-icons/src';
+import { Logo } from '@somo/pda-components-icons/src';
 import Menu, { IMenuProps } from '@somo/pda-components-menu/src';
 import SVG from '@somo/pda-components-svg/src';
 
@@ -13,15 +13,15 @@ interface INavbarProps {
 }
 
 const Navbar: React.FC<INavbarProps> = ({ menu }) => {
-  const [menuOpen, setMenuOpen] = React.useState<boolean>(false);
+  const [isMenuOpen, setMenuOpen] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    if (menuOpen) {
+    if (isMenuOpen) {
       document.body.classList.add(styles.bodyOverflowHidden);
     } else {
       document.body.classList.remove(styles.bodyOverflowHidden);
     }
-  }, [menuOpen]);
+  }, [isMenuOpen]);
 
   return (
     <div className={styles.navbar}>
@@ -30,13 +30,28 @@ const Navbar: React.FC<INavbarProps> = ({ menu }) => {
       </div>
 
       {menu && (
-        <div className={cx(styles.headerMenu, { [styles.mobileOpen]: menuOpen })}>
-          <Menu links={menu} />
-        </div>
+        <>
+          <div className={styles.desktopMenu}>
+            <Menu links={menu} />
+          </div>
+          <div
+            className={cx(styles.mobileMenu, {
+              [styles.open]: isMenuOpen,
+            })}
+          >
+            <Menu links={menu} />
+          </div>
+        </>
       )}
 
-      <div role="button" className={styles.mobileMenu} onClick={() => setMenuOpen(!menuOpen)}>
-        <SVG children={BurgerMenu} />
+      <div
+        role="button"
+        className={cx(styles.mobileMenuTriggerBtn, {
+          [styles.mobileMenuTriggerBtnOpen]: isMenuOpen,
+        })}
+        onClick={() => setMenuOpen(!isMenuOpen)}
+      >
+        <span className={styles.mobileMenuTriggerBtnLine} />
       </div>
     </div>
   );

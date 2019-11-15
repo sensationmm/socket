@@ -12,6 +12,8 @@
 
 .nav ul li {
   margin-bottom: var(--spacing-xl);
+  font-size: var(--font-size-m);
+  line-height: 1.5;
 
   @media (--s) {
     display: flex;
@@ -19,6 +21,8 @@
     margin-left: var(--spacing-xl);
     margin-bottom: 0;
     padding-left: 0;
+    font-size: var(--font-size-xxs);
+    line-height: 1;
   }
 }
 

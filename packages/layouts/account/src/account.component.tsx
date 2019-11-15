@@ -8,8 +8,8 @@ import { FooterNavigation } from '@somo/pda-layouts-regular/src/navigation';
 const AccountLayout: React.FC = ({ children }) => {
   return (
     <AppTemplate>
-      {children}
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
+      <main>{children}</main>
+      <PageSection style={PageSectionStyle.QuaternaryPattern}>
         <Footer menu={FooterNavigation} />
       </PageSection>
     </AppTemplate>

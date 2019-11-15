@@ -7,6 +7,8 @@ const colors = {
     main: '#47d7ac',
     secondary: '#007672',
     tertiary: '#f6eb61',
+    quaternary: '#005754',
+    quinary: '#004340',
   },
   grey: {
     light: '#f0f0f0',

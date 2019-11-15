@@ -229,7 +229,7 @@ const data: EON.IWebAppTranslations = {
     },
     energy: {
       hero: {
-        title: 'Keeping it renewable.',
+        title: 'Take control. Own your energy.',
         subTitle: '*Respiration! Lol… but seriously…',
       },
       renewable: {

@@ -18,14 +18,12 @@ const AppTemplate: React.FC<IAppProps> = ({ children, hideCookieNotice = false }
     <>
       <div className={styles.app}>{children}</div>
       {!hideCookieNotice && (
-        <div className={styles.cookieNoticeWrapper}>
-          <CookieNotice
-            title={t('site.cookieNotice.title')}
-            text={t('site.cookieNotice.text')}
-            link={{ text: t('site.cookieNotice.link.text'), address: t('site.cookieNotice.link.address') }}
-            cta={{ agree: t('site.cookieNotice.cta.agree'), disagree: t('site.cookieNotice.cta.disagree') }}
-          />
-        </div>
+        <CookieNotice
+          title={t('site.cookieNotice.title')}
+          text={t('site.cookieNotice.text')}
+          link={{ text: t('site.cookieNotice.link.text'), address: t('site.cookieNotice.link.address') }}
+          cta={{ agree: t('site.cookieNotice.cta.agree'), disagree: t('site.cookieNotice.cta.disagree') }}
+        />
       )}
     </>
   );

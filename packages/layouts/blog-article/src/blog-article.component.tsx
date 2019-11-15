@@ -48,10 +48,10 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, children }
           date={hero.publicationDate}
         />
       </PageSection>
-
-      <Emoji size={24}>{children}</Emoji>
-
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
+      <main>
+        <Emoji size={24}>{children}</Emoji>
+      </main>
+      <PageSection style={PageSectionStyle.QuaternaryPattern}>
         <Footer menu={FooterNavigation} />
       </PageSection>
     </AppTemplate>

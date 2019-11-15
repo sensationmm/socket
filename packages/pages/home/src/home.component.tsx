@@ -56,7 +56,7 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
         </FlexRow>
       </PageSection>
 
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
+      <PageSection style={PageSectionStyle.TertiaryPattern}>
         <FlexRow className={styles.narrowSection} layout={[60, 40]}>
           <div>
             <Text

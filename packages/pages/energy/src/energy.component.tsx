@@ -51,7 +51,7 @@ const EnergyPage: React.FC<IEnergyPageProps> = ({ imagery }) => {
             ))}
         </div>
       </PageSection>
-      <PageSection style={PageSectionStyle.Primary}>
+      <PageSection style={PageSectionStyle.TertiaryPattern}>
         <Text className={styles.energyTitle} element="h2" type={TextStyles.h2} color={ColorStyles.quaternary}>
           {t('site.energy.whereEnergyComesFrom.title')}
         </Text>

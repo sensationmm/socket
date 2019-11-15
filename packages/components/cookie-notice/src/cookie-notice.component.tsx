@@ -55,26 +55,28 @@ const CookieNotice: React.FC<ICookieNoticeProps> = ({ title, text, link, cta }) 
       }}
       unmountOnExit={true}
     >
-      <div className={styles.cookieNotice}>
-        <div className={styles.textWrapper}>
-          <Text className={styles.title} type={TextStyles.cookieTitle} color={ColorStyles.primary} element="p">
-            {title}
-          </Text>
-          <Text className={styles.text} type={TextStyles.cookieBody} color={ColorStyles.tertiary} element="p">
-            {text}{' '}
-            <a href={link.address} target="_blank">
-              {link.text}
-            </a>
-            .
-          </Text>
-        </div>
-        <div className={styles.ctaWrapper}>
-          <PrimaryBtn size="medium" onClick={() => setCookie(false)}>
-            {cta.disagree}
-          </PrimaryBtn>
-          <SecondaryBtn size="medium" onClick={() => setCookie(true)}>
-            {cta.agree}
-          </SecondaryBtn>
+      <div className={styles.wrapper}>
+        <div className={styles.cookieNotice}>
+          <div className={styles.textWrapper}>
+            <Text className={styles.title} type={TextStyles.cookieTitle} color={ColorStyles.primary} element="p">
+              {title}
+            </Text>
+            <Text className={styles.text} type={TextStyles.cookieBody} color={ColorStyles.tertiary} element="p">
+              {text}{' '}
+              <a href={link.address} target="_blank">
+                {link.text}
+              </a>
+              .
+            </Text>
+          </div>
+          <div className={styles.ctaWrapper}>
+            <PrimaryBtn size="medium" onClick={() => setCookie(false)}>
+              {cta.disagree}
+            </PrimaryBtn>
+            <SecondaryBtn size="medium" onClick={() => setCookie(true)}>
+              {cta.agree}
+            </SecondaryBtn>
+          </div>
         </div>
       </div>
     </CSSTransition>

@@ -29,7 +29,7 @@ const RegularLayout: React.FC<IRegularLayoutProps> = ({ hero, children }) => {
         <PageHero heading={hero.title} text={hero.subTitle} cta={hero.cta} onClick={() => navigate('/page')} />
       </PageSection>
       <main>{children}</main>
-      <PageSection style={PageSectionStyle.PrimaryPattern}>
+      <PageSection style={PageSectionStyle.QuaternaryPattern}>
         <Footer menu={FooterNavigation} />
       </PageSection>
     </AppTemplate>

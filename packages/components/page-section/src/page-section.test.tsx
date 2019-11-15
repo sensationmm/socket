@@ -57,6 +57,42 @@ describe('@somo/pda-components-page-section component', () => {
     expect(wrapper.find('.component').props().style.backgroundImage).toEqual(undefined);
   });
 
+  it('renders tertiary style container', () => {
+    props = {
+      style: PageSectionStyle.Tertiary,
+    };
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('.component').hasClass('tertiary')).toEqual(true);
+  });
+
+  it('renders tertiary pattern style container', () => {
+    props = {
+      style: PageSectionStyle.TertiaryPattern,
+    };
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('.component').hasClass('tertiaryPattern')).toEqual(true);
+  });
+
+  it('renders quaternary style container', () => {
+    props = {
+      style: PageSectionStyle.Quaternary,
+    };
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('.component').hasClass('quaternary')).toEqual(true);
+  });
+
+  it('renders quaternary pattern style container', () => {
+    props = {
+      style: PageSectionStyle.QuaternaryPattern,
+    };
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('.component').hasClass('quaternaryPattern')).toEqual(true);
+  });
+
   it('renders background image style container', () => {
     props = {
       style: PageSectionStyle.Image,

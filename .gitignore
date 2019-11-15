@@ -34,3 +34,5 @@ packages/apps/e2e/cypress/results
 
 # IDEs
 .idea/
+
+yarn.lock

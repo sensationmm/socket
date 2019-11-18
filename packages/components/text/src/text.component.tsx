@@ -24,6 +24,7 @@ export enum ColorStyles {
   tertiary = 'tertiary',
   quaternary = 'quaternary',
   quinary = 'quinary',
+  error = 'error',
 }
 
 interface ITextProps {

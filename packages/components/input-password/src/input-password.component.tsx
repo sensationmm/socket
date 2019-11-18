@@ -7,7 +7,7 @@ interface IInputPassword {
   label?: string;
   handleKeyPress?: () => void;
   value: string | number;
-  validate?: () => void;
+  validate: () => void;
   handleChange: (value: string) => void;
   handleFocus?: (e: React.FocusEvent<any>) => void;
   note?: string;

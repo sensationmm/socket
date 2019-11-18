@@ -23,5 +23,6 @@ storiesOf('Form Elements|InputNumber', module)
       handleChange={action('handleChange()')}
       handleKeyPress={action('handleKeyPress()')}
       handleFocus={action('handleFocus()')}
+      validate={action('validate')}
     />
   ));

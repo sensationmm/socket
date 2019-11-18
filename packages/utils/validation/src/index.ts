@@ -71,21 +71,21 @@ validationMessages.validateLettersOnly = i18n.t('validation.validateLettersOnly'
 
 // validates based on given cumulative total
 const validateTotal = (input: number, { total, maxValue }) => {
-  validationMessages.validateTotal = i18n.t('validation.validateTotal', { max: { maxValue } });
+  validationMessages.validateTotal = i18n.t('validation.validateTotal', { max: maxValue });
 
   return input && total <= maxValue;
 };
 
 // validates on a minimum character length
 const validateMinimum = (value, min) => {
-  validationMessages.validateMinimum = i18n.t('validation.validateMinimum', { min: { min } });
+  validationMessages.validateMinimum = i18n.t('validation.validateMinimum', { min });
 
   return !value || (value && value.length >= min);
 };
 
 // validates minimum allowed value
 const validateMinValue = (value, min) => {
-  validationMessages.validateMinValue = i18n.t('validation.validateMinValue', { min: { min } });
+  validationMessages.validateMinValue = i18n.t('validation.validateMinValue', { min });
 
   return value >= min;
 };

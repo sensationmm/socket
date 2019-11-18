@@ -1,5 +1,5 @@
-import Component, { Radio, RadioType } from './radio.component';
+import Component, { IRadioGroupProps, Radio, RadioType } from './radio.component';
 
-export { Radio, RadioType };
+export { IRadioGroupProps, Radio, RadioType };
 
 export default Component;

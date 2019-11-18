@@ -67,7 +67,7 @@ const RadioGroup: React.FC<IRadioGroupProps> = ({
       data-test="component-radio-group"
       style={{ display: hidden ? 'none' : 'block' }}
     >
-      <Text element="legend" className={styles.radioGroupLabel}>
+      <Text element="legend" type={TextStyles.label}>
         {groupLabel}
       </Text>
 

@@ -17,5 +17,6 @@ storiesOf('Form Elements|InputPassword', module)
       note={text('note', '')}
       error={text('error', '')}
       handleChange={action('handleChange()')}
+      validate={action('validate')}
     />
   ));

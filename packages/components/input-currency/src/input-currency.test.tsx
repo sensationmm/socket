@@ -13,6 +13,7 @@ describe('<InputCurrency />', () => {
       handleChange: jest.fn(),
       validationFunction: 'validateRequired',
       value: 1,
+      validate: jest.fn(),
     };
 
     wrapper = shallow(<Component {...props} />);

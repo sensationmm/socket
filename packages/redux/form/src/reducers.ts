@@ -1,14 +1,26 @@
-import { Action, CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } from './types';
+import {
+  Action,
+  CLEAR_FORM,
+  CLEAR_FORM_ERRORS,
+  INIT_FORM,
+  RESET_VALIDATION,
+  SET_ERRORS,
+  SET_FORM_ERRORS,
+  SET_VALID,
+  UPDATE_FORM,
+} from './types';
 
 export interface IFormState {
   values: { [key: string]: any };
   errors: { [key: string]: any };
+  valid: { [key: string]: any };
   showErrorMessage: boolean;
 }
 
 export const initialState: IFormState = {
   values: {},
   errors: {},
+  valid: {},
   showErrorMessage: false,
 };
 
@@ -42,6 +54,12 @@ const reducer = (state = initialState, action: Action): IFormState => {
         showErrorMessage: action.showErrorMessage,
       };
 
+    case SET_VALID:
+      return {
+        ...state,
+        valid: action.validList,
+      };
+
     case SET_FORM_ERRORS:
       return {
         ...state,
@@ -57,6 +75,18 @@ const reducer = (state = initialState, action: Action): IFormState => {
         ...state,
         errors: {},
         showErrorMessage: false,
+      };
+
+    case RESET_VALIDATION:
+      const newErrors = state.errors;
+      const newValid = state.valid;
+      delete newErrors[action.key];
+      delete newValid[action.key];
+
+      return {
+        ...state,
+        errors: newErrors,
+        valid: newValid,
       };
 
     case CLEAR_FORM:

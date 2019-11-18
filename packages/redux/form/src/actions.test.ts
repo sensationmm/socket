@@ -3,8 +3,26 @@ import thunk from 'redux-thunk';
 
 import { actions, types } from '.';
 
-const { clearForm, clearFormErrors, initForm, setErrors, setFormErrors, updateForm } = actions;
-const { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } = types;
+const {
+  clearForm,
+  clearFormErrors,
+  initForm,
+  resetValidation,
+  setErrors,
+  setFormErrors,
+  setValid,
+  updateForm,
+} = actions;
+const {
+  CLEAR_FORM,
+  CLEAR_FORM_ERRORS,
+  INIT_FORM,
+  RESET_VALIDATION,
+  SET_ERRORS,
+  SET_FORM_ERRORS,
+  SET_VALID,
+  UPDATE_FORM,
+} = types;
 
 const mockStore = configureMockStore([thunk]);
 
@@ -16,9 +34,9 @@ describe('Loader actions', () => {
   });
 
   test('initForm', () => {
-    store.dispatch(initForm({ values: {}, errors: {}, showErrorMessage: false }));
+    store.dispatch(initForm({ values: {}, errors: {}, valid: {}, showErrorMessage: false }));
     expect(store.getActions()).toEqual([
-      { type: INIT_FORM, payload: { values: {}, errors: {}, showErrorMessage: false } },
+      { type: INIT_FORM, payload: { values: {}, errors: {}, valid: {}, showErrorMessage: false } },
     ]);
   });
 
@@ -49,8 +67,18 @@ describe('Loader actions', () => {
     expect(store.getActions()).toEqual([{ type: SET_FORM_ERRORS, error: 'Your address in invalid' }]);
   });
 
+  test('setValid', () => {
+    store.dispatch(setValid({ name: true }));
+    expect(store.getActions()).toEqual([{ type: SET_VALID, validList: { name: true } }]);
+  });
+
   test('clearFormErrors', () => {
     store.dispatch(clearFormErrors());
     expect(store.getActions()).toEqual([{ type: CLEAR_FORM_ERRORS }]);
+  });
+
+  test('resetValidation', () => {
+    store.dispatch(resetValidation('name'));
+    expect(store.getActions()).toEqual([{ type: RESET_VALIDATION, key: 'name' }]);
   });
 });

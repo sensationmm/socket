@@ -1,9 +1,10 @@
 import { reducers, types } from '.';
+import { RESET_VALIDATION } from './types';
 
 const { form, initialState } = reducers;
-const { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, UPDATE_FORM } = types;
+const { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, SET_VALID, UPDATE_FORM } = types;
 
-describe('documents reducer', () => {
+describe('form reducer', () => {
   test('INIT_FORM', () => {
     const action = {
       type: INIT_FORM as typeof INIT_FORM,
@@ -12,6 +13,7 @@ describe('documents reducer', () => {
           test: 'test1',
         },
         errors: {},
+        valid: {},
         showErrorMessage: false,
       },
     };
@@ -20,6 +22,7 @@ describe('documents reducer', () => {
         test: 'test1',
       },
       errors: {},
+      valid: {},
       showErrorMessage: false,
     };
 
@@ -38,6 +41,7 @@ describe('documents reducer', () => {
         date: '04/20/69',
       },
       errors: {},
+      valid: {},
       showErrorMessage: false,
     };
 
@@ -64,6 +68,7 @@ describe('documents reducer', () => {
         date: '20/05/97',
       },
       errors: {},
+      valid: {},
       showErrorMessage: false,
     };
 
@@ -76,6 +81,7 @@ describe('documents reducer', () => {
       errorsList: {
         isInvalidAddress: true,
       },
+      valid: {},
       showErrorMessage: true,
     };
     const expectedState = {
@@ -83,6 +89,7 @@ describe('documents reducer', () => {
       errors: {
         isInvalidAddress: true,
       },
+      valid: {},
       showErrorMessage: true,
     };
 
@@ -100,7 +107,28 @@ describe('documents reducer', () => {
       errors: {
         form: 'Your address is invalid',
       },
+      valid: {},
       showErrorMessage: true,
+    };
+
+    expect(form(initialState, action)).toEqual(expectedState);
+  });
+
+  test('SET_VALID', () => {
+    const action = {
+      type: SET_VALID as typeof SET_VALID,
+      validList: {
+        name: true,
+      },
+      valid: {},
+    };
+    const expectedState = {
+      values: {},
+      errors: {},
+      valid: {
+        name: true,
+      },
+      showErrorMessage: false,
     };
 
     expect(form(initialState, action)).toEqual(expectedState);
@@ -119,6 +147,7 @@ describe('documents reducer', () => {
       errors: {
         isInvalidAddress: true,
       },
+      valid: {},
       showErrorMessage: true,
     };
 
@@ -127,6 +156,35 @@ describe('documents reducer', () => {
         testValue: 'test',
       },
       errors: {},
+      valid: {},
+      showErrorMessage: false,
+    };
+
+    expect(form(newInitialState, action)).toEqual(expectedState);
+  });
+
+  test('RESET_VALIDATION', () => {
+    const action = {
+      type: RESET_VALIDATION as typeof RESET_VALIDATION,
+      key: 'name',
+    };
+
+    const newInitialState = {
+      ...initialState,
+      errors: {
+        name: 'You must enter your name',
+        surname: 'You must enter your surname',
+      },
+      valid: {
+        name: true,
+        phone: true,
+      },
+    };
+
+    const expectedState = {
+      values: {},
+      errors: { surname: 'You must enter your surname' },
+      valid: { phone: true },
       showErrorMessage: false,
     };
 
@@ -146,12 +204,14 @@ describe('documents reducer', () => {
       errors: {
         isInvalidAddress: true,
       },
+      valid: {},
       showErrorMessage: true,
     };
 
     const expectedState = {
       values: {},
       errors: {},
+      valid: {},
       showErrorMessage: false,
     };
 

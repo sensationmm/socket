@@ -13,6 +13,7 @@ describe('<InputText />', () => {
       handleChange: jest.fn(),
       validationFunction: 'validateRequired',
       value: 'boo',
+      validate: jest.fn(),
     };
 
     wrapper = shallow(<Component {...props} />);

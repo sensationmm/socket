@@ -190,3 +190,7 @@
 .quinary {
   color: var(--color-grey-darkLighter);
 }
+
+.error {
+  color: var(--color-ui-error);
+}

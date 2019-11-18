@@ -30,6 +30,7 @@ class FormExample extends React.Component<IFormExampleProps> {
       optin: false,
       privacy: false,
       choice: '',
+      disabled: '',
     });
   }
 
@@ -49,6 +50,7 @@ class FormExample extends React.Component<IFormExampleProps> {
         component: InputText,
         label: 'Name',
         value: values.name,
+        placeholder: 'Title',
       },
       {
         id: 'input-email',
@@ -57,6 +59,7 @@ class FormExample extends React.Component<IFormExampleProps> {
         label: 'Email address',
         value: values.email,
         validationFunction: ['validateRequired', 'validateEmail'],
+        note: 'Enter a valid email address',
       },
       {
         id: 'input-password',
@@ -76,6 +79,15 @@ class FormExample extends React.Component<IFormExampleProps> {
         value: values.passwordConfirm,
         validationFunction: ['validateRequired', 'validateMatching'],
         validationParam: [null, values.password],
+      },
+      {
+        id: 'input-disabled',
+        stateKey: 'disabled',
+        component: InputText,
+        label: 'Disabled field',
+        value: values.disabled,
+        placeholder: "You can't type here",
+        readOnly: true,
       },
       {
         id: 'input-choice',

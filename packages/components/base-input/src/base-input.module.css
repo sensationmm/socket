@@ -15,9 +15,6 @@
 }
 
 .textInputRequired {
-  position: absolute;
-  right: var(--spacing-s);
-  top: 0;
   color: var(--color-ui-error) !important;
   text-transform: uppercase;
   font-weight: bold;
@@ -26,23 +23,28 @@
 
 .textInputWrapper {
   width: 100%; /* this used calc to minus padding before */
-  border: 1px solid var(--color-grey-mid);
-  border-radius: 5px;
-  padding: var(--spacing-m);
-  background: var(--color-basic-white);
+  border: 2px solid var(--color-grey-light);
+  background: var(--color-grey-light);
+  border-radius: 50px;
   display: flex;
+  position: relative;
 }
 
-.textInputWrapper.readOnly {
-  background: var(--color-grey-mid);
+.textInputWrapper.active {
+  border: 2px solid var(--color-brand-main);
 }
 
 .textInputWrapper.error {
   border-color: var(--color-ui-error) !important;
 }
 
+.textInputWrapper.readOnly {
+  border-color: var(--color-grey-mid) !important;
+}
+
 .textInputNote {
-  padding: var(--spacing-s) var(--spacing-xs);
+  color: var(--color-grey-dark);
+  padding: var(--spacing-xs) var(--spacing-m);
 }
 
 .textCurrencySymbol {
@@ -52,6 +54,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.valid {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: var(--spacing-m);
+  color: var(--color-brand-secondary);
 }
 
 .textInput.error .textInputWrapper {
@@ -77,6 +87,7 @@ textarea {
   box-shadow: 0 0 0 0 var(--color-basic-white) inset !important;
   transition: all 0.3s;
   border: 0;
+  padding: var(--spacing-m);
 }
 
 input[type='text']::placeholder,
@@ -84,7 +95,7 @@ input[type='email']::placeholder,
 input[type='password']::placeholder,
 input[type='number']::placeholder,
 textarea::placeholder {
-  color: var(--color-brand-main);
+  color: var(--color-grey-dark);
   opacity: 0.5;
 }
 

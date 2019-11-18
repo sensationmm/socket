@@ -3,6 +3,7 @@ import React from 'react';
 
 import Component from '.';
 
+import Text from '@somo/pda-components-text/src';
 import Functions from '@somo/pda-utils-functions/src';
 
 describe('<Input />', () => {
@@ -28,6 +29,7 @@ describe('<Input />', () => {
         validate: validateMock,
         note: 'test note',
         value: '',
+        valid: true,
       };
 
       wrapper = shallow(<Component type="text" {...props} />);
@@ -38,6 +40,7 @@ describe('<Input />', () => {
     test('renders without error', () => {
       expect(component.length).toBe(1);
       expect(component.props().style.display).toEqual('block');
+      expect(wrapper.find('[data-test="input-valid"]').length).toBe(1);
     });
 
     test('onChange callback fires on type', () => {
@@ -90,6 +93,7 @@ describe('<Input />', () => {
         id: 'input-name',
         handleChange: changeMock,
         value: '',
+        validate: jest.fn(),
       };
 
       const noNote = shallow(<Component type="text" {...props} />);
@@ -103,6 +107,7 @@ describe('<Input />', () => {
         handleChange: changeMock,
         value: '',
         wrapperClass: 'currency',
+        validate: jest.fn(),
       };
 
       wrapper = shallow(<Component type="text" {...props} />);
@@ -120,6 +125,7 @@ describe('<Input />', () => {
         handleChange: changeMock,
         value: '',
         hidden: true,
+        validate: jest.fn(),
       };
 
       wrapper = shallow(<Component type="text" {...props} />);
@@ -142,6 +148,7 @@ describe('<Input />', () => {
         handleChange: changeMock,
         error: 'field required',
         value: '',
+        validate: jest.fn(),
       };
 
       wrapper = shallow(<Component type="text" {...props} />);
@@ -153,7 +160,7 @@ describe('<Input />', () => {
       const error = wrapper.find('[data-test="text-input-error"]');
 
       expect(error.length).toBe(1);
-      expect(error.text()).toBe('field required');
+      expect(error.find(Text).props().children).toBe('field required');
     });
   });
 

@@ -8,7 +8,7 @@ interface IInputCurrency {
   handleChange: (value: string) => void;
   handleKeyPress?: () => void;
   value: string | number;
-  validate?: () => void;
+  validate: () => void;
   handleFocus?: (e: React.FocusEvent<any>) => void;
   readOnly?: boolean;
   note?: string;

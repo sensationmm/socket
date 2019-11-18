@@ -6,11 +6,15 @@ import {
   IClearFormErrors,
   IInitForm,
   INIT_FORM,
+  IResetValidation,
   ISetErrors,
   ISetFormErrors,
+  ISetValid,
   IUpdateForm,
+  RESET_VALIDATION,
   SET_ERRORS,
   SET_FORM_ERRORS,
+  SET_VALID,
   UPDATE_FORM,
 } from './types';
 
@@ -51,8 +55,22 @@ export const setFormErrors = (error: string): ISetFormErrors => {
   };
 };
 
+export const setValid = (validList: IFormState['valid']): ISetValid => {
+  return {
+    type: SET_VALID,
+    validList,
+  };
+};
+
 export const clearFormErrors = (): IClearFormErrors => {
   return {
     type: CLEAR_FORM_ERRORS,
+  };
+};
+
+export const resetValidation = (key: string): IResetValidation => {
+  return {
+    type: RESET_VALIDATION,
+    key,
   };
 };

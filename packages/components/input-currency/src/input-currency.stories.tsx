@@ -18,5 +18,6 @@ storiesOf('Form Elements|InputCurrency', module)
       note={text('note', '')}
       error={text('error', '')}
       handleChange={action('handleChange()')}
+      validate={action('validate')}
     />
   ));

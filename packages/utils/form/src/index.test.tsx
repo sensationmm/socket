@@ -7,6 +7,7 @@ import store from '@somo/pda-www-state/store';
 import Checkbox from '@somo/pda-components-checkbox/src';
 import InputPassword from '@somo/pda-components-input-password/src';
 import InputText from '@somo/pda-components-input-text/src';
+import Radio from '@somo/pda-components-radio/src';
 
 const fieldsMock = {
   name: '',
@@ -14,6 +15,7 @@ const fieldsMock = {
   error: false,
   passwordConfirm: 'test1',
   email: 'asd@asddasd.asd',
+  name2: '',
 };
 
 const fieldsArrayMock = [fieldsMock, fieldsMock, fieldsMock];
@@ -21,6 +23,7 @@ const fieldsArrayMock = [fieldsMock, fieldsMock, fieldsMock];
 const stateMock = {
   values: fieldsMock,
   errors: {},
+  valid: {},
   showErrorMessage: false,
 };
 
@@ -86,9 +89,30 @@ const configMock: IFormConfig[] = [
     hidden: true,
     onChange: jest.fn(),
   },
+  {
+    id: 'input-error',
+    stateKey: 'error',
+    component: Radio,
+    items: [{ label: 'yes', value: 'yes' }, { label: 'no', value: 'no' }],
+    label: 'Agree',
+    onChange: jest.fn().mockReturnValue('hi'),
+  },
+  {
+    id: 'input-name2',
+    stateKey: 'name2',
+    component: InputText,
+    label: 'Name',
+    value: fieldsMock.name,
+    onChange: jest.fn(),
+    validationFunction: 'validateRequired',
+  },
 ];
 
 describe('Form', () => {
+  beforeEach(() => {
+    formUtils.initFormState(fieldsMock);
+  });
+
   describe('clearFormState()', () => {
     test('clears form state', () => {
       formUtils.clearFormState();
@@ -124,6 +148,14 @@ describe('Form', () => {
     });
   });
 
+  describe('renderForm()', () => {
+    test('renders form', () => {
+      const form = formUtils.renderForm(configMock);
+
+      expect(form).toBeDefined();
+    });
+  });
+
   describe('renderFormFields()', () => {
     let form;
 
@@ -131,7 +163,7 @@ describe('Form', () => {
       form = formUtils.renderFormFields(configMock);
     });
 
-    test('renders form', () => {
+    test('renders form fields', () => {
       expect(form.length).toEqual(configMock.length);
     });
 
@@ -186,6 +218,8 @@ describe('Form', () => {
       const form = formUtils.renderFormFields(configMock);
 
       expect(store.getState().form.errors).toEqual(expect.objectContaining({ passwordConfirm: expect.any(String) }));
+      expect(store.getState().form.valid).not.toEqual(expect.objectContaining({ passwordConfirm: true }));
+
       if (form[3]) {
         expect(form[3].props.error).toEqual(expect.any(String));
       }
@@ -197,7 +231,34 @@ describe('Form', () => {
       formUtils.validateField(configMock, 'passwordConfirm');
       formUtils.validateField(configMock, 'passwordConfirm2');
 
-      expect(store.getState().form.errors).toEqual({});
+      expect(store.getState().form.errors).not.toEqual(
+        expect.objectContaining({ passwordConfirm: expect.any(String) }),
+      );
+      expect(store.getState().form.errors).not.toEqual(
+        expect.objectContaining({ passwordConfirm2: expect.any(String) }),
+      );
+    });
+
+    test('valid set & cleared', () => {
+      formUtils.updateValue('name2', 'spongebob');
+      formUtils.validateField(configMock, 'name2');
+
+      expect(store.getState().form.valid).toEqual(expect.objectContaining({ name2: true }));
+      expect(store.getState().form.errors).not.toEqual(expect.objectContaining({ name2: expect.any(String) }));
+    });
+
+    test('valid cleared when error', () => {
+      formUtils.updateValue('name2', 'spongebob');
+      formUtils.validateField(configMock, 'name2');
+      formUtils.updateValue('name2', '');
+      formUtils.validateField(configMock, 'name2');
+
+      expect(store.getState().form.valid).not.toEqual(expect.objectContaining({ name2: true }));
+      expect(store.getState().form.errors).toEqual(expect.objectContaining({ name2: expect.any(String) }));
+    });
+
+    afterEach(() => {
+      formUtils.clearFormState();
     });
   });
 
@@ -211,7 +272,7 @@ describe('Form', () => {
     test('validates each field', () => {
       formUtils.validateForm(configMock);
 
-      expect(spy).toHaveBeenCalledTimes(4);
+      expect(spy).toHaveBeenCalledTimes(5);
       expect(spy).toHaveBeenCalledWith(expect.any(Object), 'password', undefined);
       expect(spy).toHaveBeenCalledWith(expect.any(Object), 'passwordConfirm', undefined);
     });
@@ -222,6 +283,18 @@ describe('Form', () => {
 
       expect(store.getState().form.errors).toEqual(expect.objectContaining({ passwordConfirm: expect.any(String) }));
     });
+
+    test('passes validation', () => {
+      formUtils.initFormState(fieldsMock);
+      formUtils.updateValue('password', 'test');
+      formUtils.updateValue('passwordConfirm', 'test');
+      formUtils.updateValue('passwordConfirm2', 'test');
+      formUtils.updateValue('name2', 'test');
+
+      const validForm = formUtils.validateForm(configMock);
+
+      expect(validForm).toBe(true);
+    });
   });
 
   describe('values array state', () => {
@@ -231,6 +304,7 @@ describe('Form', () => {
 
     describe('validateField', () => {
       beforeEach(() => {
+        formUtils.validateField(configMock, 'name', 0);
         formUtils.validateField(configMock, 'passwordConfirm', 0);
       });
 
@@ -294,6 +368,7 @@ describe('Form', () => {
   });
 
   afterEach(() => {
+    formUtils.clearFormState();
     jest.clearAllMocks();
   });
 });

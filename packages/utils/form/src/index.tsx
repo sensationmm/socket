@@ -5,11 +5,11 @@ import functions from '@somo/pda-utils-functions/src';
 import validation from '@somo/pda-utils-validation/src';
 import store from '@somo/pda-www-state/store';
 
-import Radio from '@somo/pda-components-radio/src';
+import Radio, { IRadioGroupProps } from '@somo/pda-components-radio/src';
 
 import * as styles from './form.module.css';
 
-const { initForm, clearForm, updateForm, setErrors, setFormErrors } = actions;
+const { initForm, clearForm, updateForm, resetValidation, setErrors, setFormErrors, setValid } = actions;
 
 export interface IFormConfig {
   id: string;
@@ -18,17 +18,20 @@ export interface IFormConfig {
   component: React.ElementType;
   stateKey: string;
   onChange?: () => void;
+  onFocus?: () => void;
   validationFunction?: string | string[];
   validationParam?: string | any[];
   hidden?: boolean;
   callback?: () => void;
   groupLabel?: string;
   selectedValue?: string;
+  items?: IRadioGroupProps['items'];
 }
 
 export const initFormState = (fieldsInit: object, fieldsValues?: object) => {
   const fields = !Array.isArray(fieldsInit) ? fieldsInit : new Array(...fieldsInit);
   const errors = !Array.isArray(fieldsInit) ? {} : { fields: fieldsInit.map(() => new Object()) };
+  const valid = !Array.isArray(fieldsInit) ? {} : { fields: fieldsInit.map(() => new Object()) };
 
   const fieldsKeys = Object.keys(fields);
 
@@ -42,6 +45,7 @@ export const initFormState = (fieldsInit: object, fieldsValues?: object) => {
     initForm({
       values: fields,
       errors,
+      valid,
       showErrorMessage: false,
     }),
   );
@@ -66,8 +70,9 @@ export const updateValue = (stateKey: string, value: any, callback?, arrayUpdate
 };
 
 export const validateField = (config: IFormConfig[], stateID: string, arrayIndex?: number) => {
-  const { values, errors } = store.getState().form;
+  const { values, errors, valid } = store.getState().form;
   const errorsList = !errors.fields ? errors : errors.fields;
+  const validList = !valid.fields ? valid : valid.fields;
 
   const configItem = functions.getByValue(config, 'stateKey', stateID);
 
@@ -102,20 +107,34 @@ export const validateField = (config: IFormConfig[], stateID: string, arrayIndex
     if (!isValid) {
       if (arrayIndex !== undefined) {
         errorsList[arrayIndex][stateID] = validation.messages[failFunc];
+        delete validList[arrayIndex][stateID];
       } else {
         errorsList[stateID] = validation.messages[failFunc];
+        delete validList[stateID];
       }
     } else {
       if (arrayIndex !== undefined) {
         delete errorsList[arrayIndex][stateID];
+        validList[arrayIndex][stateID] = true;
       } else {
         delete errorsList[stateID];
+        validList[stateID] = true;
       }
     }
 
     const newErrors = !errors.fields ? errorsList : { ...errors, fields: errorsList };
+    const newValid = !valid.fields ? validList : { ...valid, fields: validList };
 
     store.dispatch(setErrors(newErrors, errors.form && errors.form !== ''));
+    store.dispatch(setValid(newValid));
+  } else if (!validationList && valueToCheck) {
+    if (arrayIndex !== undefined && validList[arrayIndex]) {
+      validList[arrayIndex][stateID] = true;
+    } else {
+      validList[stateID] = true;
+    }
+    const newValid = !valid.fields ? validList : { ...valid, fields: validList };
+    store.dispatch(setValid(newValid));
   }
 };
 
@@ -161,10 +180,10 @@ export const renderForm = (config: IFormConfig[], arrayIndex?: number): JSX.Elem
 };
 
 export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => {
-  const { errors } = store.getState().form;
+  const { errors, valid } = store.getState().form;
 
   return config.map((item, key) => {
-    const { stateKey, validationFunction, hidden, callback } = item;
+    const { stateKey, hidden, callback } = item;
 
     if (hidden) {
       return;
@@ -173,7 +192,8 @@ export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => 
     // istanbul ignore next - bug in arrow function coverage
     const onChange = stateKey ? (val) => formUtils.updateValue(stateKey, val, callback) : undefined;
     // istanbul ignore next - bug in arrow function coverage
-    const validate = validationFunction ? () => formUtils.validateField(config, stateKey, arrayIndex) : undefined;
+    const validate = () => formUtils.validateField(config, stateKey, arrayIndex);
+    const onFocus = () => store.dispatch(resetValidation(stateKey));
 
     let error;
     if (!errors.fields) {
@@ -184,6 +204,19 @@ export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => 
       if (arrayIndex !== undefined) {
         if (functions.objectKeyExists(stateKey, errors.fields[arrayIndex])) {
           error = errors.fields[arrayIndex][stateKey];
+        }
+      }
+    }
+
+    let validField;
+    if (!valid.fields) {
+      if (functions.objectKeyExists(stateKey, valid)) {
+        validField = valid[stateKey];
+      }
+    } else {
+      if (arrayIndex !== undefined) {
+        if (functions.objectKeyExists(stateKey, valid.fields[arrayIndex])) {
+          validField = valid.fields[arrayIndex][stateKey];
         }
       }
     }
@@ -204,7 +237,9 @@ export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => 
         id={stateKey}
         handleChange={item.onChange ? item.onChange : onChange}
         {...item}
+        handleFocus={onFocus}
         error={error}
+        valid={validField}
         validate={validate}
       />
     );

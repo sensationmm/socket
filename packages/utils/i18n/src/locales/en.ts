@@ -330,6 +330,7 @@ const data: EON.IWebAppTranslations = {
           additionalLabel: 'Additional products',
         },
         notApplicable: 'Not Applicable',
+        noEndDate: 'No End Date',
         supplierName: 'Socket Energy',
       },
       goal: {

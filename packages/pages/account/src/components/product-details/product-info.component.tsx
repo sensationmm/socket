@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import FlexRowGrid from '@somo/pda-components-flex-row-grid/src';
+import { formatISODate } from '@somo/pda-utils-dates/src';
 import Field from '../field/field.component';
 
 interface IProductInfoProps {
@@ -25,7 +26,11 @@ const ProductInfo: React.FC<IProductInfoProps> = ({ productInfo }) => {
         { label: t('site.account.product.product.unitRateLabel'), value: unitRate.inclVAT },
         {
           label: t('site.account.product.product.endDateLabel'),
-          value: endDate || t('site.account.product.notApplicable'),
+          value: endDate
+            ? formatISODate(endDate, 'DD/MM/YYYY')
+            : contractType.itemValue === 'Variable Rate'
+            ? t('site.account.product.noEndDate')
+            : t('site.account.product.notApplicable'),
         },
         {
           label: t('site.account.product.product.standingChargeLabel'),

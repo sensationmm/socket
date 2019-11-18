@@ -106,6 +106,7 @@ declare namespace EON {
       additionalLabel: string;
     };
     notApplicable: string;
+    noEndDate: string;
     supplierName: string;
   }
 

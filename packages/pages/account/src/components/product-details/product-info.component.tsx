@@ -27,7 +27,10 @@ const ProductInfo: React.FC<IProductInfoProps> = ({ productInfo }) => {
           label: t('site.account.product.product.endDateLabel'),
           value: endDate || t('site.account.product.notApplicable'),
         },
-        { label: t('site.account.product.product.standingChargeLabel'), value: standingChargeDd.inclVAT },
+        {
+          label: t('site.account.product.product.standingChargeLabel'),
+          value: standingChargeDd ? standingChargeDd.inclVAT : t('site.account.product.notApplicable'),
+        },
         { label: t('site.account.product.product.supplierLabel'), value: t('site.account.product.supplierName') },
         { label: t('site.account.product.product.exitFeesLabel'), value: t('site.account.product.notApplicable') },
         { label: t('site.account.product.product.tariffLabel'), value: contractType.itemValue },

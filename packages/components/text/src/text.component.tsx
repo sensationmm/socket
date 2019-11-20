@@ -16,6 +16,7 @@ export enum TextStyles {
   label = 'label',
   cookieTitle = 'cookieTitle',
   cookieBody = 'cookieBody',
+  edit = 'edit',
 }
 
 export enum ColorStyles {

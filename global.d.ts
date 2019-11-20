@@ -84,6 +84,7 @@ declare namespace EON {
     phoneLabel: string;
     passwordLabel: string;
     correspondenceAddressLabel: string;
+    correspondenceAddressEditText: string;
   }
 
   interface IAccountProducts {

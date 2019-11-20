@@ -19,6 +19,7 @@ const types = [
   'supportCopy',
   'cookieTitle',
   'cookieBody',
+  'edit',
 ];
 
 const color = ['primary', 'secondary', 'tertiary', 'quaternary'];

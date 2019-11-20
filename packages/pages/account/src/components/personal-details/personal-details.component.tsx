@@ -68,7 +68,12 @@ const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ values }) => {
             { label: t('site.account.personal.emailLabel'), value: values.email },
             { label: t('site.account.personal.phoneLabel'), value: values.phone },
             { label: t('site.account.personal.passwordLabel'), value: '*******' },
-            { label: t('site.account.personal.correspondenceAddressLabel'), value: values.correspondenceAddress },
+            {
+              label: t('site.account.personal.correspondenceAddressLabel'),
+              value: values.correspondenceAddress,
+              editable: true,
+              editText: t('site.account.personal.correspondenceAddressEditText'),
+            },
           ]}
           cols={2}
         />

@@ -15,6 +15,52 @@ const state = {
   },
 };
 
+const user = {
+  id: '15',
+  personalDetails: {
+    name: 'John Smith',
+    email: 'john.smith@somoglobal.com',
+    phone: '07563458747',
+    accountNumber: '123234556',
+    correspondenceAddress: '145 Regents Park Road',
+    supplyAddress: '147 Regents Park Road',
+  },
+  paymentDetails: {
+    accountName: 'John Smith',
+    accountNumber: '534534534',
+    sortCode: '05-34-56',
+    monthlyPaymentDate: '15th',
+  },
+  productDetails: {
+    electricity: {
+      __typename: 'ProductInformation',
+      name: 'Electricity 1-Rate | Fixed - 12 | 3012',
+      endDate: '',
+      TIL: {
+        tariff: { itemValue: 'Electricity 1-Rate | Fixed - 12 | 3012', inclVAT: '' },
+        contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
+        paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
+        unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
+        standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
+        billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
+      },
+    },
+    gas: {
+      __typename: 'ProductInformation',
+      name: 'Gas - 12M | 2012',
+      endDate: '',
+      TIL: {
+        tariff: { itemValue: 'Gas - 12M | 2012', inclVAT: '' },
+        contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
+        paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
+        unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
+        standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
+        billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
+      },
+    },
+  },
+};
+
 const mocks = [
   {
     request: {
@@ -30,47 +76,7 @@ const mocks = [
     },
     result: {
       data: {
-        user: {
-          id: '15',
-          personalDetails: {
-            name: 'John Smith',
-            email: 'john.smith@somoglobal.com',
-            phone: '07563458747',
-            accountNumber: '123234556',
-            correspondenceAddress: '145 Regents Park Road',
-            supplyAddress: '147 Regents Park Road',
-          },
-          paymentDetails: {
-            accountName: 'John Smith',
-            accountNumber: '*******545',
-            sortCode: '554-**-**',
-            monthlyPaymentDate: '2019-11-28',
-          },
-          productDetails: {
-            electricity: {
-              name: 'Electricity 1-Rate | Fixed - 12 | 3012',
-              TIL: {
-                tariff: { itemValue: 'Electricity 1-Rate | Fixed - 12 | 3012', inclVAT: '' },
-                contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
-                paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
-                unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
-                standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
-                billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
-              },
-            },
-            gas: {
-              name: 'Gas - 12M | 2012',
-              TIL: {
-                tariff: { itemValue: 'Gas - 12M | 2012', inclVAT: '' },
-                contractType: { itemValue: 'Fixed Rate', inclVAT: '' },
-                paymentMethod: { itemValue: 'Variable Direct Debit', inclVAT: '' },
-                unitRate: { itemValue: '', inclVAT: '11.55p/kWh' },
-                standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
-                billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
-              },
-            },
-          },
-        },
+        user,
       },
     },
   },

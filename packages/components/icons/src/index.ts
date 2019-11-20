@@ -3,6 +3,7 @@ export { default as ArrowRight } from './assets/arrow-right.svg';
 export { default as BurgerMenu } from './assets/burger-menu.svg';
 export { default as ChevronDown } from './assets/chevron-down.svg';
 export { default as ChevronDownHollow } from './assets/chevron-down-hollow.svg';
+export { default as Edit } from './assets/edit.svg';
 export { default as Facebook } from './assets/facebook.svg';
 export { default as Instagram } from './assets/instagram.svg';
 export { default as LinkedIn } from './assets/linkedin.svg';

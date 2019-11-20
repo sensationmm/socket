@@ -292,6 +292,7 @@ const data: EON.IWebAppTranslations = {
         phoneLabel: 'Phone Number',
         passwordLabel: 'Password',
         correspondenceAddressLabel: 'Correspondence Address',
+        correspondenceAddressEditText: 'Edit',
       },
       payment: {
         title: 'Payment Details',

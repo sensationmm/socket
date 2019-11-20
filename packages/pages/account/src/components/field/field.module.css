@@ -1,17 +1,48 @@
+.accountField {
+  display: flex;
+  align-items: flex-end;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
 .accountField .label {
   margin-bottom: var(--spacing-xs);
 }
 
 .accountField .value {
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
   line-height: 1.62;
 }
 
-.accountField.dark .value {
+.accountField.dark {
   border-bottom-color: var(--color-grey-midDarker);
 }
 
-.accountField.light .value {
+.accountField.light {
   border-bottom-color: var(--color-grey-light);
+}
+
+.textWrapper {
+  flex-grow: 1;
+}
+
+.editBtn {
+  cursor: pointer;
+  height: 40px;
+  line-height: normal;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-kerning: none;
+  background: transparent;
+  outline: none;
+  border: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+  padding: 0 var(--spacing-s);
+  color: var(--color-brand-secondary);
+  margin-bottom: var(--spacing-s);
+}
+
+.editSVG {
+  margin-right: var(--spacing-xs);
 }

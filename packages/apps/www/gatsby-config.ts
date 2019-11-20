@@ -97,7 +97,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-polyfill-io`,
     options: {
-      features: ['IntersectionObserver'],
+      features: ['IntersectionObserver', 'NodeList.prototype.forEach', 'Array.prototype.forEach'],
     },
   },
   'gatsby-plugin-netlify-cms',

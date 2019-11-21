@@ -56,18 +56,18 @@ const data: EON.IWebAppTranslations = {
       mainFeatures: {
         content: [
           {
-            icon: 'smiley',
+            icon: '🤓',
             header: 'Smart Only',
             body: "With us you need a smart meter, say bye to the spider in the cupboard - we're digital all the way!",
           },
           {
-            icon: 'mobile',
+            icon: '📱',
             header: 'Purely Digital',
             body:
               'No tedious call centers or faffing with letters - talk to us quickly and easily through messaging or e-mail.',
           },
           {
-            icon: 'crossedfingers',
+            icon: '👍',
             header: 'One Simple Tariff',
             body: "You don't have to learn to speak 'energy company'. Just one simple tariff to make it easy.",
           },
@@ -107,25 +107,25 @@ const data: EON.IWebAppTranslations = {
           header: "Things we don't do",
           content: [
             {
-              icon: 'wave',
+              icon: '👋',
               header: 'Charge Exit Fees',
               body:
                 "The freedom to change your mind is much easier when you're not charged an arm and a leg for jumping ship.",
             },
             {
-              icon: 'disk',
+              icon: '💾',
               header: 'Use Old Tech',
               body:
                 'Smart people use smart technology – we waved farewell to floppy disks long ago, smart is the future and so are we.',
             },
             {
-              icon: 'torch',
+              icon: '🔦',
               header: 'Make You Submit Meter Readings',
               body:
                 "No more crawling into dark spaces, that spider can get on with its life undisturbed and you don't have to work out what any digits mean.",
             },
             {
-              icon: 'poo',
+              icon: '💩',
               header: 'Give You Nasty Suprises',
               body:
                 "A bill that's more than you expected is bad. We're not about bill shock, we're about giving you fair notice of what you'll pay and when.",
@@ -136,25 +136,25 @@ const data: EON.IWebAppTranslations = {
           header: 'Things we do, do',
           content: [
             {
-              icon: 'heart',
+              icon: '💖',
               header: 'Put You Front & Centre',
               body:
                 "It's all about you baby! You know you the most, and we want you to love us - so tell us where you want to go.",
             },
             {
-              icon: 'moneybag',
+              icon: '💰',
               header: 'Reward our Community',
               body:
                 "And we're not talking useless vouchers or a free coffee at 10.36am every Tuesday. Cool rewards for the stuff you love.",
             },
             {
-              icon: 'comment',
+              icon: '💬',
               header: 'Make it easy for you to talk to us',
               body:
                 'Service on the channels you’re used to. Live chat with real UK based humans and a community of brains ready to answer FAQs.',
             },
             {
-              icon: 'earth',
+              icon: '🌎',
               header: 'Put You Front & Centre',
               body:
                 "We've only got one planet, let's do Dave Attenborough proud! We're as sustainable as possible, and you can help us get better.",
@@ -276,6 +276,46 @@ const data: EON.IWebAppTranslations = {
           },
         ],
         cta: 'Follow us',
+      },
+    },
+    smartTariff: {
+      hero: {
+        title: 'Smart is as smart does.',
+        subTitle: 'Here’s the skinny on our Smart Tariff.',
+      },
+      plusPoints: {
+        title: 'The plus points of the Socket Tariff',
+        list: [
+          'Here are all the lovely benefits of energy with Socket.',
+          'Smart 🤓 - no more meter readings like ever',
+          'Accurate bills 👍 – don’t fret about ups and downs, pay for what you use',
+          '100% renewable 🌍 - we got your back, planet earth',
+          'Based around the community ❤️ - working with folks like you',
+        ],
+        image: 'on-track',
+        cta: 'Join us',
+      },
+      switching: {
+        title: 'Switching is easy.',
+        subtitle:
+          'Ditch your old, boring, stale energy company for something smart with a heart. It’s how energy should be.',
+        content: [
+          {
+            icon: '💰',
+            title: 'No Exit Fees',
+            text: 'That pesky old supplier will probably want to charge you for switching – so we’ll foot the bill.',
+          },
+          {
+            icon: '💬',
+            title: 'No Awkward Chats',
+            text: "We'll contact your current supplier to let them know it’s over (so you don’t have to).",
+          },
+          {
+            icon: '👋',
+            title: 'No Supply Interruptions',
+            text: 'Switching over doesn’t mean a few cold days in the dark – we’ll make sure your supply stays on.',
+          },
+        ],
       },
     },
     account: {

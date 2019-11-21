@@ -50,7 +50,7 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
         <FlexRow>
           {mainFeatures.map((feature, count) => {
             return (
-              <ContentCard key={`feature-${count}`} icon={feature.icon} header={feature.header} body={feature.body} />
+              <ContentCard key={`feature-${count}`} emoji={feature.icon} header={feature.header} body={feature.body} />
             );
           })}
         </FlexRow>
@@ -124,7 +124,7 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
                 <ContentCard
                   key={`dontDo-${count}`}
                   className={styles.featureContentCard}
-                  icon={feature.icon}
+                  emoji={feature.icon}
                   header={feature.header}
                   body={feature.body}
                 />
@@ -141,7 +141,7 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
                 <ContentCard
                   key={`doDo-${count}`}
                   className={styles.featureContentCard}
-                  icon={feature.icon}
+                  emoji={feature.icon}
                   header={feature.header}
                   body={feature.body}
                 />

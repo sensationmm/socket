@@ -1,7 +1,8 @@
-import { boolean, object, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
+import { ColorStyles } from '@somo/pda-components-text/src';
 import Component from './';
 
 const content = [
@@ -11,8 +12,15 @@ const content = [
   'See forecasts based on what you use',
 ];
 
+const color = [ColorStyles.secondary, ColorStyles.tertiary];
+
 storiesOf('Components|list', module)
   .addDecorator(withKnobs)
+  .addDecorator((story) => <div style={{ width: '80vw', backgroundColor: '#007672', padding: '20px' }}>{story()}</div>)
   .add('Default', () => (
-    <Component listContent={object('listContent', content)} isCMSContent={boolean('isCMSContent', false)} />
+    <Component
+      listContent={object('listContent', content)}
+      textColor={select('textColor', color, ColorStyles.secondary)}
+      isCMSContent={boolean('isCMSContent', false)}
+    />
   ));

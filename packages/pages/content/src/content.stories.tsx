@@ -26,13 +26,6 @@ const contentPageKnobs = () => ({
     Amet luctus venenatis lectus magna fringilla urna porttitor. Erat velit scelerisque in dictum non 
     consectetur a erat nam. Leo integer malesuada nunc vel.`,
   ),
-  i18n: {
-    footer: {
-      title: 'Our smart technology needs a smart meter.',
-      subTitle: "Check you're on the latest smart meter and start taking control your energy.",
-      copyright: '2019 © Socket Energy. All rights reserved.',
-    },
-  },
 });
 
 storiesOf('Pages|content', module)

@@ -1,0 +1,79 @@
+.plusPointsRow button {
+  display: none;
+
+  @media (--m) {
+    display: inline-block;
+  }
+}
+
+.plusPointsRow img {
+  margin: 0 auto;
+
+  @media (--s) {
+    margin: 0;
+  }
+}
+
+.textWrapper {
+  @media (--m) {
+    padding-top: var(--spacing-l);
+  }
+}
+
+.buttonWrapperMobileOnly {
+  margin-top: var(--spacing-xxl);
+
+  @media (--s) {
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+  }
+
+  @media (--m) {
+    display: none;
+    margin-top: 0;
+  }
+}
+
+.buttonWrapperMobileOnly button {
+  @media (--s) {
+    flex-grow: unset;
+    margin-right: 0;
+  }
+}
+
+.plusPointsList {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--l) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.plusPointsTitle {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.switchingTitle {
+  margin-bottom: var(--spacing-m);
+
+  @media (--m) {
+    margin-bottom: var(--spacing-xxl);
+  }
+}
+
+.switchingText {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    max-width: 420px;
+  }
+
+  @media (--m) {
+    max-width: 740px;
+    margin-bottom: var(--spacing-xxl);
+  }
+}

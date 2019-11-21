@@ -12,8 +12,8 @@ interface IListProps {
   isCMSContent?: boolean;
 }
 
-const List: React.FC<IListProps> = ({ classNames, listContent, textColor, isCMSContent }) => (
-  <ul className={cx(styles.list, classNames, { [styles.cmsContent]: isCMSContent })}>
+const List: React.FC<IListProps> = ({ classNames, listContent, textColor = 'secondary', isCMSContent }) => (
+  <ul className={cx(styles.list, styles[textColor], classNames, { [styles.cmsContent]: isCMSContent })}>
     {listContent.map((content, index) => (
       <li key={`listItem-${index}`}>
         <Text type={TextStyles.segmentCopy} color={textColor}>

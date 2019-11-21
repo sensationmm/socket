@@ -11,6 +11,7 @@ const colors = {
     quinary: '#004340',
   },
   grey: {
+    lighter: '#f9f9f9',
     light: '#f0f0f0',
     mid: '#eaeaea',
     midDarker: '#aeaeae',

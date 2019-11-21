@@ -9,3 +9,8 @@
   border-radius: 30px;
   background: var(--color-grey-light);
 }
+
+.primary {
+  background: var(--color-grey-lighter);
+  border: solid 2px var(--color-grey-light);
+}

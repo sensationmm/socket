@@ -1,8 +1,15 @@
 .list {
-  color: var(--color-basic-white);
   font-size: var(--font-size-m);
   list-style: disc;
   margin-left: var(--font-size-s);
+}
+
+.secondary {
+  color: var(--color-basic-white);
+}
+
+.tertiary {
+  color: var(--color-grey-dark);
 }
 
 .cmsContent {

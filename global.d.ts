@@ -74,6 +74,12 @@ declare namespace EON {
     text: string;
   }
 
+  interface ISwitchingInfo {
+    icon: string;
+    title: string;
+    text: string;
+  }
+
   interface IAccountPersonal {
     title: string;
     subtitle: string;
@@ -254,6 +260,20 @@ declare namespace EON {
           title: string;
           content: IRealPeople[];
           cta: string;
+        };
+      };
+      smartTariff: {
+        hero: IHeroTranslations;
+        plusPoints: {
+          title: string;
+          list: string[];
+          image: string;
+          cta: string;
+        };
+        switching: {
+          title: string;
+          subtitle: string;
+          content: ISwitchingInfo[];
         };
       };
       account: {

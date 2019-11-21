@@ -110,31 +110,37 @@ describe('validation functions', () => {
 
   describe('validatePhone()', () => {
     test('returns true for numeric string with phone number chars', () => {
-      const check = '(+44)1234567';
+      const check = '+44(0)1234567';
       const isValid = validation.validatePhone(check);
       expect(isValid).toBe(true);
     });
 
     test('returns false for non-numeric string', () => {
-      const check = '(+44)123456asd';
+      const check = '+44(0)123456asd';
       const isValid = validation.validatePhone(check);
       expect(isValid).toBe(false);
     });
 
-    test('returns false if value is an empty string', () => {
+    test('returns true if value is an empty string', () => {
       const check = '';
       const isValid = validation.validatePhone(check);
-      expect(isValid).toBe(false);
+      expect(isValid).toBe(true);
     });
 
-    test('returns false if value is less than 7', () => {
-      const check = '(+44)123456';
+    test('returns false if value is less than 5', () => {
+      const check = '+44(0)1234';
       const isValid = validation.validatePhone(check);
       expect(isValid).toBe(false);
     });
 
     test('returns false if value is larger than 15', () => {
-      const check = '(+44)1234567890123456';
+      const check = '1234567890123456';
+      const isValid = validation.validatePhone(check);
+      expect(isValid).toBe(false);
+    });
+
+    test('special chars not allowed later in number', () => {
+      const check = '4567(8)90+999';
       const isValid = validation.validatePhone(check);
       expect(isValid).toBe(false);
     });

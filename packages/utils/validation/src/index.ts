@@ -31,15 +31,13 @@ const validateRequired = (input) => {
 };
 validationMessages.validateRequired = i18n.t('validation.validateRequired');
 
-// validates phone number entry ie. (+00)00000...
+// validates phone number entry ie. +00(0)00000...
 const validatePhone = (input) => {
-  const inputVal = input ? input.substr(input.indexOf(')') + 1) : '';
+  const formatInternational = input.match(/^[+][0-9]{0,3}[(]{0,1}[0-9]{1,4}[)]{0,1}[0-9]{5,11}$/g);
+  const formatAreaCode = input.match(/^[(][0-9]{1,4}[)][0-9]{5,11}$/g);
+  const formatLocal = input.match(/^[0-9]{5,15}$/g);
 
-  if (inputVal === '') {
-    return false;
-  }
-
-  return !isNaN(inputVal) && inputVal.length >= 7 && inputVal.length <= 15;
+  return input === '' || formatInternational !== null || formatAreaCode !== null || formatLocal !== null;
 };
 validationMessages.validatePhone = i18n.t('validation.validatePhone');
 

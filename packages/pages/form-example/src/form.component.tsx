@@ -25,6 +25,7 @@ class FormExample extends React.Component<IFormExampleProps> {
     formUtils.initFormState({
       name: '',
       email: '',
+      phone: '',
       password: '',
       passwordConfirm: '',
       optin: false,
@@ -50,7 +51,6 @@ class FormExample extends React.Component<IFormExampleProps> {
         component: InputText,
         label: 'Name',
         value: values.name,
-        placeholder: 'Title',
       },
       {
         id: 'input-email',
@@ -58,8 +58,16 @@ class FormExample extends React.Component<IFormExampleProps> {
         component: InputText,
         label: 'Email address',
         value: values.email,
-        validationFunction: ['validateRequired', 'validateEmail'],
+        validationFunction: 'validateEmail',
         note: 'Enter a valid email address',
+      },
+      {
+        id: 'input-phone',
+        stateKey: 'phone',
+        component: InputText,
+        label: 'Phone number',
+        value: values.phone,
+        validationFunction: ['validateNoSpaces', 'validatePhone'],
       },
       {
         id: 'input-password',

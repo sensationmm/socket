@@ -13,6 +13,7 @@ module.exports = {
     '!packages/**/*.mock.{js,ts,tsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
+    '!**/form-example/**',
   ],
   coverageReporters: ['text', 'cobertura', 'lcov'],
   coveragePathIgnorePatterns: ['/node_modules/', '/packages/components/icons/'],

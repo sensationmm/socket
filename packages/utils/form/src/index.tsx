@@ -112,7 +112,7 @@ export const validateField = (config: IFormConfig[], stateID: string, arrayIndex
         errorsList[stateID] = validation.messages[failFunc];
         delete validList[stateID];
       }
-    } else {
+    } else if (valueToCheck) {
       if (arrayIndex !== undefined) {
         delete errorsList[arrayIndex][stateID];
         validList[arrayIndex][stateID] = true;

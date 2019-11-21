@@ -1,48 +1,104 @@
 import cx from 'classnames';
 import * as React from 'react';
 
+import FlexRow from '@somo/pda-components-flex-row/src';
 import SVG from '@somo/pda-components-svg/src';
+import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
+import { inArray } from '@somo/pda-utils-functions/src';
 import * as styles from './multi-select.module.css';
 
 interface IMultiSelectProps {
-  options: IMultiSelectOption[];
-  onChange(selectedOptions: IMultiSelectOption[]): void;
+  items: IMultiSelectOption[];
+  value?: string[];
+  id?: string;
+  label?: string;
+  error?: string;
+  note?: string;
+  readOnly?: boolean;
+  handleChange: (selected) => void;
 }
 
 export interface IMultiSelectOption {
-  text: string;
+  label: string;
   icon: string;
   value: string;
-  selected: boolean;
 }
 
-const MultiSelect: React.FC<IMultiSelectProps> = ({ options, onChange }) => {
-  const [allOptions, setOptions] = React.useState<IMultiSelectOption[]>(options);
+const MultiSelect: React.FC<IMultiSelectProps> = ({
+  items,
+  value = [],
+  id,
+  label,
+  readOnly,
+  error,
+  note,
+  handleChange,
+}) => {
+  const onItemSelected = (option: IMultiSelectOption['value']) => {
+    if (!readOnly) {
+      let newOptions = value.slice();
 
-  const onItemSelected = (option: IMultiSelectOption) => {
-    const updatedOptions = allOptions.map((opt) =>
-      opt.value === option.value ? { ...opt, selected: !opt.selected } : opt,
-    );
-    setOptions(updatedOptions);
-    onChange(updatedOptions.filter((opt) => opt.selected === true));
+      if (!inArray(option, newOptions)) {
+        newOptions.push(option);
+      } else {
+        newOptions = newOptions.filter((opt) => opt !== option);
+      }
+
+      handleChange(newOptions);
+    }
   };
 
   return (
-    <div className={styles.container}>
-      {allOptions.map((option, index) => (
-        <div
-          key={`option-${index}`}
-          onClick={() => onItemSelected(option)}
-          className={cx(styles.option, { [styles.selected]: option.selected })}
+    <div data-test="component-multi-select">
+      {label && (
+        <Text
+          data-test="select-label"
+          htmlFor={id}
+          element="label"
+          type={TextStyles.label}
+          color={!readOnly ? null : ColorStyles.quinary}
         >
-          <div className={styles.icon}>
-            <SVG children={option.icon} />
+          {label}
+        </Text>
+      )}
+
+      <FlexRow>
+        {items.map((option, index) => (
+          <div
+            data-test="multi-select-option"
+            key={`option-${index}`}
+            onClick={() => onItemSelected(option.value)}
+            className={cx(
+              styles.option,
+              { [styles.selected]: value && inArray(option.value, value) },
+              { [styles.readOnly]: readOnly },
+            )}
+          >
+            <div className={styles.icon}>
+              <SVG children={option.icon} size={60} />
+            </div>
+            <div className={styles.text}>
+              <span>{option.label}</span>
+            </div>
           </div>
-          <div className={styles.text}>
-            <span>{option.text}</span>
-          </div>
+        ))}
+      </FlexRow>
+
+      {(error || note) && (
+        <div className={styles.textInputNote} data-test={error ? 'text-input-error' : 'text-input-note'}>
+          {error && (
+            <Text element="span" type={TextStyles.caption} color={ColorStyles.error}>
+              {error}
+            </Text>
+          )}
+
+          {note && !error && (
+            <Text element="span" type={TextStyles.caption} color={ColorStyles.quinary}>
+              {note}
+            </Text>
+          )}
         </div>
-      ))}
+      )}
     </div>
   );
 };

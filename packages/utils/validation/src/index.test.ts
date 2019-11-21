@@ -52,6 +52,12 @@ describe('validation functions', () => {
       const isValid = validation.validateRequired(input);
       expect(isValid).toBe(false);
     });
+
+    test('returns false if empty array', () => {
+      const input = [];
+      const isValid = validation.validateRequired(input);
+      expect(isValid).toBe(false);
+    });
   });
 
   describe('validMatching()', () => {

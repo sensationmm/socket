@@ -10,7 +10,10 @@ import { Primary as Button } from '@somo/pda-components-button/src';
 import Checkbox from '@somo/pda-components-checkbox/src';
 import InputPassword from '@somo/pda-components-input-password/src';
 import InputText from '@somo/pda-components-input-text/src';
+import MultiSelect from '@somo/pda-components-multi-select/src';
 import Radio, { RadioType } from '@somo/pda-components-radio/src';
+
+import { Mail, Phone, Sms } from '@somo/pda-components-icons/src';
 
 interface IFormExampleProps {
   form: IFormState;
@@ -23,6 +26,7 @@ class FormExample extends React.Component<IFormExampleProps> {
 
   public componentDidMount() {
     formUtils.initFormState({
+      preferences: [],
       name: '',
       email: '',
       phone: '',
@@ -45,6 +49,20 @@ class FormExample extends React.Component<IFormExampleProps> {
     const { values } = form;
 
     const config = [
+      {
+        id: 'input-multi-select',
+        stateKey: 'preferences',
+        component: MultiSelect,
+        label: 'Contact preferences',
+        items: [
+          { label: 'Email', value: 'email', icon: Mail },
+          { label: 'SMS', value: 'sms', icon: Sms },
+          { label: 'Phone', value: 'phone', icon: Phone },
+        ],
+        value: values.preferences,
+        note: 'Select how you would like to be contacted',
+        validationFunction: 'validateRequired',
+      },
       {
         id: 'input-name',
         stateKey: 'name',

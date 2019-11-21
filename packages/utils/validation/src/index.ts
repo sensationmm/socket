@@ -27,7 +27,7 @@ validationMessages.validateNumeric = i18n.t('validation.validateNumeric');
 
 // validates required input
 const validateRequired = (input) => {
-  return !!input && input !== '[undefined] undefined' && input !== '[null] null';
+  return !!input && (!Array.isArray(input) || (Array.isArray(input) && input.length > 0));
 };
 validationMessages.validateRequired = i18n.t('validation.validateRequired');
 

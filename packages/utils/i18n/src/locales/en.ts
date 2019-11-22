@@ -398,6 +398,12 @@ const data: EON.IWebAppTranslations = {
     validateFutureDate: 'Date is in past',
     validateMinDate: 'Less than {{min}}',
   },
+  actions: {
+    save: 'Save',
+    cancel: 'Cancel',
+    next: 'Next',
+    goBack: 'Go back',
+  },
 };
 
 export default data;

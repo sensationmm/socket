@@ -289,5 +289,8 @@ declare namespace EON {
     validation: {
       [key: string]: string;
     };
+    actions: {
+      [key: string]: string;
+    };
   }
 }

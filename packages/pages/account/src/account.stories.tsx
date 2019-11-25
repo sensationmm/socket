@@ -23,6 +23,13 @@ const user = {
     phone: '07563458747',
     accountNumber: '123234556',
     correspondenceAddress: '145 Regents Park Road',
+    detailedCorrespondenceAddress: {
+      address1: '145 Regents Park Road',
+      address2: 'flat 45',
+      address4: 'London',
+      address5: 'London',
+      postcode: 'NW1 8XL',
+    },
     supplyAddress: '147 Regents Park Road',
   },
   paymentDetails: {

@@ -8,6 +8,7 @@ class BaseProvider extends RESTDataSource {
   public baseURL = 'https://api-uk.integration.gentrack.cloud/v1';
 
   public willSendRequest(request: RequestOptions) {
+    request.headers.set('Content-Type', 'application/json');
     request.headers.set('Authorization', this.context.token);
   }
 }

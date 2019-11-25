@@ -302,4 +302,19 @@ describe('validation functions', () => {
       expect(isValid).toBe(false);
     });
   });
+
+  describe('validatePostcode()', () => {
+    test('returns true for a valid postcode', () => {
+      expect(validation.validatePostcode('NW1 8XL')).toBe(true);
+      expect(validation.validatePostcode('SE50EG')).toBe(true);
+      expect(validation.validatePostcode('WC2H 7LT')).toBe(true);
+      expect(validation.validatePostcode('CW3 9SS')).toBe(true);
+    });
+
+    test('returns false if invalid postcode', () => {
+      expect(validation.validatePostcode('aWC2H 7LT')).toEqual(false);
+      expect(validation.validatePostcode('WC2H 7LTa')).toEqual(false);
+      expect(validation.validatePostcode('WC2H')).toEqual(false);
+    });
+  });
 });

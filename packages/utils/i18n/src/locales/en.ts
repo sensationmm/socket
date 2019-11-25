@@ -379,6 +379,16 @@ const data: EON.IWebAppTranslations = {
         subTitle: 'COMING SOON',
         content: 'This feature will enable you to set your own spending or usage goals',
       },
+      editAddress: {
+        addressLineOneLabel: 'Address line one',
+        addressLineTwoLabel: 'Address line two',
+        cityLabel: 'Town/City',
+        countyLabel: 'County',
+        postcodeLabel: 'Postcode',
+        cta: {
+          saveText: 'Save',
+        },
+      },
     },
   },
   validation: {
@@ -397,6 +407,7 @@ const data: EON.IWebAppTranslations = {
     validateNoSpecial: 'Invalid characters',
     validateFutureDate: 'Date is in past',
     validateMinDate: 'Less than {{min}}',
+    validatePostcode: 'Invalid postcode',
   },
   actions: {
     save: 'Save',

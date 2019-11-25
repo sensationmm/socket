@@ -2,12 +2,22 @@ type Query {
   user(id: ID!): User
 }
 
+type Address {
+  address1: String
+  address2: String
+  address3: String
+  address4: String
+  address5: String
+  postcode: String
+}
+
 type PersonalDetails {
   name: String
   email: String
   phone: String
   accountNumber: String
   correspondenceAddress: String
+  detailedCorrespondenceAddress: Address
   supplyAddress: String
 }
 
@@ -48,4 +58,16 @@ type User {
   personalDetails: PersonalDetails
   paymentDetails: PaymentDetails
   productDetails: ProductDetails
+}
+
+type Mutation {
+  updateCorrespondenceAddress(id: ID!, address: AddressInput!): User
+}
+
+input AddressInput {
+  address1: String!
+  address2: String
+  address4: String
+  address5: String
+  postcode: String!
 }

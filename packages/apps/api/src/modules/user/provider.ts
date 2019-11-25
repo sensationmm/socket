@@ -1,17 +1,8 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
 
 import { findPaymentDate } from '@somo/pda-utils-dates/src';
-import { camelize } from '@somo/pda-utils-strings/src';
+import { camelize, computeAddress } from '@somo/pda-utils-strings/src';
 import BaseProvider from '../base-provider';
-
-interface IAddress {
-  address1: string;
-  address2: string;
-  address3: string;
-  address4: string;
-  address5: string;
-  postcode: string;
-}
 
 interface ITilInformation {
   itemName: string;
@@ -32,24 +23,6 @@ interface IProductDetails {
   TIL: {};
 }
 
-const computeLineAddress = (addressLine: string) => (addressLine ? `, ${addressLine}` : '');
-
-const computeAddress = (address: IAddress) => {
-  const fields = ['address1', 'address2', 'address3', 'address4', 'address5', 'postcode'];
-
-  return fields.reduce((acc, curr, currentIndex) => {
-    if (currentIndex === 0) {
-      return `${acc}${address[curr]}`;
-    }
-
-    if (currentIndex === fields.length - 1) {
-      return `${acc}, ${address[curr]}`;
-    }
-
-    return `${acc}${computeLineAddress(address[curr])}`;
-  }, '');
-};
-
 @Injectable({
   scope: ProviderScope.Session,
 })
@@ -65,6 +38,25 @@ export class UserProvider extends BaseProvider {
         personalDetails: rest,
         paymentDetails,
         productDetails,
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async updateCorrespondenceAddress(userId, address) {
+    try {
+      // DataSource issue - the request body needs to be destructured
+      await this.put(`/junifer/customers/${userId}/updateBillingAddress`, { ...address });
+
+      return {
+        id: userId,
+        personalDetails: {
+          correspondenceAddress: computeAddress(address),
+          detailedCorrespondenceAddress: {
+            ...address,
+          },
+        },
       };
     } catch (error) {
       throw error;
@@ -94,6 +86,9 @@ export class UserProvider extends BaseProvider {
         phone: phoneNumber1,
         accountNumber: account.number,
         correspondenceAddress: computeAddress(account.billingAddress),
+        detailedCorrespondenceAddress: {
+          ...account.billingAddress,
+        },
         supplyAddress: computeAddress(product.supplyAddress),
         billDelivery: account.billDelivery,
         products: {

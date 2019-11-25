@@ -125,6 +125,14 @@ const validateNoSpecial = (input) => {
 };
 validationMessages.validateNoSpecial = i18n.t('validation.validateNoSpecial');
 
+// validates postcode (UK)
+const validatePostcode = (postcode) => {
+  const re = /^[A-Z]{1,2}[0-9][A-Z0-9]? ?[0-9][A-Z]{2}$/;
+
+  return !postcode || re.test(postcode);
+};
+validationMessages.validatePostcode = i18n.t('validation.validatePostcode');
+
 const validation = {
   validateEmail,
   validatePhone,
@@ -141,6 +149,7 @@ const validation = {
   validateFutureDate,
   validateNoSpecial,
   validateMinDate,
+  validatePostcode,
   messages: validationMessages,
 };
 

@@ -43,13 +43,15 @@ declare namespace EON {
     };
   }
 
+  interface IUserData {
+    id: string;
+    personalDetails: IPersonalDetails;
+    paymentDetails: IPaymentDetails;
+    productDetails: IProductDetails;
+  }
+
   interface IUserResponse {
-    user: {
-      id: string;
-      personalDetails: IPersonalDetails;
-      paymentDetails: IPaymentDetails;
-      productDetails: IProductDetails;
-    };
+    user: IUserData;
   }
 
   interface IHomepageFeatures {
@@ -145,6 +147,17 @@ declare namespace EON {
     title: string;
     subTitle: string;
     content: string;
+  }
+
+  interface IAccountEditAddress {
+    addressLineOneLabel: string;
+    addressLineTwoLabel: string;
+    cityLabel: string;
+    countyLabel: string;
+    postcodeLabel: string;
+    cta: {
+      saveText: string;
+    };
   }
 
   interface IWebAppTranslations {
@@ -284,6 +297,7 @@ declare namespace EON {
         payment: IAccountPayment;
         product: IAccountProducts;
         goal: IAccountGoal;
+        editAddress: IAccountEditAddress;
       };
     };
     validation: {

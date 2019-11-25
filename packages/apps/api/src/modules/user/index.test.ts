@@ -385,6 +385,8 @@ jest.mock('apollo-datasource-rest', () => {
       .mockReturnValueOnce(paymentAccountDetails)
       .mockReturnValueOnce(paymentsList)
       .mockReturnValueOnce(tariffInformation);
+
+    public put = jest.fn().mockReturnValueOnce({});
   }
 
   return {
@@ -415,6 +417,10 @@ describe('UserModule', () => {
               phone
               accountNumber
               correspondenceAddress
+              detailedCorrespondenceAddress {
+                address1
+                postcode
+              }
               supplyAddress
             }
             paymentDetails {
@@ -481,6 +487,10 @@ describe('UserModule', () => {
           phone: '07456548679',
           accountNumber: '54388543',
           correspondenceAddress: '145 Royal College Street, NW1 0TH',
+          detailedCorrespondenceAddress: {
+            address1: '145 Royal College Street',
+            postcode: 'NW1 0TH',
+          },
           supplyAddress: "147 Regent's Park Road, NW1 8XL",
         },
         paymentDetails: {
@@ -515,6 +525,54 @@ describe('UserModule', () => {
               standingChargeDd: { itemValue: '', inclVAT: '7.50p/day (£27.36/year)' },
               billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
             },
+          },
+        },
+      },
+    });
+  });
+
+  it('FieldResolver of Mutation: updateCorrespondenceAddress', async () => {
+    const { schema } = UserModule;
+
+    const result = await execute({
+      schema,
+      contextValue: {
+        req: {
+          headers: {
+            authorization: 'Bearer t123',
+          },
+        },
+      },
+      document: gql`
+        mutation {
+          updateCorrespondenceAddress(
+            id: "15"
+            address: { address1: "135 Regents Park Road", address2: "flat 1", postcode: "NW1 8XL" }
+          ) {
+            id
+            personalDetails {
+              correspondenceAddress
+              detailedCorrespondenceAddress {
+                address1
+                address2
+                postcode
+              }
+            }
+          }
+        }
+      `,
+    });
+
+    expect(result.errors).toBeFalsy();
+    expect(result.data).toEqual({
+      updateCorrespondenceAddress: {
+        id: '15',
+        personalDetails: {
+          correspondenceAddress: '135 Regents Park Road, flat 1, NW1 8XL',
+          detailedCorrespondenceAddress: {
+            address1: '135 Regents Park Road',
+            address2: 'flat 1',
+            postcode: 'NW1 8XL',
           },
         },
       },

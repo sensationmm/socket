@@ -34,6 +34,13 @@ export const GET_USER_QUERY = gql`
         phone
         accountNumber
         correspondenceAddress
+        detailedCorrespondenceAddress {
+          address1
+          address2
+          address4
+          address5
+          postcode
+        }
         supplyAddress
       }
       paymentDetails {

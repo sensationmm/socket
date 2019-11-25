@@ -10,7 +10,7 @@ export interface IPaymentDetailsProps {
     accountName: string;
     accountNumber: string;
     sortCode: string;
-    monthlyPaymentDate: string;
+    monthlyPaymentDate: string | null;
   };
 }
 

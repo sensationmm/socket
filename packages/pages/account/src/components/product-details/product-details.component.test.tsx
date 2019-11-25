@@ -1,6 +1,8 @@
 import { render } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
+import Tabs from '@somo/pda-components-tabs/src';
 import Component from './product-details.component';
 
 describe('ProductDetails component', () => {
@@ -42,5 +44,11 @@ describe('ProductDetails component', () => {
     expect(getAllByText(electricity.TIL.paymentMethod.itemValue)[0]).toBeDefined();
     expect(getAllByText(electricity.TIL.unitRate.inclVAT)[0]).toBeDefined();
     expect(getAllByText(electricity.TIL.standingChargeDd.inclVAT)[0]).toBeDefined();
+  });
+
+  it('should render an empty tabs component if the electricity and gas products values are falsy', () => {
+    const values = {};
+    const wrapper = shallow(<Component values={values} />);
+    expect(wrapper.find(Tabs).props().tabs).toEqual([]);
   });
 });

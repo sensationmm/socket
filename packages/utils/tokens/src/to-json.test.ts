@@ -33,5 +33,14 @@ describe('tokens toJSON()', () => {
         },
       }),
     );
+
+    expect(toJSON({})).toEqual(
+      expect.objectContaining({
+        customMedia: {},
+        customProperties: {},
+        customSelectors: {},
+        environmentVariables: {},
+      }),
+    );
   });
 });

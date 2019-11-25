@@ -18,10 +18,11 @@ describe('@somo/pda-components-blog-post-card component', () => {
   };
 
   it('should render a content box', () => {
-    wrapper = shallow(<Component {...props} />);
+    wrapper = shallow(<Component {...props} height={500} />);
     expect(wrapper).toBeDefined();
-
-    expect(wrapper.find('ContentBox').length).toEqual(1);
+    const contentBox = wrapper.find('ContentBox');
+    expect(contentBox.length).toEqual(1);
+    expect(contentBox.props().height).toEqual(500);
   });
 
   it('should render the article author', () => {

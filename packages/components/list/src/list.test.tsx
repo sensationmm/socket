@@ -19,11 +19,16 @@ describe('List component', () => {
       };
     });
 
-    it('should render and render number of li ', () => {
+    it('should render and render number of li', () => {
       wrapper = shallow(<Component {...props} />);
 
       expect(wrapper).toBeDefined();
       expect(wrapper.find('ul li').length).toBe(props.listContent.length);
+    });
+
+    it('should render a text color class name', () => {
+      wrapper = shallow(<Component {...props} textColor="tertiary" />);
+      expect(wrapper.find('.tertiary')).toHaveLength(1);
     });
 
     it('should render a cmsContent class if isCMSContent prop value is truthy ', () => {

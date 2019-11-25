@@ -35,7 +35,7 @@ const Image: React.FC<IImageProps> = ({
   ) : isLazy ? (
     <LazyImage {...props} className={classes} onError={onError || updateError} />
   ) : (
-    <img className={classes} alt={props.alt || ''} src={props.src || ''} onError={onError || updateError} />
+    <img className={classes} alt={props.alt || ''} src={props.src} onError={onError || updateError} />
   );
 };
 

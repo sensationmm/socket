@@ -9,7 +9,7 @@ jest.mock('@somo/pda-utils-dates/src', () => ({
 }));
 
 describe('PaymentDetails component', () => {
-  it('should render the values', async () => {
+  it('should render the values', () => {
     const values = {
       accountName: 'John Smith',
       accountNumber: '53464545674',
@@ -23,5 +23,17 @@ describe('PaymentDetails component', () => {
     expect(getByText(values.sortCode)).toBeDefined();
     expect(getByText(/24th/)).toBeDefined();
     expect(formatISODate).toHaveBeenCalledWith(values.monthlyPaymentDate, 'Do');
+  });
+
+  it('should render a placeholder for the payment date in case its value is null', () => {
+    const values = {
+      accountName: 'John Smith',
+      accountNumber: '53464545674',
+      sortCode: '34-55-66',
+      monthlyPaymentDate: null,
+    };
+    render(<Component values={values} />);
+
+    expect(formatISODate).not.toHaveBeenCalledWith();
   });
 });

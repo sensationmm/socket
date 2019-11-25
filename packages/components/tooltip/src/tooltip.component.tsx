@@ -36,6 +36,42 @@ interface IBoundaryExceeded {
   right: boolean;
 }
 
+const switchPosition = (bounds: IBoundaryExceeded): ToolTipPosition => {
+  if (bounds.top) {
+    return ToolTipPosition.Bottom;
+  }
+
+  if (bounds.bottom) {
+    return ToolTipPosition.Top;
+  }
+
+  if (bounds.left) {
+    return ToolTipPosition.Right;
+  }
+
+  if (bounds.right) {
+    return ToolTipPosition.Left;
+  }
+
+  return ToolTipPosition.Top;
+};
+
+const getElementBounds = (elem: HTMLDivElement): IBoundResult => {
+  const bounding = elem.getBoundingClientRect();
+  const bounds = {
+    top: bounding.top <= 0,
+    left: bounding.left <= 0,
+    bottom: bounding.bottom >= (window.innerHeight || document.documentElement.clientHeight),
+    right: bounding.right >= (window.innerWidth || document.documentElement.clientWidth),
+  };
+  const isInViewport = !bounds.top && !bounds.left && !bounds.bottom && !bounds.right;
+
+  return {
+    isInViewport,
+    bounds,
+  };
+};
+
 const Tooltip: React.FC<ITooltip> = ({
   message,
   position = ToolTipPosition.Bottom,
@@ -66,40 +102,6 @@ const Tooltip: React.FC<ITooltip> = ({
   };
 
   React.useEffect(() => {
-    const getBounds = (elem: HTMLDivElement): IBoundResult => {
-      const bounding = elem.getBoundingClientRect();
-      const bounds = {
-        top: bounding.top <= 0,
-        left: bounding.left <= 0,
-        bottom: bounding.bottom >= (window.innerHeight || document.documentElement.clientHeight),
-        right: bounding.right >= (window.innerWidth || document.documentElement.clientWidth),
-      };
-      const isInViewport = !bounds.top && !bounds.left && !bounds.bottom && !bounds.right;
-
-      return {
-        isInViewport,
-        bounds,
-      };
-    };
-
-    const switchPosition = (bounds: IBoundaryExceeded): ToolTipPosition => {
-      let pos;
-      if (bounds.top) {
-        pos = ToolTipPosition.Bottom;
-      }
-      if (bounds.bottom) {
-        pos = ToolTipPosition.Top;
-      }
-      if (bounds.left) {
-        pos = ToolTipPosition.Right;
-      }
-      if (bounds.right) {
-        pos = ToolTipPosition.Left;
-      }
-
-      return pos;
-    };
-
     if (tooltipRef.current) {
       if (position !== positionRef.current) {
         positionRef.current = position;
@@ -107,7 +109,7 @@ const Tooltip: React.FC<ITooltip> = ({
 
         return;
       }
-      const { isInViewport, bounds } = getBounds(tooltipRef.current);
+      const { isInViewport, bounds } = getElementBounds(tooltipRef.current);
       if (!isInViewport) {
         setFinalPosition(switchPosition(bounds));
       }

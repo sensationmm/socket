@@ -14,13 +14,13 @@ export interface IInfoTrayProps {
   openedText: string;
 }
 
+const getHeight = (node: HTMLDivElement | null) => (node ? node.scrollHeight : 0);
+
 const InfoTray: React.FC<IInfoTrayProps> = ({ open = false, openedText, closedText, children }) => {
   const [isOpen, setOpen] = React.useState(open);
   const [height, setHeight] = React.useState(open ? null : 2);
 
-  const getHeight = (node) => node.scrollHeight;
-
-  const onEntering = (node) => {
+  const onEntering = (node: HTMLDivElement) => {
     setHeight(getHeight(node));
   };
 
@@ -28,7 +28,7 @@ const InfoTray: React.FC<IInfoTrayProps> = ({ open = false, openedText, closedTe
     setHeight(null);
   };
 
-  const onExit = (node) => {
+  const onExit = (node: HTMLDivElement) => {
     setHeight(getHeight(node));
   };
 
@@ -40,7 +40,7 @@ const InfoTray: React.FC<IInfoTrayProps> = ({ open = false, openedText, closedTe
     setHeight(2);
   };
 
-  const containerRef = React.useRef(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
 
   const resizeContainer = () => {
     if (isOpen) {

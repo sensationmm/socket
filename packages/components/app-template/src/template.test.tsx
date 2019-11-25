@@ -7,14 +7,15 @@ import Component from '.';
 
 describe('@somo/pda-components-app-template component', () => {
   let wrapper;
-  let props;
 
   const store = configureMockStore();
 
-  beforeEach(() => {
-    props = {
+  it('should render a cookie notice if hideCookieNotice prop value is falsy', () => {
+    const props = {
       children: 'text goes here',
     };
+    wrapper = shallow(<Component {...props} />);
+    expect(wrapper.find('CookieNotice').length).toEqual(1);
     wrapper = shallow(
       <Provider store={store({})}>
         <Component {...props} />
@@ -22,7 +23,16 @@ describe('@somo/pda-components-app-template component', () => {
     );
   });
 
-  it('should not throw', () => {
-    expect(wrapper).toBeDefined();
+  it('should not render a CookieNotice component if hideCookieNotice prop value is truthy', () => {
+    const props = {
+      children: 'text goes here',
+      hideCookieNotice: true,
+    };
+    wrapper = shallow(
+      <Provider store={store({})}>
+        <Component {...props} />
+      </Provider>,
+    );
+    expect(wrapper.find('CookieNotice').length).toEqual(0);
   });
 });

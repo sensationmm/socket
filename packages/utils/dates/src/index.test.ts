@@ -47,5 +47,16 @@ describe('date', () => {
       ];
       expect(findPaymentDate(payments)).toEqual('2019-10-21');
     });
+
+    it('should return undefined if there is no the payment plan with the toDt value in the future or undefined', () => {
+      const payments = [
+        {
+          fromDt: '2014-10-17',
+          toDt: '2015-11-29',
+          frequencyAlignmentDt: '2015-10-19',
+        },
+      ];
+      expect(findPaymentDate(payments)).toEqual(undefined);
+    });
   });
 });

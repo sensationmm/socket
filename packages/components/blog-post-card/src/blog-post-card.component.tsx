@@ -24,7 +24,7 @@ export interface IBlogPostCardProps {
   className?: string;
 }
 
-const trimText = (text: string, maxNumOfChars: number = 0) =>
+const trimText = (text: string, maxNumOfChars: number) =>
   text.length > maxNumOfChars ? `${text.substring(0, maxNumOfChars).trim()}...` : text;
 
 const BlogPostCard: React.FC<IBlogPostCardProps> = ({
@@ -32,12 +32,12 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
   authorName,
   date,
   title,
-  maxTitleLength,
+  maxTitleLength = 50,
   shortDescription,
-  maxShortDescriptionLength,
+  maxShortDescriptionLength = 100,
   cta,
   link,
-  height,
+  height = 'auto',
   className,
 }) => (
   <ContentBox className={cx(styles.blogPostCard, className)} style={ContentBoxStyle.PrimaryPattern} height={height}>
@@ -53,11 +53,5 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
     </Link>
   </ContentBox>
 );
-
-BlogPostCard.defaultProps = {
-  height: 'auto',
-  maxTitleLength: 50,
-  maxShortDescriptionLength: 100,
-};
 
 export default BlogPostCard;

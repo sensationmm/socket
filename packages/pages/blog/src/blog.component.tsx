@@ -16,20 +16,20 @@ interface IBlogPageProps {
   posts: Array<Omit<IBlogPostCardProps, 'cta'>>;
 }
 
+function usePrevious(value) {
+  const ref = useRef();
+
+  useEffect(() => {
+    ref.current = value;
+  }, [value]);
+
+  return ref.current;
+}
+
 const BlogPage: React.FC<IBlogPageProps> = ({ posts }) => {
   const [t] = useTranslation();
 
   const [state, setState] = useState(1);
-
-  function usePrevious(value) {
-    const ref = useRef();
-
-    useEffect(() => {
-      ref.current = value;
-    }, [value]);
-
-    return ref.current;
-  }
 
   const prevState = usePrevious(state);
 
@@ -57,7 +57,7 @@ const BlogPage: React.FC<IBlogPageProps> = ({ posts }) => {
         </div>
 
         <Media query={tokens.customMedia.m}>
-          {/* istanbul ignore next */ (matches) => (
+          {(matches) => (
             <FlexRowGrid
               cols={matches ? 3 : 2}
               component={BlogPostCard}

@@ -10,10 +10,9 @@ check app template component */
   }
 }
 
-.narrow {
+.narrow .inner {
   @media (--m) {
-    padding-left: calc(var(--spacing-xxl) * 3);
-    padding-right: calc(var(--spacing-xxl) * 3);
+    padding: 0 10%;
   }
 }
 

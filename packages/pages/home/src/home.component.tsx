@@ -56,8 +56,8 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
         </FlexRow>
       </PageSection>
 
-      <PageSection style={PageSectionStyle.TertiaryPattern}>
-        <FlexRow className={styles.narrowSection} layout={[60, 40]}>
+      <PageSection style={PageSectionStyle.TertiaryPattern} isNarrow={true}>
+        <FlexRow className={styles.understandEnergyRow} layout={[60, 40]}>
           <div>
             <Text
               className={styles.understandEnergyTitle}
@@ -82,7 +82,7 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
             />
           </div>
         </FlexRow>
-        <FlexRow className={styles.narrowSectionMobileOnly}>
+        <FlexRow className={styles.understandEnergyRowMobileOnly}>
           <Secondary>{t('site.homepage.understandEnergy.cta')}</Secondary>
         </FlexRow>
       </PageSection>

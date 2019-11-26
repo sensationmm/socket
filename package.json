@@ -99,6 +99,7 @@
     "react-twemoji": "0.2.3",
     "redux": "4.0.4",
     "redux-thunk": "2.3.0",
+    "shortid": "^2.2.15",
     "tslib": "1.10.0"
   },
   "browserslist": [

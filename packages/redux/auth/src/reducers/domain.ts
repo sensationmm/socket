@@ -6,7 +6,7 @@ import {
 } from '@somo/pda-utils-storage/src';
 import * as types from '../types';
 
-const initialState = {
+export const initialState = {
   ...storageGet(StorageKeys.auth),
 };
 

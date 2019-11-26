@@ -177,6 +177,9 @@ declare namespace EON {
         subTitle: string;
         copyright: string;
       };
+      notification: {
+        cta: string;
+      };
       cookieNotice: {
         title: string;
         text: string;
@@ -306,5 +309,8 @@ declare namespace EON {
     actions: {
       [key: string]: string;
     };
+    errors: {
+      httpGeneric: string;
+    }
   }
 }

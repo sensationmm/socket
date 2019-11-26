@@ -1,9 +1,9 @@
-import withApollo from '@somo/pda-apps-storybook/src/decorators/apollo';
-import withProvider from '@somo/pda-apps-storybook/src/decorators/redux';
 import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
+import withApollo from '@somo/pda-apps-storybook/src/decorators/apollo';
+import withProvider from '@somo/pda-apps-storybook/src/decorators/redux';
 import AccountPage from '@somo/pda-pages-account/src';
 import { GET_USER_QUERY } from '@somo/pda-pages-account/src/account.component';
 
@@ -12,6 +12,11 @@ const state = {
     userId: '15',
     accessToken: 't123',
     tokenType: 'Bearer',
+  },
+  notification: {
+    title: '',
+    message: '',
+    showNotification: false,
   },
 };
 

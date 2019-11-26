@@ -3,7 +3,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { GlobalWithFetchMock } from 'jest-fetch-mock';
 
 // https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
 
 import { Env, setEnv } from '@somo/pda-utils-env/src';
 

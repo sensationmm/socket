@@ -1,5 +1,7 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
+import { Provider } from 'react-redux';
+import configureMockStore from 'redux-mock-store';
 
 import { MockedProvider } from '@apollo/react-testing';
 import { GraphQLError } from 'graphql';
@@ -13,6 +15,10 @@ import ProductDetails from './components/product-details/product-details.compone
 jest.mock('@somo/pda-components-user-switch/src', () => () => <span />);
 
 describe('@somo/pda-pages-account', () => {
+  const mockStore = configureMockStore()({
+    notification: [],
+  });
+
   const props = {
     userId: 'u1',
     token: 't123',
@@ -22,7 +28,9 @@ describe('@somo/pda-pages-account', () => {
   it('should pass a loading prop to the account sections on query start', () => {
     const component = mount(
       <MockedProvider mocks={[]} addTypename={false}>
-        <AccountPage {...props} />
+        <Provider store={mockStore}>
+          <AccountPage {...props} />
+        </Provider>
       </MockedProvider>,
     );
 
@@ -77,7 +85,9 @@ describe('@somo/pda-pages-account', () => {
     ];
     const component = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <AccountPage {...props} />
+        <Provider store={mockStore}>
+          <AccountPage {...props} />
+        </Provider>
       </MockedProvider>,
     );
     await wait(0);
@@ -184,7 +194,9 @@ describe('@somo/pda-pages-account', () => {
     ];
     const component = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
-        <AccountPage {...props} />
+        <Provider store={mockStore}>
+          <AccountPage {...props} />
+        </Provider>
       </MockedProvider>,
     );
     await wait(0);

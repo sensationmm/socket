@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import CookieNotice from '@somo/pda-components-cookie-notice/src';
+import { NotificationListContainer } from '@somo/pda-components-notification/src';
 
 import './core.css';
 
@@ -25,6 +26,7 @@ const AppTemplate: React.FC<IAppProps> = ({ children, hideCookieNotice = false }
           cta={{ agree: t('site.cookieNotice.cta.agree'), disagree: t('site.cookieNotice.cta.disagree') }}
         />
       )}
+      <NotificationListContainer />
     </>
   );
 };

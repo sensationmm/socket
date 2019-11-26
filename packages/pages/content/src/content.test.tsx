@@ -1,9 +1,18 @@
 import { render } from '@testing-library/react';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 
+import { createReduxStore } from '@somo/pda-utils-test-support/src/redux-store';
 import Content from '.';
 
-const renderComponent = (props) => render(<Content {...props} />);
+const store = createReduxStore();
+
+const renderComponent = (props) =>
+  render(
+    <Provider store={store}>
+      <Content {...props} />
+    </Provider>,
+  );
 
 describe('@somo/pda-pages-content', () => {
   const props = {

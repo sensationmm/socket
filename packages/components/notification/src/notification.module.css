@@ -1,0 +1,40 @@
+.notification {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-brand-secondary);
+  border-radius: 10px;
+  box-shadow: 0 0 8px 2px rgba(var(--color-brand-secondary), 0.3);
+  flex-direction: column;
+  padding: var(--spacing-m);
+
+  @media (--s) {
+    flex-direction: row;
+    padding: var(--spacing-l);
+  }
+
+  @media (--m) {
+    padding: var(--spacing-xl);
+  }
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+.title span {
+  color: var(--color-brand-tertiary);
+  font-weight: var(--font-weight-bold);
+}
+
+.message {
+  margin-bottom: 15px;
+
+  @media (--s) {
+    margin: 0;
+  }
+}

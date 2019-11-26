@@ -27,12 +27,12 @@ export const getTokenSuccess = () => {
           },
         });
       })
-      .catch((error) =>
+      .catch((error) => {
         dispatch({
           type: types.GET_TOKEN_FAILURE,
           payload: error,
-        }),
-      );
+        });
+      });
   };
 };
 

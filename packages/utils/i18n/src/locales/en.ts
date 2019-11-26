@@ -18,6 +18,9 @@ const data: EON.IWebAppTranslations = {
       subTitle: "Check you're on the latest smart meter and start taking control your energy.",
       copyright: '2019 © Socket Energy. All rights reserved.',
     },
+    notification: {
+      cta: 'Close',
+    },
     cookieNotice: {
       title: 'Privacy Policy',
       text:
@@ -414,6 +417,9 @@ const data: EON.IWebAppTranslations = {
     cancel: 'Cancel',
     next: 'Next',
     goBack: 'Go back',
+  },
+  errors: {
+    httpGeneric: 'Uh Oh something went wrong. Please try again',
   },
 };
 

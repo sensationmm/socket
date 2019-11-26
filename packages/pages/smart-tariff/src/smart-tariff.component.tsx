@@ -39,8 +39,8 @@ const SmartTariffPage: React.FC<ISmartTariffPageProps> = ({ imagery }) => {
 
   return (
     <RegularLayout hero={t('site.smartTariff.hero', { returnObjects: true })}>
-      <PageSection style={PageSectionStyle.Secondary}>
-        <FlexRow className={styles.plusPointsRow} layout={[60, 40]}>
+      <PageSection style={PageSectionStyle.Secondary} isNarrow={true}>
+        <FlexRow className={styles.plusPointsRow} layout={[65, 35]}>
           <div className={styles.textWrapper}>
             <Text className={styles.plusPointsTitle} element="h2" type={TextStyles.h2}>
               {t('site.smartTariff.plusPoints.title')}

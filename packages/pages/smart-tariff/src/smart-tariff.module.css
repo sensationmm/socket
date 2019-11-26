@@ -6,6 +6,13 @@
   }
 }
 
+.plusPointsRow > div:last-of-type {
+  @media (--s) {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .plusPointsRow img {
   margin: 0 auto;
 

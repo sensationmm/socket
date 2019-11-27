@@ -24,6 +24,14 @@ if (requiredEnv) {
 
 const plugins = [
   {
+    resolve: 'gatsby-plugin-google-tagmanager',
+    options: {
+      id: 'GTM-KPSGWRH',
+      includeInDevelopment: false,
+      defaultDataLayer: { platform: 'gatsby' },
+    },
+  },
+  {
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `blogs`,

@@ -13,11 +13,7 @@ const state = {
     accessToken: 't123',
     tokenType: 'Bearer',
   },
-  notification: {
-    title: '',
-    message: '',
-    showNotification: false,
-  },
+  notification: [],
 };
 
 const user = {
@@ -79,11 +75,6 @@ const mocks = [
       query: GET_USER_QUERY,
       variables: {
         id: state.user.userId,
-      },
-      context: {
-        headers: {
-          Authorization: `${state.user.tokenType} ${state.user.accessToken}`,
-        },
       },
     },
     result: {

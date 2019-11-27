@@ -31,6 +31,19 @@ const errorHandler = ({ graphQLErrors }) => {
   }
 };
 
+const onRequest = (operation) => {
+  const {
+    user: { accessToken, tokenType },
+  } = store.getState();
+
+  operation.setContext({
+    headers: {
+      Authorization: `${tokenType} ${accessToken}`,
+    },
+  });
+};
+
 export default {
   onError: errorHandler,
+  request: onRequest,
 };

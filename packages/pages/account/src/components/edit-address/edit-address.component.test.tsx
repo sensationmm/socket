@@ -21,8 +21,6 @@ jest.mock('@somo/pda-utils-form/src', () => ({
 describe('EditAddress component', () => {
   const props = {
     userId: 'u1',
-    token: 't123',
-    tokenType: 'Bearer',
     form: {
       values: {
         address1: '138 Regents Park Road',
@@ -120,11 +118,6 @@ describe('EditAddress component', () => {
         variables: {
           id: props.userId,
           address: props.form.values,
-        },
-        context: {
-          headers: {
-            Authorization: `${props.tokenType} ${props.token}`,
-          },
         },
       },
       result: {

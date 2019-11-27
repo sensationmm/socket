@@ -20,8 +20,6 @@ import * as styles from './account.module.css';
 
 export interface IAccountPageProps {
   userId: string;
-  token: string;
-  tokenType: string;
 }
 
 export const GET_USER_QUERY = gql`
@@ -99,16 +97,11 @@ interface IQueryVars {
   id: string;
 }
 
-export const AccountPage: React.FC<IAccountPageProps> = ({ userId, token, tokenType }) => {
+export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
   const [t] = useTranslation();
 
   const { loading, error, data } = useQuery<EON.IUserResponse, IQueryVars>(GET_USER_QUERY, {
     variables: { id: userId },
-    context: {
-      headers: {
-        Authorization: `${tokenType} ${token}`,
-      },
-    },
   });
 
   const { personalDetails, paymentDetails, productDetails } = (data || {}).user || {};

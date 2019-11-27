@@ -1,15 +1,25 @@
 // tslint:disable-next-line:no-namespace
 declare namespace EON {
   interface IPersonalDetails {
-    name: string;
-    email: string;
-    phone: string;
-    accountNumber: string;
-    correspondenceAddress: string;
-    supplyAddress: string;
+    __typename?: string;
+    name?: string;
+    email?: string;
+    phone?: string;
+    accountNumber?: string;
+    correspondenceAddress?: string;
+    detailedCorrespondenceAddress?: {
+      __typename?: string;
+      address1: string;
+      address2?: string;
+      address4?: string;
+      address5?: string;
+      postcode: string;
+    };
+    supplyAddress?: string;
   }
 
   interface IPaymentDetails {
+    __typename?: string;
     accountName: string;
     accountNumber: string;
     sortCode: string;
@@ -17,11 +27,13 @@ declare namespace EON {
   }
 
   interface IProductTilItem {
+    __typename?: string;
     itemValue: string;
     inclVAT: string;
   }
 
   interface IProductTilInformation {
+    __typename?: string;
     tariff: IProductTilItem;
     contractType: IProductTilItem;
     paymentMethod: IProductTilItem;
@@ -31,12 +43,15 @@ declare namespace EON {
   }
 
   interface IProductDetails {
+    __typename?: string;
     electricity?: {
+      __typename?: string;
       name: string;
       endDate: string;
       TIL: IProductTilInformation;
     };
     gas?: {
+      __typename?: string;
       name: string;
       endDate: string;
       TIL: IProductTilInformation;
@@ -44,10 +59,11 @@ declare namespace EON {
   }
 
   interface IUserData {
+    __typename?: string;
     id: string;
-    personalDetails: IPersonalDetails;
-    paymentDetails: IPaymentDetails;
-    productDetails: IProductDetails;
+    personalDetails?: IPersonalDetails;
+    paymentDetails?: IPaymentDetails;
+    productDetails?: IProductDetails;
   }
 
   interface IUserResponse {
@@ -312,6 +328,6 @@ declare namespace EON {
     errors: {
       httpGenericTitle: string;
       httpGenericContent: string;
-    }
+    };
   }
 }

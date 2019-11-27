@@ -25,24 +25,6 @@
   flex-grow: 1;
 }
 
-.editBtn {
-  cursor: pointer;
-  height: 40px;
-  line-height: normal;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-kerning: none;
-  background: transparent;
-  outline: none;
-  border: 0;
-  white-space: nowrap;
-  text-transform: uppercase;
-  padding: 0 var(--spacing-s);
-  color: var(--color-brand-secondary);
+.accountField button {
   margin-bottom: var(--spacing-s);
-}
-
-.editSVG {
-  margin-right: var(--spacing-xs);
 }

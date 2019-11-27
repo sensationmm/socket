@@ -14,9 +14,8 @@ describe('withAuthentication hoc', () => {
   describe('mapStateToProps', () => {
     it('should return state user props', () => {
       expect(mapStateToProps(state)).toMatchObject({
-        token: state.user.accessToken,
-        tokenType: state.user.tokenType,
         userId: state.user.userId,
+        isAuthenticated: true,
       });
     });
   });

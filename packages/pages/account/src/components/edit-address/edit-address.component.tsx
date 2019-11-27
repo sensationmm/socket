@@ -9,12 +9,9 @@ import { computeAddress, IAddress } from '@somo/pda-utils-strings/src';
 
 import { Primary as Button } from '@somo/pda-components-button/src';
 import InputText from '@somo/pda-components-input-text/src';
+import { withAuthentication } from '@somo/pda-pages-login/src';
 import { withForm } from '@somo/pda-redux-form/src';
 import { GET_USER_QUERY } from '../../account.component';
-
-interface IEditAddressProps {
-  form: IFormState;
-}
 
 const FIELDS = {
   addressLine1: 'address1',
@@ -23,6 +20,14 @@ const FIELDS = {
   county: 'address5',
   postcode: 'postcode',
 };
+
+interface IFormValues {
+  address1: string;
+  address2?: string;
+  address4?: string;
+  address5?: string;
+  postcode: string;
+}
 
 const getFieldsConfig = (values, labels) => [
   {
@@ -60,7 +65,7 @@ const getFieldsConfig = (values, labels) => [
     component: InputText,
     label: labels[FIELDS.postcode],
     value: values[FIELDS.postcode],
-    validationFunction: ['validatePostcode'],
+    validationFunction: ['validateRequired', 'validatePostcode'],
   },
 ];
 
@@ -85,14 +90,22 @@ export const UPDATE_ADDRESS = gql`
 interface IEditAddressProps {
   form: IFormState;
   userId: string;
-  token: string;
-  tokenType: string;
 }
 
-export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId, token, tokenType }) => {
+interface IMutationVars {
+  id: string;
+  address: IFormValues;
+}
+
+interface IMutationResponse {
+  __typename: string;
+  updateCorrespondenceAddress: EON.IUserData;
+}
+
+export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId }) => {
   const [t] = useTranslation();
   const [isSubmitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
-  const [updateAddress] = useMutation(UPDATE_ADDRESS);
+  const [updateAddress] = useMutation<IMutationResponse, IMutationVars>(UPDATE_ADDRESS);
 
   React.useEffect(() => {
     formUtils.initFormState({
@@ -127,12 +140,7 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId, token, 
       updateAddress({
         variables: {
           id: userId,
-          address: form.values,
-        },
-        context: {
-          headers: {
-            Authorization: `${tokenType} ${token}`,
-          },
+          address: form.values as IFormValues,
         },
         optimisticResponse: {
           __typename: 'UpdateAddress',
@@ -144,13 +152,16 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId, token, 
               correspondenceAddress: computeAddress(form.values as IAddress),
               detailedCorrespondenceAddress: {
                 __typename: 'Address',
-                ...form.values,
+                ...(form.values as IFormValues),
               },
             },
           },
         },
-        update: (cache, { data: { updateCorrespondenceAddress } }) => {
-          const userData: EON.IUserData | null = cache.readQuery({ query: GET_USER_QUERY, variables: { id: userId } });
+        update: (cache, { data }) => {
+          const userData: EON.IUserResponse | null = cache.readQuery({
+            query: GET_USER_QUERY,
+            variables: { id: userId },
+          });
 
           if (!userData) {
             return;
@@ -159,9 +170,9 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId, token, 
           // this might be an apollo client issue
           // if you will try to write the query with a new data object, apollo is complaining
           // that's why we mutate cache data
-          userData.personalDetails = {
-            ...userData.personalDetails,
-            ...updateCorrespondenceAddress.personalDetails,
+          userData.user.personalDetails = {
+            ...userData.user.personalDetails,
+            ...(data ? data.updateCorrespondenceAddress.personalDetails : {}),
           };
 
           cache.writeQuery({
@@ -186,4 +197,4 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId, token, 
   );
 };
 
-export default withForm(EditAddress);
+export default withAuthentication(withForm(EditAddress));

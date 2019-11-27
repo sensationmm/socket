@@ -1,8 +1,7 @@
 import cx from 'classnames';
 import React from 'react';
 
-import { Edit } from '@somo/pda-components-icons/src';
-import SVG from '@somo/pda-components-svg/src';
+import ActionPaneBtn, { IconTypes } from '@somo/pda-components-action-pane-button/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
 import * as styles from './field.module.css';
@@ -45,14 +44,7 @@ const Field = ({ label, value, disabled, editable, editText, onEdit, borderStyle
         </Text>
       </div>
       {editable && (
-        <button className={styles.editBtn} onClick={onEditClickHandler} data-testid="edit-btn">
-          <SVG children={Edit} size={26} className={styles.editSvg} />
-          {editText && (
-            <Text type={TextStyles.edit} color={ColorStyles.primary}>
-              {editText}
-            </Text>
-          )}
-        </button>
+        <ActionPaneBtn icon={IconTypes.edit} text={editText} onClick={onEditClickHandler} data-testid="edit-btn" />
       )}
     </div>
   );

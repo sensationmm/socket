@@ -21,8 +21,6 @@ describe('@somo/pda-pages-account', () => {
 
   const props = {
     userId: 'u1',
-    token: 't123',
-    tokenType: 'Bearer',
   };
 
   it('should pass a loading prop to the account sections on query start', () => {
@@ -71,11 +69,6 @@ describe('@somo/pda-pages-account', () => {
           query: GET_USER_QUERY,
           variables: {
             id: props.userId,
-          },
-          context: {
-            headers: {
-              Authorization: `${props.tokenType} ${props.token}`,
-            },
           },
         },
         result: {
@@ -178,11 +171,6 @@ describe('@somo/pda-pages-account', () => {
           query: GET_USER_QUERY,
           variables: {
             id: props.userId,
-          },
-          context: {
-            headers: {
-              Authorization: `${props.tokenType} ${props.token}`,
-            },
           },
         },
         result: {

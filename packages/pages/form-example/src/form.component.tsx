@@ -120,7 +120,11 @@ class FormExample extends React.Component<IFormExampleProps> {
         stateKey: 'choice',
         component: Radio,
         type: RadioType.Button,
-        items: [{ value: 'yes', label: 'Yes' }, { value: 'no', label: 'No' }, { value: 'maybe', label: 'Maybe' }],
+        items: [
+          { value: 'yes', label: 'Yes' },
+          { value: 'no', label: 'No' },
+          { value: 'maybe', label: 'Maybe' },
+        ],
         label: 'All good?',
         value: values.choice,
         validationFunction: ['validateRequired'],

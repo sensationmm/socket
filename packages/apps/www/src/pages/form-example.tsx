@@ -29,9 +29,4 @@ const mapStateToProps = (state) => ({
   form: state.form,
 });
 
-export default connect(
-  mapStateToProps,
-  null,
-)(Form);
-
-// export default Form;
+export default connect(mapStateToProps, null)(Form);

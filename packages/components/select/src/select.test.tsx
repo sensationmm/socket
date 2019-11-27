@@ -22,7 +22,10 @@ describe('<Select />', () => {
     value: '',
     type: FormSelectType.Inline,
     onChange: changeMock,
-    options: [{ val: 'opt1', label: 'option 1' }, { val: 'opt2', label: 'option 2' }],
+    options: [
+      { val: 'opt1', label: 'option 1' },
+      { val: 'opt2', label: 'option 2' },
+    ],
     defaultOptionText: 'select option',
     error: '',
   };

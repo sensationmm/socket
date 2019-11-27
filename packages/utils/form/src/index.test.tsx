@@ -93,7 +93,10 @@ const configMock: IFormConfig[] = [
     id: 'input-error',
     stateKey: 'error',
     component: Radio,
-    items: [{ label: 'yes', value: 'yes' }, { label: 'no', value: 'no' }],
+    items: [
+      { label: 'yes', value: 'yes' },
+      { label: 'no', value: 'no' },
+    ],
     label: 'Agree',
     onChange: jest.fn().mockReturnValue('hi'),
   },

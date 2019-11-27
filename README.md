@@ -3,7 +3,7 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Quickstart](#quickstart)
+- [Quick Start](#quick-start)
 - [Design](#design)
 - [Testing](#testing)
   - [Unit Testing](#unit-testing)
@@ -23,7 +23,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## Quickstart
+## Quick Start
 
 | Command             | Description                                         |
 | ------------------- | --------------------------------------------------- |
@@ -141,7 +141,7 @@ import { Env, getEnv } from '@somo/pda-utils-env/src';
 getEnv(Env.StaticAssetsUrl)
 ```
 
-All browser accessable envs should be added the `Env` enum, this allows them to be used around the project and shouldn't
+All browser accessible envs should be added the `Env` enum, this allows them to be used around the project and shouldn't
 conflict if we later decide to modify the resolved var name.
 
 When fetching in a node env you can either use the `getEnv` method or for protected values (such as private tokens to be used at build time) use `process.env`.

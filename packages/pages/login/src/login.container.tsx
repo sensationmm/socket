@@ -32,7 +32,4 @@ export const mapDispatchToProps = (dispatch): IPropsFromDispatch => ({
   handleLogin: () => dispatch(authActions.getTokenSuccess()),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(LoginPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

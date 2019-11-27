@@ -23,7 +23,4 @@ export const mapDispatchToProps = (dispatch: Dispatch) => ({
   clearNotification: (id) => dispatch(actions.removeNotification(id)),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(NotificationList);
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationList);

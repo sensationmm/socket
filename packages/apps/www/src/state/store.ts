@@ -12,13 +12,6 @@ const devtools =
     ? (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()
     : (f) => f;
 
-const store = createStore(
-  reducer,
-  initialState,
-  compose(
-    applyMiddleware(thunk),
-    devtools,
-  ),
-);
+const store = createStore(reducer, initialState, compose(applyMiddleware(thunk), devtools));
 
 export default store;

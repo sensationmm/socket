@@ -310,7 +310,8 @@ declare namespace EON {
       [key: string]: string;
     };
     errors: {
-      httpGeneric: string;
+      httpGenericTitle: string;
+      httpGenericContent: string;
     }
   }
 }

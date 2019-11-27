@@ -26,6 +26,8 @@ const withRedirect = (Component: React.ComponentType<any>) => {
   const WrappedComponent: React.FC<IPropsFromReduxState> = ({ isAuthenticated, ...rest }) => {
     if (typeof window !== 'undefined' && !isAuthenticated) {
       navigate('/login');
+
+      return null;
     }
 
     return <Component {...rest} />;

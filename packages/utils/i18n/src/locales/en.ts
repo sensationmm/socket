@@ -419,7 +419,8 @@ const data: EON.IWebAppTranslations = {
     goBack: 'Go back',
   },
   errors: {
-    httpGeneric: 'Uh Oh something went wrong. Please try again',
+    httpGenericTitle: "Uh oh something's up",
+    httpGenericContent: 'Something went wrong, please try again',
   },
 };
 

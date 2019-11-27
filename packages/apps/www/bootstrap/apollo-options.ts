@@ -6,6 +6,10 @@ import i18n from '@somo/pda-utils-i18n/src';
 import store from '../src/state/store';
 
 const errorHandler = ({ graphQLErrors }) => {
+  if (!graphQLErrors) {
+    return;
+  }
+
   for (const error of graphQLErrors) {
     switch (error.extensions.code) {
       case 'UNAUTHENTICATED':
@@ -15,9 +19,11 @@ const errorHandler = ({ graphQLErrors }) => {
       default:
         store.dispatch(
           notificationActions.createNotification(
-            error.extensions.code.split('_').join(' '),
-            i18n.t('errors.httpGeneric'),
-            'GENERIC',
+            i18n.t('errors.httpGenericTitle'),
+            error.domain
+              ? `${error.domain}: ${i18n.t('errors.httpGenericContent')}`
+              : i18n.t('errors.httpGenericContent'),
+            error.domain ? error.domain : 'GENERIC',
           ),
         );
         break;

@@ -1,0 +1,89 @@
+* {
+  white-space: pre-line;
+}
+
+.getInTouch h2 {
+  margin-top: var(--spacing-s);
+}
+
+.getInTouch button {
+  margin-bottom: var(--spacing-s);
+}
+
+.getInTouchContent {
+  margin: var(--spacing-l) 0 var(--spacing-l) 0;
+  max-width: 700px;
+
+  @media (--s) {
+    margin-bottom: var(--spacing-xl);
+  }
+}
+
+.ohFriendsContent {
+  display: flex;
+  flex-direction: column;
+
+  @media (--m) {
+    flex-direction: row;
+  }
+}
+
+.ohFriendsContent h2 {
+  margin: var(--spacing-m) 0 var(--spacing-xl) 0;
+}
+
+.ohFriendsContent img {
+  margin: var(--spacing-m) auto;
+
+  @media (--m) {
+    flex-basis: 40%;
+    margin-left: var(--spacing-l);
+  }
+}
+
+.ohFriendsButton {
+  margin: var(--spacing-l) 0 var(--spacing-s) 0;
+  display: flex;
+  justify-content: center;
+
+  @media (--m) {
+    justify-content: left;
+    margin-top: var(--spacing-xl);
+  }
+}
+
+.movingOut {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movingOut h2 {
+  margin: var(--spacing-s) 0 var(--spacing-l) 0;
+
+  @media (--s) {
+    text-align: center;
+    margin-bottom: var(--spacing-s);
+  }
+
+  @media (--m) {
+    margin-bottom: var(--spacing-l);
+  }
+}
+
+.movingOutButton {
+  margin-bottom: var(--spacing-m);
+
+  @media (--s) {
+    margin: 0 auto;
+  }
+}
+
+.movingOutContent {
+  margin-bottom: var(--spacing-xl);
+
+  @media (--s) {
+    max-width: 700px;
+    margin: var(--spacing-l) auto;
+  }
+}

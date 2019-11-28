@@ -335,6 +335,25 @@ declare namespace EON {
           content: ISwitchingInfo[];
         };
       };
+      movingIn: {
+        hero: IHeroTranslations;
+        getInTouch: {
+          header: string;
+          content: string;
+          cta: string;
+        }
+        ohFriends: {
+          title: string;
+          content: string;
+          imageAlt: string;
+          cta: string;
+        }
+        movingOut: {
+          header: string;
+          content: string;
+          cta: string;
+        }
+      }
       account: {
         title: string;
         loadingGenericMessage: string;

@@ -321,6 +321,31 @@ const data: EON.IWebAppTranslations = {
         ],
       },
     },
+    movingIn: {
+      hero: {
+        title: 'On the move?\nStay plugged in to Socket',
+      },
+      getInTouch: {
+        header: 'Moving to a Socket powered crib?',
+        content:
+          "Lucky you! You're just a few easy steps away from plugging in to Socket. Get in touch and we'll sort the rest.",
+        cta: 'Talk to a human',
+      },
+      ohFriends: {
+        title: 'Ohhhhhh friends.',
+        content: `While we’re sorting out your connection why not plug in 🔌 to the Socket community? It’s where you can get involved, get your questions answered, share good ideas and support how we’ll do stuff in the future.\n
+        By answering questions and sharing good ideas we won’t need to pay for things like call centres and support desks (which no-one really likes anyway)  or big flash marketing campaigns, so we can pass savings on to you, our lovely Socket peoples ❤️.\n
+        THAT’S why our customers love us – and we’re sure you will too.`,
+        imageAlt: 'See where your energy is used.',
+        cta: 'Join us',
+      },
+      movingOut: {
+        header: 'Moving on out?',
+        content:
+          'Moving home? It’s darn stressful – but taking Socket with you doesn’t have to be 😊. Simply log into your account and follow the steps.',
+        cta: 'Talk to a human',
+      },
+    },
     account: {
       title: 'Account',
       loadingGenericMessage: 'Loading...',

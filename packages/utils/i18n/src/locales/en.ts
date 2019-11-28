@@ -408,6 +408,7 @@ const data: EON.IWebAppTranslations = {
         content: 'This feature will enable you to set your own spending or usage goals',
       },
       editAddress: {
+        title: 'Edit Postal Address',
         addressLineOneLabel: 'Address line one',
         addressLineTwoLabel: 'Address line two',
         cityLabel: 'Town/City',
@@ -415,6 +416,7 @@ const data: EON.IWebAppTranslations = {
         postcodeLabel: 'Postcode',
         cta: {
           saveText: 'Save',
+          cancelText: 'Go back',
         },
       },
       contactPreferences: {

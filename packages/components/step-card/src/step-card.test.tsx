@@ -52,7 +52,7 @@ describe('@somo/pda-components-step-card', () => {
     component = shallow(<StepCard {...props} />);
     expect(
       component
-        .find('OutlineButton')
+        .find('TertiaryButton')
         .childAt(0)
         .text(),
     ).toEqual(props.cta);

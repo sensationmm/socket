@@ -18,15 +18,15 @@ export const mapStateToProps = (state: { user: IAuthReducer }): IPropsFromReduxS
   };
 };
 
-const withRedirect = (Component: React.ComponentType<any>) => {
-  const WrappedComponent: React.FC<IPropsFromReduxState> = ({ isAuthenticated, ...rest }) => {
-    if (typeof window !== 'undefined' && !isAuthenticated) {
+const withRedirect = <IProps extends object>(Component: React.ComponentType<IProps & IPropsFromReduxState>) => {
+  const WrappedComponent: React.FC<IProps & IPropsFromReduxState> = (props) => {
+    if (typeof window !== 'undefined' && !props.isAuthenticated) {
       navigate('/login');
 
       return null;
     }
 
-    return <Component {...rest} />;
+    return <Component {...props} />;
   };
 
   return WrappedComponent;

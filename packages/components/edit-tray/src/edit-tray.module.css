@@ -1,0 +1,122 @@
+:root {
+  --tray-mobile-width: 320px;
+  --tray-tablet-width: 440px;
+  --tray-desktop-width: 550px;
+}
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.backdropEnter {
+  opacity: 0;
+
+  &.backdropEnterActive {
+    opacity: 1;
+    transition: opacity 250ms;
+  }
+}
+
+.backdropExit {
+  opacity: 1;
+
+  &.backdropExitActive {
+    opacity: 0;
+    transition: opacity 250ms 100ms;
+  }
+}
+
+.editTray {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-basic-white);
+  position: absolute;
+  right: 0;
+  width: 100%;
+  max-width: var(--tray-mobile-width);
+  height: 100vh;
+  will-change: auto;
+
+  @media (--s) {
+    max-width: var(--tray-tablet-width);
+  }
+
+  @media (--m) {
+    max-width: var(--tray-desktop-width);
+  }
+}
+
+.editTrayEnter {
+  opacity: 0;
+  right: 0;
+  transform: translateX(var(--tray-mobile-width));
+
+  @media (--s) {
+    transform: translateX(var(--tray-tablet-width));
+  }
+
+  @media (--m) {
+    transform: translateX(var(--tray-desktop-width));
+  }
+
+  &.editTrayEnterActive {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 250ms;
+  }
+}
+
+.editTrayExit {
+  opacity: 1;
+  transform: translateX(0);
+
+  &.editTrayExitActive {
+    opacity: 0;
+    transform: translateX(var(--tray-mobile-width));
+    transition: all 250ms;
+
+    @media (--s) {
+      transform: translateX(var(--tray-tablet-width));
+    }
+
+    @media (--m) {
+      transform: translateX(var(--tray-desktop-width));
+    }
+  }
+}
+
+.closeButton {
+  cursor: pointer;
+}
+
+.close {
+  color: var(--color-grey-midDarker);
+  margin: 0;
+}
+
+.editTrayHeading {
+  align-items: center;
+  background-color: var(--color-grey-light);
+  display: flex;
+  height: 94px;
+  padding: var(--spacing-xl);
+  justify-content: space-between;
+
+  @media (--m) {
+    height: 133px;
+  }
+}
+
+.editTrayContent {
+  flex-grow: 1;
+  overflow: hidden;
+  position: relative;
+  padding: var(--spacing-xl);
+}

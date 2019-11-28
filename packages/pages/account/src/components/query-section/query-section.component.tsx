@@ -19,6 +19,7 @@ interface IQuerySectionProps {
   values?: {
     [key: string]: any;
   } | null;
+  onEdit?: (type: any, values: any) => void;
   actionPane?: any;
   editMode?: boolean;
   onCancelEdit?: () => void;
@@ -34,6 +35,7 @@ const QuerySection: React.FC<IQuerySectionProps> = ({
   values,
   hasGap,
   className,
+  onEdit,
   actionPane,
   editMode,
   onCancelEdit,
@@ -62,7 +64,9 @@ const QuerySection: React.FC<IQuerySectionProps> = ({
           </Text>
         </div>
       )}
-      {!loading && !error && values && <Component values={values} editMode={editMode} onCancelEdit={onCancelEdit} />}
+      {!loading && !error && values && (
+        <Component values={values} onEdit={onEdit} editMode={editMode} onCancelEdit={onCancelEdit} />
+      )}
       {!loading && !error && values === null && ErrorComponent && <ErrorComponent />}
     </AccountSection>
   );

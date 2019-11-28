@@ -193,6 +193,7 @@ declare namespace EON {
   }
 
   interface IAccountEditAddress {
+    title: string;
     addressLineOneLabel: string;
     addressLineTwoLabel: string;
     cityLabel: string;
@@ -200,6 +201,7 @@ declare namespace EON {
     postcodeLabel: string;
     cta: {
       saveText: string;
+      cancelText: string;
     };
   }
 

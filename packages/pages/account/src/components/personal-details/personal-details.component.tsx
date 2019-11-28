@@ -15,11 +15,19 @@ export interface IPersonalDetailsProps {
     phone: string;
     accountNumber: string;
     correspondenceAddress: string;
+    detailedCorrespondenceAddress: {
+      address1: string;
+      address2: string;
+      address4: string;
+      address5: string;
+      postcode: string;
+    };
     supplyAddress: string;
   };
+  onEdit?: (type: any, values: any) => void;
 }
 
-const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ values }) => {
+const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ values, onEdit }) => {
   const [t] = useTranslation();
 
   return (
@@ -73,6 +81,11 @@ const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ values }) => {
               value: values.correspondenceAddress,
               editable: true,
               editText: t('site.account.personal.correspondenceAddressEditText'),
+              onEdit: () => {
+                if (onEdit) {
+                  onEdit('address', values.detailedCorrespondenceAddress);
+                }
+              },
             },
           ]}
           cols={2}

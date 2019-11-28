@@ -13,7 +13,7 @@ interface IFieldProps {
   editText: string;
   disabled?: boolean;
   borderStyle?: string;
-  onEdit?: () => void;
+  onEdit: () => any;
 }
 
 export enum BorderStyles {
@@ -22,12 +22,6 @@ export enum BorderStyles {
 }
 
 const Field = ({ label, value, disabled, editable, editText, onEdit, borderStyle = 'light' }: IFieldProps) => {
-  const onEditClickHandler = () => {
-    if (onEdit) {
-      onEdit();
-    }
-  };
-
   return (
     <div className={cx(styles.accountField, styles[borderStyle])}>
       <div className={styles.textWrapper}>
@@ -43,9 +37,7 @@ const Field = ({ label, value, disabled, editable, editText, onEdit, borderStyle
           {value}
         </Text>
       </div>
-      {editable && (
-        <ActionPaneBtn icon={IconTypes.edit} text={editText} onClick={onEditClickHandler} data-testid="edit-btn" />
-      )}
+      {editable && <ActionPaneBtn icon={IconTypes.edit} text={editText} onClick={onEdit} data-testid="edit-btn" />}
     </div>
   );
 };

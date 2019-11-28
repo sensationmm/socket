@@ -3,15 +3,16 @@ import gql from 'graphql-tag';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
+import ActionPaneBtn, { IconTypes } from '@somo/pda-components-action-pane-button/src';
 import GutterLayout from '@somo/pda-components-gutter-layout/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
 import UserSwitch from '@somo/pda-components-user-switch/src';
+import useEditTray from '@somo/pda-hooks-edit/src';
 import AccountLayout from '@somo/pda-layouts-account/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
-
-import ActionPaneBtn, { IconTypes } from '@somo/pda-components-action-pane-button/src';
 import ContactPreferences from './components/contact-preferences/contact-preferences.component';
+import EditForm from './components/forms';
 import Goal from './components/goal/goal.component';
 import NoDirectDebit from './components/no-direct-debit/no-direct-debit.component';
 import PaymentDetails from './components/payment-details/payment-details.component';
@@ -111,6 +112,8 @@ interface IQueryVars {
 export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
   const [t] = useTranslation();
   const [editContactPrefs, setEditContactPrefs] = React.useState<boolean>(false);
+  const { clearEditForm, handleEditTray, editForm } = useEditTray();
+  const { formType, formValues } = editForm;
 
   const { loading, error, data } = useQuery<EON.IUserResponse, IQueryVars>(GET_USER_QUERY, {
     variables: { id: userId },
@@ -122,11 +125,9 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
     <AccountLayout>
       <PageSection>
         <UserSwitch />
-
         <Text element="h1" type={TextStyles.h1}>
           {t('site.account.title')}
         </Text>
-
         <GutterLayout>
           <QuerySection
             className={styles.personalDetailsSection}
@@ -137,8 +138,8 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
             error={!!error}
             Component={PersonalDetails}
             values={personalDetails}
+            onEdit={handleEditTray}
           />
-
           <QuerySection
             title={t('site.account.product.title')}
             subtitle={t('site.account.product.subtitle')}
@@ -147,7 +148,6 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
             Component={ProductDetails}
             values={productDetails}
           />
-
           <QuerySection
             title={t('site.account.payment.title')}
             subtitle={t('site.account.payment.subtitle')}
@@ -157,7 +157,6 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
             ErrorComponent={NoDirectDebit}
             values={paymentDetails}
           />
-
           <QuerySection
             title={t('site.account.contactPreferences.title')}
             loading={loading}
@@ -174,10 +173,10 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
               />
             }
           />
-
           <Goal />
         </GutterLayout>
       </PageSection>
+      {formType && <EditForm formType={formType} formValues={formValues} onClose={clearEditForm} />}
     </AccountLayout>
   );
 };

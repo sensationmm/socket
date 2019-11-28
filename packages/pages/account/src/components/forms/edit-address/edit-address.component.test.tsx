@@ -5,7 +5,7 @@ import * as React from 'react';
 import wait from 'waait';
 
 import { clearFormState } from '@somo/pda-utils-form/src';
-import { GET_USER_QUERY } from '../../account.component';
+import { GET_USER_QUERY } from '../../../account.component';
 import { EditAddress, UPDATE_ADDRESS } from './edit-address.component';
 
 jest.mock('@somo/pda-utils-form/src', () => ({
@@ -23,16 +23,24 @@ describe('EditAddress component', () => {
     userId: 'u1',
     form: {
       values: {
-        address1: '138 Regents Park Road',
-        address2: 'flat 3',
-        address4: 'Camden',
-        address5: 'London',
-        postcode: 'NW1 8XL',
+        address1: '',
+        address2: '',
+        address4: '',
+        address5: '',
+        postcode: '',
       },
       errors: {},
       valid: {},
       showErrorMessage: false,
     },
+    initialValues: {
+      address1: '138 Regents Park Road',
+      address2: 'flat 3',
+      address4: 'Camden',
+      address5: 'London',
+      postcode: 'NW1 8XL',
+    },
+    onClose: jest.fn(),
   };
   const userData = {
     user: {
@@ -155,7 +163,10 @@ describe('EditAddress component', () => {
       </MockedProvider>,
     );
 
-    component.find('button').simulate('click');
+    component
+      .find('button')
+      .at(1)
+      .simulate('click');
     await wait(0);
 
     expect(cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toMatchObject({
@@ -170,7 +181,10 @@ describe('EditAddress component', () => {
       </MockedProvider>,
     );
 
-    component.find('button').simulate('click');
+    component
+      .find('button')
+      .at(1)
+      .simulate('click');
     await wait(0);
 
     expect(() => cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toThrow();
@@ -189,7 +203,10 @@ describe('EditAddress component', () => {
       </MockedProvider>,
     );
 
-    component.find('button').simulate('click');
+    component
+      .find('button')
+      .at(1)
+      .simulate('click');
     await wait(0);
 
     expect(cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toMatchObject({

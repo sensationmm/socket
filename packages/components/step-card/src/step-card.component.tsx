@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Outline as OutlineButton } from '@somo/pda-components-button/src';
+import { Tertiary as TertiaryButton } from '@somo/pda-components-button/src';
 import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
@@ -40,7 +40,7 @@ export const StepCard = ({
           {body}
         </Text>
       )}
-      {cta && <OutlineButton size="mini">{cta}</OutlineButton>}
+      {cta && <TertiaryButton size="mini">{cta}</TertiaryButton>}
     </ContentBox>
   </div>
 );

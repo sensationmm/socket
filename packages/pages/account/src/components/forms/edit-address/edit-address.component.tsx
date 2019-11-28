@@ -1,4 +1,5 @@
 import { useMutation } from '@apollo/react-hooks';
+import i18n from '@somo/pda-utils-i18n/src';
 import gql from 'graphql-tag';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,11 +8,13 @@ import { IFormState } from '@somo/pda-redux-form/src/reducers';
 import formUtils from '@somo/pda-utils-form/src';
 import { computeAddress, IAddress } from '@somo/pda-utils-strings/src';
 
-import { Primary as Button } from '@somo/pda-components-button/src';
+import { Outline as OutlineBtn, Primary as PrimaryBtn } from '@somo/pda-components-button/src';
 import InputText from '@somo/pda-components-input-text/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
 import { withForm } from '@somo/pda-redux-form/src';
-import { GET_USER_QUERY } from '../../account.component';
+import { GET_USER_QUERY } from '../../../account.component';
+
+import * as styles from './edit-address.module.css';
 
 const FIELDS = {
   addressLine1: 'address1',
@@ -21,13 +24,15 @@ const FIELDS = {
   postcode: 'postcode',
 };
 
-interface IFormValues {
+export interface IFormValues {
   address1: string;
   address2?: string;
   address4?: string;
   address5?: string;
   postcode: string;
 }
+
+export const pageTitle = i18n.t('site.account.editAddress.title');
 
 const getFieldsConfig = (values, labels) => [
   {
@@ -69,6 +74,14 @@ const getFieldsConfig = (values, labels) => [
   },
 ];
 
+const setInitialValues = (initialValues) => ({
+  [FIELDS.addressLine1]: initialValues.address1 || '',
+  [FIELDS.addressLine2]: initialValues.address2 || '',
+  [FIELDS.city]: initialValues.city || '',
+  [FIELDS.county]: initialValues.county || '',
+  [FIELDS.postcode]: initialValues.postcode || '',
+});
+
 export const UPDATE_ADDRESS = gql`
   mutation UpdateAddress($id: ID!, $address: AddressInput!) {
     updateCorrespondenceAddress(id: $id, address: $address) {
@@ -88,8 +101,10 @@ export const UPDATE_ADDRESS = gql`
 `;
 
 interface IEditAddressProps {
+  initialValues: IFormValues;
   form: IFormState;
   userId: string;
+  onClose: () => void;
 }
 
 interface IMutationVars {
@@ -102,19 +117,13 @@ interface IMutationResponse {
   updateCorrespondenceAddress: EON.IUserData;
 }
 
-export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId }) => {
+export const EditAddress: React.FC<IEditAddressProps> = ({ initialValues, form, userId, onClose }) => {
   const [t] = useTranslation();
   const [isSubmitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
   const [updateAddress] = useMutation<IMutationResponse, IMutationVars>(UPDATE_ADDRESS);
 
   React.useEffect(() => {
-    formUtils.initFormState({
-      [FIELDS.addressLine1]: '',
-      [FIELDS.addressLine2]: '',
-      [FIELDS.city]: '',
-      [FIELDS.county]: '',
-      [FIELDS.postcode]: '',
-    });
+    formUtils.initFormState(setInitialValues(initialValues));
 
     return () => {
       formUtils.clearFormState();
@@ -184,16 +193,23 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ form, userId }) => {
       }).finally(() => {
         setSubmitDisabled(false);
       });
+
+      onClose();
     }
   };
 
   return (
-    <>
-      {formUtils.renderForm(fieldsConfig)}
-      <Button disabled={isSubmitDisabled} onClick={onSubmit}>
-        {t('site.account.editAddress.cta.saveText')}
-      </Button>
-    </>
+    <div className={styles.formWrapper}>
+      <div className={styles.fieldsWrapper}>{formUtils.renderForm(fieldsConfig)}</div>
+      <div className={styles.ctaWrapper}>
+        <OutlineBtn size="medium" onClick={onClose}>
+          {t('site.account.editAddress.cta.cancelText')}
+        </OutlineBtn>
+        <PrimaryBtn size="medium" disabled={isSubmitDisabled} onClick={onSubmit}>
+          {t('site.account.editAddress.cta.saveText')}
+        </PrimaryBtn>
+      </div>
+    </div>
   );
 };
 

@@ -97,6 +97,7 @@
     "moment": "2.24.0",
     "react-i18next": "11.2.2",
     "react-media": "1.10.0",
+    "react-transition-group": "^4.3.0",
     "react-twemoji": "0.2.3",
     "redux": "4.0.4",
     "redux-thunk": "2.3.0",

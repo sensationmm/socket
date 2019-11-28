@@ -11,8 +11,8 @@ export const mapStateToProps = (state: { form: IFormState }): IPropsFromReduxSta
   form: state.form,
 });
 
-const withForm = (Component: React.ComponentType<any>) => {
-  const WrappedComponent: React.FC<IPropsFromReduxState> = (props) => {
+const withForm = <IProps extends object>(Component: React.ComponentType<IProps & IPropsFromReduxState>) => {
+  const WrappedComponent: React.FC<IProps & IPropsFromReduxState> = (props) => {
     return <Component {...props} />;
   };
 

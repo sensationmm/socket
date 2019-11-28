@@ -1,41 +1,34 @@
 module.exports = {
-  extends: "stylelint-config-standard",
-  plugins: ["stylelint-declaration-use-variable"],
+  extends: 'stylelint-config-standard',
+  plugins: ['stylelint-declaration-use-variable'],
   rules: {
     indentation: 2,
-    "no-descending-specificity": null,
-    "selector-pseudo-element-no-unknown": [
+    'function-calc-no-invalid': null,
+    'no-descending-specificity': null,
+    'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoElements: ["range-thumb", "range-track"]
-      }
+        ignorePseudoElements: ['range-thumb', 'range-track'],
+      },
     ],
-    "selector-pseudo-class-no-unknown": [
+    'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ["export", "import", "global", "local"]
-      }
+        ignorePseudoClasses: ['export', 'import', 'global', 'local'],
+      },
     ],
-    "property-no-unknown": [
+    'property-no-unknown': [
       true,
       {
-        ignoreProperties: ["composes", "compose-with", "text-remove-gap"]
-      }
+        ignoreProperties: ['composes', 'compose-with', 'text-remove-gap'],
+      },
     ],
-    "at-rule-no-unknown": [
+    'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: [
-          "value",
-          "for",
-          "mixin",
-          "define-mixin",
-          "mixin-content"
-        ]
-      }
+        ignoreAtRules: ['value', 'for', 'mixin', 'define-mixin', 'mixin-content'],
+      },
     ],
-    "sh-waqar/declaration-use-variable": [
-      ["/color/", { ignoreValues: ["currentColor"] }]
-    ]
-  }
+    'sh-waqar/declaration-use-variable': [['/color/', { ignoreValues: ['currentColor'] }]],
+  },
 };

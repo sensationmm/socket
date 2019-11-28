@@ -9,6 +9,7 @@
   color: var(--color-grey-midDarker);
   padding: var(--spacing-s);
   cursor: pointer;
+  transition: all linear 0.1s;
 }
 
 .option.selected {

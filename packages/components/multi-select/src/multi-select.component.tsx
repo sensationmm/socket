@@ -78,7 +78,13 @@ const MultiSelect: React.FC<IMultiSelectProps> = ({
               <SVG children={option.icon} size={60} />
             </div>
             <div className={styles.text}>
-              <span>{option.label}</span>
+              <Text
+                element="label"
+                type={TextStyles.caption}
+                color={inArray(option.value, value) ? ColorStyles.secondary : ColorStyles.quinary}
+              >
+                {option.label}
+              </Text>
             </div>
           </div>
         ))}

@@ -53,15 +53,26 @@ type ProductDetails {
   gas: ProductInformation
 }
 
+type ContactPreferences {
+  contactId: ID
+  email: Boolean
+  sms: Boolean
+  post: Boolean
+  phone: Boolean
+  carrierpigeon: Boolean
+}
+
 type User {
   id: ID!
   personalDetails: PersonalDetails
   paymentDetails: PaymentDetails
   productDetails: ProductDetails
+  contactPreferences: ContactPreferences
 }
 
 type Mutation {
   updateCorrespondenceAddress(id: ID!, address: AddressInput!): User
+  updateContactPreferences(userId: ID!, contactId: ID!, preferences: ContactPreferencesInput!): User
 }
 
 input AddressInput {
@@ -70,4 +81,13 @@ input AddressInput {
   address4: String
   address5: String
   postcode: String!
+}
+
+input ContactPreferencesInput {
+  contactId: ID
+  email: Boolean
+  sms: Boolean
+  post: Boolean
+  phone: Boolean
+  carrierpigeon: Boolean
 }

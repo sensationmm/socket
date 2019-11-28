@@ -26,7 +26,7 @@ class FormExample extends React.Component<IFormExampleProps> {
 
   public componentDidMount() {
     formUtils.initFormState({
-      preferences: [],
+      'prefs.preferences': [],
       name: '',
       email: '',
       phone: '',

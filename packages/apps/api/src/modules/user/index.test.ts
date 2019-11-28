@@ -101,6 +101,19 @@ const paymentAccountDetails = {
   sortCode: '34-45-55',
 };
 
+const contacts = {
+  results: [{ id: 1 }],
+};
+
+const contactPreferences = {
+  contactId: 1,
+  email: false,
+  sms: false,
+  post: false,
+  phone: false,
+  carrierpigeon: false,
+};
+
 const tariffInformation = {
   Electricity: [
     {
@@ -384,7 +397,9 @@ jest.mock('apollo-datasource-rest', () => {
       .mockReturnValueOnce(paymentTypes)
       .mockReturnValueOnce(paymentAccountDetails)
       .mockReturnValueOnce(paymentsList)
-      .mockReturnValueOnce(tariffInformation);
+      .mockReturnValueOnce(tariffInformation)
+      .mockReturnValueOnce(contacts)
+      .mockReturnValueOnce(contactPreferences);
 
     public put = jest.fn().mockReturnValueOnce({});
   }
@@ -438,6 +453,13 @@ describe('UserModule', () => {
                 __typename
                 ...productInfo
               }
+            }
+            contactPreferences {
+              email
+              sms
+              post
+              phone
+              carrierpigeon
             }
           }
         }
@@ -526,6 +548,13 @@ describe('UserModule', () => {
               billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
             },
           },
+        },
+        contactPreferences: {
+          email: false,
+          sms: false,
+          post: false,
+          phone: false,
+          carrierpigeon: false,
         },
       },
     });

@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import GutterLayout from '@somo/pda-components-gutter-layout/src';
 import PageSection from '@somo/pda-components-page-section/src';
@@ -8,7 +9,9 @@ import Text, { TextStyles } from '@somo/pda-components-text/src';
 import UserSwitch from '@somo/pda-components-user-switch/src';
 import AccountLayout from '@somo/pda-layouts-account/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
-import { useTranslation } from 'react-i18next';
+
+import ActionPaneBtn, { IconTypes } from '@somo/pda-components-action-pane-button/src';
+import ContactPreferences from './components/contact-preferences/contact-preferences.component';
 import Goal from './components/goal/goal.component';
 import NoDirectDebit from './components/no-direct-debit/no-direct-debit.component';
 import PaymentDetails from './components/payment-details/payment-details.component';
@@ -57,6 +60,14 @@ export const GET_USER_QUERY = gql`
           ...productInfo
         }
       }
+      contactPreferences {
+        contactId
+        email
+        sms
+        post
+        phone
+        carrierpigeon
+      }
     }
   }
 
@@ -99,20 +110,23 @@ interface IQueryVars {
 
 export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
   const [t] = useTranslation();
+  const [editContactPrefs, setEditContactPrefs] = React.useState<boolean>(false);
 
   const { loading, error, data } = useQuery<EON.IUserResponse, IQueryVars>(GET_USER_QUERY, {
     variables: { id: userId },
   });
 
-  const { personalDetails, paymentDetails, productDetails } = (data || {}).user || {};
+  const { personalDetails, paymentDetails, productDetails, contactPreferences } = (data || {}).user || {};
 
   return (
     <AccountLayout>
       <PageSection>
         <UserSwitch />
+
         <Text element="h1" type={TextStyles.h1}>
           {t('site.account.title')}
         </Text>
+
         <GutterLayout>
           <QuerySection
             className={styles.personalDetailsSection}
@@ -124,6 +138,7 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
             Component={PersonalDetails}
             values={personalDetails}
           />
+
           <QuerySection
             title={t('site.account.product.title')}
             subtitle={t('site.account.product.subtitle')}
@@ -132,6 +147,7 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
             Component={ProductDetails}
             values={productDetails}
           />
+
           <QuerySection
             title={t('site.account.payment.title')}
             subtitle={t('site.account.payment.subtitle')}
@@ -141,6 +157,24 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
             ErrorComponent={NoDirectDebit}
             values={paymentDetails}
           />
+
+          <QuerySection
+            title={t('site.account.contactPreferences.title')}
+            loading={loading}
+            error={!!error}
+            Component={ContactPreferences}
+            values={contactPreferences}
+            editMode={editContactPrefs}
+            onCancelEdit={() => setEditContactPrefs(false)}
+            actionPane={
+              <ActionPaneBtn
+                icon={IconTypes.edit}
+                text={t('actions.edit')}
+                onClick={() => setEditContactPrefs(!editContactPrefs)}
+              />
+            }
+          />
+
           <Goal />
         </GutterLayout>
       </PageSection>

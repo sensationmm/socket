@@ -10,7 +10,7 @@ import * as styles from './query-section.module.css';
 interface IQuerySectionProps {
   className?: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   hasGap?: boolean;
   Component: React.ComponentType<any>;
   ErrorComponent?: React.ComponentType<any>;
@@ -19,6 +19,9 @@ interface IQuerySectionProps {
   values?: {
     [key: string]: any;
   } | null;
+  actionPane?: any;
+  editMode?: boolean;
+  onCancelEdit?: () => void;
 }
 
 const QuerySection: React.FC<IQuerySectionProps> = ({
@@ -31,11 +34,20 @@ const QuerySection: React.FC<IQuerySectionProps> = ({
   values,
   hasGap,
   className,
+  actionPane,
+  editMode,
+  onCancelEdit,
 }) => {
   const [t] = useTranslation();
 
   return (
-    <AccountSection title={title} subtitle={subtitle} className={cx(styles.querySection, className)} hasGap={hasGap}>
+    <AccountSection
+      title={title}
+      subtitle={subtitle}
+      className={cx(styles.querySection, className)}
+      hasGap={hasGap}
+      actionPane={actionPane}
+    >
       {loading && (
         <div className={styles.messageContainer}>
           <Text element="p" type={TextStyles.body} color={ColorStyles.primary}>
@@ -50,7 +62,7 @@ const QuerySection: React.FC<IQuerySectionProps> = ({
           </Text>
         </div>
       )}
-      {!loading && !error && values && <Component values={values} />}
+      {!loading && !error && values && <Component values={values} editMode={editMode} onCancelEdit={onCancelEdit} />}
       {!loading && !error && values === null && ErrorComponent && <ErrorComponent />}
     </AccountSection>
   );

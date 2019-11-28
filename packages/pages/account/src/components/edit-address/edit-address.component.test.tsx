@@ -97,6 +97,15 @@ describe('EditAddress component', () => {
           },
         },
       },
+      contactPreferences: {
+        __typename: 'ContactPreferences',
+        contactId: 1,
+        email: true,
+        sms: true,
+        post: false,
+        phone: false,
+        carrierpigeon: true,
+      },
     },
   };
   const mutationResponse = {

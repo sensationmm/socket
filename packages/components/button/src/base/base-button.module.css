@@ -121,6 +121,7 @@ a.base:focus {
   white-space: nowrap;
   border-radius: var(--spacing-xl);
   flex: 1 1 auto;
+  transition: all linear 0.1s;
 }
 
 .iconLoading {

@@ -392,6 +392,23 @@ const data: EON.IWebAppTranslations = {
           saveText: 'Save',
         },
       },
+      contactPreferences: {
+        title: 'Preferences',
+        initial: {
+          heading: 'How would you like us to contact you?',
+          text:
+            'We would like to contact you with innovative ideas and solutions to help you save money and use energy more efficiently.',
+          label: 'Choose as many options as you like',
+        },
+        confirm: {
+          heading: "Got it - We'll be in touch!",
+        },
+        saved: {
+          heading: 'Stay in the loop.',
+          text:
+            'We are excited to keep you up to date on efficient energy solution and money saving tips by the following options.',
+        },
+      },
     },
   },
   validation: {
@@ -415,6 +432,7 @@ const data: EON.IWebAppTranslations = {
   actions: {
     save: 'Save',
     cancel: 'Cancel',
+    edit: 'Edit',
     next: 'Next',
     goBack: 'Go back',
   },

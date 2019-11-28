@@ -7,12 +7,14 @@ import { MockedProvider } from '@apollo/react-testing';
 import { GraphQLError } from 'graphql';
 import wait from 'waait';
 import { AccountPage, GET_USER_QUERY } from './account.component';
+import ContactPreferences from './components/contact-preferences/contact-preferences.component';
 import NoDirectDebit from './components/no-direct-debit/no-direct-debit.component';
 import PaymentDetails from './components/payment-details/payment-details.component';
 import PersonalDetails from './components/personal-details/personal-details.component';
 import ProductDetails from './components/product-details/product-details.component';
 
 jest.mock('@somo/pda-components-user-switch/src', () => () => <span />);
+jest.mock('./components/contact-preferences/contact-preferences.component', () => () => <span />);
 
 describe('@somo/pda-pages-account', () => {
   const mockStore = configureMockStore()({
@@ -59,6 +61,15 @@ describe('@somo/pda-pages-account', () => {
       loading: true,
       Component: PaymentDetails,
       ErrorComponent: NoDirectDebit,
+    });
+    expect(
+      component
+        .find('QuerySection')
+        .at(3)
+        .props(),
+    ).toMatchObject({
+      loading: true,
+      Component: ContactPreferences,
     });
   });
 
@@ -163,6 +174,14 @@ describe('@somo/pda-pages-account', () => {
             billingFrequency: { itemValue: 'Monthly', inclVAT: '' },
           },
         },
+      },
+      contactPreferences: {
+        contactId: 1,
+        email: true,
+        sms: true,
+        post: false,
+        phone: false,
+        carrierpigeon: true,
       },
     };
     const mocks = [

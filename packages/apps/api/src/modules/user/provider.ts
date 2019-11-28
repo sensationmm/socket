@@ -32,12 +32,14 @@ export class UserProvider extends BaseProvider {
       const { id, accountId, billDelivery, products, ...rest } = await this.getPersonalDetails(userId);
       const paymentDetails = await this.getPaymentDetails(accountId);
       const productDetails = await this.getProductDetails(accountId, billDelivery, products);
+      const contactPreferences = await this.getContactPreferences(accountId);
 
       return {
         id,
         personalDetails: rest,
         paymentDetails,
         productDetails,
+        contactPreferences,
       };
     } catch (error) {
       throw error;
@@ -58,6 +60,35 @@ export class UserProvider extends BaseProvider {
           },
         },
       };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async updateContactPreferences(userId, contactId, preferences) {
+    try {
+      const params = {
+        marketingPreferences: {
+          marketByEmail: preferences.email === true,
+          marketBySms: preferences.sms === true,
+          marketByNumber1: preferences.phone === true,
+          marketByPost: preferences.post === true,
+          marketBySocialMedia3: preferences.carrierpigeon === true,
+        },
+        methodOfConsent: 'Portal',
+      };
+
+      await this.put(`/junifer/contacts/${contactId}/marketingPreferences`, params);
+
+      const returnVal = {
+        id: userId,
+        contactPreferences: {
+          contactId,
+          ...preferences,
+        },
+      };
+
+      return returnVal;
     } catch (error) {
       throw error;
     }
@@ -122,6 +153,33 @@ export class UserProvider extends BaseProvider {
         accountNumber,
         sortCode,
         monthlyPaymentDate: findPaymentDate(results) || null,
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private async getContactPreferences(accountId) {
+    try {
+      const { results } = await this.get(`/junifer/accounts/${accountId}/contacts`);
+      const { id } = results[0];
+
+      const prefs = await this.get(`/junifer/contacts/${id}/marketingPreferences`);
+
+      const contactId = id;
+      const email = prefs.marketByEmail ? prefs.marketByEmail.consentGiven : false;
+      const sms = prefs.marketBySms ? prefs.marketBySms.consentGiven : false;
+      const phone = prefs.marketByNumber1 ? prefs.marketByNumber1.consentGiven : false;
+      const post = prefs.marketByPost ? prefs.marketByPost.consentGiven : false;
+      const carrierpigeon = prefs.marketBySocialMedia3 ? prefs.marketBySocialMedia3.consentGiven : false;
+
+      return {
+        contactId,
+        email,
+        phone,
+        sms,
+        post,
+        carrierpigeon,
       };
     } catch (error) {
       throw error;

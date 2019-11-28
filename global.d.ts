@@ -58,12 +58,23 @@ declare namespace EON {
     };
   }
 
+  interface IContactPreferences {
+    __typename?: string;
+    contactId?: string;
+    email?: boolean;
+    phone?: boolean;
+    sms?: boolean;
+    post?: boolean;
+    carrierpigeon?: boolean;
+  }
+
   interface IUserData {
     __typename?: string;
     id: string;
     personalDetails?: IPersonalDetails;
     paymentDetails?: IPaymentDetails;
     productDetails?: IProductDetails;
+    contactPreferences?: IContactPreferences;
   }
 
   interface IUserResponse {
@@ -150,6 +161,22 @@ declare namespace EON {
         text: string;
         link: string;
       };
+    };
+  }
+
+  interface IAccountContactPreferences {
+    title: string;
+    initial: {
+      heading: string;
+      text: string;
+      label: string;
+    };
+    confirm: {
+      heading: string;
+    };
+    saved: {
+      heading: string;
+      text: string;
     };
   }
 
@@ -317,6 +344,7 @@ declare namespace EON {
         product: IAccountProducts;
         goal: IAccountGoal;
         editAddress: IAccountEditAddress;
+        contactPreferences: IAccountContactPreferences;
       };
     };
     validation: {

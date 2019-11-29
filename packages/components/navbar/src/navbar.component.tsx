@@ -46,6 +46,7 @@ const Navbar: React.FC<INavbarProps> = ({ menu }) => {
 
       <div
         role="button"
+        aria-label="Open Menu"
         className={cx(styles.mobileMenuTriggerBtn, {
           [styles.mobileMenuTriggerBtnOpen]: isMenuOpen,
         })}

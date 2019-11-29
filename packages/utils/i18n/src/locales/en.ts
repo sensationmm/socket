@@ -419,6 +419,9 @@ const data: EON.IWebAppTranslations = {
           cancelText: 'Go back',
         },
       },
+      editPhone: {
+        title: 'Edit Phone Number',
+      },
       contactPreferences: {
         title: 'Preferences',
         initial: {

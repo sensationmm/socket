@@ -74,7 +74,17 @@ const PersonalDetails: React.FC<IPersonalDetailsProps> = ({ values, onEdit }) =>
           component={Field}
           content={[
             { label: t('site.account.personal.emailLabel'), value: values.email },
-            { label: t('site.account.personal.phoneLabel'), value: values.phone },
+            {
+              label: t('site.account.personal.phoneLabel'),
+              value: values.phone,
+              editable: true,
+              editText: t('actions.edit'),
+              onEdit: () => {
+                if (onEdit) {
+                  onEdit('phone', { phone: values.phone });
+                }
+              },
+            },
             { label: t('site.account.personal.passwordLabel'), value: '*******' },
             {
               label: t('site.account.personal.correspondenceAddressLabel'),

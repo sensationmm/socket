@@ -365,6 +365,9 @@ declare namespace EON {
         product: IAccountProducts;
         goal: IAccountGoal;
         editAddress: IAccountEditAddress;
+        editPhone: {
+          title: string;
+        }
         contactPreferences: IAccountContactPreferences;
       };
     };

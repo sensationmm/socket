@@ -9,6 +9,7 @@ export default {
       injector.get(UserProvider).updateCorrespondenceAddress(id, address),
     updateContactPreferences: (_root, { userId, contactId, preferences }, { injector }) =>
       injector.get(UserProvider).updateContactPreferences(userId, contactId, preferences),
+    updatePhone: (_root, { id, phone }, { injector }) => injector.get(UserProvider).updatePhone(id, phone),
   },
   User: {
     id: (user) => user.id,

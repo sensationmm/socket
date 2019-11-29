@@ -6,6 +6,11 @@ import EditAddress, {
   pageTitle as EditAddressPageTitle,
 } from './edit-address/edit-address.component';
 
+import EditPhoneNumber, {
+  IFormValues as IEditPhoneFormValues,
+  pageTitle as EditPhonePageTitle,
+} from './edit-phone-number/edit-phone-number.component';
+
 enum FormType {
   address = 'address',
   phone = 'phone',
@@ -19,12 +24,16 @@ interface IFormProps {
 
 const PageTitles = {
   [FormType.address]: EditAddressPageTitle,
+  [FormType.phone]: EditPhonePageTitle,
 };
 
 const EditForm: React.FC<IFormProps> = ({ formType = FormType.address, formValues, onClose }) => (
-  <EditTray title={PageTitles[FormType.address]} onClose={onClose}>
+  <EditTray title={PageTitles[formType]} onClose={onClose}>
     {formType === FormType.address && (
       <EditAddress initialValues={formValues as IEditAddressFormValues} onClose={onClose} />
+    )}
+    {formType === FormType.phone && (
+      <EditPhoneNumber initialValues={formValues as IEditPhoneFormValues} onClose={onClose} />
     )}
   </EditTray>
 );

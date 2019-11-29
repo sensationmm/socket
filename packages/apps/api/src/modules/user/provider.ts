@@ -46,6 +46,24 @@ export class UserProvider extends BaseProvider {
     }
   }
 
+  public async updatePhone(userId: number, phone: string) {
+    try {
+      const { results } = await this.get(`/junifer/customers/${userId}/accounts`);
+      const account = results[0];
+
+      await this.put(`/junifer/accounts/${account.id}/primaryContact`, { phoneNumber1: phone });
+
+      return {
+        id: userId,
+        personalDetails: {
+          phone,
+        },
+      };
+    } catch (error) {
+      throw error;
+    }
+  }
+
   public async updateCorrespondenceAddress(userId, address) {
     try {
       // DataSource issue - the request body needs to be destructured

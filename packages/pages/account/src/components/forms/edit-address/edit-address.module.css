@@ -6,12 +6,13 @@
 
 .fieldsWrapper {
   flex-grow: 1;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .ctaWrapper {
   padding-top: var(--spacing-xl);
   display: flex;
+  justify-content: center;
 }
 
 .ctaWrapper button:first-of-type {

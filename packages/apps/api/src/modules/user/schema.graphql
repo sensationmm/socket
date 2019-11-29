@@ -73,6 +73,7 @@ type User {
 type Mutation {
   updateCorrespondenceAddress(id: ID!, address: AddressInput!): User
   updateContactPreferences(userId: ID!, contactId: ID!, preferences: ContactPreferencesInput!): User
+  updatePhone(id: ID!, phone: String!): User
 }
 
 input AddressInput {

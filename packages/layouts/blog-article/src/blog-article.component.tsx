@@ -51,9 +51,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, children }
       <main>
         <Emoji size={24}>{children}</Emoji>
       </main>
-      <PageSection style={PageSectionStyle.QuaternaryPattern}>
-        <Footer menu={FooterNavigation} />
-      </PageSection>
+      <Footer menu={FooterNavigation} />
     </AppTemplate>
   );
 };

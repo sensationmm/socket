@@ -1,0 +1,28 @@
+.nav ul {
+  @media (--s) {
+    display: flex;
+  }
+
+  @media (--m) {
+    justify-content: flex-end;
+  }
+}
+
+.nav ul li {
+  @media (--s) {
+    margin-right: var(--spacing-xl);
+  }
+}
+
+.nav ul li:last-child {
+  margin-right: 0;
+}
+
+.nav a {
+  display: block;
+  text-decoration: underline;
+}
+
+.nav a:hover {
+  text-decoration: none;
+}

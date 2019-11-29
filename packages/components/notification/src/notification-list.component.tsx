@@ -15,7 +15,7 @@ export interface INotificationListProps {
 const NotificationList = ({ notifications, clearNotification }: INotificationListProps) => {
   const [t] = useTranslation();
 
-  return (
+  return notifications.length > 0 ? (
     <div className={styles.wrapper}>
       <TransitionGroup component={null}>
         {notifications.map(({ id, title, message }) => (
@@ -31,7 +31,7 @@ const NotificationList = ({ notifications, clearNotification }: INotificationLis
         ))}
       </TransitionGroup>
     </div>
-  );
+  ) : null;
 };
 
 export default NotificationList;

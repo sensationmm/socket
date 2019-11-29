@@ -23,19 +23,11 @@ export const HeaderNavigation = [
 
 export const FooterNavigation = [
   {
-    label: 'Cookies',
-    link: '/cookies',
-  },
-  {
-    label: 'Privacy Policy',
+    label: 'Cookies & Privacy Policy',
     link: '/privacy-policy',
   },
   {
-    label: 'Modern Slavery Agreement',
-    link: '/modern-slavery-agreement',
-  },
-  {
-    label: 'Emergencies',
-    link: '/emergencies',
+    label: 'Modern Slavery Statement',
+    link: '/modern-slavery-statement',
   },
 ];

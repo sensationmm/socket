@@ -9,6 +9,7 @@ const colors = {
     tertiary: '#f6eb61',
     quaternary: '#005754',
     quinary: '#004340',
+    senary: '#025b58',
   },
   grey: {
     lighter: '#f9f9f9',

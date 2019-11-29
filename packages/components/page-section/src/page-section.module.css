@@ -72,6 +72,14 @@ check app template component */
   background-size: 100%, 100%, 250px, 100%;
 }
 
+.quinary {
+  background: var(--color-brand-secondary);
+}
+
+.senary {
+  background: var(--color-brand-senary);
+}
+
 .image::before {
   content: '';
   width: 100%;

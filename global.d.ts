@@ -220,7 +220,10 @@ declare namespace EON {
       footer: {
         title: string;
         subTitle: string;
-        copyright: string;
+        copyright: {
+          firstLine: string;
+          secondLine: string;
+        };
       };
       notification: {
         cta: string;

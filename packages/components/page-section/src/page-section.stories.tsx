@@ -13,6 +13,8 @@ const PageSectionTypes = {
   TertiaryPattern: PageSectionStyle.TertiaryPattern,
   Quaternary: PageSectionStyle.Quaternary,
   QuaternaryPattern: PageSectionStyle.QuaternaryPattern,
+  Quinary: PageSectionStyle.Quinary,
+  Senary: PageSectionStyle.Senary,
   Image: PageSectionStyle.Image,
 };
 

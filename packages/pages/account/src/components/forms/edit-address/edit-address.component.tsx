@@ -77,8 +77,8 @@ const getFieldsConfig = (values, labels) => [
 const setInitialValues = (initialValues) => ({
   [FIELDS.addressLine1]: initialValues.address1 || '',
   [FIELDS.addressLine2]: initialValues.address2 || '',
-  [FIELDS.city]: initialValues.city || '',
-  [FIELDS.county]: initialValues.county || '',
+  [FIELDS.city]: initialValues.address4 || '',
+  [FIELDS.county]: initialValues.address5 || '',
   [FIELDS.postcode]: initialValues.postcode || '',
 });
 

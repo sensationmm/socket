@@ -17,10 +17,12 @@
     "lint:fix": "yarn lint:css --fix && yarn lint:ts --fix && yarn prettier:fix",
     "prettier:fix": "prettier \"./packages/**/*\" --check --write",
     "test": "jest ./packages",
+    "test:a11y": "echo \"No accessibility tests set up yet!\"",
     "test:ci": "jest ./packages --coverage --ci",
     "test:clearCache": "jest --clearCache",
+    "test:e2e": "echo \"No e2e tests set up yet!\"",
+    "test:e2e:smoke": "echo \"No e2e smoke tests set up yet!\"",
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
-    "tsc:e2e": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
     "storybook": "(cd packages/apps/storybook && yarn start)",
     "gatsby": "(cd packages/apps/www && yarn develop) & (cd packages/apps/api && yarn develop)"
   },

@@ -121,7 +121,7 @@ const validateMinDate = (value, min) => {
 
 // validates no special characters
 const validateNoSpecial = (input) => {
-  return !/[^a-zA-Z0-9,.-\s]/.test(input);
+  return !/[^\sa-zA-Z0-9,.-]/.test(input);
 };
 validationMessages.validateNoSpecial = i18n.t('validation.validateNoSpecial');
 

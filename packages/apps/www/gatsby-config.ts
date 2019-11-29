@@ -1,25 +1,32 @@
 import { config } from 'dotenv';
 
-const envPath = `.env.${process.env.NODE_ENV}`;
+const activeEnvironment = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || 'production';
 
-config({ path: envPath });
+// tslint:disable-next-line:no-console
+console.info(`Using environment config: '${activeEnvironment}'`);
+
+config({ path: `.env.${activeEnvironment}` });
 
 import postCssPlugins from '@somo/pda-utils-postcss-plugins/src';
 import tokens from '@somo/pda-utils-tokens/src';
 
-const requiredEnv = [
+const requiredEnvironmentVars = [
   'GTM_ID',
   'BRAND_NAME_LONG',
   'BRAND_NAME_SHORT',
   'SITE_URL',
   'API_BASE_URL',
   'AUTHORISATION_HEADER',
-]
-  .filter((v) => !process.env[v])
-  .join(', ');
+];
 
-if (requiredEnv) {
-  throw new Error(`${envPath} is missing env vars for ${requiredEnv}`);
+const getMissingEnvironmentVars = (requiredVars: string[]): string => {
+  return requiredVars.filter((v) => !process.env[v]).join(', ');
+};
+
+const missingEnvironmentVars = getMissingEnvironmentVars(requiredEnvironmentVars);
+
+if (missingEnvironmentVars) {
+  throw new Error(`${activeEnvironment} is missing env vars for ${missingEnvironmentVars}`);
 }
 
 const plugins = [
@@ -153,6 +160,13 @@ const plugins = [
           policy: [{ userAgent: '*', disallow: '/' }],
         },
       },
+    },
+  },
+  {
+    resolve: `gatsby-plugin-archives`,
+    options: {
+      exclude: [/(login|form-example|account)/i],
+      productionOnly: true,
     },
   },
 ];

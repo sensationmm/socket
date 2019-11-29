@@ -1,59 +1,132 @@
-variables:
-  environment: 'Develop'
-
 stages:
-  - lint
-  - unit tests
+  - lint and test
   - build
-  - scan code
+  - security scan
+  - deploy DEV
+  - test DEV
+  - deploy FE-INT
+  - test FE-INT
+  - deploy PRP
+  - test PRP
+  - deploy PRD
+  - test PRD
 
-
-eslint:
-  stage: lint
+a11y tests:
+  stage: lint and test
   tags:
-    - gitlab-aws
+    - DEV
   image:
     name: node:latest
   script:
     - yarn install
-    - yarn lint:css
-    - yarn lint:ts
+    - yarn test:a11y
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: always
 
-unit-tests:
-  stage: unit tests
+lint:
+  stage: lint and test
   tags:
-    - gitlab-aws
+    - DEV
+  image:
+    name: node:latest
+  script:
+    - yarn install
+    - yarn lint
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: always
+
+unit tests:
+  stage: lint and test
+  tags:
+    - DEV
   image:
     name: node:latest
   script:
     - yarn install
     - yarn test
+    - yarn test:a11y
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: always
 
-build:
+build DEV:
   stage: build
   tags:
-    - Paul Test
+    - DEV
   script:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/storybook
     - yarn build
-    - aws s3 sync ./build s3://puredauk-gats-s3-dev-02/build --delete --acl "public-read"
-    - pwd
-    - ls
     - cd ../www
-    - pwd
-    - printenv > ./.env.production
-    - cat ./.env.production
-    - yarn build
-    - ls
-    - pwd
-    - aws s3 sync ./public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
-  only:
-    - develop
+    - yarn build:staging
+  artifacts:
+    paths:
+      - ./packages/apps/www/public
+  environment:
+    name: DEV
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: always
 
-scan code:
-  type: build
+build FE-INT:
+  stage: build
+  tags:
+    - FE-INT
+  script:
+    - yarn install
+    - yarn global add gatsby-cli
+    - cd ./packages/apps/www
+    - yarn build:staging
+  artifacts:
+    paths:
+      - ./packages/apps/www/public
+  environment:
+    name: FE-INT
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+
+build PRP:
+  stage: build
+  tags:
+    - PRP
+  script:
+    - yarn install
+    - yarn global add gatsby-cli
+    - cd ./packages/apps/www
+    - yarn build:production
+  artifacts:
+    paths:
+      - ./packages/apps/www/public
+  environment:
+    name: PRP
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+
+build PRD:
+  stage: build
+  tags:
+    - PRD
+  script:
+    - yarn install
+    - yarn global add gatsby-cli
+    - cd ./packages/apps/www
+    - yarn build:production
+  artifacts:
+    paths:
+      - ./packages/apps/www/public
+  environment:
+    name: PRD
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+
+SONAR:
+  stage: security scan
   tags:
     - gitlab-aws
   image:
@@ -64,7 +137,6 @@ scan code:
       - /root/.sonar/cache
   variables:
     SONAR_URL: https://sonar.eon-cds.de
-  #allow_failure: true
   script:
     - sonar-scanner
       -Dsonar.host.url=$SONAR_URL
@@ -74,5 +146,112 @@ scan code:
       -Dsonar.projectBaseDir=.
       -Dsonar.sources=./
       -Dsonar.login=$SONAR_TOKEN
-  only:
-    - develop
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: on_success
+
+deploy DEV:
+  stage: deploy DEV
+  tags:
+    - DEV
+  script:
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-poc-s3-dev-01 --delete --acl "public-read"
+  dependencies:
+    - build DEV
+  environment:
+    name: DEV
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
+      when: on_success
+
+e2e test DEV:
+  stage: test DEV
+  tags:
+    - DEV
+  script:
+    - yarn test:e2e
+  environment:
+    name: DEV
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+
+deploy FE-INT:
+  stage: deploy FE-INT
+  tags:
+    - FE-INT
+  script:
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-fe-int-01 --delete --acl "public-read"
+  dependencies:
+    - build FE-INT
+  environment:
+    name: FE-INT
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+
+smoke test FE-INT:
+  stage: test FE-INT
+  tags:
+    - FE-INT
+  script:
+    - yarn test:e2e:smoke
+  environment:
+    name: FE-INT
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: on_success
+
+# PRP
+deploy PRP:
+  stage: deploy PRP
+  tags:
+    - PRP
+  script:
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-prp-01 --delete
+  dependencies:
+    - build PRP
+  environment:
+    name: PRP
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: manual
+  allow_failure: false
+
+smoke test PRP:
+  stage: test PRP
+  tags:
+    - PRP
+  script: lint & test
+  environment:
+    name: PRP
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: always
+
+deploy PRD:
+  stage: deploy PRD
+  tags:
+    - PRD
+  script:
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-prd-01 --delete
+  dependencies:
+    - build PRD
+  environment:
+    name: PRD
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: manual
+  allow_failure: false
+
+test PRD:
+  stage: test PRD
+  tags:
+    - PRD
+  script:
+    - yarn test:e2e:smoke
+  environment:
+    name: PRD
+  rules:
+    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
+      when: manual

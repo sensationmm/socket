@@ -16,7 +16,7 @@ describe('@somo/pda-components-edit-tray component', () => {
     wrapper = shallow(<Component {...props} />);
   });
 
-  it('should ', () => {
+  it('should be defined', () => {
     expect(wrapper).toBeDefined();
   });
 });

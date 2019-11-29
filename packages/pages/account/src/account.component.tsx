@@ -169,7 +169,7 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
               <ActionPaneBtn
                 icon={IconTypes.edit}
                 text={t('actions.edit')}
-                onClick={() => setEditContactPrefs(!editContactPrefs)}
+                onClick={() => !editContactPrefs && setEditContactPrefs(!editContactPrefs)}
               />
             }
           />

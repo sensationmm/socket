@@ -44,7 +44,7 @@ describe('SaveCancel', () => {
   });
 
   it('should render disabled', () => {
-    wrapper = shallow(<Component {...props} disabled={true} />);
+    wrapper = shallow(<Component {...props} primaryDisabled={true} secondaryDisabled={true} />);
 
     buttonCancel = wrapper.find(Outline);
     buttonSave = wrapper.find(Primary);

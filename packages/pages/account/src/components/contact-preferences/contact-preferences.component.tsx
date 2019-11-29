@@ -151,9 +151,8 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
             },
           });
         },
-      }).finally(() => {
-        this.setState({ confirm: true }, this.props.onCancelEdit);
       });
+      this.setState({ confirm: true }, this.props.onCancelEdit);
     }
   };
 
@@ -201,7 +200,8 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
             <SaveCancel
               actionPrimary={() => this.saveSelection(config)}
               actionSecondary={this.clearSelection}
-              disabled={reduxValues.preferences && reduxValues.preferences.length === 0}
+              primaryDisabled={reduxValues.preferences && reduxValues.preferences.length === 0}
+              secondaryDisabled={!hasExisting}
             />
           </div>
         ) : (

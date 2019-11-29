@@ -1,12 +1,25 @@
 .prefOptions {
   display: flex;
-  justify-content: center;
-  margin-bottom: var(--spacing-l);
+  flex-wrap: wrap;
+  margin: 0;
+  margin: var(--spacing-m) 0 var(--spacing-m) 0;
+  justify-content: space-between;
+
+  @media (--s) {
+    margin: var(--spacing-xl) 0 var(--spacing-xl) 0;
+    justify-content: center;
+  }
+
+  @media (--m) {
+    margin: var(--spacing-xxl) 0 var(--spacing-xxl) 0;
+    justify-content: center;
+  }
 }
 
 .prefOption {
   text-align: center;
-  margin: 0 var(--spacing-l);
+  margin: var(--spacing-m) var(--spacing-xl);
+  min-width: 100px;
 }
 
 .prefOption svg {

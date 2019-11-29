@@ -11,13 +11,15 @@ export interface ISaveCancelProps {
   actionSecondary?: () => void;
   labelPrimary?: string;
   labelSecondary?: string;
-  disabled?: boolean;
+  primaryDisabled?: boolean;
+  secondaryDisabled?: boolean;
 }
 
 const SaveCancel: React.FC<ISaveCancelProps> = ({
   actionPrimary,
   actionSecondary,
-  disabled = false,
+  primaryDisabled = false,
+  secondaryDisabled = false,
   labelPrimary,
   labelSecondary,
 }) => {
@@ -29,7 +31,7 @@ const SaveCancel: React.FC<ISaveCancelProps> = ({
         <div>
           <ButtonOutline
             size="mini"
-            disabled={disabled}
+            disabled={secondaryDisabled}
             children={labelSecondary || t('actions.cancel')}
             onClick={actionSecondary}
           />
@@ -38,7 +40,7 @@ const SaveCancel: React.FC<ISaveCancelProps> = ({
       <div>
         <ButtonPrimary
           size="mini"
-          disabled={disabled}
+          disabled={primaryDisabled}
           children={labelPrimary || t('actions.save')}
           onClick={actionPrimary}
         />

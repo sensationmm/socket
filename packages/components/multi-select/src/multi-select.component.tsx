@@ -1,7 +1,6 @@
 import cx from 'classnames';
 import * as React from 'react';
 
-import FlexRow from '@somo/pda-components-flex-row/src';
 import SVG from '@somo/pda-components-svg/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import { inArray } from '@somo/pda-utils-functions/src';
@@ -51,18 +50,20 @@ const MultiSelect: React.FC<IMultiSelectProps> = ({
   return (
     <div data-test="component-multi-select">
       {label && (
-        <Text
-          data-test="select-label"
-          htmlFor={id}
-          element="label"
-          type={TextStyles.label}
-          color={!readOnly ? null : ColorStyles.quinary}
-        >
-          {label}
-        </Text>
+        <div className={styles.optionsLabel}>
+          <Text
+            data-test="select-label"
+            htmlFor={id}
+            element="label"
+            type={TextStyles.label}
+            color={!readOnly ? null : ColorStyles.quinary}
+          >
+            {label}
+          </Text>
+        </div>
       )}
 
-      <FlexRow>
+      <div className={styles.optionsWrapper}>
         {items.map((option, index) => (
           <div
             data-test="multi-select-option"
@@ -88,7 +89,7 @@ const MultiSelect: React.FC<IMultiSelectProps> = ({
             </div>
           </div>
         ))}
-      </FlexRow>
+      </div>
 
       {(error || note) && (
         <div className={styles.textInputNote} data-test={error ? 'text-input-error' : 'text-input-note'}>

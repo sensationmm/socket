@@ -1,3 +1,15 @@
+.optionsWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: -20px -20px;
+}
+
+.optionsLabel {
+  margin-bottom: var(--spacing-xl);
+}
+
 .option {
   border-radius: 10px;
   background-color: var(--color-basic-white);
@@ -10,6 +22,8 @@
   padding: var(--spacing-s);
   cursor: pointer;
   transition: all linear 0.1s;
+  min-width: 140px;
+  margin: var(--spacing-l) var(--spacing-l);
 }
 
 .option.selected {

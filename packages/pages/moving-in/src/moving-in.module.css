@@ -28,6 +28,12 @@
   }
 }
 
+.ohFriendsContent > div:first-child {
+  @media (--m) {
+    flex-basis: 85%;
+  }
+}
+
 .ohFriendsContent h2 {
   margin: var(--spacing-m) 0 var(--spacing-xl) 0;
 }
@@ -36,7 +42,6 @@
   margin: var(--spacing-m) auto;
 
   @media (--m) {
-    flex-basis: 40%;
     margin-left: var(--spacing-l);
   }
 }

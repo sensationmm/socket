@@ -1,18 +1,18 @@
 .prefOptions {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   margin: 0;
   margin: var(--spacing-m) 0 var(--spacing-m) 0;
-  justify-content: space-between;
+  grid-template-columns: 1fr 1fr;
 
   @media (--s) {
     margin: var(--spacing-xl) 0 var(--spacing-xl) 0;
-    justify-content: center;
+    display: flex;
+    justify-content: flex-start;
   }
 
   @media (--m) {
     margin: var(--spacing-xxl) 0 var(--spacing-xxl) 0;
-    justify-content: center;
   }
 }
 

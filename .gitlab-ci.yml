@@ -61,6 +61,8 @@ build DEV:
     - cd ./packages/apps/storybook
     - yarn build
     - cd ../www
+    - printenv > ./.env.staging
+    - cat ./.env.staging
     - yarn build:staging
   artifacts:
     paths:

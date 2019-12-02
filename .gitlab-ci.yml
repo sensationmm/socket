@@ -20,9 +20,9 @@ a11y tests:
   script:
     - yarn install
     - yarn test:a11y
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
-      when: always
+  only:
+    - merge_requests
+    - develop
 
 lint:
   stage: lint and test
@@ -33,9 +33,9 @@ lint:
   script:
     - yarn install
     - yarn lint
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
-      when: always
+  only:
+    - merge_requests
+    - develop
 
 unit tests:
   stage: lint and test
@@ -47,9 +47,9 @@ unit tests:
     - yarn install
     - yarn test
     - yarn test:a11y
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
-      when: always
+  only:
+    - merge_requests
+    - develop
 
 build DEV:
   stage: build
@@ -68,9 +68,9 @@ build DEV:
       - ./packages/apps/www/public
   environment:
     name: DEV
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
-      when: always
+  only:
+    - merge_requests
+    - develop
 
 build FE-INT:
   stage: build
@@ -86,9 +86,8 @@ build FE-INT:
       - ./packages/apps/www/public
   environment:
     name: FE-INT
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: on_success
+  only:
+    - master
 
 build PRP:
   stage: build
@@ -104,9 +103,8 @@ build PRP:
       - ./packages/apps/www/public
   environment:
     name: PRP
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: on_success
+  only:
+    - master
 
 build PRD:
   stage: build
@@ -122,9 +120,8 @@ build PRD:
       - ./packages/apps/www/public
   environment:
     name: PRD
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: on_success
+  only:
+    - master
 
 SONAR:
   stage: security scan
@@ -147,9 +144,9 @@ SONAR:
       -Dsonar.projectBaseDir=.
       -Dsonar.sources=./
       -Dsonar.login=$SONAR_TOKEN
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
-      when: on_success
+  only:
+    - merge_requests
+    - develop
 
 deploy Gatsby DEV:
   stage: deploy DEV

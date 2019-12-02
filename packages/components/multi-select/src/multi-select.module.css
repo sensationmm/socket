@@ -6,6 +6,10 @@
   margin: -20px -20px;
   grid-template-columns: 1fr 1fr;
 
+  @media (--xs) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   @media (--s) {
     display: flex;
     justify-content: flex-start;
@@ -29,8 +33,13 @@
   padding: var(--spacing-s);
   cursor: pointer;
   transition: all linear 0.1s;
-  min-width: 130px;
-  margin: var(--spacing-l) var(--spacing-l);
+  width: 100px;
+  margin: var(--spacing-s) 0;
+
+  @media (--s) {
+    min-width: 130px;
+    margin: var(--spacing-l) var(--spacing-l);
+  }
 }
 
 .option.selected {

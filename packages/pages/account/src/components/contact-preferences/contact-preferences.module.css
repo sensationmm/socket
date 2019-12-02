@@ -5,6 +5,10 @@
   margin: var(--spacing-m) 0 var(--spacing-m) 0;
   grid-template-columns: 1fr 1fr;
 
+  @media (--xs) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   @media (--s) {
     margin: var(--spacing-xl) 0 var(--spacing-xl) 0;
     display: flex;
@@ -18,8 +22,12 @@
 
 .prefOption {
   text-align: center;
-  margin: var(--spacing-m) var(--spacing-xl);
   min-width: 100px;
+  margin: var(--spacing-m) var(--spacing-m);
+
+  @media (--s) {
+    margin: var(--spacing-m) var(--spacing-xl);
+  }
 }
 
 .prefOption svg {

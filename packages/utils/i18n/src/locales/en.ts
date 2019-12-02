@@ -30,7 +30,7 @@ const data: EON.IWebAppTranslations = {
         'We use cookies to give you the best possible online experience, ensuring our websites are reliable and secure. By agreeing, you allow the use of cookies for marketing purposes. You can read more about',
       link: {
         text: 'how we use cookies and how you can control them',
-        address: 'http://google.com/',
+        address: 'https://www.eonenergy.com/privacy.html',
       },
       cta: {
         agree: 'I agree',
@@ -55,9 +55,6 @@ const data: EON.IWebAppTranslations = {
     homepage: {
       hero: {
         title: 'Take control. Own your energy.',
-        subTitle:
-          "See real usage, accurate billing at a click and a scroll - in the palm of your hand. It's how energy should work.",
-        cta: 'Join the waiting list',
       },
       mainFeatures: {
         content: [
@@ -161,7 +158,7 @@ const data: EON.IWebAppTranslations = {
             },
             {
               icon: '🌎',
-              header: 'Put You Front & Centre',
+              header: 'Source Sustainable Stuff',
               body:
                 "We've only got one planet, let's do Dave Attenborough proud! We're as sustainable as possible, and you can help us get better.",
             },
@@ -188,7 +185,7 @@ const data: EON.IWebAppTranslations = {
           'The same old spiel, the cheap deal to get you in and the price hike when you’re in no mood to move.',
           'Here’s the antidote.',
           "Welcome to Socket. We're about to make all the boring stuff about energy a tiny bit less, well, dull.",
-          'We’re a bunch of renegades who were super sick of nightmare call centres, weird bills that are hard to decipher, even weirder payment terms and no real people you can turn to.',
+          'We were super sick of nightmare call centres, weird bills that are hard to decipher, even weirder payment terms and no real people you can turn to.',
           'What other stuff do you buy where you don’t know how much you’ll pay? Why should energy be different?',
           'The big wigs at E.ON (yes, that MAHOOSIVE energy company) heard us banging on about everything we thought was wrong with energy – and put their money where our mouth is (crikey, serious business now…). So, we set to work building an energy company for the future, and that’s how Socket was born.',
           'Sound good? Of course it does.\nIt’s how energy should work.',
@@ -214,23 +211,21 @@ const data: EON.IWebAppTranslations = {
             text: "It's how the world should work, and it means the culture at Socket is all about lovely people!",
           },
         ],
-        cta: 'Join us',
+        cta: 'Want to know more?',
       },
       realPeople: {
         title: "Wow, we're real actual people not stock images!",
         content: [
           {
-            text:
-              'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
+            text: '',
             image: 'office',
           },
           {
-            text:
-              'Our boffins getting their heads together to plan how we build your next idea - keep your eyes peeled for updates',
+            text: '',
             image: 'reading',
           },
         ],
-        cta: 'Follow us',
+        cta: 'Read our blog',
       },
     },
     energy: {

@@ -1,6 +1,6 @@
 const { getPackages } = require('@commitlint/config-lerna-scopes').utils;
 
-const customScopes = ['repo', 'deps', 'storybook', 'jest', 'netlify', 'terraform', 'codepipeline', 'workflow'];
+const customScopes = ['repo', 'deps', 'storybook', 'jest', 'netlify', 'terraform', 'pipeline', 'workflow'];
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],

@@ -18,3 +18,4 @@ export { default as Profile } from './assets/profile.svg';
 export { default as Sms } from './assets/sms.svg';
 export { default as Tick } from './assets/tick.svg';
 export { default as Twitter } from './assets/twitter.svg';
+export { default as YouTube } from './assets/youtube.svg';

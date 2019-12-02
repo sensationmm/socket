@@ -5,7 +5,7 @@ import SmartTariffPage from '@somo/pda-pages-smart-tariff/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'smart tariff',
   description: 'smart tariff page description',
   siteLanguage: 'en_GB',
@@ -28,7 +28,7 @@ const SmartTariff: React.FC = () => {
 
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <SmartTariffPage imagery={imagery} />
     </>
   );

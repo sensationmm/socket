@@ -2,13 +2,11 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Secondary } from '@somo/pda-components-button/src';
-import { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import Image from '@somo/pda-components-image/src';
 import List from '@somo/pda-components-list/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
-import StepCard from '@somo/pda-components-step-card/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
@@ -36,7 +34,6 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
   const [t] = useTranslation();
 
   const mainFeatures = t('site.homepage.mainFeatures.content', { returnObjects: true }) as IMainFeatures[];
-
   const thingsWeDoDo = t('site.homepage.companyFeatures.thingsWeDoDo.content', {
     returnObjects: true,
   }) as IMainFeatures[];
@@ -87,32 +84,6 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
         </FlexRow>
       </PageSection>
 
-      <PageSection style={PageSectionStyle.Secondary}>
-        <div className={styles.switchingStepsHeader}>
-          <Text element="h2" type={TextStyles.h2}>
-            {t('site.homepage.switchingSteps.header')}
-          </Text>
-        </div>
-        <FlexRow className={styles.switchingStepsSection}>
-          <StepCard
-            header={t('site.homepage.switchingSteps.content.step1.header')}
-            body={t('site.homepage.switchingSteps.content.step1.body')}
-            style={ContentBoxStyle.SecondaryPattern}
-          />
-          <StepCard
-            header={t('site.homepage.switchingSteps.content.step2.header')}
-            body={t('site.homepage.switchingSteps.content.step2.body')}
-            style={ContentBoxStyle.SecondaryPattern}
-          />
-          <StepCard
-            cta={t('site.homepage.switchingSteps.content.step3.cta')}
-            style={ContentBoxStyle.TertiaryPattern}
-            isVerticallyCentered={true}
-            isHorizontallyCentered={true}
-          />
-        </FlexRow>
-      </PageSection>
-
       <PageSection>
         <FlexRow>
           <div>
@@ -150,27 +121,6 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
           </div>
         </FlexRow>
       </PageSection>
-
-      {/* <PageSection style={PageSectionStyle.Secondary}>
-        <FlexRow className={styles.narrowSection}>
-          <div>
-            <Text element="h2" type={TextStyles.h2}>
-              {goodBunch.title}
-            </Text>
-            <ul>
-              <li>Set goals for how much you spend</li>
-              <li>Regular tips from our boffins to help you save</li>
-              <li>Easily check and compare your history</li>
-              <li>See forecasts based on what you use</li>
-            </ul>
-            <Text element="p" type={TextStyles.segmentCopy} color={ColorStyles.tertiary}>
-              {goodBunch.body}
-            </Text>
-            <Secondary>{goodBunch.cta}</Secondary>
-          </div>
-          <div></div>
-        </FlexRow>
-      </PageSection> */}
     </RegularLayout>
   );
 };

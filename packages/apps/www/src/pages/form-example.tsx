@@ -6,7 +6,7 @@ import { IFormState } from '@somo/pda-redux-form/src/reducers';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'Form Example',
   description: 'Example form implementation',
   siteLanguage: 'en_GB',
@@ -19,7 +19,7 @@ interface IFormProps {
 const Form: React.FC<IFormProps> = ({ form }) => {
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <FormExample form={form} />
     </>
   );

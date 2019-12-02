@@ -5,7 +5,7 @@ import AboutPage from '@somo/pda-pages-about/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'about',
   description: 'about page description',
   siteLanguage: 'en_GB',
@@ -28,7 +28,7 @@ const About: React.FC = () => {
 
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <AboutPage imagery={imagery} />
     </>
   );

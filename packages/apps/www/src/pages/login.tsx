@@ -4,7 +4,7 @@ import LoginPage from '@somo/pda-pages-login/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'Login',
   description: 'homepage description',
   siteLanguage: 'en_GB',
@@ -13,7 +13,7 @@ const SEOprops = {
 const Login: React.FC = () => {
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <LoginPage />
     </>
   );

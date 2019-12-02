@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Round as RoundButton } from '@somo/pda-components-button/src';
 import FooterMenu, { IMenuProps } from '@somo/pda-components-footer-menu/src';
-import { Facebook, Instagram, Twitter } from '@somo/pda-components-icons/src';
+import { Facebook, Instagram, LinkedIn, Twitter, YouTube } from '@somo/pda-components-icons/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
 import SVG from '@somo/pda-components-svg/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
@@ -27,15 +27,31 @@ const Footer: React.FC<IFooterProps> = ({ menu }) => {
           {t('site.footer.subTitle')}
         </Text>
         <div className={styles.social}>
-          <RoundButton aria-label="Socket on Facebook">
-            <SVG children={Facebook} size={'20px'} className={styles.socialIcon} />
-          </RoundButton>
-          <RoundButton aria-label="Socket on Twitter">
-            <SVG children={Twitter} size={'20px'} className={styles.socialIcon} />
-          </RoundButton>
-          <RoundButton aria-label="Socket on Instagram">
-            <SVG children={Instagram} size={'20px'} className={styles.socialIcon} />
-          </RoundButton>
+          <a href="https://www.facebook.com/socketenergy1" target="_blank">
+            <RoundButton aria-label="Socket on Facebook">
+              <SVG children={Facebook} size={'20px'} className={styles.socialIcon} />
+            </RoundButton>
+          </a>
+          <a href="https://twitter.com/SocketEnergy" target="_blank">
+            <RoundButton aria-label="Socket on Twitter">
+              <SVG children={Twitter} size={'20px'} className={styles.socialIcon} />
+            </RoundButton>
+          </a>
+          <a href="https://www.instagram.com/socketgram" target="_blank">
+            <RoundButton aria-label="Socket on Instagram">
+              <SVG children={Instagram} size={'20px'} className={styles.socialIcon} />
+            </RoundButton>
+          </a>
+          <a href="https://www.linkedin.com/company/20151244" target="_blank">
+            <RoundButton aria-label="Socket on LinkedIn">
+              <SVG children={LinkedIn} size={'20px'} className={styles.socialIcon} />
+            </RoundButton>
+          </a>
+          <a href="https://youtube.com/channel/UCbquUpV7VZdFhwRTHlLQkqQ" target="_blank">
+            <RoundButton aria-label="Socket on YouTube">
+              <SVG children={YouTube} size={'20px'} className={styles.socialIcon} />
+            </RoundButton>
+          </a>
         </div>
       </PageSection>
       <PageSection style={PageSectionStyle.Senary}>

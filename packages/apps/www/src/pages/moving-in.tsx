@@ -5,7 +5,7 @@ import MovingInPage from '@somo/pda-pages-moving-in/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'moving in',
   description: 'moving in description',
   siteLanguage: 'en_GB',
@@ -28,7 +28,7 @@ const MovingIn: React.FC = () => {
 
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <MovingInPage imagery={imagery} />
     </>
   );

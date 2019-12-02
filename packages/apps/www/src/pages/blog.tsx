@@ -5,7 +5,7 @@ import BlogPage from '@somo/pda-pages-blog/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'blog',
   description: 'blog description',
   siteLanguage: 'en_GB',
@@ -58,7 +58,7 @@ const Blog: React.FC = () => {
 
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <BlogPage posts={posts} />
     </>
   );

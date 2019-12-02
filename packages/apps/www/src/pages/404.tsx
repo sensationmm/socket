@@ -4,7 +4,7 @@ import Page from '@somo/pda-pages-404/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: '404',
   description: '404 error',
   siteLanguage: 'en_GB',
@@ -14,7 +14,7 @@ const SEOprops = {
 const ErrorPage: React.FC = () => {
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <Page />
     </>
   );

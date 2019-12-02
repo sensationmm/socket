@@ -27,6 +27,7 @@ const CookieNotice: React.FC<ICookieNoticeProps> = ({ title, text, link, cta }) 
 
   React.useEffect(() => {
     const allowCookies = get(CookiesKeys.allowCookies);
+
     if (typeof allowCookies === 'undefined') {
       timeout = setTimeout(() => {
         setVisibility(true);

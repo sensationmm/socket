@@ -4,7 +4,7 @@ import AccountPage from '@somo/pda-pages-account/src';
 
 import SEO from '../components/seo.component';
 
-const SEOprops = {
+const SEOProps = {
   title: 'my account',
   description: 'account page description',
   siteLanguage: 'en_GB',
@@ -13,7 +13,7 @@ const SEOprops = {
 const Account: React.FC = () => {
   return (
     <>
-      <SEO {...SEOprops} />
+      <SEO {...SEOProps} />
       <AccountPage />
     </>
   );

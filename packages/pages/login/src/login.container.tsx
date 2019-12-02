@@ -1,6 +1,7 @@
-import { actions as authActions } from '@somo/pda-redux-auth/src';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+
+import { actions as authActions } from '@somo/pda-redux-auth/src';
 
 import LoginPage from './login.component';
 

@@ -64,6 +64,7 @@ build DEV:
     - yarn build:staging
   artifacts:
     paths:
+      - ./packages/apps/storybook/build
       - ./packages/apps/www/public
   environment:
     name: DEV
@@ -150,21 +151,33 @@ SONAR:
     - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
       when: on_success
 
-deploy DEV:
+deploy Gatsby DEV:
   stage: deploy DEV
   tags:
     - DEV
   script:
-    - aws s3 sync ./packages/apps/www/public s3://puredauk-poc-s3-dev-01 --delete --acl "public-read"
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-dev-01 --delete --acl "public-read"
   dependencies:
     - build DEV
   environment:
     name: DEV
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master" || $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "develop"'
-      when: on_success
+  only:
+    - develop
 
-e2e test DEV:
+deploy Storybook DEV:
+  stage: deploy DEV
+  tags:
+    - DEV
+  script:
+    - aws s3 sync ./packages/apps/storybook/build s3://puredauk-gats-s3-dev-02/build --delete --acl "public-read"
+  dependencies:
+    - build DEV
+  environment:
+    name: DEV
+  only:
+    - develop
+
+e2e test Gatsby DEV:
   stage: test DEV
   tags:
     - DEV
@@ -172,11 +185,10 @@ e2e test DEV:
     - yarn test:e2e
   environment:
     name: DEV
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: on_success
+  only:
+    - develop
 
-deploy FE-INT:
+deploy Gatsby FE-INT:
   stage: deploy FE-INT
   tags:
     - FE-INT
@@ -186,11 +198,10 @@ deploy FE-INT:
     - build FE-INT
   environment:
     name: FE-INT
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: on_success
+  only:
+    - master
 
-smoke test FE-INT:
+smoke test Gatsby FE-INT:
   stage: test FE-INT
   tags:
     - FE-INT
@@ -198,12 +209,10 @@ smoke test FE-INT:
     - yarn test:e2e:smoke
   environment:
     name: FE-INT
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: on_success
+  only:
+    - master
 
-# PRP
-deploy PRP:
+deploy Gatsby PRP:
   stage: deploy PRP
   tags:
     - PRP
@@ -213,23 +222,23 @@ deploy PRP:
     - build PRP
   environment:
     name: PRP
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: manual
+  only:
+    - master
+  when: manual
   allow_failure: false
 
-smoke test PRP:
+smoke test Gatsby PRP:
   stage: test PRP
   tags:
     - PRP
   script: lint & test
   environment:
     name: PRP
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: always
+  only:
+    - master
+  when: always
 
-deploy PRD:
+deploy Gatsby PRD:
   stage: deploy PRD
   tags:
     - PRD
@@ -239,12 +248,12 @@ deploy PRD:
     - build PRD
   environment:
     name: PRD
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: manual
+  only:
+    - master
+  when: manual
   allow_failure: false
 
-test PRD:
+smoke test Gatsby PRD:
   stage: test PRD
   tags:
     - PRD
@@ -252,6 +261,6 @@ test PRD:
     - yarn test:e2e:smoke
   environment:
     name: PRD
-  rules:
-    - if: '$CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "master"'
-      when: manual
+  only:
+    - master
+  when: always

@@ -14,6 +14,6 @@ storiesOf('Components|save-cancel', module)
       labelPrimary={text('labelPrimary', '')}
       actionSecondary={action('secondary')}
       labelSecondary={text('labelSecondary', '')}
-      disabled={boolean('disabled', false)}
+      primaryDisabled={boolean('primaryDisabled', false)}
     />
   ));

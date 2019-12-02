@@ -11,7 +11,7 @@ stages:
   - deploy PRD
   - test PRD
 
-a11y tests:
+a11y test:
   stage: lint and test
   tags:
     - DEV
@@ -22,7 +22,6 @@ a11y tests:
     - yarn test:a11y
   only:
     - merge_requests
-    - develop
 
 lint:
   stage: lint and test
@@ -35,9 +34,8 @@ lint:
     - yarn lint
   only:
     - merge_requests
-    - develop
 
-unit tests:
+unit test:
   stage: lint and test
   tags:
     - DEV
@@ -46,10 +44,8 @@ unit tests:
   script:
     - yarn install
     - yarn test
-    - yarn test:a11y
   only:
     - merge_requests
-    - develop
 
 build DEV:
   stage: build
@@ -82,6 +78,8 @@ build FE-INT:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/www
+    - printenv > ./.env.production
+    - cat ./.env.production
     - yarn build:staging
   artifacts:
     paths:
@@ -99,6 +97,8 @@ build PRP:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/www
+    - printenv > ./.env.production
+    - cat ./.env.production
     - yarn build:production
   artifacts:
     paths:
@@ -116,6 +116,8 @@ build PRD:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/www
+    - printenv > ./.env.production
+    - cat ./.env.production
     - yarn build:production
   artifacts:
     paths:
@@ -173,6 +175,18 @@ deploy Storybook DEV:
     - build DEV
   environment:
     name: DEV
+  only:
+    - develop
+
+unit test DEV:
+  stage: test DEV
+  tags:
+    - DEV
+  image:
+    name: node:latest
+  script:
+    - yarn install
+    - yarn test
   only:
     - develop
 

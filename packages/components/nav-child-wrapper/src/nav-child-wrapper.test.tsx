@@ -24,10 +24,26 @@ describe('@somo/pda-components-nav-child-wrapper component', () => {
     const { queryByText, getByText } = renderComponent();
     const firstLevelNav = getByText(defaultProps.label);
 
-    expect(queryByText('Second level')).toBe(null);
+    expect(queryByText('Second Level')).toBe(null);
     fireEvent.click(firstLevelNav);
     await wait(() => {
       getByText('Second Level');
+    });
+  });
+
+  it('should hide container', async () => {
+    const { queryByText, getByText } = renderComponent();
+    const firstLevelNav = getByText(defaultProps.label);
+
+    expect(queryByText('Second Level')).toBe(null);
+    fireEvent.click(firstLevelNav);
+    await wait(() => {
+      getByText('Second Level');
+    });
+
+    fireEvent.click(firstLevelNav);
+    await wait(() => {
+      expect(queryByText('Second Level')).toBe(null);
     });
   });
 });

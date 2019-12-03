@@ -2,6 +2,20 @@ export const HeaderNavigation = [
   {
     label: 'About',
     link: '/about',
+    children: [
+      {
+        label: 'Our Energy',
+        link: '/energy',
+      },
+      {
+        label: 'Our Smart Tariff',
+        link: '/smart-tariff',
+      },
+      {
+        label: 'Our Team',
+        link: '/team',
+      },
+    ],
   },
   {
     label: 'Community',

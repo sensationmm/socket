@@ -3,29 +3,29 @@
   color: var(--color-basic-white);
 }
 
-.nav ul {
+.topLevelNav {
   @media (--s) {
     display: flex;
     justify-content: flex-end;
   }
 }
 
-.nav ul li {
+.topLevelNavItem {
   margin-bottom: var(--spacing-xl);
   font-size: var(--font-size-m);
   line-height: 1.5;
 
   @media (--s) {
+    align-items: center;
     display: flex;
     justify-content: flex-end;
-    margin-left: var(--spacing-xl);
-    margin-bottom: 0;
+    margin: 0 var(--spacing-l);
     padding-left: 0;
     font-size: var(--font-size-xxs);
     line-height: 1;
   }
 }
 
-.nav a {
+.navLink {
   display: block;
 }

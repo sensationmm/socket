@@ -1,0 +1,9 @@
+.childNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.childNavListItem {
+  margin: var(--spacing-s) 0;
+}

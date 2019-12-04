@@ -166,7 +166,7 @@ deploy Gatsby DEV:
   only:
     - develop
     
-deploy Gatsby DEV:
+deploy Graphql DEV:
   stage: deploy DEV
   tags:
     - DEV

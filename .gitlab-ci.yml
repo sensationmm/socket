@@ -244,12 +244,12 @@ smoke test Gatsby PRP:
   stage: test PRP
   tags:
     - PRP
-  script: lint & test
+  script:
+    - yarn test:e2e:smoke
   environment:
     name: PRP
   only:
     - master
-  when: always
 
 deploy Gatsby PRD:
   stage: deploy PRD
@@ -276,4 +276,3 @@ smoke test Gatsby PRD:
     name: PRD
   only:
     - master
-  when: always

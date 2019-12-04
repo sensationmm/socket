@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Secondary } from '@somo/pda-components-button/src';
 import ContentCard from '@somo/pda-components-content-card/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import Image from '@somo/pda-components-image/src';
@@ -69,7 +68,6 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
               listContent={t('site.homepage.understandEnergy.list', { returnObjects: true })}
               textColor={ColorStyles.secondary}
             />
-            <Secondary>{t('site.homepage.understandEnergy.cta')}</Secondary>
           </div>
           <div>
             <Image
@@ -78,9 +76,6 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
               isLazy={true}
             />
           </div>
-        </FlexRow>
-        <FlexRow className={styles.understandEnergyRowMobileOnly}>
-          <Secondary>{t('site.homepage.understandEnergy.cta')}</Secondary>
         </FlexRow>
       </PageSection>
 

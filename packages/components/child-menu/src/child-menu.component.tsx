@@ -4,7 +4,7 @@ import * as styles from './child-menu.module.css';
 
 export interface IMenuItem {
   label: string;
-  link: string;
+  link?: string;
 }
 
 export interface IMenuProps {

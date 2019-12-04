@@ -18,19 +18,9 @@ jest.mock('react-i18next', () => ({
 
 describe('@somo/pda-pages-energy', () => {
   let component;
-  const props = {
-    imagery: [
-      {
-        node: { name: 'office', publicURL: 'https://picsum.photos/id/950/400/300' },
-      },
-      {
-        node: { name: 'reading', publicURL: 'https://picsum.photos/id/951/400/300' },
-      },
-    ],
-  };
 
   beforeEach(() => {
-    component = shallow(<Energy {...props} />);
+    component = shallow(<Energy />);
   });
 
   it('should render the component successfully', () => {

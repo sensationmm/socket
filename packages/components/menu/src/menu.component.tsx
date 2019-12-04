@@ -8,7 +8,7 @@ import * as styles from './menu.module.css';
 export interface IMenuItem {
   children?: IMenuItem[];
   label: string;
-  link: string;
+  link?: string;
 }
 
 export interface IMenuProps {

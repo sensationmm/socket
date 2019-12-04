@@ -2,37 +2,18 @@ import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
-import People from '@somo/pda-components-people/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { splitArrayIntoChunksOfN } from '@somo/pda-utils-arrays/src';
-import { getImagePath } from '@somo/pda-utils-imagery/src';
 
 import * as styles from './energy.module.css';
 
-interface IImageProps {
-  node: {
-    name: string;
-    publicURL: string;
-  };
-}
-
-interface IEnergyPageProps {
-  imagery: IImageProps[];
-}
-
-interface IRealPeople {
-  text: string;
-  image: string;
-}
-
-const EnergyPage: React.FC<IEnergyPageProps> = ({ imagery }) => {
+const EnergyPage: React.FC = () => {
   const [t] = useTranslation();
 
   const renewable = t('site.energy.renewable.content', { returnObjects: true }) as [];
   const energy = t('site.energy.whereEnergyComesFrom.content', { returnObjects: true }) as [];
   const scoop = t('site.energy.scoop.content', { returnObjects: true }) as [];
-  const realPeople = t('site.energy.realPeople.content', { returnObjects: true }) as IRealPeople[];
 
   return (
     <RegularLayout hero={t('site.energy.hero', { returnObjects: true })}>
@@ -86,17 +67,6 @@ const EnergyPage: React.FC<IEnergyPageProps> = ({ imagery }) => {
               </Text>
             ))}
         </div>
-      </PageSection>
-      <PageSection isNarrow={true} style={PageSectionStyle.Secondary}>
-        <People
-          title={t('site.energy.realPeople.title')}
-          list={
-            Array.isArray(realPeople)
-              ? realPeople.map(({ text, image }) => ({ text, image: getImagePath(imagery, image) }))
-              : []
-          }
-          cta={t('site.energy.realPeople.cta')}
-        />
       </PageSection>
     </RegularLayout>
   );

@@ -1,19 +1,14 @@
 export const HeaderNavigation = [
   {
     label: 'About',
-    link: '/about',
     children: [
+      {
+        label: 'About Us',
+        link: '/about',
+      },
       {
         label: 'Our Energy',
         link: '/energy',
-      },
-      {
-        label: 'Our Smart Tariff',
-        link: '/smart-tariff',
-      },
-      {
-        label: 'Our Team',
-        link: '/team',
       },
     ],
   },
@@ -31,5 +26,9 @@ export const FooterNavigation = [
   {
     label: 'Cookies & Privacy Policy',
     link: 'https://www.eonenergy.com/privacy.html',
+  },
+  {
+    label: 'Modern Slavery Statement',
+    link: 'https://www.eonenergy.com/about-us/maintaining-standards/modern-slavery-statement.html',
   },
 ];

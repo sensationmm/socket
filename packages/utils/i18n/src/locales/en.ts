@@ -85,7 +85,6 @@ const data: EON.IWebAppTranslations = {
       understandEnergy: {
         title: 'Do you understand your energy?',
         subTitle: 'We make it easy',
-        cta: 'Join us',
         list: [
           'Set goals for how much you spend',
           'Regular tips from our boffins to help you save',
@@ -236,8 +235,8 @@ const data: EON.IWebAppTranslations = {
     },
     energy: {
       hero: {
-        title: 'Take control. Own your energy.',
-        subTitle: '*Respiration! Lol… but seriously…',
+        title: 'Where do we get our energy*',
+        subTitle: '*Food! Lol… but seriously…',
       },
       renewable: {
         title: 'Keeping it renewable.',
@@ -250,11 +249,10 @@ const data: EON.IWebAppTranslations = {
         content: [
           'Because we’re backed by the big wigs at E.ON we can rely on a super dependable network.',
           'There is a Kardashian sized but to think about, and that is once energy has reached the national grid, it becomes hard to trace the source of that power.',
-          'So, to make sure your energy is renewable, we match the amount of electricity you use with our own renewable generation assets, along with the power we buy directly from independent generators around the UK.',
+          'So, to make sure your energy is renewable, we match the amount of electricity you use with our own renewable generation assets, along with the power we buy directly from generators around the UK.',
           'The rest is backed by renewable electricity certificates known as REGOs, this guarantees electricity is generated from a renewable source. It also rewards renewable power generators and promotes future investment in renewables.',
           'Say what?',
           'Basically, it means the power we supply will be from E.ON’s renewable resources or backed by renewable electricity certificates.',
-          'Good work for getting through that techy bit, here’s a nice picture to break it down.',
         ],
       },
       scoop: {

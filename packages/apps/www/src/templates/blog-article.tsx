@@ -62,16 +62,6 @@ export const query = graphql`
             children {
               type
               value
-              url
-              alt
-              children {
-                type
-                value
-                children {
-                  type
-                  value
-                }
-              }
             }
           }
         }

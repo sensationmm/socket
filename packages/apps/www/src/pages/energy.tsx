@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
 import EnergyPage from '@somo/pda-pages-energy/src';
@@ -12,24 +11,10 @@ const SEOProps = {
 };
 
 const Energy: React.FC = () => {
-  const data: any = useStaticQuery(graphql`
-    query EnergyQuery {
-      allFile(filter: { relativeDirectory: { eq: "energy" } }) {
-        edges {
-          node {
-            name
-            publicURL
-          }
-        }
-      }
-    }
-  `);
-  const imagery = data.allFile.edges;
-
   return (
     <>
       <SEO {...SEOProps} />
-      <EnergyPage imagery={imagery} />
+      <EnergyPage />
     </>
   );
 };

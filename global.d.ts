@@ -271,7 +271,6 @@ declare namespace EON {
         understandEnergy: {
           title: string;
           subTitle: string;
-          cta: string;
           list: string[];
         };
         companyFeatures: {

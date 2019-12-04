@@ -110,9 +110,10 @@ interface IQueryVars {
 }
 
 export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
+  let showEdit = false;
   const [t] = useTranslation();
   const [editContactPrefs, setEditContactPrefs] = React.useState<boolean>(false);
-  const { clearEditForm, handleEditTray, editForm } = useEditTray();
+  const { handleEditTray, editForm, clearEditForm } = useEditTray();
   const { formType, formValues } = editForm;
 
   const { loading, error, data } = useQuery<EON.IUserResponse, IQueryVars>(GET_USER_QUERY, {
@@ -120,6 +121,10 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
   });
 
   const { personalDetails, paymentDetails, productDetails, contactPreferences } = (data || {}).user || {};
+
+  if (typeof document !== 'undefined') {
+    showEdit = true;
+  }
 
   return (
     <AccountLayout>
@@ -176,7 +181,7 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
           <Goal />
         </GutterLayout>
       </PageSection>
-      {formType && <EditForm formType={formType} formValues={formValues} onClose={clearEditForm} />}
+      {showEdit && <EditForm formType={formType} formValues={formValues} onClose={clearEditForm} />}
     </AccountLayout>
   );
 };

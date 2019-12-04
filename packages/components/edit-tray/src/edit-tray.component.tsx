@@ -12,80 +12,59 @@ import tokens from '@somo/pda-utils-tokens/src';
 import * as styles from './edit-tray.module.css';
 
 export interface IEditTrayProps {
-  component?: React.ReactNode;
   title: string;
+  isOpen?: boolean;
   onClose?: () => void;
 }
 
 const TIMEOUT = 250;
 
-class EditTray extends React.Component<IEditTrayProps, { mounted: boolean }> {
-  public state = { mounted: false };
-
-  public componentDidMount(): void {
-    this.setState({ mounted: true });
-  }
-
-  public close = () => {
-    this.setState({ mounted: false });
+const EditTray: React.FC<IEditTrayProps> = ({ children, title, isOpen, onClose }) => {
+  const backdropClassNames = {
+    enter: styles.backdropEnter,
+    enterActive: styles.backdropEnterActive,
+    exit: styles.backdropExit,
+    exitActive: styles.backdropExitActive,
   };
 
-  public render() {
-    const { children, title, onClose } = this.props;
+  const editTrayClassNames = {
+    enter: styles.editTrayEnter,
+    enterActive: styles.editTrayEnterActive,
+    exit: styles.editTrayExit,
+    exitActive: styles.editTrayExitActive,
+  };
 
-    const backdropClassNames = {
-      enter: styles.backdropEnter,
-      enterActive: styles.backdropEnterActive,
-      exit: styles.backdropExit,
-      exitActive: styles.backdropExitActive,
-    };
-
-    const editTrayClassNames = {
-      enter: styles.editTrayEnter,
-      enterActive: styles.editTrayEnterActive,
-      exit: styles.editTrayExit,
-      exitActive: styles.editTrayExitActive,
-    };
-
-    return (
-      <Portal>
-        <CSSTransition
-          appear={true}
-          classNames={backdropClassNames}
-          unmountOnExit={true}
-          timeout={TIMEOUT}
-          in={this.state.mounted}
-          onExited={onClose}
-        >
-          {(state: string) => (
-            <div className={styles.backdrop}>
-              <CSSTransition
-                appear={true}
-                classNames={editTrayClassNames}
-                unmountOnExit={true}
-                timeout={TIMEOUT}
-                in={state === 'entered'}
-              >
-                <div className={styles.editTray}>
-                  <div className={styles.editTrayHeading}>
-                    <Text element="span" type={TextStyles.h2}>
-                      {title}
-                    </Text>
-                    <span onClick={this.close} className={styles.closeButton}>
-                      <Media defaultMatches={true} query={tokens.customMedia.xs}>
-                        {(matches) => <SVG children={Cross} size={matches ? 40 : 30} className={styles.close} />}
-                      </Media>
-                    </span>
-                  </div>
-                  <div className={styles.editTrayContent}>{children}</div>
+  return (
+    <Portal>
+      <CSSTransition appear={true} classNames={backdropClassNames} unmountOnExit={true} timeout={TIMEOUT} in={isOpen}>
+        {(state: string) => (
+          <div className={styles.backdrop}>
+            <CSSTransition
+              appear={true}
+              classNames={editTrayClassNames}
+              unmountOnExit={true}
+              timeout={TIMEOUT}
+              in={state === 'entered'}
+            >
+              <div className={styles.editTray}>
+                <div className={styles.editTrayHeading}>
+                  <Text element="span" type={TextStyles.h2}>
+                    {title}
+                  </Text>
+                  <span onClick={onClose} className={styles.closeButton}>
+                    <Media defaultMatches={true} query={tokens.customMedia.xs}>
+                      {(matches) => <SVG children={Cross} size={matches ? 40 : 30} className={styles.close} />}
+                    </Media>
+                  </span>
                 </div>
-              </CSSTransition>
-            </div>
-          )}
-        </CSSTransition>
-      </Portal>
-    );
-  }
-}
+                <div className={styles.editTrayContent}>{children}</div>
+              </div>
+            </CSSTransition>
+          </div>
+        )}
+      </CSSTransition>
+    </Portal>
+  );
+};
 
 export default EditTray;

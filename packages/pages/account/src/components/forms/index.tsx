@@ -27,8 +27,8 @@ const PageTitles = {
   [FormType.phone]: EditPhonePageTitle,
 };
 
-const EditForm: React.FC<IFormProps> = ({ formType = FormType.address, formValues, onClose }) => (
-  <EditTray title={PageTitles[formType]} onClose={onClose}>
+const EditForm: React.FC<IFormProps> = ({ formType, formValues, onClose }) => (
+  <EditTray isOpen={!!formType} title={PageTitles[formType]} onClose={onClose}>
     {formType === FormType.address && (
       <EditAddress initialValues={formValues as IEditAddressFormValues} onClose={onClose} />
     )}

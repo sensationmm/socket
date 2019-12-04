@@ -64,6 +64,7 @@ build DEV:
     paths:
       - ./packages/apps/storybook/build
       - ./packages/apps/www/public
+      - ./packages/apps/api
   environment:
     name: DEV
   only:
@@ -164,6 +165,21 @@ deploy Gatsby DEV:
     name: DEV
   only:
     - develop
+    
+deploy Gatsby DEV:
+  stage: deploy DEV
+  tags:
+    - DEV
+  script:
+    - aws s3 sync ./packages/apps/api s3://puredauk-poc-s3-dev-01 --delete --acl "public-read"
+  dependencies:
+    - build DEV
+  environment:
+    name: DEV
+  only:
+    - develop    
+    
+
 
 deploy Storybook DEV:
   stage: deploy DEV

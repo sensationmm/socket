@@ -175,9 +175,6 @@ deploy Graphql DEV:
     name: DEV
   only:
     - develop
-    - graphql
-    
-
 
 deploy Storybook DEV:
   stage: deploy DEV

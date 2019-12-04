@@ -244,6 +244,10 @@ declare namespace EON {
         hero: IHeroTranslations;
         body: string;
       };
+      register: {
+        hero: IHeroTranslations;
+        body: string;
+      };
       login: {
         hero: IHeroTranslations;
         form: {
@@ -370,7 +374,7 @@ declare namespace EON {
         editAddress: IAccountEditAddress;
         editPhone: {
           title: string;
-        }
+        };
         contactPreferences: IAccountContactPreferences;
       };
     };

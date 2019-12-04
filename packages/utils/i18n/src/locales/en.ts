@@ -43,6 +43,12 @@ const data: EON.IWebAppTranslations = {
       },
       body: "We haven't built this page yet! Come back soon",
     },
+    register: {
+      hero: {
+        title: 'Register now!',
+      },
+      body: 'Sign up today to join our community',
+    },
     login: {
       hero: {
         title: 'Login page',

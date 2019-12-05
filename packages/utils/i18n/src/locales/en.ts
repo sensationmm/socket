@@ -57,6 +57,10 @@ const data: EON.IWebAppTranslations = {
           note: 'This will be your visible screen name in our community',
         },
       },
+      errors: {
+        usernameExists: 'That email address is already registered',
+        nicknameExists: 'Please choose another nickname',
+      },
     },
     login: {
       hero: {

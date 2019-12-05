@@ -1,0 +1,8 @@
+type Query {
+  checkRegistration(username: String, nickname: String): AccountStatus
+}
+
+type AccountStatus {
+  usernameValid: Boolean
+  nicknameValid: Boolean
+}

@@ -77,6 +77,13 @@ declare namespace EON {
     contactPreferences?: IContactPreferences;
   }
 
+  interface IAccountStatusData {
+    checkRegistration: {
+      usernameValid: boolean;
+      nicknameValid: boolean;
+    };
+  }
+
   interface IUserResponse {
     user: IUserData;
   }
@@ -255,6 +262,10 @@ declare namespace EON {
         hero: IHeroTranslations;
         body: string;
         form: IForm;
+        errors: {
+          usernameExists: string,
+          nicknameExists: string,
+        }
       };
       login: {
         hero: IHeroTranslations;

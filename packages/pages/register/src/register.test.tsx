@@ -1,3 +1,4 @@
+import { MockedProvider } from '@apollo/react-testing';
 import { mount } from 'enzyme';
 import * as React from 'react';
 import { Provider } from 'react-redux';
@@ -33,9 +34,11 @@ describe('@somo/pda-pages-register', () => {
     onRegisterSpy = jest.spyOn(Register, 'onRegister');
 
     component = mount(
-      <Provider store={store({ form, notification: [] })}>
-        <Register.default />
-      </Provider>,
+      <MockedProvider mocks={[]} addTypename={false}>
+        <Provider store={store({ form, notification: [] })}>
+          <Register.default />
+        </Provider>
+      </MockedProvider>,
     );
   });
 

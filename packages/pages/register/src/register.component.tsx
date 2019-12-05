@@ -1,3 +1,7 @@
+import { useApolloClient } from '@apollo/react-hooks';
+import ApolloClient from 'apollo-client';
+import gql from 'graphql-tag';
+import { TFunction } from 'i18next';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -15,14 +19,52 @@ interface IRegisterProps {
   form: IFormState;
 }
 
-export const onRegister = (config: IFormConfig[]) => {
-  if (formUtils.validateForm(config)) {
-    // API calls
+export const CHECK_REGISTRATION_QUERY = gql`
+  query checkRegistration($username: String, $nickname: String) {
+    checkRegistration(username: $username, nickname: $nickname) {
+      usernameValid
+      nicknameValid
+    }
+  }
+`;
+
+interface IQueryVars {
+  username: string;
+  nickname: string;
+}
+
+export const onRegister = async (
+  config: IFormConfig[],
+  client: ApolloClient<object>,
+  values: IFormState['values'],
+  t: TFunction,
+) => {
+  try {
+    if (formUtils.validateForm(config)) {
+      const {
+        data: {
+          checkRegistration: { usernameValid, nicknameValid },
+        },
+      } = await client.query<EON.IAccountStatusData, IQueryVars>({
+        query: CHECK_REGISTRATION_QUERY,
+        variables: { username: values['register.username'], nickname: values['register.nickname'] },
+      });
+
+      if (!usernameValid) {
+        formUtils.setFormError(t('site.register.errors.usernameExists'));
+      } else if (!nicknameValid) {
+        formUtils.setFormError(t('site.register.errors.nicknameExists'));
+      }
+    }
+  } catch (error) {
+    throw error;
   }
 };
 
 const RegisterPage: React.FC<IRegisterProps> = ({ form }) => {
   const [t] = useTranslation();
+  const client = useApolloClient();
+  const { values } = form;
 
   const config = [
     {
@@ -32,6 +74,7 @@ const RegisterPage: React.FC<IRegisterProps> = ({ form }) => {
       label: t('site.register.form.username.label'),
       value: form.values['register.username'],
       validationFunction: ['validateRequired', 'validateEmail'],
+      note: 'PASS: true@test.com / FAIL: false@test.com',
     },
     {
       id: 'nickname',
@@ -61,7 +104,7 @@ const RegisterPage: React.FC<IRegisterProps> = ({ form }) => {
 
         {formUtils.renderForm(config)}
 
-        <Button onClick={() => onRegister(config)}>{t('actions.register')}</Button>
+        <Button onClick={() => onRegister(config, client, values, t)}>{t('actions.register')}</Button>
       </PageSection>
     </RegularLayout>
   );

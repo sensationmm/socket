@@ -48,6 +48,15 @@ const data: EON.IWebAppTranslations = {
         title: 'Register now!',
       },
       body: 'Sign up today to join our community',
+      form: {
+        username: {
+          label: 'Email address',
+        },
+        nickname: {
+          label: 'Nickname',
+          note: 'This will be your visible screen name in our community',
+        },
+      },
     },
     login: {
       hero: {
@@ -456,7 +465,7 @@ const data: EON.IWebAppTranslations = {
     validateMinValue: 'Min value {{min}}',
     validateNoSpaces: 'No spaces',
     validateDate: 'DD/MM/YYYY',
-    validateNoSpecial: 'Invalid characters',
+    validateNoSpecial: 'No special characters',
     validateFutureDate: 'Date is in past',
     validateMinDate: 'Less than {{min}}',
     validatePostcode: 'Invalid postcode',
@@ -467,6 +476,7 @@ const data: EON.IWebAppTranslations = {
     edit: 'Edit',
     next: 'Next',
     goBack: 'Go back',
+    register: 'Register',
   },
   errors: {
     httpGenericTitle: "Uh oh something's up",

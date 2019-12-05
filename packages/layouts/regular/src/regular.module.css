@@ -1,3 +1,15 @@
 .navSection {
   z-index: 1000;
 }
+
+.main h2 {
+  margin-bottom: var(--spacing-l);
+}
+
+.main h3 {
+  margin-bottom: var(--spacing-m);
+}
+
+.main p {
+  margin-bottom: var(--spacing-m);
+}

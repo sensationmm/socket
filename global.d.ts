@@ -205,6 +205,13 @@ declare namespace EON {
     };
   }
 
+  interface IForm {
+    [key: string]: {
+      label: string;
+      note?: string;
+    }
+  }
+
   interface IWebAppTranslations {
     site: {
       blog: {
@@ -247,6 +254,7 @@ declare namespace EON {
       register: {
         hero: IHeroTranslations;
         body: string;
+        form: IForm;
       };
       login: {
         hero: IHeroTranslations;

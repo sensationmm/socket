@@ -241,7 +241,7 @@ deploy Gatsby PRP:
   tags:
     - PRP
   script:
-    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-prp-01 --delete
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-prp-01 --delete --acl "public-read"
   dependencies:
     - build PRP
   environment:
@@ -267,7 +267,7 @@ deploy Gatsby PRD:
   tags:
     - PRD
   script:
-    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-prd-01 --delete
+    - aws s3 sync ./packages/apps/www/public s3://puredauk-gats-s3-prd-01 --delete --acl "public-read"
   dependencies:
     - build PRD
   environment:

@@ -18,7 +18,7 @@ const Footer: React.FC<IFooterProps> = ({ menu }) => {
   const [t] = useTranslation();
 
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <PageSection style={PageSectionStyle.Quinary}>
         <Text className={styles.title} type={TextStyles.h2} color={ColorStyles.quaternary} element="p">
           {t('site.footer.title')}
@@ -67,7 +67,7 @@ const Footer: React.FC<IFooterProps> = ({ menu }) => {
           {menu && <FooterMenu links={menu} />}
         </div>
       </PageSection>
-    </div>
+    </footer>
   );
 };
 

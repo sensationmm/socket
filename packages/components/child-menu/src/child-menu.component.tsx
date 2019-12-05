@@ -13,11 +13,11 @@ export interface IMenuProps {
 
 const ChildMenu: React.FC<IMenuProps> = ({ links }) => {
   return (
-    <ul className={styles.childNav}>
+    <ul className={styles.childNav} role="menu">
       {links &&
         links.map(({ label, link }, count) => {
           return (
-            <li key={`child-menu-${count}`} className={styles.childNavListItem}>
+            <li key={`child-menu-${count}`} role="menuitem" className={styles.childNavListItem}>
               <a href={link} className={styles.navLink}>
                 {label}
               </a>

@@ -17,7 +17,7 @@ export interface IMenuProps {
 
 const Menu: React.FC<IMenuProps> = ({ links }) => {
   return (
-    <div className={styles.nav}>
+    <nav className={styles.nav}>
       <ul className={styles.topLevelNav}>
         {links &&
           links.map(({ label, link, children }, count) => {
@@ -36,7 +36,7 @@ const Menu: React.FC<IMenuProps> = ({ links }) => {
             );
           })}
       </ul>
-    </div>
+    </nav>
   );
 };
 

@@ -48,7 +48,15 @@ const NavChildWrapper: React.FC<INavChildWrapperProps> = ({ label, children, pos
 
   return (
     <div ref={parentWrapper} className={styles.navChild}>
-      <a href="javascript:void(0);" className={styles.navChildLink} onClick={() => setChildNav(!isOpen)}>
+      <a
+        href="#"
+        className={styles.navChildLink}
+        onClick={(e) => {
+          e.preventDefault();
+          setChildNav(!isOpen);
+        }}
+        aria-haspopup="true"
+      >
         {label}
         <SVG children={ChevronDownHollow} size={16} className={styles.navChildChevron} />
       </a>

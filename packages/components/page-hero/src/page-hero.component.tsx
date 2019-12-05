@@ -18,7 +18,7 @@ const PageHero: React.FC<IPageHeroProps> = ({ heading, text, cta, className, onC
   return (
     <div className={cx(styles.component, className)}>
       <div className={styles.heading}>
-        <Text type={TextStyles.h1} color={ColorStyles.secondary} data-test="page-hero-heading">
+        <Text type={TextStyles.h1} element="h1" color={ColorStyles.secondary} data-test="page-hero-heading">
           {heading}
         </Text>
       </div>

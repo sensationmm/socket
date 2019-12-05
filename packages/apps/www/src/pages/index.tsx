@@ -8,7 +8,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'home',
   description: 'homepage description',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 const Home: React.FC = () => {

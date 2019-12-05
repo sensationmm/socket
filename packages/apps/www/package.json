@@ -35,6 +35,7 @@
     "gatsby-plugin-react-svg": "2.1.2",
     "gatsby-plugin-remove-trailing-slashes": "2.1.14",
     "gatsby-plugin-robots-txt": "1.5.0",
+    "gatsby-plugin-sitemap": "2.2.22",
     "gatsby-plugin-typescript": "2.1.19",
     "gatsby-source-filesystem": "2.1.38",
     "gatsby-transformer-json": "2.2.19",

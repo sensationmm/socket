@@ -30,6 +30,7 @@ if (missingEnvironmentVars) {
 }
 
 const plugins = [
+  `gatsby-plugin-sitemap`,
   {
     resolve: 'gatsby-plugin-google-tagmanager',
     options: {
@@ -151,13 +152,13 @@ const plugins = [
     resolve: 'gatsby-plugin-robots-txt',
     options: {
       host: process.env.SITE_URL,
-      sitemap: [`${process.env.SITE_URL}/sitemap.xml`, `${process.env.SITE_URL}/sitemap-pages.xml`],
+      sitemap: [`${process.env.SITE_URL}/sitemap.xml`],
       env: {
         development: {
           policy: [{ userAgent: '*', disallow: '/' }],
         },
         production: {
-          policy: [{ userAgent: '*', disallow: '/' }],
+          policy: [{ userAgent: '*', allow: '/' }],
         },
       },
     },
@@ -175,4 +176,8 @@ const mapping = {
   'MarkdownRemark.frontmatter.author': `MarkdownRemark.frontmatter.fullName`,
 };
 
-export { plugins, mapping };
+const siteMetadata = {
+  siteUrl: process.env.SITE_URL,
+};
+
+export { siteMetadata, plugins, mapping };

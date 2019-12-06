@@ -6,7 +6,7 @@ import SEO from '../components/seo.component';
 
 const SEOProps = {
   title: 'Login',
-  description: 'homepage description',
+  description: 'Login to use our community',
   siteLanguage: 'en_GB',
 };
 

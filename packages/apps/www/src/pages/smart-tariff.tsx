@@ -6,8 +6,8 @@ import SmartTariffPage from '@somo/pda-pages-smart-tariff/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'smart tariff',
-  description: 'smart tariff page description',
+  title: 'Smart tariff',
+  description: 'Our tariff is smart',
   siteLanguage: 'en_GB',
 };
 

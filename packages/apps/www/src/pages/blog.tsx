@@ -6,8 +6,8 @@ import BlogPage from '@somo/pda-pages-blog/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'blog',
-  description: 'blog description',
+  title: 'Blog posts',
+  description: 'See our blog posts',
   siteLanguage: 'en_GB',
 };
 

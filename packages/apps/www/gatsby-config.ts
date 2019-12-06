@@ -158,7 +158,7 @@ const plugins = [
           policy: [{ userAgent: '*', disallow: '/' }],
         },
         production: {
-          policy: [{ userAgent: '*', allow: '/' }],
+          policy: [{ userAgent: '*', disallow: '/' }],
         },
       },
     },
@@ -167,7 +167,9 @@ const plugins = [
     resolve: `gatsby-plugin-archives`,
     options: {
       exclude:
-        activeEnvironment === 'production' ? [/(login|form-example|account|register|registration-success)/i] : [],
+        activeEnvironment === 'production'
+          ? [/(login|login-success|form-example|account|register|registration-success|smart-tariff)/i]
+          : [],
       productionOnly: true,
     },
   },

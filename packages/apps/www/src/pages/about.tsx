@@ -6,8 +6,8 @@ import AboutPage from '@somo/pda-pages-about/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'about',
-  description: 'about page description',
+  title: 'About us',
+  description: 'About Socket Energy',
   siteLanguage: 'en_GB',
 };
 

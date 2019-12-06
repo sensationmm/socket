@@ -6,8 +6,8 @@ import HomePage from '@somo/pda-pages-home/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'home',
-  description: 'homepage description',
+  title: 'Welcome',
+  description: 'Welcome to Socket energy.',
   siteLanguage: 'en',
 };
 

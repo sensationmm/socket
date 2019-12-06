@@ -5,8 +5,8 @@ import AccountPage from '@somo/pda-pages-account/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'my account',
-  description: 'account page description',
+  title: 'My account',
+  description: 'my account',
   siteLanguage: 'en_GB',
 };
 

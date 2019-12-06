@@ -7,7 +7,7 @@ import { IFormState } from '@somo/pda-redux-form/src/reducers';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'Form Example',
+  title: 'Form example',
   description: 'Example form implementation',
   siteLanguage: 'en_GB',
 };

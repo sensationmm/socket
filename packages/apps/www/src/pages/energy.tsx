@@ -5,8 +5,8 @@ import EnergyPage from '@somo/pda-pages-energy/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'energy',
-  description: 'energy page description',
+  title: 'Energy',
+  description: 'All about our energy',
   siteLanguage: 'en_GB',
 };
 

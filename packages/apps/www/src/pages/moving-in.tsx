@@ -6,8 +6,8 @@ import MovingInPage from '@somo/pda-pages-moving-in/src';
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'moving in',
-  description: 'moving in description',
+  title: 'Moving in',
+  description: 'Moving in',
   siteLanguage: 'en_GB',
 };
 

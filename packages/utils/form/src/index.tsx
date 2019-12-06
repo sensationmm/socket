@@ -9,7 +9,7 @@ import Radio, { IRadioGroupProps } from '@somo/pda-components-radio/src';
 
 import * as styles from './form.module.css';
 
-const { initForm, clearForm, updateForm, resetValidation, setErrors, setFormErrors, setValid } = actions;
+const { initForm, clearForm, updateForm, resetValidation, setError, setErrors, setFormErrors, setValid } = actions;
 
 export interface IFormConfig {
   id: string;
@@ -53,6 +53,10 @@ export const initFormState = (fieldsInit: object, fieldsValues?: object) => {
 
 export const clearFormState = () => {
   store.dispatch(clearForm());
+};
+
+export const setFieldError = (key: string, error: string) => {
+  store.dispatch(setError(key, error, true));
 };
 
 export const setFormError = (error: string) => {
@@ -248,6 +252,7 @@ export const renderFormFields = (config: IFormConfig[], arrayIndex?: number) => 
 
 const formUtils = {
   initFormState,
+  setFieldError,
   setFormError,
   clearFormState,
   updateValue,

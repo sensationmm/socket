@@ -1,5 +1,7 @@
 import { MockedProvider } from '@apollo/react-testing';
 import { mount } from 'enzyme';
+import { GraphQLError } from 'graphql';
+import { createMockClient } from 'mock-apollo-client';
 import * as React from 'react';
 import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
@@ -9,13 +11,16 @@ import formUtils from '@somo/pda-utils-form/src';
 
 import * as Register from './register.component';
 
+window.scrollTo = () => null;
+
 describe('@somo/pda-pages-register', () => {
   let component;
   let initFormStateSpy;
   let clearFormStateSpy;
+  let setFormErrorSpy;
+  let setFieldErrorSpy;
   let onRegisterSpy;
-
-  const store = configureMockStore();
+  const jestMock = jest.fn().mockImplementation((id) => id);
 
   const form = {
     values: {
@@ -27,15 +32,19 @@ describe('@somo/pda-pages-register', () => {
     showErrorMessage: false,
   };
 
+  const mockStore = configureMockStore()({ form, notification: [] });
+
   beforeEach(() => {
     jest.spyOn(formUtils, 'validateForm').mockReturnValue(true);
     initFormStateSpy = jest.spyOn(formUtils, 'initFormState');
     clearFormStateSpy = jest.spyOn(formUtils, 'clearFormState');
+    setFormErrorSpy = jest.spyOn(formUtils, 'setFormError');
+    setFieldErrorSpy = jest.spyOn(formUtils, 'setFieldError');
     onRegisterSpy = jest.spyOn(Register, 'onRegister');
 
     component = mount(
       <MockedProvider mocks={[]} addTypename={false}>
-        <Provider store={store({ form, notification: [] })}>
+        <Provider store={mockStore}>
           <Register.default />
         </Provider>
       </MockedProvider>,
@@ -62,6 +71,107 @@ describe('@somo/pda-pages-register', () => {
     button.simulate('click');
 
     expect(onRegisterSpy).toHaveBeenCalledTimes(1);
+    expect(setFormErrorSpy).toHaveBeenCalledTimes(0);
+  });
+
+  it('onRegister sets error when duplicate email', async () => {
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockResolvedValue({
+      data: {
+        checkRegistration: {
+          usernameValid: false,
+          nicknameValid: null,
+        },
+      },
+    });
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'false@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
+    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.username', 'site.register.errors.usernameExists');
+  });
+
+  it('onRegister sets error when invalid nickname', async () => {
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockResolvedValue({
+      data: {
+        checkRegistration: {
+          usernameValid: true,
+          nicknameValid: false,
+        },
+      },
+    });
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'true@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
+    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.nickname', 'site.register.errors.nicknameExists');
+  });
+
+  it('onRegister sets error when api fails', async () => {
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockRejectedValue(new Error('GraphQL Network Error'));
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'false@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(queryHandler).toHaveBeenCalledTimes(1);
+    expect(setFormErrorSpy).toHaveBeenCalledTimes(1);
+    expect(setFormErrorSpy).toHaveBeenCalledWith('errors.httpGenericContent');
+  });
+
+  it('onRegister shows error on form validation fail', async () => {
+    jest.spyOn(formUtils, 'validateForm').mockReturnValueOnce(false);
+
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockResolvedValue({
+      data: {
+        checkRegistration: {
+          usernameValid: null,
+          nicknameValid: null,
+        },
+        errors: [new GraphQLError('Loading error')],
+      },
+    });
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'true@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(queryHandler).toHaveBeenCalledTimes(0);
   });
 
   afterEach(() => {

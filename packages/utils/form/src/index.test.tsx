@@ -123,6 +123,13 @@ describe('Form', () => {
     });
   });
 
+  describe('setFieldError', () => {
+    test('sets error correctly', () => {
+      formUtils.setFieldError('password', 'invalid');
+      expect(store.getState().form.errors.password).toBe('invalid');
+    });
+  });
+
   describe('setFormError', () => {
     test('sets error correctly', () => {
       formUtils.setFormError('test');

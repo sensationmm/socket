@@ -51,16 +51,16 @@ export const onRegister = async (
         variables: { username: values['register.username'], nickname: values['register.nickname'] },
       });
 
-      if (!usernameValid) {
-        formUtils.setFormError(t('site.register.errors.usernameExists'));
-      } else if (!nicknameValid) {
-        formUtils.setFormError(t('site.register.errors.invalidNickname'));
+      if (usernameValid === false) {
+        formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'));
+      } else if (nicknameValid === false) {
+        formUtils.setFieldError('register.nickname', t('site.register.errors.nicknameExists'));
       } else {
         navigate('/registration-success');
       }
     }
-  } catch (error) {
-    throw error;
+  } catch {
+    formUtils.setFormError(t('errors.httpGenericContent'));
   }
 };
 

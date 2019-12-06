@@ -267,9 +267,9 @@ declare namespace EON {
         body: string;
         form: IForm;
         errors: {
-          usernameExists: string;
-          invalidNickname: string;
-        };
+          usernameExists: string,
+          nicknameExists: string,
+        }
       };
       login: {
         hero: IHeroTranslations;

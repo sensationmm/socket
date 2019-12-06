@@ -97,6 +97,7 @@
     "i18next-browser-languagedetector": "4.0.1",
     "isomorphic-fetch": "2.2.1",
     "lerna": "3.19.0",
+    "mock-apollo-client": "0.2.0",
     "moment": "2.24.0",
     "react-i18next": "11.2.2",
     "react-media": "1.10.0",

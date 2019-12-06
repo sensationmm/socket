@@ -8,6 +8,7 @@ const {
   clearFormErrors,
   initForm,
   resetValidation,
+  setError,
   setErrors,
   setFormErrors,
   setValid,
@@ -18,6 +19,7 @@ const {
   CLEAR_FORM_ERRORS,
   INIT_FORM,
   RESET_VALIDATION,
+  SET_ERROR,
   SET_ERRORS,
   SET_FORM_ERRORS,
   SET_VALID,
@@ -53,6 +55,13 @@ describe('Loader actions', () => {
   test('updateForm array', () => {
     store.dispatch(updateForm('date', '20/05/1997', true));
     expect(store.getActions()).toEqual([{ type: UPDATE_FORM, key: 'date', value: '20/05/1997', arrayUpdate: true }]);
+  });
+
+  test('setError', () => {
+    store.dispatch(setError('password', 'Invalid'));
+    expect(store.getActions()).toEqual([
+      { type: SET_ERROR, key: 'password', error: 'Invalid', showErrorMessage: false },
+    ]);
   });
 
   test('setErrors', () => {

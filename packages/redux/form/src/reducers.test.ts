@@ -2,7 +2,16 @@ import { reducers, types } from '.';
 import { RESET_VALIDATION } from './types';
 
 const { form, initialState } = reducers;
-const { CLEAR_FORM, CLEAR_FORM_ERRORS, INIT_FORM, SET_ERRORS, SET_FORM_ERRORS, SET_VALID, UPDATE_FORM } = types;
+const {
+  CLEAR_FORM,
+  CLEAR_FORM_ERRORS,
+  INIT_FORM,
+  SET_ERROR,
+  SET_ERRORS,
+  SET_FORM_ERRORS,
+  SET_VALID,
+  UPDATE_FORM,
+} = types;
 
 describe('form reducer', () => {
   test('INIT_FORM', () => {
@@ -73,6 +82,25 @@ describe('form reducer', () => {
     };
 
     expect(form(newInitialState, action)).toEqual(expectedState);
+  });
+
+  test('SET_ERROR', () => {
+    const action = {
+      type: SET_ERROR as typeof SET_ERROR,
+      key: 'password',
+      error: 'Invalid',
+      showErrorMessage: true,
+    };
+    const expectedState = {
+      values: {},
+      errors: {
+        password: 'Invalid',
+      },
+      valid: {},
+      showErrorMessage: true,
+    };
+
+    expect(form(initialState, action)).toEqual(expectedState);
   });
 
   test('SET_ERRORS', () => {

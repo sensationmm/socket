@@ -32,7 +32,7 @@ export class AccountProvider extends BaseProvider {
 
       if (username === 'true@test.com') {
         usernameValid = true;
-      } else if (username === 'false@test.com') {
+      } else {
         usernameValid = false;
       }
 

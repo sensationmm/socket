@@ -66,7 +66,7 @@ const data: EON.IWebAppTranslations = {
       },
       errors: {
         usernameExists: 'That email address is already registered',
-        invalidNickname: 'Please choose another nickname',
+        nicknameExists: 'Please choose another nickname',
       },
     },
     login: {

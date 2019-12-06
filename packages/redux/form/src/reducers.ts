@@ -4,6 +4,7 @@ import {
   CLEAR_FORM_ERRORS,
   INIT_FORM,
   RESET_VALIDATION,
+  SET_ERROR,
   SET_ERRORS,
   SET_FORM_ERRORS,
   SET_VALID,
@@ -47,6 +48,20 @@ const reducer = (state = initialState, action: Action): IFormState => {
         values: newValues,
       };
 
+    case SET_ERROR:
+      const removeValid = state.valid;
+      delete removeValid[action.key];
+
+      return {
+        ...state,
+        errors: {
+          ...state.errors,
+          [action.key]: action.error,
+        },
+        valid: removeValid,
+        showErrorMessage: action.showErrorMessage,
+      };
+
     case SET_ERRORS:
       return {
         ...state,
@@ -87,6 +102,7 @@ const reducer = (state = initialState, action: Action): IFormState => {
         ...state,
         errors: newErrors,
         valid: newValid,
+        showErrorMessage: false,
       };
 
     case CLEAR_FORM:

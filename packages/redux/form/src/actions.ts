@@ -7,11 +7,13 @@ import {
   IInitForm,
   INIT_FORM,
   IResetValidation,
+  ISetError,
   ISetErrors,
   ISetFormErrors,
   ISetValid,
   IUpdateForm,
   RESET_VALIDATION,
+  SET_ERROR,
   SET_ERRORS,
   SET_FORM_ERRORS,
   SET_VALID,
@@ -37,6 +39,15 @@ export const updateForm = (key: string, value: any, arrayUpdate = false): IUpdat
     key,
     value,
     arrayUpdate,
+  };
+};
+
+export const setError = (key: string, error: string, showErrorMessage = false): ISetError => {
+  return {
+    type: SET_ERROR,
+    key,
+    error,
+    showErrorMessage,
   };
 };
 

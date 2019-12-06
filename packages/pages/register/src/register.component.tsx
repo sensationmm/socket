@@ -1,5 +1,6 @@
 import { useApolloClient } from '@apollo/react-hooks';
 import ApolloClient from 'apollo-client';
+import { navigate } from 'gatsby';
 import gql from 'graphql-tag';
 import { TFunction } from 'i18next';
 import * as React from 'react';
@@ -53,7 +54,9 @@ export const onRegister = async (
       if (!usernameValid) {
         formUtils.setFormError(t('site.register.errors.usernameExists'));
       } else if (!nicknameValid) {
-        formUtils.setFormError(t('site.register.errors.nicknameExists'));
+        formUtils.setFormError(t('site.register.errors.invalidNickname'));
+      } else {
+        navigate('/registration-success');
       }
     }
   } catch (error) {

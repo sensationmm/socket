@@ -166,7 +166,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-archives`,
     options: {
-      exclude: activeEnvironment === 'production' ? [/(login|form-example|account)/i] : [],
+      exclude:
+        activeEnvironment === 'production' ? [/(login|form-example|account|register|registration-success)/i] : [],
       productionOnly: true,
     },
   },

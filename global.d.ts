@@ -216,7 +216,7 @@ declare namespace EON {
     [key: string]: {
       label: string;
       note?: string;
-    }
+    };
   }
 
   interface IWebAppTranslations {
@@ -258,14 +258,18 @@ declare namespace EON {
         hero: IHeroTranslations;
         body: string;
       };
+      registrationSuccess: {
+        hero: IHeroTranslations;
+        body: string;
+      };
       register: {
         hero: IHeroTranslations;
         body: string;
         form: IForm;
         errors: {
-          usernameExists: string,
-          nicknameExists: string,
-        }
+          usernameExists: string;
+          invalidNickname: string;
+        };
       };
       login: {
         hero: IHeroTranslations;

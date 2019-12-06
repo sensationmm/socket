@@ -43,6 +43,13 @@ const data: EON.IWebAppTranslations = {
       },
       body: "We haven't built this page yet! Come back soon",
     },
+    registrationSuccess: {
+      hero: {
+        title: 'You did it!!',
+      },
+      body:
+        "You've almot registered with the Socket Community - please check your email to complete the sign up process",
+    },
     register: {
       hero: {
         title: 'Register now!',
@@ -59,7 +66,7 @@ const data: EON.IWebAppTranslations = {
       },
       errors: {
         usernameExists: 'That email address is already registered',
-        nicknameExists: 'Please choose another nickname',
+        invalidNickname: 'Please choose another nickname',
       },
     },
     login: {

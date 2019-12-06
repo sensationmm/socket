@@ -1,4 +1,5 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
+import Filter from 'bad-words';
 
 import BaseProvider from '../base-provider';
 
@@ -42,9 +43,10 @@ export class AccountProvider extends BaseProvider {
   }
 
   public async checkNickname(nickname: string) {
-    // tslint:disable-next-line: no-console
-    console.log('AccountProvider checkNickname', nickname);
+    const filter = new Filter();
 
-    return false;
+    filter.addWords('socket');
+
+    return !filter.isProfane(nickname);
   }
 }

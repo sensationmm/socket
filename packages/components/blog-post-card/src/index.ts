@@ -1,5 +1,5 @@
-import Component, { IBlogPostCardProps } from './blog-post-card.component';
+import Component, { IBlogPostCardProps as _IBlogPostCardProps } from './blog-post-card.component';
 
-export { IBlogPostCardProps };
+export type IBlogPostCardProps = _IBlogPostCardProps;
 
 export default Component;

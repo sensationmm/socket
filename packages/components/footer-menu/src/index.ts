@@ -1,5 +1,5 @@
-import Component, { IMenuProps } from './menu.component';
+import Component, { IMenuProps as _IMenuProps } from './menu.component';
 
-export { IMenuProps };
+export type IMenuProps = _IMenuProps;
 
 export default Component;

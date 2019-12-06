@@ -1,6 +1,8 @@
-import Login, { IAuthReducer, IPropsFromReduxState } from './login.container';
+import Login, { IAuthReducer as _IAuthReducer, IPropsFromReduxState as _IPropsFromReduxState } from './login.container';
 import withAuthentication from './with-authentication';
 
-export { IAuthReducer, IPropsFromReduxState, withAuthentication };
+export { withAuthentication };
+export type IAuthReducer = _IAuthReducer;
+export type IPropsFromReduxState = _IPropsFromReduxState;
 
 export default Login;

@@ -243,11 +243,11 @@ const data: EON.IWebAppTranslations = {
         content: [
           {
             text: '',
-            image: 'office',
+            image: 'the-team-1',
           },
           {
             text: '',
-            image: 'reading',
+            image: 'the-team-2',
           },
         ],
         cta: 'Read our blog',

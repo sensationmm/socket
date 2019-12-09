@@ -97,7 +97,7 @@ describe('@somo/pda-pages-register', () => {
     );
 
     expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
-    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.username', 'site.register.errors.usernameExists');
+    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.username', 'site.register.errors.usernameExists', false);
   });
 
   it('onRegister sets error when invalid nickname', async () => {

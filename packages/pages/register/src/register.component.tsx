@@ -52,7 +52,8 @@ export const onRegister = async (
       });
 
       if (usernameValid === false) {
-        formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'));
+        formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'), false);
+        formUtils.setFormError(t('site.register.loginWarning'));
       } else if (nicknameValid === false) {
         formUtils.setFieldError('register.nickname', t('site.register.errors.nicknameExists'));
       } else {

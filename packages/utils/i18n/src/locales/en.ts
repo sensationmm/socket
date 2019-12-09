@@ -68,6 +68,7 @@ const data: EON.IWebAppTranslations = {
         usernameExists: 'That email address is already registered',
         nicknameExists: 'Please choose another nickname',
       },
+      loginWarning: 'That email address is already registered, try <a href="/login">logging in here</a>',
     },
     login: {
       hero: {
@@ -490,6 +491,7 @@ const data: EON.IWebAppTranslations = {
     register: 'Register',
   },
   errors: {
+    formErrors: 'Please correct all errors to proceed',
     httpGenericTitle: "Uh oh something's up",
     httpGenericContent: 'Something went wrong, please try again',
   },

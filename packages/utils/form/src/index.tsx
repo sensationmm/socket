@@ -2,6 +2,7 @@ import React from 'react';
 
 import { actions } from '@somo/pda-redux-form/src';
 import functions from '@somo/pda-utils-functions/src';
+import i18n from '@somo/pda-utils-i18n/src';
 import validation from '@somo/pda-utils-validation/src';
 import store from '@somo/pda-www-state/store';
 
@@ -55,8 +56,8 @@ export const clearFormState = () => {
   store.dispatch(clearForm());
 };
 
-export const setFieldError = (key: string, error: string) => {
-  store.dispatch(setError(key, error, true));
+export const setFieldError = (key: string, error: string, showErrorMessage: boolean = true) => {
+  store.dispatch(setError(key, error, showErrorMessage));
 };
 
 export const setFormError = (error: string) => {
@@ -168,12 +169,12 @@ export const validateForm = (config: IFormConfig[], arrayIndex?: number): boolea
 export const renderForm = (config: IFormConfig[], arrayIndex?: number): JSX.Element => {
   const { errors, showErrorMessage } = store.getState().form;
 
+  const errorMsg = errors.form ? errors.form : i18n.t('errors.formErrors');
+
   return (
     <div>
       {showErrorMessage && (
-        <div className={styles.errorBox} data-test="create-error-box">
-          {errors.form ? errors.form : 'Please correct all errors to proceed'}
-        </div>
+        <div className={styles.errorBox} data-test="create-error-box" dangerouslySetInnerHTML={{ __html: errorMsg }} />
       )}
 
       <div data-test="form-fields" className={styles.formFields}>

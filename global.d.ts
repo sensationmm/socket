@@ -269,7 +269,8 @@ declare namespace EON {
         errors: {
           usernameExists: string,
           nicknameExists: string,
-        }
+        };
+        loginWarning: string;
       };
       login: {
         hero: IHeroTranslations;
@@ -407,6 +408,7 @@ declare namespace EON {
       [key: string]: string;
     };
     errors: {
+      formErrors: string;
       httpGenericTitle: string;
       httpGenericContent: string;
     };

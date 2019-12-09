@@ -11,6 +11,7 @@ module.exports = {
     '!packages/pages/form-example/**/*.{ts,tsx,js}',
     '!packages/pages/login/**/*.{ts,tsx,js}',
     '!packages/utils/test-support/**/*.{ts,tsx,js}',
+    '!packages/utils/show-in-dev-only/**/*.{ts,tsx,js}',
     '!packages/{components,pages}/**/index.{ts,tsx,js}',
     '!packages/utils/{env,browser-support}/**',
     '!**/*.stories.{ts,tsx,js}',

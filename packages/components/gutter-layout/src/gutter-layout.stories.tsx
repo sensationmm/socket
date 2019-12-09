@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -12,15 +11,13 @@ const styles = {
   height: '80px',
 };
 
-storiesOf('Layout Elements|gutter-layout', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('Default', () => (
-    <div style={{ backgroundColor: '#ffd1d1' }}>
-      <GutterLayout>
-        <div style={styles}>FIRST</div>
-        <div style={styles}>SECOND</div>
-        <div style={styles}>THIRD</div>
-        <div style={styles}>LAST</div>
-      </GutterLayout>
-    </div>
-  ));
+storiesOf('Layout Elements|gutter-layout', module).add('Default', () => (
+  <div style={{ backgroundColor: '#ffd1d1' }}>
+    <GutterLayout>
+      <div style={styles}>FIRST</div>
+      <div style={styles}>SECOND</div>
+      <div style={styles}>THIRD</div>
+      <div style={styles}>LAST</div>
+    </GutterLayout>
+  </div>
+));

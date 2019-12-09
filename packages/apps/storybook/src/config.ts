@@ -1,4 +1,6 @@
+import { withA11y } from '@storybook/addon-a11y';
 import centered from '@storybook/addon-centered/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addDecorator, addParameters, configure } from '@storybook/react';
 import { create } from '@storybook/theming';
@@ -26,22 +28,9 @@ addParameters({
 });
 
 addDecorator(centered);
+addDecorator(withKnobs);
+addDecorator(withA11y);
 addDecorator(appTemplateDecorator);
-
-// // the following is required to get gatsby to play nice with storybook
-// // @link https://www.gatsbyjs.org/docs/visual-testing-with-storybook/
-// // tslint:disable
-// // @ts-ignore
-// global.___loader = {
-//   enqueue: () => {},
-//   hovering: () => {},
-// };
-// // @ts-ignore
-// global.__PATH_PREFIX__ = '';
-// // @ts-ignore
-// window.___navigate = (pathname) => {
-//   action('NavigateTo:')(pathname);
-// };
 
 // @ts-ignore
 global.__PATH_PREFIX__ = '';

@@ -1,4 +1,4 @@
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -11,7 +11,6 @@ const Sizes = {
 };
 
 storiesOf('Components|article-author', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw', backgroundColor: '#007672', padding: '20px' }}>{story()}</div>)
   .add('Default', () => (
     <ArticleAuthor

@@ -1,4 +1,4 @@
-import { boolean, files, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, files, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -20,17 +20,15 @@ const PageSectionTypes = {
 
 const elements = ['div', 'section'];
 
-storiesOf('Layout Elements|page-section', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
-  .add('Default', () => (
-    <div style={{ width: '800px' }}>
-      <PageSection
-        element={select('Element', elements, 'div')}
-        style={select('Style', PageSectionTypes, PageSectionStyle.Default)}
-        bgImage={files('Background Image (for Image style)', '.jpg, .svg, .gif, .png')}
-        isNarrow={boolean('isNarrow', false)}
-      >
-        {text('Content', 'This is my content')}
-      </PageSection>
-    </div>
-  ));
+storiesOf('Layout Elements|page-section', module).add('Default', () => (
+  <div style={{ width: '800px' }}>
+    <PageSection
+      element={select('Element', elements, 'div')}
+      style={select('Style', PageSectionTypes, PageSectionStyle.Default)}
+      bgImage={files('Background Image (for Image style)', '.jpg, .svg, .gif, .png')}
+      isNarrow={boolean('isNarrow', false)}
+    >
+      {text('Content', 'This is my content')}
+    </PageSection>
+  </div>
+));

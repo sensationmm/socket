@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -11,7 +10,6 @@ const ContentBoxTypes = {
 };
 
 storiesOf('Components|step-card', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '50vw', height: '300px' }}>{story()}</div>)
   .add('with Text', () => (
     <StepCard

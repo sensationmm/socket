@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -9,7 +9,6 @@ storiesOf('Components|page-hero', module)
   .addParameters({
     backgrounds: [{ name: 'grey', value: '#333333', default: true }],
   })
-  .addDecorator(withKnobs())
   .add('Default', () => (
     <PageHero
       heading={text('Heading', 'Heading')}

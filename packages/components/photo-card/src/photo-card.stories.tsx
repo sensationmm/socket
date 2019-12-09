@@ -1,4 +1,4 @@
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -11,7 +11,6 @@ const PhotoCardTypes = {
 };
 
 storiesOf('Components|photo-card', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '50vw' }}>{story()}</div>)
   .add('Default', () => (
     <PhotoCard

@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -18,8 +17,6 @@ const props = {
   ],
 };
 
-storiesOf('Pages|blog', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    return <BlogPage {...props} />;
-  });
+storiesOf('Pages|blog', module).add('default', () => {
+  return <BlogPage {...props} />;
+});

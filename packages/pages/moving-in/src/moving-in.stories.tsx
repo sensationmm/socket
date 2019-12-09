@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -13,7 +12,6 @@ const props = {
 };
 
 storiesOf('Pages|moving in', module)
-  .addDecorator(withKnobs)
   .addDecorator((story) => <div style={{ width: '90vw' }}>{story()}</div>)
   .add('default', () => {
     return <MovingIn {...props} />;

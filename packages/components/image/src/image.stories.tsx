@@ -1,11 +1,10 @@
-import { boolean, object, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 import Image from '.';
 
 storiesOf('Components|image', module)
-  .addDecorator(withKnobs)
   .add('Loading image', () => {
     return (
       <Image

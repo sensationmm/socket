@@ -1,4 +1,4 @@
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { object } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -11,7 +11,6 @@ const menuItems = [
 ];
 
 storiesOf('Components|footer', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addParameters({
     backgrounds: [{ name: 'grey', value: '#333333', default: true }],
   })

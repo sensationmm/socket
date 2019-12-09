@@ -1,4 +1,4 @@
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { object, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -25,22 +25,20 @@ Object.entries(Icons).map((icon) => {
   iconOptions[icon[0]] = icon[1];
 });
 
-storiesOf('Components|SVG', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    const iconName = select('btnIcon', Object.keys(iconOptions), 'ArrowLeft');
+storiesOf('Components|SVG', module).add('default', () => {
+  const iconName = select('btnIcon', Object.keys(iconOptions), 'ArrowLeft');
 
-    return (
-      <SVG
-        children={iconOptions[iconName]}
-        size={text('size', '50px')}
-        width={text('width', 'auto')}
-        height={text('height', 'auto')}
-        className={text('className', '')}
-        preserveAspectRatio={text('preserveAspectRatio', 'xMidYMid')}
-        fill={text('fill', 'currentColor')}
-        verticalAlign={select('verticalAlign', alignOptions, 'middle')}
-        styles={object('styles', {})}
-      />
-    );
-  });
+  return (
+    <SVG
+      children={iconOptions[iconName]}
+      size={text('size', '50px')}
+      width={text('width', 'auto')}
+      height={text('height', 'auto')}
+      className={text('className', '')}
+      preserveAspectRatio={text('preserveAspectRatio', 'xMidYMid')}
+      fill={text('fill', 'currentColor')}
+      verticalAlign={select('verticalAlign', alignOptions, 'middle')}
+      styles={object('styles', {})}
+    />
+  );
+});

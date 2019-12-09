@@ -1,4 +1,4 @@
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { object } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -15,5 +15,4 @@ storiesOf('Components|navbar', module)
     backgrounds: [{ name: 'grey', value: '#333333', default: true }],
   })
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
-  .addDecorator(withKnobs())
   .add('Default', () => <Navbar menu={object('Menu', menuMock)} />);

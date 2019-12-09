@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -12,8 +11,6 @@ const props = {
   ],
 };
 
-storiesOf('Pages|smart-tariff', module)
-  .addDecorator(withKnobs)
-  .add('default', () => {
-    return <SmartTariffPage {...props} />;
-  });
+storiesOf('Pages|smart-tariff', module).add('default', () => {
+  return <SmartTariffPage {...props} />;
+});

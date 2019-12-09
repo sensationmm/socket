@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 import React, { useState } from 'react';
@@ -36,7 +35,6 @@ const items: IMultiSelectOption[] = [
 ];
 
 storiesOf('Form elements|MultiSelect', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '90vw' }}>{story()}</div>)
   .add('Default', () => {
     function Parent({ children }) {

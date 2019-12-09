@@ -1,4 +1,4 @@
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -21,7 +21,6 @@ const AvatarSvgTypes = {
 };
 
 storiesOf('Components|avatar', module)
-  .addDecorator(withKnobs)
   .add('default', () => (
     <Avatar
       size={select('Size', Sizes, AvatarSizes.Small)}

@@ -1,4 +1,4 @@
-import { number, select, text, withKnobs } from '@storybook/addon-knobs';
+import { number, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -10,7 +10,6 @@ const BlogPostCardHeights = {
 };
 
 storiesOf('Components|blog-post-card', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => (
     <BlogPostCard

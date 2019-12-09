@@ -1,11 +1,9 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 import People from '.';
 
 storiesOf('Components|people', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '50vw' }}>{story()}</div>)
   .add('Default', () => (
     <People

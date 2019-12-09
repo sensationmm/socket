@@ -1,4 +1,4 @@
-import { number, object, withKnobs } from '@storybook/addon-knobs';
+import { number, object } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -18,6 +18,5 @@ const tabs = [
 ];
 
 storiesOf('Components|tabs', module)
-  .addDecorator(withKnobs)
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => <Component fixedHeight={number('fixedHeight', 0)} tabs={object('tabs', tabs)} />);

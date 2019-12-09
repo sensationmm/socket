@@ -1,4 +1,4 @@
-import { object, withKnobs } from '@storybook/addon-knobs';
+import { object } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -14,5 +14,4 @@ storiesOf('Components|child-menu', module)
   .addParameters({
     backgrounds: [{ name: 'grey', value: '#333333', default: true }],
   })
-  .addDecorator(withKnobs())
   .add('Default', () => <Menu links={object('Menu', menuMock)} />);

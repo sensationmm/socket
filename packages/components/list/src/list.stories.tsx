@@ -1,4 +1,4 @@
-import { boolean, object, select, withKnobs } from '@storybook/addon-knobs';
+import { boolean, object, select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -15,7 +15,6 @@ const content = [
 const color = [ColorStyles.secondary, ColorStyles.tertiary];
 
 storiesOf('Components|list', module)
-  .addDecorator(withKnobs)
   .addDecorator((story) => <div style={{ width: '80vw', backgroundColor: '#007672', padding: '20px' }}>{story()}</div>)
   .add('Default', () => (
     <Component

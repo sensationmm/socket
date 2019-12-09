@@ -1,4 +1,4 @@
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -6,7 +6,6 @@ import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import InfoTray from './index';
 
 storiesOf('Components|info-tray', module)
-  .addDecorator(withKnobs)
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => (
     <InfoTray closedText={text('Closed label', 'SHOW INFO')} openedText={text('Opened label', 'HIDE INFO')}>

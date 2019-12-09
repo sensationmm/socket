@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { object, select, text, withKnobs } from '@storybook/addon-knobs';
+import { object, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -10,7 +10,6 @@ const types = {
 };
 
 storiesOf('Form Elements|Select', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => {
     return (

@@ -1,12 +1,11 @@
 import { action } from '@storybook/addon-actions';
-import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
 import Component from './index';
 
 storiesOf('Form Elements|InputNumber', module)
-  .addDecorator(withKnobs)
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => (
     <Component

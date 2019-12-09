@@ -1,4 +1,4 @@
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -11,7 +11,6 @@ const Styles = {
 };
 
 storiesOf('Components|content-card', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => {
     return (

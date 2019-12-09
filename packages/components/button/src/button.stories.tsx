@@ -1,4 +1,4 @@
-import { boolean, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 import * as React from 'react';
@@ -19,7 +19,6 @@ const roundButtonKnobs = () => ({
 });
 
 storiesOf('Components|button', module)
-  .addDecorator(withKnobs)
   .add('Primary', () => <Primary {...buttonKnobs()} />)
   .add('Primary disabled', () => <Primary {...buttonKnobs()} disabled={true} />)
   .add('Secondary', () => <Secondary {...buttonKnobs()} />)

@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -6,7 +5,6 @@ import { Secondary as Button } from '@somo/pda-components-button/src';
 import AccountSection from '.';
 
 storiesOf('Components|account-section', module)
-  .addDecorator(withKnobs({ escapeHTML: false }))
   .addDecorator((story) => <div style={{ width: '80vw' }}>{story()}</div>)
   .add('Default', () => (
     <AccountSection title="Preferences" disabled={false}>

@@ -1,4 +1,4 @@
-import { select, text, withKnobs } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -9,8 +9,6 @@ const BtnIconTypes = {
   Edit: IconTypes.edit,
 };
 
-storiesOf('Components|action-pane-button', module)
-  .addDecorator(withKnobs)
-  .add('default', () => (
-    <ActionPaneBtn icon={select('Icon', BtnIconTypes, BtnIconTypes.Default)} text={text('Text', 'Edit')} />
-  ));
+storiesOf('Components|action-pane-button', module).add('default', () => (
+  <ActionPaneBtn icon={select('Icon', BtnIconTypes, BtnIconTypes.Default)} text={text('Text', 'Edit')} />
+));

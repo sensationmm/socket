@@ -1,4 +1,4 @@
-import { select, withKnobs } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
@@ -6,7 +6,6 @@ import Tooltip, { TooltipOffset, ToolTipPosition } from './index';
 import styles from './tooltip.stories.module.css';
 
 storiesOf('Components|tooltip', module)
-  .addDecorator(withKnobs)
   .add('default', () => (
     <>
       <div className={styles.section}>

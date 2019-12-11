@@ -209,11 +209,11 @@ const data: EON.IWebAppTranslations = {
         title: 'We were fed up with the old-fashioned energy market. ',
         content: [
           'The same old spiel, the cheap deal to get you in and the price hike when you’re in no mood to move.',
-          'Here’s the antidote.',
+          'Here’s the antidote 💊.',
           "Welcome to Socket. We're about to make all the boring stuff about energy a tiny bit less, well, dull.",
           'We were super sick of nightmare call centres, weird bills that are hard to decipher, even weirder payment terms and no real people you can turn to.',
           'What other stuff do you buy where you don’t know how much you’ll pay? Why should energy be different?',
-          'The big wigs at E.ON (yes, that MAHOOSIVE energy company) heard us banging on about everything we thought was wrong with energy – and put their money where our mouth is (crikey, serious business now…). So, we set to work building an energy company for the future, and that’s how Socket was born.',
+          'The big wigs at E.ON (yes, that MAHOOSIVE energy company) heard us banging on about everything we thought was wrong with energy – and put their money 💰 where our mouth is (crikey, serious business now…). So, we set to work building an energy company for the future, and that’s how Socket was born 👶.',
           'Sound good? Of course it does.\nIt’s how energy should work.',
         ],
       },
@@ -234,10 +234,10 @@ const data: EON.IWebAppTranslations = {
             ],
           },
           {
-            text: "It's how the world should work, and it means the culture at Socket is all about lovely people!",
+            text: "It's how the world should work, and it means the culture at Socket is all about lovely people! 😊",
           },
         ],
-        cta: 'Want to know more?',
+        cta: 'Join the community',
       },
       realPeople: {
         title: "Wow, we're real actual people not stock images!",

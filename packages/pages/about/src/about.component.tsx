@@ -107,7 +107,6 @@ const AboutPage: React.FC<IAboutPageProps> = ({ imagery }) => {
               ? realPeople.map(({ text, image }) => ({ text, image: getImagePath(imagery, image) }))
               : []
           }
-          cta={t('site.energy.realPeople.cta')}
         />
       </PageSection>
     </RegularLayout>

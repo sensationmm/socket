@@ -57,9 +57,9 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
     this.listItems = node && node.querySelectorAll('.ddl-item');
     this.dropdownSelectedNode = node && node.querySelector('#dropdown-selected');
 
+    document.addEventListener('mousedown', (e) => this.toggleListVisibility(e));
     this.dropdownSelectedNode.addEventListener('click', (e) => this.toggleListVisibility(e));
     this.dropdownSelectedNode.addEventListener('keydown', (e) => this.toggleListVisibility(e));
-
     // Add each list item's id to the listItems array
     this.listItems.forEach((item) => this.listItemIds.push(item.id));
 
@@ -72,6 +72,7 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
 
   /* istanbul ignore next */
   public componentWillUnmount() {
+    document.removeEventListener('mousedown', this.toggleListVisibility);
     this.dropdownSelectedNode.removeEventListener('click', this.toggleListVisibility);
     this.dropdownSelectedNode.removeEventListener('keydown', this.toggleListVisibility);
 
@@ -122,6 +123,10 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
 
   public toggleListVisibility(e) {
     const openDropDown = KEYS.KEY_SPACEBAR.includes(e.keyCode) || e.keyCode === KEYS.KEY_ENTER;
+
+    if (this.listContainer && !this.listContainer.contains(e.target)) {
+      this.closeList();
+    }
 
     if (e.keyCode === KEYS.KEY_ESCAPE) {
       this.closeList();

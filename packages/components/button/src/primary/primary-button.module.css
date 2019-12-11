@@ -5,7 +5,7 @@
 }
 
 .button:not(:disabled):hover .content {
-  background: rgba(var(--color-brand-secondary), 0.9);
+  background: #005552;
 }
 
 .disabled .content {

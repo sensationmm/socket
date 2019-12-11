@@ -18,6 +18,5 @@ storiesOf('Components|people', module)
           image: 'https://picsum.photos/id/951/400/300',
         },
       ]}
-      cta="Follow us"
     />
   ));

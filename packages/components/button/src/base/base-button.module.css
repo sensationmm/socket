@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   font-kerning: none;
+  font-size: var(--font-size-3xs);
   background: transparent;
   outline: none;
   white-space: nowrap;
@@ -51,16 +52,12 @@ a.base:focus {
 }
 
 .mini {
+  font-size: var(--font-size-4xs);
   height: 44px;
 
   @media (--s) {
     min-width: 178px;
   }
-}
-
-.mini,
-.medium {
-  font-size: var(--font-size-3xs);
 }
 
 .mini .baseContent {
@@ -70,7 +67,6 @@ a.base:focus {
 
 .regular {
   height: 58px;
-  font-size: var(--font-size-xs);
 
   @media (--s) {
     min-width: 262px;

@@ -1,7 +1,6 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import { Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import Component from '.';
 
 describe('@somo/pda-components-people component', () => {
@@ -17,7 +16,6 @@ describe('@somo/pda-components-people component', () => {
         image: 'https://picsum.photos/id/951/400/300',
       },
     ],
-    cta: 'Follow us',
   };
 
   it('should render a title', () => {
@@ -28,16 +26,6 @@ describe('@somo/pda-components-people component', () => {
         .childAt(0)
         .text(),
     ).toEqual(props.title);
-  });
-
-  it('should render a cta button', () => {
-    const wrapper = shallow(<Component {...props} />);
-    expect(
-      wrapper
-        .find(SecondaryBtn)
-        .childAt(0)
-        .text(),
-    ).toEqual(props.cta);
   });
 
   it('should render a list of photo cards', () => {

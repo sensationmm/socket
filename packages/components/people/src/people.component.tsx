@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import { Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import FlexRow from '@somo/pda-components-flex-row/src';
 import PhotoCard, { PhotoCardStyle } from '@somo/pda-components-photo-card/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
@@ -15,10 +14,9 @@ interface IPeopleCardProps {
 export interface IPeopleProps {
   title: string;
   list: IPeopleCardProps[];
-  cta: string;
 }
 
-const People: React.FC<IPeopleProps> = ({ title, list, cta }) => (
+const People: React.FC<IPeopleProps> = ({ title, list }) => (
   <>
     <Text className={styles.title} element="h2" type={TextStyles.h2} color={ColorStyles.primary}>
       {title}
@@ -30,9 +28,6 @@ const People: React.FC<IPeopleProps> = ({ title, list, cta }) => (
         ))}
       </FlexRow>
     )}
-    <div className={styles.ctaWrapper}>
-      <SecondaryBtn>{cta}</SecondaryBtn>
-    </div>
   </>
 );
 

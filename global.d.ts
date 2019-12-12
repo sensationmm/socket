@@ -258,6 +258,11 @@ declare namespace EON {
         hero: IHeroTranslations;
         body: string;
       };
+      comingSoon: {
+        hero: IHeroTranslations;
+        body: string;
+        cta: string;
+      };
       registrationSuccess: {
         hero: IHeroTranslations;
         body: string;
@@ -267,8 +272,8 @@ declare namespace EON {
         body: string;
         form: IForm;
         errors: {
-          usernameExists: string,
-          nicknameExists: string,
+          usernameExists: string;
+          nicknameExists: string;
         };
         loginWarning: string;
       };

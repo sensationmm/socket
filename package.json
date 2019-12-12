@@ -20,6 +20,7 @@
     "test:a11y": "echo \"No accessibility tests set up yet!\"",
     "test:ci": "jest ./packages --coverage --ci",
     "test:clearCache": "jest --clearCache",
+    "test:bail": "jest ./packages --bail",
     "test:e2e": "echo \"No e2e tests set up yet!\"",
     "test:e2e:smoke": "echo \"No e2e smoke tests set up yet!\"",
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
@@ -117,14 +118,13 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test:clearCache && yarn tsc:repo && yarn lint && lint-staged",
+      "pre-commit": "yarn test:clearCache && yarn tsc:repo && yarn lint && yarn test:bail && lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
     "!(node_modules)/*.{ts,tsx}": [
       "tslint --fix",
-      "jest --bail --findRelatedTests",
       "prettier --write",
       "git add"
     ],

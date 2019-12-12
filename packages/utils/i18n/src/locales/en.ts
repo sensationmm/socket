@@ -39,16 +39,23 @@ const data: EON.IWebAppTranslations = {
     },
     fourOhFour: {
       hero: {
+        title: '404! Page not found',
+      },
+      body: "Hmmm... this is awks. We can't find that one.",
+    },
+    comingSoon: {
+      hero: {
         title: 'Coming Soon',
       },
-      body: "We haven't built this page yet! Come back soon",
+      body: "We haven't built this page yet!\nCome back soon",
+      cta: 'Go to the home page',
     },
     registrationSuccess: {
       hero: {
         title: 'You did it!!',
       },
       body:
-        "You've almot registered with the Socket Community - please check your email to complete the sign up process",
+        "You've almost registered with the Socket Community - please check your email to complete the sign up process",
     },
     register: {
       hero: {

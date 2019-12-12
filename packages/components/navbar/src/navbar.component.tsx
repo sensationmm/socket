@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import { navigate } from 'gatsby';
 import * as React from 'react';
 
 import { Logo } from '@somo/pda-components-icons/src';
@@ -25,9 +24,9 @@ const Navbar: React.FC<INavbarProps> = ({ menu }) => {
 
   return (
     <div className={styles.navbar}>
-      <div className={styles.logo} onClick={() => navigate('/')}>
+      <a className={styles.logo} href="/">
         <SVG children={Logo} />
-      </div>
+      </a>
 
       {menu && (
         <>

@@ -14,7 +14,7 @@ export const HeaderNavigation = [
   },
   {
     label: 'Community',
-    link: '/community',
+    link: '/coming-soon',
   },
   {
     label: 'Blog',

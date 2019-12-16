@@ -8,7 +8,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'About us',
   description: 'About Socket Energy',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 const About: React.FC = () => {

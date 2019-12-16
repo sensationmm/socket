@@ -15,8 +15,9 @@ const MenuMock = [
 jest.mock('gatsby', () => ({
   navigate: jest.fn(),
 }));
+jest.mock('@somo/pda-components-menu/src', () => jest.fn((props) => <span>{props.children}</span>));
 
-describe('@somo/pda-components-page-hero component', () => {
+describe('@somo/pda-components-navbar component', () => {
   let wrapper;
 
   it('should render without error', () => {

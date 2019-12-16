@@ -7,7 +7,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'My account',
   description: 'my account',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 const Account: React.FC = () => {

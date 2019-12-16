@@ -8,7 +8,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'Smart tariff',
   description: 'Our tariff is smart',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 const SmartTariff: React.FC = () => {

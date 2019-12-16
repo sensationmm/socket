@@ -18,6 +18,8 @@ jest.mock('@somo/pda-utils-form/src', () => ({
   renderForm: jest.fn().mockReturnValue(<span />),
 }));
 
+jest.mock('@somo/pda-components-menu');
+
 describe('EditAddress component', () => {
   const props = {
     userId: 'u1',

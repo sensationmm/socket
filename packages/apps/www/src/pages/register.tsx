@@ -7,7 +7,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'Register',
   description: 'User registration',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
   noindex: true,
 };
 

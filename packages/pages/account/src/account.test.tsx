@@ -15,6 +15,7 @@ import ProductDetails from './components/product-details/product-details.compone
 
 jest.mock('@somo/pda-components-user-switch/src', () => () => <span />);
 jest.mock('./components/contact-preferences/contact-preferences.component', () => () => <span />);
+jest.mock('@somo/pda-components-menu');
 
 describe('@somo/pda-pages-account', () => {
   const mockStore = configureMockStore()({

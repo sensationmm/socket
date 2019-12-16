@@ -29,6 +29,7 @@ const jestWindowEnv = {
   [Env.ApiBaseUrl]: 'API_BASE_URL',
   [Env.AuthorisationHeader]: 'AUTHORISATION_HEADER',
   [Env.GraphqlUrl]: 'GRAPHQL_URL',
+  [Env.CommunityUrl]: 'CIAM_COMMUNITY_URL',
 };
 
 setEnv(jestWindowEnv);

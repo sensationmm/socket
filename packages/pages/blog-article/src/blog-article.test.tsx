@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import BlogArticle from '.';
 
+jest.mock('@somo/pda-layouts-blog-article/src', () => jest.fn((props) => <span>{props.children}</span>));
+
 describe('@somo/pda-pages-blog-article', () => {
   let component;
   let props;

@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import ContentPage from '@somo/pda-pages-content/src';
 
+import SEO from '../components/seo.component';
+
 const Page = ({ data }) => {
   const doc = data.markdownRemark.frontmatter;
 
@@ -18,7 +20,18 @@ const Page = ({ data }) => {
     title,
   };
 
-  return <ContentPage subTitle={subTitle} body={body} hero={contentPageHero} />;
+  const SEOProps = {
+    title,
+    description: title,
+    siteLanguage: 'en',
+  };
+
+  return (
+    <>
+      <SEO {...SEOProps} />
+      <ContentPage subTitle={subTitle} body={body} hero={contentPageHero} />
+    </>
+  );
 };
 
 export default Page;

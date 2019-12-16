@@ -7,7 +7,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: '404',
   description: '404 error',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
   noindex: true,
 };
 

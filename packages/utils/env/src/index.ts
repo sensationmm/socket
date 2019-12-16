@@ -8,6 +8,7 @@ export enum Env {
   ApiBaseUrl = 'API_BASE_URL',
   AuthorisationHeader = 'AUTHORISATION_HEADER',
   GraphqlUrl = 'GRAPHQL_URL',
+  CommunityUrl = 'CIAM_COMMUNITY_URL',
 }
 
 export const setEnv = (obj: { [key in Env]: string }) => {

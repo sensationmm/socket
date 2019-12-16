@@ -40,3 +40,7 @@ export const setUserId = (userId: string) => ({
   type: types.SET_USER_ID,
   payload: userId,
 });
+
+export const logout = () => ({
+  type: types.UNAUTHENTICATED,
+});

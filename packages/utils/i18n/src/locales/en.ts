@@ -50,6 +50,12 @@ const data: EON.IWebAppTranslations = {
       body: "We haven't built this page yet!\nCome back soon",
       cta: 'Go to the home page',
     },
+    logout: {
+      hero: {
+        title: "You've been logout",
+      },
+      cta: 'Go to the login page',
+    },
     registrationSuccess: {
       hero: {
         title: 'You did it!!',

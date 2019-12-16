@@ -13,6 +13,8 @@ import * as Register from './register.component';
 
 window.scrollTo = () => null;
 
+jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props.children}</span>));
+
 describe('@somo/pda-pages-register', () => {
   let component;
   let initFormStateSpy;

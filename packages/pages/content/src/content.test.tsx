@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import { createReduxStore } from '@somo/pda-utils-test-support/src/redux-store';
 import Content from '.';
 
+jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props.children}</span>));
+
 const store = createReduxStore();
 
 const renderComponent = (props) =>
@@ -25,7 +27,6 @@ describe('@somo/pda-pages-content', () => {
 
   it('should render and display the content of the props passed to it', () => {
     const { getByText } = renderComponent(props);
-    getByText(props.hero.title);
     getByText(props.subTitle);
     getByText(props.body);
   });

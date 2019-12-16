@@ -8,7 +8,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'Blog posts',
   description: 'See our blog posts',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 const Blog: React.FC = () => {

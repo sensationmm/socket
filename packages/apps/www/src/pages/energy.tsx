@@ -7,7 +7,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'Energy',
   description: 'All about our energy',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 const Energy: React.FC = () => {

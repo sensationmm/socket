@@ -9,7 +9,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'Form example',
   description: 'Example form implementation',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
 };
 
 interface IFormProps {

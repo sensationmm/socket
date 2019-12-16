@@ -263,6 +263,10 @@ declare namespace EON {
         body: string;
         cta: string;
       };
+      logout: {
+        hero: IHeroTranslations;
+        cta: string;
+      };
       registrationSuccess: {
         hero: IHeroTranslations;
         body: string;

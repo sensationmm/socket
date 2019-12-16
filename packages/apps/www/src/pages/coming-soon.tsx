@@ -7,7 +7,7 @@ import SEO from '../components/seo.component';
 const SEOProps = {
   title: 'Coming soon',
   description: 'Coming soon',
-  siteLanguage: 'en_GB',
+  siteLanguage: 'en',
   noindex: true,
 };
 

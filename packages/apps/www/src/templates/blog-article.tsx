@@ -5,6 +5,8 @@ import htmlSerializer from '../utils/html-serializer';
 
 import BlogArticle from '@somo/pda-pages-blog-article/src';
 
+import SEO from '../components/seo.component';
+
 const Page = ({ data }) => {
   const { frontmatter, fields } = data.markdownRemark;
 
@@ -23,7 +25,18 @@ const Page = ({ data }) => {
 
   content.body = htmlSerializer(fields.unified);
 
-  return <BlogArticle content={content} hero={articleHero} />;
+  const SEOProps = {
+    title,
+    description: title,
+    siteLanguage: 'en',
+  };
+
+  return (
+    <>
+      <SEO {...SEOProps} />
+      <BlogArticle content={content} hero={articleHero} />
+    </>
+  );
 };
 
 export default Page;

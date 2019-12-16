@@ -1,22 +1,23 @@
 import * as React from 'react';
 
-import LoginPage from '@somo/pda-pages-login/src';
+import Page from '@somo/pda-pages-logout/src';
 
 import SEO from '../components/seo.component';
 
 const SEOProps = {
-  title: 'Login',
-  description: 'Login to use our community',
+  title: 'Logout',
+  description: 'Logout',
   siteLanguage: 'en',
+  noindex: true,
 };
 
-const Login: React.FC = () => {
+const LogoutPage: React.FC = () => {
   return (
     <>
       <SEO {...SEOProps} />
-      <LoginPage />
+      <Page />
     </>
   );
 };
 
-export default Login;
+export default LogoutPage;

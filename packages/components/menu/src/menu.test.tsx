@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Component from '.';
+import { Menu } from './menu.component';
 
 const MenuMock = [
   { label: 'Link 1', link: 'http://www.google.com' },
@@ -10,12 +10,43 @@ const MenuMock = [
 ];
 
 describe('@somo/pda-components-menu component', () => {
+  let props;
   let wrapper;
+  beforeEach(() => {
+    props = {
+      links: MenuMock,
+      isAuthenticated: false,
+      userId: '1',
+    };
+  });
 
   it('should render menu passed as props', () => {
-    wrapper = shallow(<Component links={MenuMock} />);
+    wrapper = shallow(<Menu {...props} />);
     expect(wrapper).toBeDefined();
 
-    expect(wrapper.find('ul li').length).toEqual(MenuMock.length);
+    const items = wrapper.find('ul li a');
+    for (let i = 0; i < MenuMock.length; i += 1) {
+      const link = items.at(i);
+      expect(link.text()).toEqual(MenuMock[i].label);
+      expect(link.props().href).toEqual(MenuMock[i].link);
+    }
+  });
+
+  it('should render a login and a register link if user is not logged in', () => {
+    wrapper = shallow(<Menu {...props} />);
+    expect(wrapper).toBeDefined();
+
+    const items = wrapper.find('ul li a');
+    expect(items.at(3).props().href).toEqual('/login');
+    expect(items.at(4).props().href).toEqual('/register');
+  });
+
+  it('should render a logout link if user is logged in', () => {
+    props.isAuthenticated = true;
+    wrapper = shallow(<Menu {...props} />);
+    expect(wrapper).toBeDefined();
+
+    const items = wrapper.find('ul li a');
+    expect(items.at(3).props().href).toEqual('/logout');
   });
 });

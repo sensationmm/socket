@@ -2,7 +2,14 @@ type Query {
   checkRegistration(username: String, nickname: String): AccountStatus
 }
 
+type SoGResponse {
+  status: String
+  message: String
+  error_code: Int
+}
+
 type AccountStatus {
-  usernameValid: Boolean
-  nicknameValid: Boolean
+  usernameExists: Boolean
+  nicknameValid: SoGResponse
+  newSogUserValid: SoGResponse
 }

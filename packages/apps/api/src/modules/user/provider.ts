@@ -2,7 +2,7 @@ import { Injectable, ProviderScope } from '@graphql-modules/di';
 
 import { findPaymentDate } from '@somo/pda-utils-dates/src';
 import { camelize, computeAddress } from '@somo/pda-utils-strings/src';
-import BaseProvider from '../base-provider';
+import { JuniferProvider } from '../../providers';
 
 interface ITilInformation {
   itemName: string;
@@ -26,7 +26,7 @@ interface IProductDetails {
 @Injectable({
   scope: ProviderScope.Session,
 })
-export class UserProvider extends BaseProvider {
+export class UserProvider extends JuniferProvider {
   public async getUserById(userId) {
     try {
       const { id, accountId, billDelivery, products, ...rest } = await this.getPersonalDetails(userId);

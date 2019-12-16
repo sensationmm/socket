@@ -406,6 +406,7 @@ jest.mock('apollo-datasource-rest', () => {
 
   return {
     RESTDataSource: MockRESTDataSource,
+    HTTPCache: jest.fn(),
   };
 });
 

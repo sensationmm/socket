@@ -96,6 +96,7 @@ const reducer = (state = initialState, action: Action): IFormState => {
       const newErrors = state.errors;
       const newValid = state.valid;
       delete newErrors[action.key];
+      delete newErrors.form;
       delete newValid[action.key];
 
       return {

@@ -1,52 +1,36 @@
 import { Injectable, ProviderScope } from '@graphql-modules/di';
-import Filter from 'bad-words';
 
-import BaseProvider from '../base-provider';
+import { CIAM } from './ciam';
+import { SOG } from './sog';
 
 @Injectable({
   scope: ProviderScope.Session,
 })
-export class AccountProvider extends BaseProvider {
+export class AccountProvider {
   public async checkRegistration(username: string, nickname: string) {
     try {
-      let usernameValid;
+      let usernameExists;
       let nicknameValid;
+      let newSogUserValid;
+      const ciam = new CIAM();
+      const sog = new SOG();
 
-      usernameValid = await this.checkUsername(username);
-      if (usernameValid) {
-        nicknameValid = await this.checkNickname(nickname);
+      usernameExists = await ciam.checkUsername(username);
+      if (!usernameExists) {
+        nicknameValid = await sog.checkNickname(nickname);
+      }
+
+      if (!usernameExists && nicknameValid.status === 'ok') {
+        newSogUserValid = await sog.createUser(username, nickname);
       }
 
       return {
-        usernameValid,
+        usernameExists,
         nicknameValid,
+        newSogUserValid,
       };
     } catch (error) {
       throw error;
     }
-  }
-
-  public async checkUsername(username: string) {
-    try {
-      let usernameValid;
-
-      if (username === 'true@test.com') {
-        usernameValid = true;
-      } else {
-        usernameValid = false;
-      }
-
-      return usernameValid;
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  public async checkNickname(nickname: string) {
-    const filter = new Filter();
-
-    filter.addWords('socket');
-
-    return !filter.isProfane(nickname);
   }
 }

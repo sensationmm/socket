@@ -62,8 +62,6 @@ export const setFieldError = (key: string, error: string, showErrorMessage: bool
 
 export const setFormError = (error: string) => {
   store.dispatch(setFormErrors(error));
-
-  window.scrollTo(0, 0);
 };
 
 export const updateValue = (stateKey: string, value: any, callback?, arrayUpdate = false) => {
@@ -158,8 +156,6 @@ export const validateForm = (config: IFormConfig[], arrayIndex?: number): boolea
   if (Object.keys(checkErrors).length > 0) {
     store.dispatch(setErrors(errors, true));
 
-    window.scrollTo(0, 0);
-
     return false;
   }
 
@@ -173,13 +169,13 @@ export const renderForm = (config: IFormConfig[], arrayIndex?: number): JSX.Elem
 
   return (
     <div>
-      {showErrorMessage && (
-        <div className={styles.errorBox} data-test="create-error-box" dangerouslySetInnerHTML={{ __html: errorMsg }} />
-      )}
-
       <div data-test="form-fields" className={styles.formFields}>
         {formUtils.renderFormFields(config, arrayIndex)}
       </div>
+
+      {showErrorMessage && (
+        <div className={styles.errorBox} data-test="create-error-box" dangerouslySetInnerHTML={{ __html: errorMsg }} />
+      )}
     </div>
   );
 };

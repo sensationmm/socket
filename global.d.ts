@@ -79,8 +79,16 @@ declare namespace EON {
 
   interface IAccountStatusData {
     checkRegistration: {
-      usernameValid: boolean;
-      nicknameValid: boolean;
+      usernameExists: boolean;
+      nicknameValid: {
+        status: string;
+        message: string;
+      };
+      newSogUserValid: {
+        status: string;
+        message: string;
+        error_code: number;
+      };
     };
   }
 

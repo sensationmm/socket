@@ -81,8 +81,12 @@ describe('@somo/pda-pages-register', () => {
     const queryHandler = jest.fn().mockResolvedValue({
       data: {
         checkRegistration: {
-          usernameValid: false,
-          nicknameValid: null,
+          usernameExists: true,
+          nicknameValid: {
+            status: 'nok',
+            message: 'error message',
+          },
+          newSogUserValid: null,
         },
       },
     });
@@ -107,8 +111,12 @@ describe('@somo/pda-pages-register', () => {
     const queryHandler = jest.fn().mockResolvedValue({
       data: {
         checkRegistration: {
-          usernameValid: true,
-          nicknameValid: false,
+          usernameExists: false,
+          nicknameValid: {
+            status: 'nok',
+            message: 'error message',
+          },
+          newSogUserValid: null,
         },
       },
     });
@@ -125,7 +133,7 @@ describe('@somo/pda-pages-register', () => {
     );
 
     expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
-    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.nickname', 'site.register.errors.nicknameExists');
+    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.nickname', 'error message');
   });
 
   it('onRegister sets error when api fails', async () => {
@@ -155,7 +163,7 @@ describe('@somo/pda-pages-register', () => {
     const queryHandler = jest.fn().mockResolvedValue({
       data: {
         checkRegistration: {
-          usernameValid: null,
+          usernameExists: null,
           nicknameValid: null,
         },
         errors: [new GraphQLError('Loading error')],

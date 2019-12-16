@@ -23,8 +23,16 @@ interface IRegisterProps {
 export const CHECK_REGISTRATION_QUERY = gql`
   query checkRegistration($username: String, $nickname: String) {
     checkRegistration(username: $username, nickname: $nickname) {
-      usernameValid
-      nicknameValid
+      usernameExists
+      nicknameValid {
+        status
+        message
+      }
+      newSogUserValid {
+        status
+        message
+        error_code
+      }
     }
   }
 `;
@@ -44,19 +52,22 @@ export const onRegister = async (
     if (formUtils.validateForm(config)) {
       const {
         data: {
-          checkRegistration: { usernameValid, nicknameValid },
+          checkRegistration: { usernameExists, nicknameValid, newSogUserValid },
         },
       } = await client.query<EON.IAccountStatusData, IQueryVars>({
         query: CHECK_REGISTRATION_QUERY,
         variables: { username: values['register.username'], nickname: values['register.nickname'] },
       });
 
-      if (usernameValid === false) {
+      if (usernameExists) {
         formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'), false);
         formUtils.setFormError(t('site.register.loginWarning'));
-      } else if (nicknameValid === false) {
-        formUtils.setFieldError('register.nickname', t('site.register.errors.nicknameExists'));
-      } else {
+      } else if (nicknameValid.status === 'nok') {
+        formUtils.setFieldError('register.nickname', nicknameValid.message);
+      } else if (newSogUserValid.status === 'nok' && newSogUserValid.error_code === 103) {
+        // SoG checks if the email exists in their platform
+        formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'));
+      } else if (!usernameExists && nicknameValid.status === 'ok' && newSogUserValid.status === 'ok') {
         navigate('/registration-success');
       }
     }
@@ -78,7 +89,6 @@ const RegisterPage: React.FC<IRegisterProps> = ({ form }) => {
       label: t('site.register.form.username.label'),
       value: form.values['register.username'],
       validationFunction: ['validateRequired', 'validateEmail'],
-      note: 'PASS: true@test.com / FAIL: false@test.com',
     },
     {
       id: 'nickname',

@@ -1,3 +1,4 @@
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 import 'reflect-metadata';
 
 import { ApolloServer } from 'apollo-server';

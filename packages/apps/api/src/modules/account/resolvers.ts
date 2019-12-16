@@ -6,7 +6,8 @@ export default {
       injector.get(AccountProvider).checkRegistration(username, nickname),
   },
   AccountStatus: {
-    usernameValid: (account) => account.usernameValid,
+    usernameExists: (account) => account.usernameValid,
     nicknameValid: (account) => account.nicknameValid,
+    newSogUserValid: (account) => account.newSogUserValid,
   },
 };

@@ -8,9 +8,6 @@ const Accounts = new GraphQLModule({
   typeDefs,
   resolvers,
   providers: [AccountProvider],
-  context: ({ req }) => ({
-    token: req.headers.authorization,
-  }),
 });
 
 export default Accounts;

@@ -29,8 +29,6 @@ const stateMock = {
 
 const mockCallback = jest.fn();
 
-window.scrollTo = jest.fn();
-
 const configMock: IFormConfig[] = [
   {
     id: 'input-name',

@@ -158,7 +158,7 @@ const plugins = [
           policy: [{ userAgent: '*', disallow: '/' }],
         },
         production: {
-          policy: [{ userAgent: '*', disallow: '/' }],
+          policy: [{ userAgent: '*', allow: '/' }],
         },
       },
     },

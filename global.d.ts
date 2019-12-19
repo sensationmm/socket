@@ -96,6 +96,15 @@ declare namespace EON {
     user: IUserData;
   }
 
+  interface IValidateIdentityResponse {
+    validateIdentity: {
+      username: string;
+      hash: string;
+      token: string;
+      juniferCustomerIds: string;
+    }
+  }
+
   interface IHomepageFeatures {
     icon: string;
     header: string;

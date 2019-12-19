@@ -10,11 +10,8 @@ const auth = axios.create();
 export class CIAMProvider extends RESTDataSource {
   public token;
 
-  constructor() {
-    super();
-    this.baseURL = 'https://eciam--SITCIAM.cs106.my.salesforce.com';
-    this.httpCache = new HTTPCache();
-  }
+  public baseURL = 'https://eciam--SITCIAM.cs106.my.salesforce.com';
+  public httpCache = new HTTPCache();
 
   public async willSendRequest(request: RequestOptions) {
     if (this.token === undefined) {

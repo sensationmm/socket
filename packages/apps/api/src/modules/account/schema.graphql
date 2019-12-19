@@ -1,5 +1,6 @@
 type Query {
   checkRegistration(username: String, nickname: String): AccountStatus
+  validateIdentity(identity: IdentityValidation): IdentityValidationResult
 }
 
 type SoGResponse {
@@ -12,4 +13,18 @@ type AccountStatus {
   usernameExists: Boolean
   nicknameValid: SoGResponse
   newSogUserValid: SoGResponse
+}
+
+input IdentityValidation {
+  id: String!
+  token: String!,
+  juniferCustomerIds: String!,
+  username: String!,
+}
+
+type IdentityValidationResult {
+  username: String
+  hash: String
+  token: String
+  juniferCustomerIds: String
 }

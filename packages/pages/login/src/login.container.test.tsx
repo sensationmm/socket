@@ -37,11 +37,12 @@ describe('My Profile container', () => {
     });
 
     it('should return an object containing functions in keys array', () => {
-      const keys = ['handleLogin'];
+      const actions = 'actions';
+      const keys = ['handleLogin', 'validateIdentitySuccess', 'logout'];
 
       keys.forEach((key, index) => {
-        expect(props[key]).toBeDefined();
-        props[key]();
+        expect(props[actions][key]).toBeDefined();
+        props[actions][key]();
         expect(dispatch).toHaveBeenCalledTimes(index + 1);
       });
     });

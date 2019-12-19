@@ -1,27 +1,34 @@
 import { get as storageGet, StorageKeys } from '@somo/pda-utils-storage/src';
-import * as types from '../types';
+import {
+  Action,
+  GET_TOKEN_FAILURE,
+  GET_TOKEN_REQUEST,
+  GET_TOKEN_SUCCESS,
+  LOGOUT_USER,
+  SET_USER_ID,
+  VALIDATE_IDENTITY_SUCCESS,
+} from '../types';
 
 export const initialState = {
   ...storageGet(StorageKeys.auth),
 };
 
-export default (state = initialState, action) => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case types.GET_TOKEN_REQUEST: {
+export default (state = initialState, action: Action) => {
+  switch (action.type) {
+    case GET_TOKEN_REQUEST: {
       return { ...state, fetchStatus: 'PENDING' };
     }
-    case types.GET_TOKEN_SUCCESS: {
-      return { ...state, ...payload, fetchStatus: 'COMPLETE' };
+    case GET_TOKEN_SUCCESS:
+    case VALIDATE_IDENTITY_SUCCESS: {
+      return { ...state, ...action.payload, fetchStatus: 'COMPLETE' };
     }
-    case types.GET_TOKEN_FAILURE: {
+    case GET_TOKEN_FAILURE: {
       return { ...state, fetchStatus: 'ERROR' };
     }
-    case types.SET_USER_ID: {
-      return { ...state, userId: payload, fetchStatus: 'COMPLETE' };
+    case SET_USER_ID: {
+      return { ...state, userId: action.payload, fetchStatus: 'COMPLETE' };
     }
-    case types.UNAUTHENTICATED: {
+    case LOGOUT_USER: {
       return {};
     }
     default:

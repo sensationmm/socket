@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import { actions as authActions } from '@somo/pda-redux-auth/src';
 
@@ -18,7 +18,11 @@ export interface IPropsFromReduxState {
 }
 
 export interface IPropsFromDispatch {
-  handleLogin: () => Dispatch;
+  actions: {
+    handleLogin: typeof authActions.getToken;
+    validateIdentitySuccess: typeof authActions.validateIdentitySuccess;
+    logout: typeof authActions.logout;
+  };
 }
 
 export const mapStateToProps = (state: { user: IAuthReducer }): IPropsFromReduxState => {
@@ -29,8 +33,17 @@ export const mapStateToProps = (state: { user: IAuthReducer }): IPropsFromReduxS
   };
 };
 
-export const mapDispatchToProps = (dispatch): IPropsFromDispatch => ({
-  handleLogin: () => dispatch(authActions.getTokenSuccess()),
+export const mapDispatchToProps = (dispatch: Dispatch): IPropsFromDispatch => ({
+  actions: {
+    ...bindActionCreators(
+      {
+        handleLogin: authActions.getToken,
+        validateIdentitySuccess: authActions.validateIdentitySuccess,
+        logout: authActions.logout,
+      },
+      dispatch,
+    ),
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

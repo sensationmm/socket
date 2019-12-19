@@ -10,7 +10,8 @@ const sessionMiddleware: Middleware = () => (next: Dispatch<AnyAction>) => (acti
   const result = next(action);
 
   switch (type) {
-    case types.GET_TOKEN_SUCCESS: {
+    case types.GET_TOKEN_SUCCESS:
+    case types.VALIDATE_IDENTITY_SUCCESS: {
       updateStorage(StorageKeys.auth, payload);
       break;
     }
@@ -18,7 +19,8 @@ const sessionMiddleware: Middleware = () => (next: Dispatch<AnyAction>) => (acti
       updateStorage(StorageKeys.auth, { userId: payload });
       break;
     }
-    case types.UNAUTHENTICATED: {
+    case types.UNAUTHENTICATED:
+    case types.LOGOUT_USER: {
       clearStorage(StorageKeys.auth);
       clearDomainCookies(getEnv(Env.CommunityUrl));
       break;

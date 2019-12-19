@@ -5,11 +5,8 @@ import { HTTPCache, RequestOptions, RESTDataSource } from 'apollo-datasource-res
   scope: ProviderScope.Session,
 })
 export class SOGProvider extends RESTDataSource {
-  constructor() {
-    super();
-    this.baseURL = 'https://socket.test.standingongiants.com/';
-    this.httpCache = new HTTPCache();
-  }
+  public baseURL = 'https://socket.test.standingongiants.com/';
+  public httpCache = new HTTPCache();
 
   public willSendRequest(request: RequestOptions) {
     request.headers.set('Content-Type', 'multipart/form-data');

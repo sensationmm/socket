@@ -5,11 +5,8 @@ import { HTTPCache, RequestOptions, RESTDataSource } from 'apollo-datasource-res
   scope: ProviderScope.Session,
 })
 export class JuniferProvider extends RESTDataSource {
-  constructor() {
-    super();
-    this.baseURL = 'https://api-uk.integration.gentrack.cloud/v1';
-    this.httpCache = new HTTPCache();
-  }
+  public baseURL = 'https://api-uk.integration.gentrack.cloud/v1';
+  public httpCache = new HTTPCache();
 
   public willSendRequest(request: RequestOptions) {
     request.headers.set('Content-Type', 'application/json');

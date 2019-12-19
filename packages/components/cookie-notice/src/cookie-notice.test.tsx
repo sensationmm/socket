@@ -62,7 +62,7 @@ describe('@somo/pda-components-cookie-notice component', () => {
     jest.runOnlyPendingTimers();
     expect(container.childNodes.length).toEqual(1);
     fireEvent.click(getByText(props.cta.agree));
-    expect(set).toHaveBeenCalledWith('allowCookies', true);
+    expect(set).toHaveBeenCalledWith('allowCookies', true, { expires: 90 });
     expect(container.childNodes.length).toEqual(0);
   });
 
@@ -71,7 +71,7 @@ describe('@somo/pda-components-cookie-notice component', () => {
     jest.runOnlyPendingTimers();
     expect(container.childNodes.length).toEqual(1);
     fireEvent.click(getByText(props.cta.disagree));
-    expect(set).toHaveBeenCalledWith('allowCookies', false);
+    expect(set).toHaveBeenCalledWith('allowCookies', false, { expires: 90 });
     expect(container.childNodes.length).toEqual(0);
   });
 });

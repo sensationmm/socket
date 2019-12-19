@@ -8,7 +8,12 @@ describe('@somo/pda-utils-cookies', () => {
   describe('set', () => {
     it('should set a cookie', () => {
       set(CookiesKeys.allowCookies, 'some value');
-      expect(Cookies.set).toHaveBeenCalledWith(CookiesKeys.allowCookies, 'some value');
+      expect(Cookies.set).toHaveBeenCalledWith(CookiesKeys.allowCookies, 'some value', {});
+    });
+
+    it('should set a cookie and set the cookie options if options are passes as a param', () => {
+      set(CookiesKeys.allowCookies, 'some value', { expires: 90 });
+      expect(Cookies.set).toHaveBeenCalledWith(CookiesKeys.allowCookies, 'some value', { expires: 90 });
     });
   });
 

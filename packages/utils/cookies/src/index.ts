@@ -4,7 +4,12 @@ export enum CookiesKeys {
   allowCookies = 'allowCookies',
 }
 
-export const set = (key: CookiesKeys, value: any): any => Cookies.set(key, value);
+interface ICookieOptions {
+  expires?: number;
+}
+
+export const set = (key: CookiesKeys, value: any, options: ICookieOptions = {}): any =>
+  Cookies.set(key, value, { ...options });
 
 export const get = (key: CookiesKeys): any => Cookies.get(key);
 

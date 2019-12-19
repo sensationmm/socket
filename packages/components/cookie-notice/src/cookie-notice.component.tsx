@@ -40,7 +40,7 @@ const CookieNotice: React.FC<ICookieNoticeProps> = ({ title, text, link, cta }) 
   }, []);
 
   const setCookie = (value: boolean) => {
-    set(CookiesKeys.allowCookies, value);
+    set(CookiesKeys.allowCookies, value, { expires: 90 });
     setVisibility(false);
   };
 

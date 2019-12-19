@@ -179,7 +179,6 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
           };
         }),
         value: reduxValues.preferences,
-        validationFunction: 'validateRequired',
       },
     ];
 
@@ -200,7 +199,6 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
             <SaveCancel
               actionPrimary={() => this.saveSelection(config)}
               actionSecondary={this.clearSelection}
-              primaryDisabled={reduxValues.preferences && reduxValues.preferences.length === 0}
               secondaryDisabled={!hasExisting}
             />
           </div>

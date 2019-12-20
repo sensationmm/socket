@@ -9,10 +9,16 @@ type SoGResponse {
   error_code: Int
 }
 
+type CIAMResponse {
+  status: String
+  message: String
+}
+
 type AccountStatus {
   usernameExists: Boolean
   nicknameValid: SoGResponse
   newSogUserValid: SoGResponse
+  newCiamUserValid: CIAMResponse
 }
 
 input IdentityValidation {

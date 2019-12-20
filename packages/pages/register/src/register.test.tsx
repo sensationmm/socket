@@ -1,5 +1,6 @@
 import { MockedProvider } from '@apollo/react-testing';
 import { mount } from 'enzyme';
+import { navigate } from 'gatsby';
 import { GraphQLError } from 'graphql';
 import { createMockClient } from 'mock-apollo-client';
 import * as React from 'react';
@@ -10,6 +11,10 @@ import { Primary as Button } from '@somo/pda-components-button/src';
 import formUtils from '@somo/pda-utils-form/src';
 
 import * as Register from './register.component';
+
+jest.mock('gatsby', () => ({
+  navigate: jest.fn(),
+}));
 
 window.scrollTo = () => null;
 
@@ -87,6 +92,7 @@ describe('@somo/pda-pages-register', () => {
             message: 'error message',
           },
           newSogUserValid: null,
+          newCiamUserValid: null,
         },
       },
     });
@@ -117,6 +123,7 @@ describe('@somo/pda-pages-register', () => {
             message: 'error message',
           },
           newSogUserValid: null,
+          newCiamUserValid: null,
         },
       },
     });
@@ -134,6 +141,78 @@ describe('@somo/pda-pages-register', () => {
 
     expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
     expect(setFieldErrorSpy).toHaveBeenCalledWith('register.nickname', 'error message');
+  });
+
+  it('onRegister sets error when CIAM user already exists', async () => {
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockResolvedValue({
+      data: {
+        checkRegistration: {
+          usernameExists: false,
+          nicknameValid: {
+            status: 'ok',
+            message: '',
+          },
+          newSogUserValid: null,
+          newCiamUserValid: {
+            status: 'Fail',
+            message: 'error message',
+          },
+        },
+      },
+    });
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'true@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
+    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.username', 'site.register.errors.usernameExists');
+  });
+
+  it('onRegister sets error when SoG user already exists', async () => {
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockResolvedValue({
+      data: {
+        checkRegistration: {
+          usernameExists: false,
+          nicknameValid: {
+            status: 'ok',
+            message: '',
+          },
+          newSogUserValid: {
+            status: 'nok',
+            message: 'error message',
+            error_code: 103,
+          },
+          newCiamUserValid: {
+            status: 'Success',
+            message: '',
+          },
+        },
+      },
+    });
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'true@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(setFieldErrorSpy).toHaveBeenCalledTimes(1);
+    expect(setFieldErrorSpy).toHaveBeenCalledWith('register.username', 'site.register.errors.usernameExists');
   });
 
   it('onRegister sets error when api fails', async () => {
@@ -182,6 +261,44 @@ describe('@somo/pda-pages-register', () => {
     );
 
     expect(queryHandler).toHaveBeenCalledTimes(0);
+  });
+
+  it('onRegister redirects to success page if all checks are ok', async () => {
+    const mockClient = createMockClient();
+    const queryHandler = jest.fn().mockResolvedValue({
+      data: {
+        checkRegistration: {
+          usernameExists: false,
+          nicknameValid: {
+            status: 'ok',
+            message: '',
+          },
+          newSogUserValid: {
+            status: 'ok',
+            message: '',
+            error_code: 100,
+          },
+          newCiamUserValid: {
+            status: 'Success',
+            message: '',
+          },
+        },
+      },
+    });
+    mockClient.setRequestHandler(Register.CHECK_REGISTRATION_QUERY, queryHandler);
+
+    await Register.onRegister(
+      [],
+      mockClient,
+      {
+        ['register.username']: 'true@test.com',
+        ['register.nickname']: 'asd',
+      },
+      jestMock,
+    );
+
+    expect(navigate).toHaveBeenCalledTimes(1);
+    expect(navigate).toHaveBeenCalledWith('/registration-success');
   });
 
   afterEach(() => {

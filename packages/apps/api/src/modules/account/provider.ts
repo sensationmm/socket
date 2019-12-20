@@ -13,6 +13,7 @@ export class AccountProvider {
     try {
       let usernameExists;
       let nicknameValid;
+      let newCiamUserValid;
       let newSogUserValid;
       const ciam = new CIAM();
       const sog = new SOG();
@@ -23,6 +24,10 @@ export class AccountProvider {
       }
 
       if (!usernameExists && nicknameValid.status === 'ok') {
+        newCiamUserValid = await ciam.createUser(username);
+      }
+
+      if (!usernameExists && nicknameValid.status === 'ok' && newCiamUserValid.status === 'Success') {
         newSogUserValid = await sog.createUser(username, nickname);
       }
 
@@ -30,6 +35,7 @@ export class AccountProvider {
         usernameExists,
         nicknameValid,
         newSogUserValid,
+        newCiamUserValid,
       };
     } catch (error) {
       throw error;

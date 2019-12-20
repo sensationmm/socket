@@ -10,6 +10,7 @@ export default {
     usernameExists: (account) => account.usernameValid,
     nicknameValid: (account) => account.nicknameValid,
     newSogUserValid: (account) => account.newSogUserValid,
+    newCiamUserValid: (account) => account.newCiamUserValid,
   },
   IdentityValidationResult: {
     username: (identity) => identity.username,

@@ -33,6 +33,10 @@ export const CHECK_REGISTRATION_QUERY = gql`
         message
         error_code
       }
+      newCiamUserValid {
+        status
+        message
+      }
     }
   }
 `;
@@ -52,7 +56,7 @@ export const onRegister = async (
     if (formUtils.validateForm(config)) {
       const {
         data: {
-          checkRegistration: { usernameExists, nicknameValid, newSogUserValid },
+          checkRegistration: { usernameExists, nicknameValid, newSogUserValid, newCiamUserValid },
         },
       } = await client.query<EON.IAccountStatusData, IQueryVars>({
         query: CHECK_REGISTRATION_QUERY,
@@ -64,10 +68,16 @@ export const onRegister = async (
         formUtils.setFormError(t('site.register.loginWarning'));
       } else if (nicknameValid.status === 'nok') {
         formUtils.setFieldError('register.nickname', nicknameValid.message);
-      } else if (newSogUserValid.status === 'nok' && newSogUserValid.error_code === 103) {
-        // SoG checks if the email exists in their platform
+      } else if (newCiamUserValid.status === 'Fail') {
         formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'));
-      } else if (!usernameExists && nicknameValid.status === 'ok' && newSogUserValid.status === 'ok') {
+      } else if (newSogUserValid.status === 'nok' && newSogUserValid.error_code === 103) {
+        formUtils.setFieldError('register.username', t('site.register.errors.usernameExists'));
+      } else if (
+        !usernameExists &&
+        nicknameValid.status === 'ok' &&
+        newSogUserValid.status === 'ok' &&
+        newCiamUserValid.status === 'Success'
+      ) {
         navigate('/registration-success');
       }
     }

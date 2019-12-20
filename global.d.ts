@@ -89,6 +89,10 @@ declare namespace EON {
         message: string;
         error_code: number;
       };
+      newCiamUserValid: {
+        status: string;
+        message: string;
+      };
     };
   }
 

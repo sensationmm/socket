@@ -6,6 +6,7 @@ import FlexRow from '@somo/pda-components-flex-row/src';
 import Image from '@somo/pda-components-image/src';
 import List from '@somo/pda-components-list/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
+import TextImage from '@somo/pda-components-text-image/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
@@ -53,30 +54,32 @@ const HomePage: React.FC<IHomePageProps> = ({ imagery }) => {
       </PageSection>
 
       <PageSection style={PageSectionStyle.TertiaryPattern} isNarrow={true}>
-        <FlexRow className={styles.understandEnergyRow} layout={[60, 40]}>
-          <div>
-            <Text
-              className={styles.understandEnergyTitle}
-              element="h2"
-              type={TextStyles.h2}
-              color={ColorStyles.secondary}
-            >
-              {t('site.homepage.understandEnergy.title')}
-            </Text>
-            <List
-              classNames={styles.understandEnergyList}
-              listContent={t('site.homepage.understandEnergy.list', { returnObjects: true })}
-              textColor={ColorStyles.secondary}
-            />
-          </div>
-          <div>
+        <TextImage
+          text={
+            <div>
+              <Text
+                className={styles.understandEnergyTitle}
+                element="h2"
+                type={TextStyles.h2}
+                color={ColorStyles.secondary}
+              >
+                {t('site.homepage.understandEnergy.title')}
+              </Text>
+              <List
+                classNames={styles.understandEnergyList}
+                listContent={t('site.homepage.understandEnergy.list', { returnObjects: true })}
+                textColor={ColorStyles.secondary}
+              />
+            </div>
+          }
+          image={
             <Image
               src={getImagePath(imagery, 'energy-pie')}
               alt={t('site.homepage.understandEnergy.title')}
               isLazy={true}
             />
-          </div>
-        </FlexRow>
+          }
+        />
       </PageSection>
 
       <PageSection>

@@ -39,7 +39,7 @@
   }
 
   @media (--m) {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-xxl);
     line-height: 1.06;
   }
 }
@@ -78,7 +78,7 @@
   }
 
   @media (--m) {
-    font-size: var(--font-size-xxl);
+    font-size: var(--font-size-xl);
     line-height: 1.2;
   }
 }
@@ -93,8 +93,8 @@
   }
 
   @media (--m) {
-    font-size: var(--font-size-xl);
-    line-height: 1.25;
+    font-size: var(--font-size-s);
+    line-height: 1.4;
   }
 }
 

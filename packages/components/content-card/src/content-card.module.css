@@ -12,12 +12,13 @@
   }
 
   @media (--m) {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-l);
   }
 }
 
 .contentCardTitle {
   margin-left: var(--spacing-s);
+  margin-bottom: 0 !important;
 
   @media (--m) {
     margin-left: var(--spacing-l);

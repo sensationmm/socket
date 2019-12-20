@@ -26,7 +26,7 @@ const Image: React.FC<IImageProps> = ({
     updateErrorState(true);
   };
 
-  const classes = cx({ [styles.fallback]: !props.src || hasError }, className, {
+  const classes = cx([styles.image], { [styles.fallback]: !props.src || hasError }, className, {
     [styles.cmsContent]: isCMSContent,
   });
 

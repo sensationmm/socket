@@ -10,6 +10,10 @@
   width: 120px;
   cursor: pointer;
   z-index: 101;
+
+  @media (--s) {
+    width: 180px;
+  }
 }
 
 .logo svg {

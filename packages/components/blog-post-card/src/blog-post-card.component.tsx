@@ -1,10 +1,9 @@
 import cx from 'classnames';
-import { Link } from 'gatsby';
 import * as React from 'react';
 
 import ArticleAuthor from '@somo/pda-components-article-author/src';
 import { AvatarSizes } from '@somo/pda-components-avatar/src';
-import { Secondary } from '@somo/pda-components-button/src';
+import { ButtonTypes, Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
@@ -48,9 +47,9 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
     <Text className={styles.description} element="p" color={ColorStyles.secondary} type={TextStyles.segmentCopyFixed}>
       {trimText(shortDescription, maxShortDescriptionLength)}
     </Text>
-    <Link className={styles.link} to={link} target="_self" title={cta}>
-      <Secondary>{cta}</Secondary>
-    </Link>
+    <SecondaryBtn className={styles.link} type={ButtonTypes.internalLink} link={link} title={cta}>
+      {cta}
+    </SecondaryBtn>
   </ContentBox>
 );
 

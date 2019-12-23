@@ -44,7 +44,7 @@ const SVG: React.FC<ISVGProps> = ({
   const Icon = children as any;
 
   return (
-    <div
+    <span
       className={cx(baseStyles.container, [className, styles && styles.svg])}
       style={{ height: finalHeight, width: finalWidth }}
       role="presentation"
@@ -64,7 +64,7 @@ const SVG: React.FC<ISVGProps> = ({
           verticalAlign,
         }}
       />
-    </div>
+    </span>
   );
 };
 

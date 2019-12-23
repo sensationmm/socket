@@ -1,9 +1,8 @@
 import { useApolloClient } from '@apollo/react-hooks';
-import { navigate } from 'gatsby';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import SecondaryButton from '@somo/pda-components-button/src/secondary';
+import { ButtonTypes, Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { IPropsFromReduxActions, withSession } from '@somo/pda-pages-login/src';
@@ -21,7 +20,9 @@ export const LogoutPage: React.FC<IPropsFromReduxActions> = ({ actions }) => {
   return (
     <RegularLayout hero={t('site.logout.hero', { returnObjects: true })}>
       <PageSection>
-        <SecondaryButton onClick={() => navigate('/login')}>{t('site.logout.cta')}</SecondaryButton>
+        <SecondaryBtn type={ButtonTypes.internalLink} link="/">
+          {t('site.logout.cta')}
+        </SecondaryBtn>
       </PageSection>
     </RegularLayout>
   );

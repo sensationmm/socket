@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme';
-import { Link } from 'gatsby';
 import * as React from 'react';
 
 import { AvatarSizes } from '@somo/pda-components-avatar/src';
+import { Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import Component from '.';
 
 describe('@somo/pda-components-blog-post-card component', () => {
@@ -14,7 +14,7 @@ describe('@somo/pda-components-blog-post-card component', () => {
     title: 'Some title',
     shortDescription: 'Some information',
     cta: 'Click here',
-    link: 'http://google.com/',
+    link: '/',
   };
 
   it('should render a content box', () => {
@@ -74,20 +74,14 @@ describe('@somo/pda-components-blog-post-card component', () => {
     expect(descriptionText.text()).toEqual('Some i...');
   });
 
-  it('should render a gatsby link', () => {
+  it('should render a link', () => {
     wrapper = shallow(<Component {...props} />);
-    const link = wrapper.find(Link);
+    const link = wrapper.find(SecondaryBtn);
     const linkProps = link.props();
     expect(linkProps).toMatchObject({
-      to: props.link,
-      target: '_self',
+      link: props.link,
       title: props.cta,
     });
-    expect(
-      link
-        .childAt(0)
-        .childAt(0)
-        .text(),
-    ).toEqual(props.cta);
+    expect(link.childAt(0).text()).toEqual(props.cta);
   });
 });

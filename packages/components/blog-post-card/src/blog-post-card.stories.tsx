@@ -25,6 +25,6 @@ storiesOf('Components|blog-post-card', module)
       )}
       maxShortDescriptionLength={number('Max description length', 100)}
       cta={text('CTA', 'Read article')}
-      link={text('Link', 'http://google.com')}
+      link={text('Link', '/')}
     />
   ));

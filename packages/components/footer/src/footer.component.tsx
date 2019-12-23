@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Round as RoundButton } from '@somo/pda-components-button/src';
+import { ButtonTypes, Round as RoundButton } from '@somo/pda-components-button/src';
 import FooterMenu, { IMenuProps } from '@somo/pda-components-footer-menu/src';
 import { Facebook, Instagram, LinkedIn, Twitter, YouTube } from '@somo/pda-components-icons/src';
 import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section/src';
@@ -27,31 +27,41 @@ const Footer: React.FC<IFooterProps> = ({ menu }) => {
           {t('site.footer.subTitle')}
         </Text>
         <div className={styles.social}>
-          <a href="https://www.facebook.com/socketenergy1" target="_blank">
-            <RoundButton aria-label="Socket on Facebook">
-              <SVG children={Facebook} size={'20px'} className={styles.socialIcon} />
-            </RoundButton>
-          </a>
-          <a href="https://twitter.com/SocketEnergy" target="_blank">
-            <RoundButton aria-label="Socket on Twitter">
-              <SVG children={Twitter} size={'20px'} className={styles.socialIcon} />
-            </RoundButton>
-          </a>
-          <a href="https://www.instagram.com/socketgram" target="_blank">
-            <RoundButton aria-label="Socket on Instagram">
-              <SVG children={Instagram} size={'20px'} className={styles.socialIcon} />
-            </RoundButton>
-          </a>
-          <a href="https://www.linkedin.com/company/20151244" target="_blank">
-            <RoundButton aria-label="Socket on LinkedIn">
-              <SVG children={LinkedIn} size={'20px'} className={styles.socialIcon} />
-            </RoundButton>
-          </a>
-          <a href="https://youtube.com/channel/UCbquUpV7VZdFhwRTHlLQkqQ" target="_blank">
-            <RoundButton aria-label="Socket on YouTube">
-              <SVG children={YouTube} size={'20px'} className={styles.socialIcon} />
-            </RoundButton>
-          </a>
+          <RoundButton
+            aria-label="Socket on Facebook"
+            type={ButtonTypes.externalLink}
+            link="https://www.facebook.com/socketenergy1"
+          >
+            <SVG children={Facebook} size={'20px'} className={styles.socialIcon} />
+          </RoundButton>
+          <RoundButton
+            aria-label="Socket on Twitter"
+            type={ButtonTypes.externalLink}
+            link="https://twitter.com/SocketEnergy"
+          >
+            <SVG children={Twitter} size={'20px'} className={styles.socialIcon} />
+          </RoundButton>
+          <RoundButton
+            aria-label="Socket on Instagram"
+            type={ButtonTypes.externalLink}
+            link="https://www.instagram.com/socketgram"
+          >
+            <SVG children={Instagram} size={'20px'} className={styles.socialIcon} />
+          </RoundButton>
+          <RoundButton
+            aria-label="Socket on LinkedIn"
+            type={ButtonTypes.externalLink}
+            link="https://www.linkedin.com/company/20151244"
+          >
+            <SVG children={LinkedIn} size={'20px'} className={styles.socialIcon} />
+          </RoundButton>
+          <RoundButton
+            aria-label="Socket on YouTube"
+            type={ButtonTypes.externalLink}
+            link="https://youtube.com/channel/UCbquUpV7VZdFhwRTHlLQkqQ"
+          >
+            <SVG children={YouTube} size={'20px'} className={styles.socialIcon} />
+          </RoundButton>
         </div>
       </PageSection>
       <PageSection style={PageSectionStyle.Senary}>

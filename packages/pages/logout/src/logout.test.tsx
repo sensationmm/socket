@@ -10,6 +10,12 @@ jest.mock('@apollo/react-hooks', () => ({
     clearStore: jest.fn().mockImplementation(() => Promise.resolve()),
   }),
 }));
+jest.mock('@somo/pda-components-button/src', () => ({
+  Secondary: () => <button>mock</button>,
+  ButtonTypes: {
+    internalLink: 'internalLink',
+  },
+}));
 
 describe('@somo/pda-pages-logout', () => {
   const props = {

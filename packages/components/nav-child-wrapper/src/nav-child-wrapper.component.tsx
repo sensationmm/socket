@@ -5,6 +5,8 @@ import CSSTransition from 'react-transition-group/CSSTransition';
 import { ChevronDownHollow } from '@somo/pda-components-icons/src';
 import SVG from '@somo/pda-components-svg/src';
 
+import * as KEYS from '@somo/pda-utils-keyboard/src';
+
 import * as styles from './nav-child-wrapper.module.css';
 
 export enum ChildPosition {
@@ -27,14 +29,23 @@ const NavChildWrapper: React.FC<INavChildWrapperProps> = ({ label, children, pos
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.keyCode === KEYS.KEY_ESCAPE && isOpen) {
+      setChildNav(false);
+    }
+  };
+
   useEffect(() => {
     if (isOpen) {
+      document.addEventListener('keydown', handleKeyDown);
       document.addEventListener('mousedown', handleClickOutside);
     } else {
+      document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
+      document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isOpen]);

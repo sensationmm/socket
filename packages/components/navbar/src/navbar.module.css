@@ -16,6 +16,10 @@
   }
 }
 
+.logo:focus {
+  outline: 3px solid var(--color-brand-quaternary);
+}
+
 .logo svg {
   color: var(--color-basic-white);
 }

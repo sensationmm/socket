@@ -18,7 +18,7 @@
   top: 50%;
   width: 14px;
   height: 14px;
-  margin-top: -7px;
+  margin-top: -6px;
   right: 25px;
   transition: transform 0.2s cubic-bezier(0, 0, 0.38, 0.9);
   color: var(--color-brand-main);
@@ -83,17 +83,15 @@ ul {
     background-color: var(--color-grey-light);
   }
 
-  &:hover,
-  &:focus {
+  &:hover > *,
+  &:focus > * {
     font-weight: var(--font-weight-bold);
     outline: 0;
   }
 }
 
 .dropdownSelected {
-  color: var(--color-brand-secondary);
-  font-size: var(--font-size-xl);
-  padding: 19px 25px;
+  padding: 19px 23px;
   list-style-position: inside;
   white-space: nowrap;
   overflow: hidden;
@@ -137,7 +135,7 @@ ul {
   border-style: solid;
   border-color: var(--color-grey-mid);
   border-radius: 0;
-  padding: 19px 12px 13px 12px;
+  padding: 17px 12px 13px 12px;
 
   &:hover,
   &:focus,

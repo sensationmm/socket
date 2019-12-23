@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { ChevronDown } from '@somo/pda-components-icons/src';
 import SVG from '@somo/pda-components-svg/src';
+import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import * as KEYS from '@somo/pda-utils-keyboard/src';
 
 import * as styles from './select.module.css';
@@ -182,6 +183,12 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
   public render() {
     const { label, type, options, defaultOptionText, value } = this.props;
 
+    const ariaProps = label
+      ? {
+          'aria-labelledby': 'dropdown-label',
+        }
+      : {};
+
     return (
       <div className={classNames(styles.select, { [styles.inline]: type === FormSelectType.Inline })}>
         {label && (
@@ -193,12 +200,14 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
         <div className={styles.selectbox}>
           <div
             role="button"
-            aria-labelledby="dropdown-label"
             id="dropdown-selected"
             tabIndex={0}
             className={classNames(styles.dropdownSelected, { [styles.open]: this.state.open })}
+            {...ariaProps}
           >
-            {value ? value : defaultOptionText}
+            <Text element="span" type={TextStyles.label} color={ColorStyles.primary}>
+              {value ? value : defaultOptionText}
+            </Text>
           </div>
 
           <span id="dropdown-arrow" className={classNames(styles.selectIcon, { [styles.expanded]: this.state.open })}>
@@ -206,12 +215,7 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
           </span>
 
           <div id="dropdown-list-container" className={styles.dropdownListContainer}>
-            <ul
-              id="dropdown-list"
-              aria-expanded="false"
-              role="list"
-              className={classNames(styles.dropdownList, { [styles.open]: this.state.open })}
-            >
+            <ul id="dropdown-list" className={classNames(styles.dropdownList, { [styles.open]: this.state.open })}>
               {options &&
                 options.map((option, count) => {
                   return (
@@ -222,7 +226,9 @@ class Select extends React.Component<IFormSelectProps, IFormSelectState> {
                       id={`option-${count}`}
                       data-val={option.val}
                     >
-                      {option.label}
+                      <Text element="span" type={TextStyles.caption} color={ColorStyles.tertiary}>
+                        {option.label}
+                      </Text>
                     </li>
                   );
                 })}

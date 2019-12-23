@@ -22,7 +22,7 @@ const FooterMenu: React.FC<IMenuProps> = ({ links }) => {
             return (
               <li key={`menu-item-${count}`}>
                 <a href={link}>
-                  <Text type={TextStyles.segmentCopy} color={ColorStyles.secondary}>
+                  <Text type={TextStyles.body} color={ColorStyles.secondary}>
                     {label}
                   </Text>
                 </a>

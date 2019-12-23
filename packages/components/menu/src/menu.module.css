@@ -33,3 +33,7 @@
 .navLink {
   display: block;
 }
+
+.navLink:focus {
+  outline: 3px solid var(--color-brand-quaternary);
+}

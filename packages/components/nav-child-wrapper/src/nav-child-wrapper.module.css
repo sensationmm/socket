@@ -1,7 +1,3 @@
-.navChild {
-  overflow: hidden;
-}
-
 .navChildLink {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -10,6 +6,10 @@
   display: flex;
   justify-content: center;
   flex: 1 1 auto;
+}
+
+.navChildLink:focus {
+  outline: 3px solid var(--color-brand-quaternary);
 }
 
 .navChildChevron {
@@ -38,6 +38,10 @@
   &.right {
     transform: translateX(-50%);
   }
+}
+
+.navChildContent a:focus {
+  outline: 3px solid var(--color-brand-main);
 }
 
 .navChildEnter {

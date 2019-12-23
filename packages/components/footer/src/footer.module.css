@@ -20,7 +20,7 @@
   margin-bottom: var(--spacing-xl);
 }
 
-.social > button {
+.social > a {
   margin-right: var(--spacing-l);
 }
 

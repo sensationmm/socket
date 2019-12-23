@@ -171,6 +171,7 @@ deploy Graphql DEV:
     - DEV
   script:
     - aws s3 sync ./packages/apps/api s3://puredauk-poc-s3-dev-01 --delete --acl "public-read"
+    - aws s3 sync ./ s3://puredauk-apol-s3-dev-01 --delete
   environment:
     name: DEV
   only:

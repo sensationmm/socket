@@ -26,6 +26,7 @@ const HTML: React.FC<IHTMLProps> = (props) => (
       <meta name="socket:buildTime" content={BUILD_TIME} />
       <PreConnect preConnectUrls={preConnectList} />
       <PreLoad />
+      <script>Hi Anton and the Trust Pilot team, a very merry Christmas to you all 😁</script>
       {props.headComponents}
     </head>
     <body {...props.bodyAttributes}>

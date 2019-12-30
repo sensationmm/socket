@@ -10,7 +10,6 @@ import TextImage from '@somo/pda-components-text-image/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
-
 import * as styles from './home.module.css';
 
 interface IImageProps {
@@ -20,7 +19,7 @@ interface IImageProps {
   };
 }
 
-interface IHomePageProps {
+export interface IHomePageProps {
   imagery: IImageProps[];
 }
 

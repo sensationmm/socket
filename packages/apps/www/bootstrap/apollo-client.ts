@@ -1,20 +1,20 @@
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { PresetConfig } from 'apollo-boost';
+import { Operation } from 'apollo-link';
 import { ErrorLink } from 'apollo-link-error';
 import { navigate } from 'gatsby-link';
+import { GraphQLError } from 'graphql';
 import fetch from 'isomorphic-fetch';
 import { Store } from 'redux';
 
 import * as authTypes from '@somo/pda-redux-auth/src/types';
 import { actions as notificationActions } from '@somo/pda-redux-notification/src';
-import { Env, getEnv } from '@somo/pda-utils-env/src';
 import i18n from '@somo/pda-utils-i18n/src';
-import { GraphQLError } from 'graphql';
 
 interface IExtendedGraphQLError extends GraphQLError {
   domain?: string;
 }
 
-export default (store: Store, options = {}) => {
+export const CreateApolloClient = (store: Store, options: PresetConfig = {}): ApolloClient<PresetConfig> => {
   const errorHandler: ErrorLink.ErrorHandler = ({ graphQLErrors }) => {
     if (!graphQLErrors) {
       return;
@@ -39,7 +39,7 @@ export default (store: Store, options = {}) => {
     }
   };
 
-  const onRequest = (operation) => {
+  const onRequest = (operation: Operation) => {
     const {
       user: { accessToken, tokenType },
     } = store.getState();
@@ -52,7 +52,7 @@ export default (store: Store, options = {}) => {
   };
 
   return new ApolloClient({
-    uri: getEnv(Env.GraphqlUrl),
+    uri: process.env.GRAPHQL_BASE_URL,
     fetch,
     onError: errorHandler,
     request: onRequest,

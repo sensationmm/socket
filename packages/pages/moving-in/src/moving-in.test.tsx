@@ -2,10 +2,11 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import MovingIn from '.';
+import { IMovingInPageProps } from './moving-in.component';
 
 const textObj = {
   text: 'text',
-  image: 'iamge',
+  image: 'image',
   list: ['boo', 'boo'],
 };
 
@@ -15,11 +16,12 @@ jest.mock('react-i18next', () => ({
     { t: jest.fn().mockReturnValue('hi') },
   ],
 }));
+
 jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props.children}</span>));
 
 describe('@somo/pda-pages-moving-in', () => {
   let component;
-  let props;
+  let props: IMovingInPageProps;
 
   beforeAll(() => {
     props = {

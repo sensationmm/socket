@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import { createReduxStore } from '@somo/pda-utils-test-support/src/redux-store';
 import Content from '.';
+import { IContentPageProps } from './content.component';
 
 jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props.children}</span>));
 
@@ -17,7 +18,7 @@ const renderComponent = (props) =>
   );
 
 describe('@somo/pda-pages-content', () => {
-  const props = {
+  const props: IContentPageProps = {
     hero: {
       title: 'Content Page',
     },

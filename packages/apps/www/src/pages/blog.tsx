@@ -1,9 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
+import { SiteMetadataContext } from '@somo/pda-context-site-metadata/src';
 import BlogPage from '@somo/pda-pages-blog/src';
-
 import SEO from '../components/seo.component';
+import { useSiteMetadata } from '../hooks';
 
 const SEOProps = {
   title: 'Blog posts',
@@ -43,7 +44,6 @@ const Blog: React.FC = () => {
     }
   `);
   const blogPosts = data.allMarkdownRemark.edges;
-
   const posts = blogPosts.map((post) => {
     const { fields, frontmatter } = post.node;
 
@@ -56,11 +56,13 @@ const Blog: React.FC = () => {
     };
   });
 
+  const siteMetadata = useSiteMetadata();
+
   return (
-    <>
+    <SiteMetadataContext.Provider value={siteMetadata}>
       <SEO {...SEOProps} />
       <BlogPage posts={posts} />
-    </>
+    </SiteMetadataContext.Provider>
   );
 };
 

@@ -235,22 +235,6 @@ resource "aws_codebuild_project" "da_gatsby_codebuild" {
       name  = "SiteBucket"
       value = "s3://da-gatsby-bucket"
     }
-    environment_variable {
-      name  = "BRAND_NAME_LONG"
-      value = "SOCKET"
-    }
-    environment_variable {
-      name  = "BRAND_NAME_SHORT"
-      value = "SOCKET"
-    }
-    environment_variable {
-      name  = "SITE_URL"
-      value = "https://localhost:8000"
-    }
-    environment_variable {
-      name  = "GTM_ID"
-      value = "GTM-T4ZQZNK"
-    }
   }
 
   logs_config {

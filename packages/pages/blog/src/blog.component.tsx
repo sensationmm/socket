@@ -2,17 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Media from 'react-media';
 
-import tokens from '@somo/pda-utils-tokens/src';
-
 import BlogPostCard, { IBlogPostCardProps } from '@somo/pda-components-blog-post-card/src';
 import FlexRowGrid from '@somo/pda-components-flex-row-grid/src';
 import Select, { FormSelectType } from '@somo/pda-components-form-select/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
-
+import tokens from '@somo/pda-utils-tokens/src';
 import * as styles from './blog.module.css';
 
-interface IBlogPageProps {
+export interface IBlogPageProps {
   posts: Array<Omit<IBlogPostCardProps, 'cta'>>;
 }
 

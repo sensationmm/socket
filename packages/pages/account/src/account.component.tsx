@@ -8,7 +8,7 @@ import GutterLayout from '@somo/pda-components-gutter-layout/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
 import UserSwitch from '@somo/pda-components-user-switch/src';
-import useEditTray from '@somo/pda-hooks-edit/src';
+import { useEditTray } from '@somo/pda-hooks-edit-tray/src';
 import AccountLayout from '@somo/pda-layouts-account/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
 import ContactPreferences from './components/contact-preferences/contact-preferences.component';

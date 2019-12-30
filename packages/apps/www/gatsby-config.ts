@@ -10,14 +10,7 @@ config({ path: `.env.${activeEnvironment}` });
 import postCssPlugins from '@somo/pda-utils-postcss-plugins/src';
 import tokens from '@somo/pda-utils-tokens/src';
 
-const requiredEnvironmentVars = [
-  'GTM_ID',
-  'BRAND_NAME_LONG',
-  'BRAND_NAME_SHORT',
-  'SITE_URL',
-  'API_BASE_URL',
-  'AUTHORISATION_HEADER',
-];
+const requiredEnvironmentVars = ['SITE_BASE_URL', 'GRAPHQL_BASE_URL', 'CIAM_COMMUNITY_URL', 'CIAM_CLIENT_ID'];
 
 const getMissingEnvironmentVars = (requiredVars: string[]): string => {
   return requiredVars.filter((v) => !process.env[v]).join(', ');
@@ -28,6 +21,8 @@ const missingEnvironmentVars = getMissingEnvironmentVars(requiredEnvironmentVars
 if (missingEnvironmentVars) {
   throw new Error(`${activeEnvironment} is missing env vars for ${missingEnvironmentVars}`);
 }
+
+const siteUrl = process.env.SITE_BASE_URL;
 
 const plugins = [
   `gatsby-plugin-sitemap`,
@@ -85,8 +80,8 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: process.env.BRAND_NAME_LONG,
-      short_name: process.env.BRAND_NAME_SHORT,
+      name: 'Socket',
+      short_name: 'Socket',
       start_url: '/?utm_source=a2hs',
       background_color: tokens.customProperties.color.brand.main,
       theme_color: tokens.customProperties.color.brand.main,
@@ -100,7 +95,7 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-canonical-urls',
     options: {
-      siteUrl: process.env.SITE_URL,
+      siteUrl,
     },
   },
   {
@@ -151,8 +146,8 @@ const plugins = [
   {
     resolve: 'gatsby-plugin-robots-txt',
     options: {
-      host: process.env.SITE_URL,
-      sitemap: [`${process.env.SITE_URL}/sitemap.xml`],
+      host: siteUrl,
+      sitemap: [`${siteUrl}/sitemap.xml`],
       env: {
         development: {
           policy: [{ userAgent: '*', disallow: '/' }],
@@ -180,7 +175,9 @@ const mapping = {
 };
 
 const siteMetadata = {
-  siteUrl: process.env.SITE_URL,
+  siteUrl,
+  ciamCommunityUrl: process.env.CIAM_COMMUNITY_URL,
+  ciamClientId: process.env.CIAM_CLIENT_ID,
 };
 
 export { siteMetadata, plugins, mapping };

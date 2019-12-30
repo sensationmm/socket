@@ -7,7 +7,6 @@ import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
-
 import * as styles from './moving-in.module.css';
 
 interface IImageProps {
@@ -17,7 +16,7 @@ interface IImageProps {
   };
 }
 
-interface IMovingInPageProps {
+export interface IMovingInPageProps {
   imagery: IImageProps[];
 }
 

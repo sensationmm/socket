@@ -5,7 +5,6 @@ import PageSection, { PageSectionStyle } from '@somo/pda-components-page-section
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { splitArrayIntoChunksOfN } from '@somo/pda-utils-arrays/src';
-
 import * as styles from './energy.module.css';
 
 const EnergyPage: React.FC = () => {

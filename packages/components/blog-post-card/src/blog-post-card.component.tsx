@@ -6,7 +6,6 @@ import { AvatarSizes } from '@somo/pda-components-avatar/src';
 import { ButtonTypes, Secondary as SecondaryBtn } from '@somo/pda-components-button/src';
 import ContentBox, { ContentBoxStyle } from '@somo/pda-components-content-box/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
-
 import * as styles from './blog-post-card.module.css';
 
 export interface IBlogPostCardProps {

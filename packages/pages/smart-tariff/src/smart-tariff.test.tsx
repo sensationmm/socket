@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import SmartTariff from '.';
+import { ISmartTariffPageProps } from './smart-tariff.component';
 
 const pointsList = ['some text', 'another text'];
 const switchingContent = [
@@ -27,7 +28,7 @@ jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props
 
 describe('@somo/pda-pages-smart-tariff', () => {
   let component;
-  const props = {
+  const props: ISmartTariffPageProps = {
     imagery: [
       {
         node: { name: 'pie-chart', publicURL: 'https://picsum.photos/id/950/400/300' },

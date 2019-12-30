@@ -13,7 +13,6 @@ interface IHTMLProps {
   postBodyComponents: any[];
 }
 
-const BUILD_ID = process.env.BUILD_ID || '-';
 const BUILD_TIME = new Date().toISOString();
 
 const HTML: React.FC<IHTMLProps> = (props) => (
@@ -22,7 +21,6 @@ const HTML: React.FC<IHTMLProps> = (props) => (
       <meta charSet="utf-8" />
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-      <meta name="socket:buildId" content={BUILD_ID} />
       <meta name="socket:buildTime" content={BUILD_TIME} />
       <meta name="google-site-verification" content="7ufgPTa2lk_TZ2wurEmq6PgktRnJFtgrY4LRqdf5Qp4" />
       <PreConnect preConnectUrls={preConnectList} />

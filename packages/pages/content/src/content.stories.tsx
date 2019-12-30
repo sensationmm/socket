@@ -2,9 +2,10 @@ import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import Component from './content.component';
+import Component from '.';
+import { IContentPageProps } from './content.component';
 
-const contentPageKnobs = () => ({
+const contentPageKnobs = (): IContentPageProps => ({
   hero: {
     title: text('Hero title', 'Default Template'),
     subTitle: text('Hero subtitle', ''),

@@ -11,7 +11,6 @@ import { RingStyles } from '@somo/pda-components-ring/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
-
 import * as styles from './smart-tariff.module.css';
 
 interface IImageProps {
@@ -27,7 +26,7 @@ interface ISwitchingFeature {
   text: string;
 }
 
-interface ISmartTariffPageProps {
+export interface ISmartTariffPageProps {
   imagery: IImageProps[];
 }
 

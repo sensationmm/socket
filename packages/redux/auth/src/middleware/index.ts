@@ -1,11 +1,10 @@
 import { AnyAction, Dispatch, Middleware } from 'redux';
 
 import { clearDomainCookies } from '@somo/pda-utils-cookies/src';
-import { Env, getEnv } from '@somo/pda-utils-env/src';
 import { clear as clearStorage, StorageKeys, update as updateStorage } from '@somo/pda-utils-storage/src';
 import * as types from '../types';
 
-const sessionMiddleware: Middleware = () => (next: Dispatch<AnyAction>) => (action: AnyAction) => {
+export const sessionMiddleware: Middleware = () => (next: Dispatch<AnyAction>) => (action: AnyAction): AnyAction => {
   const { type, payload } = action;
   const result = next(action);
 
@@ -15,19 +14,19 @@ const sessionMiddleware: Middleware = () => (next: Dispatch<AnyAction>) => (acti
       updateStorage(StorageKeys.auth, payload);
       break;
     }
+
     case types.SET_USER_ID: {
       updateStorage(StorageKeys.auth, { userId: payload });
       break;
     }
+
     case types.UNAUTHENTICATED:
     case types.LOGOUT_USER: {
       clearStorage(StorageKeys.auth);
-      clearDomainCookies(getEnv(Env.CommunityUrl));
+      clearDomainCookies(payload);
       break;
     }
   }
 
   return result;
 };
-
-export default sessionMiddleware;

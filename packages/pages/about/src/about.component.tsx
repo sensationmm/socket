@@ -8,7 +8,6 @@ import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
 import { splitArrayIntoChunksOfN } from '@somo/pda-utils-arrays/src';
 import { getImagePath } from '@somo/pda-utils-imagery/src';
-
 import * as styles from './about.module.css';
 
 interface IImageProps {
@@ -18,7 +17,7 @@ interface IImageProps {
   };
 }
 
-interface IAboutPageProps {
+export interface IAboutPageProps {
   imagery: IImageProps[];
 }
 

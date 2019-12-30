@@ -5,7 +5,6 @@ import PageSection from '@somo/pda-components-page-section/src';
 import Share from '@somo/pda-components-share/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import BlogArticleLayout from '@somo/pda-layouts-blog-article/src';
-
 import * as styles from './blog-article.module.css';
 
 interface IAuthor {
@@ -27,7 +26,7 @@ interface IContent {
   body: string;
 }
 
-interface IBlogArticlePageProps {
+export interface IBlogArticlePageProps {
   hero: IHero;
   content: IContent;
 }

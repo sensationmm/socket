@@ -2,9 +2,8 @@ import { fireEvent, render } from '@testing-library/react';
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
-import Component from '.';
-
 import Menu from '@somo/pda-components-menu/src';
+import Component from '.';
 
 const MenuMock = [
   { label: 'Link 1', link: 'http://www.google.com' },

@@ -3,7 +3,6 @@ import * as React from 'react';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
-
 import * as styles from './content.module.css';
 
 interface IHero {
@@ -12,7 +11,7 @@ interface IHero {
   cta?: string;
 }
 
-interface IContentPageProps {
+export interface IContentPageProps {
   hero: IHero;
   subTitle: string;
   body: string;

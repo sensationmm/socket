@@ -1,45 +1,11 @@
+import { SiteMetadataContext } from '@somo/pda-context-site-metadata/src';
 import { graphql } from 'gatsby';
 import * as React from 'react';
 
-import htmlSerializer from '../utils/html-serializer';
-
 import BlogArticle from '@somo/pda-pages-blog-article/src';
-
 import SEO from '../components/seo.component';
-
-const Page = ({ data }) => {
-  const { frontmatter, fields } = data.markdownRemark;
-
-  if (!frontmatter) {
-    return null;
-  }
-
-  const { author, content, date, hero, title } = frontmatter;
-
-  const articleHero = {
-    ...hero,
-    author: author.frontmatter,
-    publicationDate: date,
-    title,
-  };
-
-  content.body = htmlSerializer(fields.unified);
-
-  const SEOProps = {
-    title,
-    description: title,
-    siteLanguage: 'en',
-  };
-
-  return (
-    <>
-      <SEO {...SEOProps} />
-      <BlogArticle content={content} hero={articleHero} />
-    </>
-  );
-};
-
-export default Page;
+import { useSiteMetadata } from '../hooks';
+import htmlSerializer from '../utils/html-serializer';
 
 export const query = graphql`
   query ArticleQuery($slug: String!) {
@@ -82,3 +48,39 @@ export const query = graphql`
     }
   }
 `;
+
+const Page = ({ data }) => {
+  const { frontmatter, fields } = data.markdownRemark;
+
+  if (!frontmatter) {
+    return null;
+  }
+
+  const { author, content, date, hero, title } = frontmatter;
+
+  const articleHero = {
+    ...hero,
+    author: author.frontmatter,
+    publicationDate: date,
+    title,
+  };
+
+  content.body = htmlSerializer(fields.unified);
+
+  const SEOProps = {
+    title,
+    description: title,
+    siteLanguage: 'en',
+  };
+
+  const siteMetadata = useSiteMetadata();
+
+  return (
+    <SiteMetadataContext.Provider value={siteMetadata}>
+      <SEO {...SEOProps} />
+      <BlogArticle content={content} hero={articleHero} />
+    </SiteMetadataContext.Provider>
+  );
+};
+
+export default Page;

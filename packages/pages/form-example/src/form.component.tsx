@@ -1,19 +1,16 @@
 import * as React from 'react';
 
-import { IFormState } from '@somo/pda-redux-form/src/reducers';
-import formUtils from '@somo/pda-utils-form/src';
-
-import PageSection from '@somo/pda-components-page-section/src';
-import RegularLayout from '@somo/pda-layouts-regular/src';
-
 import { Primary as Button } from '@somo/pda-components-button/src';
 import Checkbox from '@somo/pda-components-checkbox/src';
+import { Mail, Phone, Sms } from '@somo/pda-components-icons/src';
 import InputPassword from '@somo/pda-components-input-password/src';
 import InputText from '@somo/pda-components-input-text/src';
 import MultiSelect from '@somo/pda-components-multi-select/src';
+import PageSection from '@somo/pda-components-page-section/src';
 import Radio, { RadioType } from '@somo/pda-components-radio/src';
-
-import { Mail, Phone, Sms } from '@somo/pda-components-icons/src';
+import RegularLayout from '@somo/pda-layouts-regular/src';
+import { IFormState } from '@somo/pda-redux-form/src/reducers';
+import formUtils from '@somo/pda-utils-form/src';
 
 interface IFormExampleProps {
   form: IFormState;

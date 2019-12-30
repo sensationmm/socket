@@ -3,6 +3,7 @@ import * as React from 'react';
 
 import FlexRowGrid from '@somo/pda-components-flex-row-grid/src';
 import Blog from '.';
+import { IBlogPageProps } from './blog.component';
 
 jest.mock('react-media', () => jest.fn((props) => props.children()));
 jest.mock('@somo/pda-components-flex-row-grid/src', () => jest.fn((props) => <span>{props.children}</span>));
@@ -10,13 +11,12 @@ jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props
 
 describe('@somo/pda-pages-blog', () => {
   let component;
-  let props;
+  let props: IBlogPageProps;
 
   beforeAll(() => {
     props = {
       posts: [
         {
-          id: '1',
           authorName: 'Kevin Reynolds',
           date: '2019-10-01',
           title: 'Test blog post',
@@ -24,7 +24,6 @@ describe('@somo/pda-pages-blog', () => {
           shortDescription: 'This is a short intro of the topic.',
         },
         {
-          id: '2',
           authorName: 'Kevin Reynolds',
           date: '2019-10-01',
           title: 'Another test blog post',

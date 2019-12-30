@@ -1,9 +1,10 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 
-import HomePage from '@somo/pda-pages-home/src';
+import HomePage from '.';
+import { IHomePageProps } from './home.component';
 
-const props = {
+const props: IHomePageProps = {
   imagery: [
     {
       node: { name: 'energy-pie', publicURL: 'https://picsum.photos/id/950/300/400' },

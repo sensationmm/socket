@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import Page from '@somo/pda-pages-logout/src';
-
+import { SiteMetadataContext } from '@somo/pda-context-site-metadata/src';
+import LogoutPage from '@somo/pda-pages-logout/src';
 import SEO from '../components/seo.component';
+import { useSiteMetadata } from '../hooks';
 
 const SEOProps = {
   title: 'Logout',
@@ -11,13 +12,15 @@ const SEOProps = {
   noindex: true,
 };
 
-const LogoutPage: React.FC = () => {
+const Logout: React.FC = () => {
+  const siteMetadata = useSiteMetadata();
+
   return (
-    <>
+    <SiteMetadataContext.Provider value={siteMetadata}>
       <SEO {...SEOProps} />
-      <Page />
-    </>
+      <LogoutPage />
+    </SiteMetadataContext.Provider>
   );
 };
 
-export default LogoutPage;
+export default Logout;

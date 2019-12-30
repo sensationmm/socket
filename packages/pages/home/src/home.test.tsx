@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Home from '.';
+import { IHomePageProps } from './home.component';
 
 const textObj = {
   text: 'blah',
@@ -19,7 +20,7 @@ jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props
 
 describe('@somo/pda-pages-home', () => {
   let component;
-  let props;
+  let props: IHomePageProps;
 
   beforeAll(() => {
     props = {
@@ -29,6 +30,7 @@ describe('@somo/pda-pages-home', () => {
         },
       ],
     };
+
     component = shallow(<Home {...props} />);
   });
 

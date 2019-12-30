@@ -25,7 +25,6 @@ const RegularLayout: React.FC<IRegularLayoutProps> = ({ hero, children }) => {
     <AppTemplate>
       <PageSection element="header" className={styles.navSection} style={PageSectionStyle.PrimaryPattern}>
         <NavBar menu={HeaderNavigation} />
-
         <PageHero heading={hero.title} text={hero.subTitle} cta={hero.cta} onClick={() => navigate('/page')} />
       </PageSection>
       <main className={styles.main}>{children}</main>

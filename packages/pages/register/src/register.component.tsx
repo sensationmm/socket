@@ -11,12 +11,11 @@ import InputText from '@somo/pda-components-input-text/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text from '@somo/pda-components-text/src';
 import RegularLayout from '@somo/pda-layouts-regular/src';
-
 import { withForm } from '@somo/pda-redux-form/src';
 import { IFormState } from '@somo/pda-redux-form/src/reducers';
 import formUtils, { IFormConfig } from '@somo/pda-utils-form/src';
 
-interface IRegisterProps {
+export interface IRegisterProps {
   form: IFormState;
 }
 

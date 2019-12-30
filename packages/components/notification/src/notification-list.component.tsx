@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import { INotification } from '@somo/pda-redux-notification/src/types';
-import Notification from './notification.component';
-
 import * as styles from './notification-list.module.css';
+import Notification from './notification.component';
 
 export interface INotificationListProps {
   notifications: INotification[];

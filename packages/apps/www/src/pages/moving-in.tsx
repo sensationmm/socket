@@ -1,9 +1,10 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 
+import { SiteMetadataContext } from '@somo/pda-context-site-metadata/src';
 import MovingInPage from '@somo/pda-pages-moving-in/src';
-
 import SEO from '../components/seo.component';
+import { useSiteMetadata } from '../hooks';
 
 const SEOProps = {
   title: 'Moving in',
@@ -24,13 +25,15 @@ const MovingIn: React.FC = () => {
       }
     }
   `);
+
   const imagery = data.allFile.edges;
+  const siteMetadata = useSiteMetadata();
 
   return (
-    <>
+    <SiteMetadataContext.Provider value={siteMetadata}>
       <SEO {...SEOProps} />
       <MovingInPage imagery={imagery} />
-    </>
+    </SiteMetadataContext.Provider>
   );
 };
 

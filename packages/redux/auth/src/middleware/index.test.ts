@@ -1,7 +1,8 @@
+import configureMockStore from 'redux-mock-store';
+
 import { clearDomainCookies } from '@somo/pda-utils-cookies/src';
 import { clear as clearStorage, update as updateStorage } from '@somo/pda-utils-storage/src';
-import configureMockStore from 'redux-mock-store';
-import sessionMiddleware from '.';
+import { sessionMiddleware } from '.';
 
 jest.mock('@somo/pda-utils-storage/src', () => ({
   clear: jest.fn(),

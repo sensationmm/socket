@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import Page from '@somo/pda-pages-registration-success/src';
-
+import { SiteMetadataContext } from '@somo/pda-context-site-metadata/src';
+import RegistrationSuccessPage from '@somo/pda-pages-registration-success/src';
 import SEO from '../components/seo.component';
+import { useSiteMetadata } from '../hooks';
 
 const SEOProps = {
   title: 'Registration successful',
@@ -11,13 +12,15 @@ const SEOProps = {
   noindex: true,
 };
 
-const RegistrationSuccessPage: React.FC = () => {
+const RegistrationSuccess: React.FC = () => {
+  const siteMetadata = useSiteMetadata();
+
   return (
-    <>
+    <SiteMetadataContext.Provider value={siteMetadata}>
       <SEO {...SEOProps} />
-      <Page />
-    </>
+      <RegistrationSuccessPage />
+    </SiteMetadataContext.Provider>
   );
 };
 
-export default RegistrationSuccessPage;
+export default RegistrationSuccess;

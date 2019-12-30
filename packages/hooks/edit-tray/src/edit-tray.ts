@@ -10,12 +10,11 @@ const initialState = {
   formValues: null,
 };
 
-const useEditTray = () => {
+export const useEditTray = () => {
   const [editForm, setEditForm] = React.useState<IHookEditTray>(initialState);
   const clearEditForm = () => setEditForm(initialState);
 
   const handleEditTray = (formType, formValues) => {
-    // Set the form and open the correct edit form
     setEditForm({ formType, formValues });
   };
 
@@ -25,5 +24,3 @@ const useEditTray = () => {
     clearEditForm,
   };
 };
-
-export default useEditTray;

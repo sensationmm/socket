@@ -2,12 +2,13 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import BlogArticle from '.';
+import { IBlogArticlePageProps } from './blog-article.component';
 
 jest.mock('@somo/pda-layouts-blog-article/src', () => jest.fn((props) => <span>{props.children}</span>));
 
 describe('@somo/pda-pages-blog-article', () => {
   let component;
-  let props;
+  let props: IBlogArticlePageProps;
 
   beforeAll(() => {
     props = {
@@ -17,7 +18,9 @@ describe('@somo/pda-pages-blog-article', () => {
       },
       hero: {
         heroBackground: 'heroBackground',
-        heroImage: 'heroImage',
+        bgImage: 'heroImage',
+        title: 'test title',
+        publicationDate: '2019-09-07T15:53:00+05:00',
         author: {
           bio: 'author bio',
           fullName: 'fullname',

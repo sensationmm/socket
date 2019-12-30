@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-import { Env, getEnv } from '@somo/pda-utils-env/src';
 import {
   GET_TOKEN_FAILURE,
   GET_TOKEN_REQUEST,
@@ -14,7 +13,7 @@ import {
   VALIDATE_IDENTITY_SUCCESS,
 } from './types';
 
-const auth = axios.create({ baseURL: getEnv(Env.ApiBaseUrl) });
+const auth = axios.create({ baseURL: 'https://api-uk.integration.gentrack.cloud/v1' });
 
 export const getToken = () => (dispatch) => {
   dispatch(getTokenRequest());
@@ -23,7 +22,8 @@ export const getToken = () => (dispatch) => {
       url: `/token`,
       method: 'POST',
       headers: {
-        Authorization: getEnv(Env.AuthorisationHeader),
+        Authorization:
+          'Basic NzhkNGQ2MmMtNjJkYS00YTI0LTkwYjAtMjM1MjkwYzVlMzZjOkowZjMrc3Z4TFd6clRxSlUyQ3pXYjJCV3pac0FDSFF3OFVNK2hlOU54TU09',
       },
     })
     .then(({ data }) => dispatch(getTokenSuccess(data)))
@@ -54,6 +54,7 @@ export const setUserId = (userId: string) => ({
   payload: userId,
 });
 
-export const logout = () => ({
+export const logout = (ciamCommunityUrl: string) => ({
   type: LOGOUT_USER,
+  payload: ciamCommunityUrl,
 });

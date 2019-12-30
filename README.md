@@ -16,9 +16,6 @@
     - [Storybook](#storybook)
     - [OS Support](#os-support)
   - [Commit Message Format](#commit-message-format)
-  - [Env Vars](#env-vars)
-    - [Fetching an ENV var](#fetching-an-env-var)
-    - [Adding a new ENV var](#adding-a-new-env-var)
 - [Packages](#packages)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -126,34 +123,6 @@ npm i -g cross-env
 ### Commit Message Format
 
 Commit messages should follow the [conventional commits standard](https://www.conventionalcommits.org/en/v1.0.0-beta.3/).
-
-### Env Vars
-
-When using Env vars within the browser runtime, you should use the utils-env (`packages/utils/env/src/index.ts`) package to retrieve env vars.
-
-#### Fetching an ENV var
-
-Example
-
-```ecmascript 6
-import { Env, getEnv } from '@somo/pda-utils-env/src';
-
-getEnv(Env.StaticAssetsUrl)
-```
-
-All browser accessible envs should be added the `Env` enum, this allows them to be used around the project and shouldn't
-conflict if we later decide to modify the resolved var name.
-
-When fetching in a node env you can either use the `getEnv` method or for protected values (such as private tokens to be used at build time) use `process.env`.
-
-#### Adding a new ENV var
-
-To add a new environmental var, you will need to insert it in 5 special places. You can also find these by searching for `ADD ENV`.
-
-- `__scripts__/setup-tests.ts` (1 usage found) - Allows jest to resolve it
-- `packages/apps/storybook/src/preview-head.html` (1 usage found) - Adds window.env for storybook
-- `packages/utils/env/src/index.ts` (1 usage found) - Add the enum for TypeScript
-- `.pipelines/build-steps.yml` (2 usages found) - If set with AZ add to pipeline
 
 ## Packages
 

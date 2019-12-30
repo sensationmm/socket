@@ -58,8 +58,8 @@ describe('Auth actions', () => {
   });
 
   test('logout', () => {
-    store.dispatch(logout());
-    expect(store.getActions()).toEqual([{ type: LOGOUT_USER }]);
+    store.dispatch(logout('https://www.example.com'));
+    expect(store.getActions()).toEqual([{ type: LOGOUT_USER, payload: 'https://www.example.com' }]);
   });
 
   test('setUserId', () => {

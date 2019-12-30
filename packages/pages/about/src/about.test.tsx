@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import About from '.';
+import { IAboutPageProps } from './about.component';
 
 const textObj = {
   text: 'blah',
@@ -19,7 +20,7 @@ jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props
 
 describe('@somo/pda-pages-about', () => {
   let component;
-  const props = {
+  const props: IAboutPageProps = {
     imagery: [
       {
         node: { name: 'office', publicURL: 'https://picsum.photos/id/950/400/300' },

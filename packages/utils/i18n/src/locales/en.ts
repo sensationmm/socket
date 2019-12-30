@@ -52,7 +52,7 @@ const data: EON.IWebAppTranslations = {
     },
     logout: {
       hero: {
-        title: "You've been logout",
+        title: "You've been logged out",
       },
       cta: 'Go to the login page',
     },

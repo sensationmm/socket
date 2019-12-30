@@ -3,6 +3,7 @@ import * as React from 'react';
 import wait from 'waait';
 
 import { LogoutPage } from './logout.component';
+import { ILogoutPageProps } from './logout.component';
 
 jest.mock('@somo/pda-layouts-regular/src', () => jest.fn((props) => <span>{props.children}</span>));
 jest.mock('@apollo/react-hooks', () => ({
@@ -18,12 +19,12 @@ jest.mock('@somo/pda-components-button/src', () => ({
 }));
 
 describe('@somo/pda-pages-logout', () => {
-  const props = {
+  let component;
+  const props: ILogoutPageProps = {
     actions: {
       logout: jest.fn(),
     },
   };
-  let component;
 
   it('should render the component successfully', () => {
     component = shallow(<LogoutPage {...props} />);

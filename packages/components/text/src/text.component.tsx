@@ -41,10 +41,10 @@ interface ITextProps {
 const Text: React.FC<ITextProps> = ({
   className,
   children,
-  element,
-  type,
-  color = 'primary',
-  isCMSContent,
+  element = 'span',
+  type = TextStyles.body,
+  color = ColorStyles.primary,
+  isCMSContent = false,
   ...props
 }) => {
   const finalClassName = cx(className, baseStyles.base, baseStyles[type], baseStyles[color], {
@@ -52,12 +52,6 @@ const Text: React.FC<ITextProps> = ({
   });
 
   return React.createElement(element, { className: finalClassName, ...props }, children);
-};
-
-Text.defaultProps = {
-  element: 'span',
-  type: TextStyles.body,
-  isCMSContent: false,
 };
 
 export default Text;

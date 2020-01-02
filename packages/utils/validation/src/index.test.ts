@@ -276,7 +276,7 @@ describe('validation functions', () => {
 
   describe('validateFutureDate', () => {
     test('returns true if date is in future', () => {
-      const isValid = validation.validateFutureDate('01/01/2020');
+      const isValid = validation.validateFutureDate('01/01/2050');
       expect(isValid).toBe(true);
     });
 

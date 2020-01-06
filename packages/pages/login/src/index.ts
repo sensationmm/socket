@@ -1,4 +1,4 @@
-import LoginCallback from './login-callback.component';
+import LoginCallback from './login-callback';
 import Login, { IAuthReducer as _IAuthReducer } from './login.container';
 import withAuthentication, {
   IPropsFromReduxActions as _IPropsFromReduxActions,

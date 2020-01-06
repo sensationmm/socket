@@ -1,5 +1,5 @@
 type Query {
-  user(id: ID!): User
+  user: User
 }
 
 type Address {
@@ -71,9 +71,9 @@ type User {
 }
 
 type Mutation {
-  updateCorrespondenceAddress(id: ID!, address: AddressInput!): User
-  updateContactPreferences(userId: ID!, contactId: ID!, preferences: ContactPreferencesInput!): User
-  updatePhone(id: ID!, phone: String!): User
+  updateCorrespondenceAddress(address: AddressInput!): User
+  updateContactPreferences(contactId: ID!, preferences: ContactPreferencesInput!): User
+  updatePhone(phone: String!): User
 }
 
 input AddressInput {

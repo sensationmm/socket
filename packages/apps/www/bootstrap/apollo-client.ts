@@ -1,10 +1,13 @@
-import ApolloClient, { PresetConfig } from 'apollo-boost';
-import { Operation } from 'apollo-link';
-import { ErrorLink } from 'apollo-link-error';
-import { navigate } from 'gatsby-link';
 import { GraphQLError } from 'graphql';
 import fetch from 'isomorphic-fetch';
 import { Store } from 'redux';
+
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import { ApolloLink } from 'apollo-link';
+import { setContext } from 'apollo-link-context';
+import { onError } from 'apollo-link-error';
+import { createHttpLink } from 'apollo-link-http';
 
 import * as authTypes from '@somo/pda-redux-auth/src/types';
 import { actions as notificationActions } from '@somo/pda-redux-notification/src';
@@ -14,8 +17,8 @@ interface IExtendedGraphQLError extends GraphQLError {
   domain?: string;
 }
 
-export const CreateApolloClient = (store: Store, options: PresetConfig = {}): ApolloClient<PresetConfig> => {
-  const errorHandler: ErrorLink.ErrorHandler = ({ graphQLErrors }) => {
+export default (store: Store) => {
+  const errorLink = onError(({ graphQLErrors }) => {
     if (!graphQLErrors) {
       return;
     }
@@ -24,7 +27,6 @@ export const CreateApolloClient = (store: Store, options: PresetConfig = {}): Ap
       if (error.extensions) {
         if (error.extensions.code === 'UNAUTHENTICATED') {
           store.dispatch({ type: authTypes.UNAUTHENTICATED });
-          navigate('/login');
         } else {
           const message = error.domain
             ? `${error.domain}: ${i18n.t('errors.httpGenericContent')}`
@@ -37,25 +39,30 @@ export const CreateApolloClient = (store: Store, options: PresetConfig = {}): Ap
         store.dispatch(notificationActions.createNotification(error.message, i18n.t('errors.httpGeneric'), 'GENERIC'));
       }
     }
-  };
+  });
 
-  const onRequest = (operation: Operation) => {
-    const {
-      user: { accessToken, tokenType },
-    } = store.getState();
-
-    operation.setContext({
-      headers: {
-        Authorization: `${tokenType} ${accessToken}`,
-      },
-    });
-  };
-
-  return new ApolloClient({
+  const httpLink = createHttpLink({
     uri: process.env.GRAPHQL_BASE_URL,
     fetch,
-    onError: errorHandler,
-    request: onRequest,
-    ...options,
+  });
+
+  const authLink = setContext((_, { headers }) => {
+    const {
+      user: { socketAuthentication },
+    } = store.getState();
+
+    return {
+      headers: {
+        ...headers,
+        Authorization: socketAuthentication ? `Bearer ${socketAuthentication}` : '',
+      },
+    };
+  });
+
+  const link = ApolloLink.from([authLink, errorLink, httpLink]);
+
+  return new ApolloClient({
+    link,
+    cache: new InMemoryCache(),
   });
 };

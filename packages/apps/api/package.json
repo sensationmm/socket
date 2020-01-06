@@ -6,7 +6,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "develop": "nodemon --exec ts-node src/index.ts",
+    "develop": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
+    "debug": "NODE_ENV=development nodemon --exec node --inspect-brk -r ts-node/register ./src/index.ts",
     "start": "ts-node ./src/index.ts",
     "build": "tsc"
   },
@@ -26,7 +27,7 @@
     "graphql": "14.5.8",
     "graphql-import-node": "0.0.4",
     "graphql-tag": "2.10.1",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "0.1.13",
     "ts-node": "8.5.2",
     "tsconfig-paths": "3.9.0",
     "form-data": "3.0.0"

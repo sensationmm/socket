@@ -22,7 +22,6 @@ jest.mock('@somo/pda-components-menu');
 
 describe('EditAddress component', () => {
   const props = {
-    userId: 'u1',
     form: {
       values: {
         address1: '',
@@ -47,7 +46,6 @@ describe('EditAddress component', () => {
   const userData = {
     user: {
       __typename: 'User',
-      id: 'u1',
       personalDetails: {
         __typename: 'PersonalDetails',
         name: 'John Smith',
@@ -120,7 +118,6 @@ describe('EditAddress component', () => {
   };
   const mutationResponse = {
     __typename: 'User',
-    id: 'u1',
     personalDetails: {
       __typename: 'PersonalDetails',
       correspondenceAddress: '145 Regents Park Road',
@@ -135,7 +132,6 @@ describe('EditAddress component', () => {
       request: {
         query: UPDATE_ADDRESS,
         variables: {
-          id: props.userId,
           address: props.form.values,
         },
       },
@@ -155,7 +151,6 @@ describe('EditAddress component', () => {
   it('should not run update address mutation on submit if the form is invalid', async () => {
     cache.writeQuery({
       query: GET_USER_QUERY,
-      variables: { id: props.userId },
       data: userData,
     });
 
@@ -171,7 +166,7 @@ describe('EditAddress component', () => {
       .simulate('click');
     await wait(0);
 
-    expect(cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toMatchObject({
+    expect(cache.readQuery({ query: GET_USER_QUERY })).toMatchObject({
       user: userData.user,
     });
   });
@@ -189,13 +184,12 @@ describe('EditAddress component', () => {
       .simulate('click');
     await wait(0);
 
-    expect(() => cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toThrow();
+    expect(() => cache.readQuery({ query: GET_USER_QUERY })).toThrow();
   });
 
   it('should run update address mutation and update on submit if the form is valid and cache is not empty', async () => {
     cache.writeQuery({
       query: GET_USER_QUERY,
-      variables: { id: props.userId },
       data: userData,
     });
 
@@ -211,9 +205,8 @@ describe('EditAddress component', () => {
       .simulate('click');
     await wait(0);
 
-    expect(cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toMatchObject({
+    expect(cache.readQuery({ query: GET_USER_QUERY })).toMatchObject({
       user: {
-        id: 'u1',
         personalDetails: {
           correspondenceAddress: '145 Regents Park Road',
           detailedCorrespondenceAddress: {

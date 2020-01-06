@@ -83,9 +83,8 @@ const setInitialValues = (initialValues) => ({
 });
 
 export const UPDATE_ADDRESS = gql`
-  mutation UpdateAddress($id: ID!, $address: AddressInput!) {
-    updateCorrespondenceAddress(id: $id, address: $address) {
-      id
+  mutation UpdateAddress($address: AddressInput!) {
+    updateCorrespondenceAddress(address: $address) {
       personalDetails {
         correspondenceAddress
         detailedCorrespondenceAddress {
@@ -103,12 +102,10 @@ export const UPDATE_ADDRESS = gql`
 interface IEditAddressProps {
   initialValues: IFormValues;
   form: IFormState;
-  userId: string;
   onClose: () => void;
 }
 
 interface IMutationVars {
-  id: string;
   address: IFormValues;
 }
 
@@ -117,7 +114,7 @@ interface IMutationResponse {
   updateCorrespondenceAddress: EON.IUserData;
 }
 
-export const EditAddress: React.FC<IEditAddressProps> = ({ initialValues, form, userId, onClose }) => {
+export const EditAddress: React.FC<IEditAddressProps> = ({ initialValues, form, onClose }) => {
   const [t] = useTranslation();
   const [isSubmitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
   const [updateAddress] = useMutation<IMutationResponse, IMutationVars>(UPDATE_ADDRESS);
@@ -148,14 +145,12 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ initialValues, form, 
 
       updateAddress({
         variables: {
-          id: userId,
           address: form.values as IFormValues,
         },
         optimisticResponse: {
           __typename: 'UpdateAddress',
           updateCorrespondenceAddress: {
             __typename: 'User',
-            id: userId,
             personalDetails: {
               __typename: 'PersonalDetails',
               correspondenceAddress: computeAddress(form.values as IAddress),
@@ -169,7 +164,6 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ initialValues, form, 
         update: (cache, { data }) => {
           const userData: EON.IUserResponse | null = cache.readQuery({
             query: GET_USER_QUERY,
-            variables: { id: userId },
           });
 
           if (!userData) {
@@ -186,7 +180,6 @@ export const EditAddress: React.FC<IEditAddressProps> = ({ initialValues, form, 
 
           cache.writeQuery({
             query: GET_USER_QUERY,
-            variables: { id: userId },
             data: userData,
           });
         },

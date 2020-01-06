@@ -1,30 +1,28 @@
-import { Injectable, ProviderScope } from '@graphql-modules/di';
+import { Injectable } from '@graphql-modules/di';
 import { HTTPCache, RequestOptions, RESTDataSource } from 'apollo-datasource-rest';
 import axios from 'axios';
 
 const auth = axios.create();
 
-@Injectable({
-  scope: ProviderScope.Session,
-})
+@Injectable()
 export class CIAMProvider extends RESTDataSource {
   public token;
 
-  public baseURL = 'https://eciam--SITCIAM.cs106.my.salesforce.com';
+  public baseURL = process.env.GRAPHQL__CIAM_API_BASE_URL;
   public httpCache = new HTTPCache();
 
   public async willSendRequest(request: RequestOptions) {
     if (this.token === undefined) {
       await auth
         .request({
-          url: `https://test.salesforce.com/services/oauth2/token`,
+          url: process.env.GRAPHQL__CIAM_TOKEN_API_BASE_URL,
           method: 'POST',
           params: {
             grant_type: 'password',
-            client_id: '3MVG9qQjGkWUbcrGuliW88sLR8gbSHLUZ38k5BcfKDJBZ5g.ZeYngM6bHwQEFd98rSPzjIjTNA.k47GrpMg1Z',
-            client_secret: 'B6B440CCF0E23FA3DF9EC76D2083FBAF6B4E8BAAF8EDB3F07C23B47A4B6831FB',
-            username: 'vikas.d.mehta@accenture.com.sitciam',
-            password: 'Lifeissimple@09',
+            client_id: process.env.CIAM_CLIENT_ID,
+            client_secret: process.env.GRAPHQL__CIAM_TOKEN_API_CLIENT_SECRET,
+            username: process.env.GRAPHQL__CIAM_TOKEN_API_USERNAME,
+            password: process.env.GRAPHQL__CIAM_TOKEN_API_PASSWORD,
           },
         })
         .then(({ data }) => {
@@ -37,5 +35,49 @@ export class CIAMProvider extends RESTDataSource {
 
     request.headers.set('Authorization', `Bearer ${this.token}`);
     request.headers.set('Content-Type', 'application/json');
+  }
+
+  public async checkUsername(username: string) {
+    try {
+      const { isExisting } = await this.post(`/services/apexrest/v1.3/CIAMEmailService/checkEmail`, {
+        email: username,
+      });
+
+      return isExisting;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async createUser(username: string) {
+    const userDetails = [
+      {
+        contact: {
+          attributes: {
+            type: 'Contact',
+          },
+          FirstName: 'Socket',
+          LastName: 'Energy',
+          Email: username,
+        },
+        Application: {
+          attributes: {
+            type: 'Application__c',
+          },
+          Application_External_Id__c: '1009',
+        },
+      },
+    ];
+
+    try {
+      const [{ Status, ErrorMessage }] = await this.post(
+        `/services/apexrest/v1.3/CIAMContact/createNewCIAMContact`,
+        userDetails,
+      );
+
+      return { status: Status, message: ErrorMessage };
+    } catch (error) {
+      throw error;
+    }
   }
 }

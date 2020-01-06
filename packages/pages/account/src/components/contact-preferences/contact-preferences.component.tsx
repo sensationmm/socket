@@ -19,7 +19,6 @@ import { GET_USER_QUERY } from '../../account.component';
 import * as styles from './contact-preferences.module.css';
 
 interface IMutationVars {
-  userId: string;
   contactId?: string;
   preferences: EON.IContactPreferences;
 }
@@ -35,7 +34,6 @@ interface IContactPreferencesProps extends WithTranslation {
   editMode: boolean;
   onCancelEdit: () => void;
   contactId: string;
-  userId: string;
   mutate: MutationFunction<IMutationResponse, IMutationVars>;
 }
 
@@ -94,7 +92,6 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
     const {
       form,
       values: { contactId },
-      userId,
     } = this.props;
     const updateContactPrefs = this.props.mutate;
     const { preferences } = form.values;
@@ -109,15 +106,12 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
 
       updateContactPrefs({
         variables: {
-          userId,
           contactId,
           preferences: newPrefs,
         },
         optimisticResponse: {
           __typename: 'UpdateContactPreferences',
           updateContactPreferences: {
-            __typename: 'User',
-            id: userId,
             contactPreferences: {
               __typename: 'ContactPreferences',
               contactId,
@@ -130,7 +124,7 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
           },
         },
         update: (cache, { data }) => {
-          const res: EON.IUserResponse | null = cache.readQuery({ query: GET_USER_QUERY, variables: { id: userId } });
+          const res: EON.IUserResponse | null = cache.readQuery({ query: GET_USER_QUERY });
 
           if (!res) {
             return;
@@ -145,7 +139,6 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
 
           cache.writeQuery({
             query: GET_USER_QUERY,
-            variables: { id: userId },
             data: {
               user: userData,
             },
@@ -246,8 +239,8 @@ class ContactPreferences extends React.Component<IContactPreferencesProps, ICont
 }
 
 export const UPDATE_CONTACT_PREFERENCES = gql`
-  mutation UpdateContactPreferences($userId: ID!, $contactId: ID!, $preferences: ContactPreferencesInput!) {
-    updateContactPreferences(userId: $userId, contactId: $contactId, preferences: $preferences) {
+  mutation UpdateContactPreferences($contactId: ID!, $preferences: ContactPreferencesInput!) {
+    updateContactPreferences(contactId: $contactId, preferences: $preferences) {
       contactPreferences {
         contactId
         email

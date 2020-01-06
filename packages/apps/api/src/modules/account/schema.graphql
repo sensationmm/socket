@@ -23,14 +23,11 @@ type AccountStatus {
 
 input IdentityValidation {
   id: String!
-  token: String!,
-  juniferCustomerIds: String!,
-  username: String!,
+  token: String!
 }
 
 type IdentityValidationResult {
+  socketAuthentication: String
+  sogSignature: String
   username: String
-  hash: String
-  token: String
-  juniferCustomerIds: String
 }

@@ -13,7 +13,6 @@ import PaymentDetails from './components/payment-details/payment-details.compone
 import PersonalDetails from './components/personal-details/personal-details.component';
 import ProductDetails from './components/product-details/product-details.component';
 
-jest.mock('@somo/pda-components-user-switch/src', () => () => <span />);
 jest.mock('./components/contact-preferences/contact-preferences.component', () => () => <span />);
 jest.mock('@somo/pda-components-menu');
 
@@ -22,15 +21,11 @@ describe('@somo/pda-pages-account', () => {
     notification: [],
   });
 
-  const props = {
-    userId: 'u1',
-  };
-
   it('should pass a loading prop to the account sections on query start', () => {
     const component = mount(
       <MockedProvider mocks={[]} addTypename={false}>
         <Provider store={mockStore}>
-          <AccountPage {...props} />
+          <AccountPage />
         </Provider>
       </MockedProvider>,
     );
@@ -79,9 +74,6 @@ describe('@somo/pda-pages-account', () => {
       {
         request: {
           query: GET_USER_QUERY,
-          variables: {
-            id: props.userId,
-          },
         },
         result: {
           errors: [new GraphQLError('Loading error')],
@@ -91,7 +83,7 @@ describe('@somo/pda-pages-account', () => {
     const component = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Provider store={mockStore}>
-          <AccountPage {...props} />
+          <AccountPage />
         </Provider>
       </MockedProvider>,
     );
@@ -126,7 +118,6 @@ describe('@somo/pda-pages-account', () => {
 
   it('should pass necessary values to the account sections on query success', async () => {
     const user = {
-      id: '15',
       personalDetails: {
         name: 'John Smith',
         email: 'john.smith@somoglobal.com',
@@ -189,9 +180,6 @@ describe('@somo/pda-pages-account', () => {
       {
         request: {
           query: GET_USER_QUERY,
-          variables: {
-            id: props.userId,
-          },
         },
         result: {
           data: {
@@ -203,7 +191,7 @@ describe('@somo/pda-pages-account', () => {
     const component = mount(
       <MockedProvider mocks={mocks} addTypename={false}>
         <Provider store={mockStore}>
-          <AccountPage {...props} />
+          <AccountPage />
         </Provider>
       </MockedProvider>,
     );

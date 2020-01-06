@@ -178,6 +178,7 @@ const siteMetadata = {
   siteUrl,
   ciamCommunityUrl: process.env.CIAM_COMMUNITY_URL,
   ciamClientId: process.env.CIAM_CLIENT_ID,
+  sogUrl: process.env.GRAPHQL__SOG_API_BASE_URL,
 };
 
 export { siteMetadata, plugins, mapping };

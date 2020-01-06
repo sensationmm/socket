@@ -20,7 +20,7 @@ describe('My Profile container', () => {
       it('isAuthenticated is true where user is defined and isLoadingUser is false', () => {
         const props = mapStateToProps({
           ...state,
-          user: { accessToken: '1234567890' },
+          user: { socketAuthentication: '1234567890' },
         });
         expect(props.isAuthenticated).toBeTruthy();
       });
@@ -38,7 +38,7 @@ describe('My Profile container', () => {
 
     it('should return an object containing functions in keys array', () => {
       const actions = 'actions';
-      const keys = ['handleLogin', 'validateIdentitySuccess', 'logout'];
+      const keys = ['validateIdentitySuccess', 'logout'];
 
       keys.forEach((key, index) => {
         expect(props[actions][key]).toBeDefined();

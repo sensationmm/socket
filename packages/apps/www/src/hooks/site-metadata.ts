@@ -17,6 +17,7 @@ export const useSiteMetadata = (): ISiteMetadata => {
             siteUrl
             ciamCommunityUrl
             ciamClientId
+            sogUrl
           }
         }
       }

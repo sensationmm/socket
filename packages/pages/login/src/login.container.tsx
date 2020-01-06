@@ -6,11 +6,7 @@ import { actions as authActions } from '@somo/pda-redux-auth/src';
 import LoginPage from './login.component';
 
 export interface IAuthReducer {
-  fetchStatus: string;
-  accessToken: string;
-  expiresIn: number;
-  tokenType: string;
-  userId: string;
+  socketAuthentication: string;
 }
 
 export interface IPropsFromReduxState {
@@ -19,7 +15,6 @@ export interface IPropsFromReduxState {
 
 export interface IPropsFromDispatch {
   actions: {
-    handleLogin: typeof authActions.getToken;
     validateIdentitySuccess: typeof authActions.validateIdentitySuccess;
     logout: typeof authActions.logout;
   };
@@ -29,7 +24,7 @@ export const mapStateToProps = (state: { user: IAuthReducer }): IPropsFromReduxS
   const { user } = state;
 
   return {
-    isAuthenticated: !!user && !!user.accessToken,
+    isAuthenticated: !!user && !!user.socketAuthentication,
   };
 };
 
@@ -37,7 +32,6 @@ export const mapDispatchToProps = (dispatch: Dispatch): IPropsFromDispatch => ({
   actions: {
     ...bindActionCreators(
       {
-        handleLogin: authActions.getToken,
         validateIdentitySuccess: authActions.validateIdentitySuccess,
         logout: authActions.logout,
       },

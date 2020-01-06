@@ -8,7 +8,6 @@ import { createReduxStore } from '@somo/pda-utils-test-support/src/redux-store';
 import Login from '.';
 import { ILoginPageProps } from './login.component';
 
-const handleLogin = jest.fn();
 const validateIdentitySuccess = jest.fn();
 const logout = jest.fn();
 
@@ -22,7 +21,6 @@ describe('@somo/pda-pages-login', () => {
     const mockReduxStore = createReduxStore();
     props = {
       actions: {
-        handleLogin,
         validateIdentitySuccess,
         logout,
       },

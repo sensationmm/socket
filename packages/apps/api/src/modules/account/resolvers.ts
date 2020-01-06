@@ -13,9 +13,8 @@ export default {
     newCiamUserValid: (account) => account.newCiamUserValid,
   },
   IdentityValidationResult: {
+    socketAuthentication: (identity) => identity.socketAuthentication,
+    sogSignature: (identity) => identity.sogSignature,
     username: (identity) => identity.username,
-    hash: (identity) => identity.hash,
-    token: (identity) => identity.token,
-    juniferCustomerIds: (identity) => identity.juniferCustomerIds,
   },
 };

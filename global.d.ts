@@ -70,7 +70,6 @@ declare namespace EON {
 
   interface IUserData {
     __typename?: string;
-    id: string;
     personalDetails?: IPersonalDetails;
     paymentDetails?: IPaymentDetails;
     productDetails?: IProductDetails;
@@ -102,11 +101,10 @@ declare namespace EON {
 
   interface IValidateIdentityResponse {
     validateIdentity: {
+      socketAuthentication: string;
+      sogSignature: string;
       username: string;
-      hash: string;
-      token: string;
-      juniferCustomerIds: string;
-    }
+    };
   }
 
   interface IHomepageFeatures {

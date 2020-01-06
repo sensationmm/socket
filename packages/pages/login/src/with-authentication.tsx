@@ -7,7 +7,6 @@ import { IAuthReducer } from '@somo/pda-pages-login/src';
 import { actions } from '@somo/pda-redux-auth/src';
 
 export interface IPropsFromReduxState {
-  userId: string;
   isAuthenticated: boolean;
 }
 
@@ -15,8 +14,7 @@ export const mapStateToProps = (state: { user: IAuthReducer }): IPropsFromReduxS
   const { user } = state;
 
   return {
-    userId: user.userId,
-    isAuthenticated: !!user && !!user.accessToken,
+    isAuthenticated: !!user && !!user.socketAuthentication,
   };
 };
 

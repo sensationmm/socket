@@ -1,34 +1,32 @@
-import { Injectable, ProviderScope } from '@graphql-modules/di';
-import axios from 'axios';
-import sha1 from 'crypto-js/sha1';
+import { Injectable } from '@graphql-modules/di';
 
-import { CIAM } from './ciam';
-import { SOG } from './sog';
+import { AuthProvider, CIAMProvider, JuniferProvider, SOGProvider } from '../../providers';
 
-@Injectable({
-  scope: ProviderScope.Session,
-})
+@Injectable()
 export class AccountProvider {
+  public ciamProvider = new CIAMProvider();
+  public sogProvider = new SOGProvider();
+  public juniferProvider = new JuniferProvider();
+  public authProvider = new AuthProvider();
+
   public async checkRegistration(username: string, nickname: string) {
     try {
       let usernameExists;
       let nicknameValid;
       let newCiamUserValid;
       let newSogUserValid;
-      const ciam = new CIAM();
-      const sog = new SOG();
 
-      usernameExists = await ciam.checkUsername(username);
+      usernameExists = await this.ciamProvider.checkUsername(username);
       if (!usernameExists) {
-        nicknameValid = await sog.checkNickname(nickname);
+        nicknameValid = await this.sogProvider.checkNickname(nickname);
       }
 
       if (!usernameExists && nicknameValid.status === 'ok') {
-        newCiamUserValid = await ciam.createUser(username);
+        newCiamUserValid = await this.ciamProvider.createUser(username);
       }
 
       if (!usernameExists && nicknameValid.status === 'ok' && newCiamUserValid.status === 'Success') {
-        newSogUserValid = await sog.createUser(username, nickname);
+        newSogUserValid = await this.sogProvider.createUser(username, nickname);
       }
 
       return {
@@ -42,21 +40,31 @@ export class AccountProvider {
     }
   }
 
-  public async validateIdentity(identity) {
+  public async validateIdentity({ identity }) {
     try {
-      const { data } = await axios.post(identity.id, null, {
-        headers: {
-          Authorization: `Bearer ${identity.token}`,
-        },
-      });
+      const { juniferId, sogSignature, username } = await this.authProvider.validateCallbackIdentity(
+        identity.id,
+        identity.token,
+      );
 
-      const sogSignature = sha1(`${data.custom_attributes.Username}FkLTX9zv`).toString();
+      const { id } = await this.juniferProvider.getUserAccount(juniferId);
+
+      const sog = await this.sogProvider.login(username, sogSignature);
+
+      if (sog.status === 'nok') {
+        throw Error('SOG login error');
+      }
+
+      const jwtData = {
+        accountId: id,
+        juniferId,
+        username,
+      };
 
       return {
-        token: identity.token,
-        juniferCustomerIds: data.custom_attributes.CustomerID,
-        username: data.custom_attributes.Username,
-        hash: sogSignature,
+        socketAuthentication: this.authProvider.signJwt(jwtData),
+        sogSignature,
+        username,
       };
     } catch (error) {
       throw error;

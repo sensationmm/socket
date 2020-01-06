@@ -2,14 +2,15 @@ import { UserProvider } from './provider';
 
 export default {
   Query: {
-    user: (_root, { id }, { injector }) => injector.get(UserProvider).getUserById(id),
+    user: (_root, _args, { injector, currentUser }) => injector.get(UserProvider).getUserById(currentUser.juniferId),
   },
   Mutation: {
-    updateCorrespondenceAddress: (_root, { id, address }, { injector }) =>
-      injector.get(UserProvider).updateCorrespondenceAddress(id, address),
-    updateContactPreferences: (_root, { userId, contactId, preferences }, { injector }) =>
-      injector.get(UserProvider).updateContactPreferences(userId, contactId, preferences),
-    updatePhone: (_root, { id, phone }, { injector }) => injector.get(UserProvider).updatePhone(id, phone),
+    updateCorrespondenceAddress: (_root, { address }, { injector, currentUser }) =>
+      injector.get(UserProvider).updateCorrespondenceAddress(currentUser.juniferId, address),
+    updateContactPreferences: (_root, { contactId, preferences }, { injector, currentUser }) =>
+      injector.get(UserProvider).updateContactPreferences(currentUser.juniferId, contactId, preferences),
+    updatePhone: (_root, { phone }, { injector, currentUser }) =>
+      injector.get(UserProvider).updatePhone(currentUser.juniferId, phone),
   },
   User: {
     id: (user) => user.id,

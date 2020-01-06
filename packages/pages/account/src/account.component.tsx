@@ -7,7 +7,6 @@ import ActionPaneBtn, { IconTypes } from '@somo/pda-components-action-pane-butto
 import GutterLayout from '@somo/pda-components-gutter-layout/src';
 import PageSection from '@somo/pda-components-page-section/src';
 import Text, { TextStyles } from '@somo/pda-components-text/src';
-import UserSwitch from '@somo/pda-components-user-switch/src';
 import { useEditTray } from '@somo/pda-hooks-edit-tray/src';
 import AccountLayout from '@somo/pda-layouts-account/src';
 import { withAuthentication } from '@somo/pda-pages-login/src';
@@ -22,14 +21,11 @@ import QuerySection from './components/query-section/query-section.component';
 
 import * as styles from './account.module.css';
 
-export interface IAccountPageProps {
-  userId: string;
-}
+export interface IAccountPageProps {}
 
 export const GET_USER_QUERY = gql`
-  query getUser($id: ID!) {
-    user(id: $id) {
-      id
+  query getUser {
+    user {
       personalDetails {
         name
         email
@@ -105,20 +101,14 @@ export const GET_USER_QUERY = gql`
   }
 `;
 
-interface IQueryVars {
-  id: string;
-}
-
-export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
+export const AccountPage: React.FC<IAccountPageProps> = () => {
   let showEdit = false;
   const [t] = useTranslation();
   const [editContactPrefs, setEditContactPrefs] = React.useState<boolean>(false);
   const { handleEditTray, editForm, clearEditForm } = useEditTray();
   const { formType, formValues } = editForm;
 
-  const { loading, error, data } = useQuery<EON.IUserResponse, IQueryVars>(GET_USER_QUERY, {
-    variables: { id: userId },
-  });
+  const { loading, error, data } = useQuery<EON.IUserResponse>(GET_USER_QUERY);
 
   const { personalDetails, paymentDetails, productDetails, contactPreferences } = (data || {}).user || {};
 
@@ -129,7 +119,6 @@ export const AccountPage: React.FC<IAccountPageProps> = ({ userId }) => {
   return (
     <AccountLayout>
       <PageSection>
-        <UserSwitch />
         <Text element="h1" type={TextStyles.h1}>
           {t('site.account.title')}
         </Text>

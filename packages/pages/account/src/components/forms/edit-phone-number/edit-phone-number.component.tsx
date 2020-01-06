@@ -18,9 +18,8 @@ import * as styles from './edit-phone-number.module.css';
 export const pageTitle = i18n.t('site.account.editPhone.title');
 
 export const UPDATE_PHONE = gql`
-  mutation UpdatePhone($id: ID!, $phone: String!) {
-    updatePhone(id: $id, phone: $phone) {
-      id
+  mutation UpdatePhone($phone: String!) {
+    updatePhone(phone: $phone) {
       personalDetails {
         phone
       }
@@ -34,13 +33,11 @@ export interface IFormValues {
 
 export interface IEditPhoneNumberProps {
   form: IFormState;
-  userId: string;
   initialValues: IFormValues;
   onClose: () => void;
 }
 
 interface IMutationVars {
-  id: string;
   phone: string;
 }
 
@@ -49,7 +46,7 @@ interface IMutationResponse {
   updatePhone: EON.IUserData;
 }
 
-export const EditPhoneNumber: React.FC<IEditPhoneNumberProps> = ({ initialValues, form, userId, onClose }) => {
+export const EditPhoneNumber: React.FC<IEditPhoneNumberProps> = ({ initialValues, form, onClose }) => {
   const [t] = useTranslation();
   const [isSubmitDisabled, setSubmitDisabled] = React.useState<boolean>(false);
   const [updatePhone] = useMutation<IMutationResponse, IMutationVars>(UPDATE_PHONE);
@@ -83,14 +80,12 @@ export const EditPhoneNumber: React.FC<IEditPhoneNumberProps> = ({ initialValues
 
       updatePhone({
         variables: {
-          id: userId,
           phone: form.values.phone,
         },
         optimisticResponse: {
           __typename: 'UpdatePhone',
           updatePhone: {
             __typename: 'User',
-            id: userId,
             personalDetails: {
               __typename: 'PersonalDetails',
               phone: form.values.phone,
@@ -100,7 +95,6 @@ export const EditPhoneNumber: React.FC<IEditPhoneNumberProps> = ({ initialValues
         update: (cache, { data }) => {
           const userData: EON.IUserResponse | null = cache.readQuery({
             query: GET_USER_QUERY,
-            variables: { id: userId },
           });
 
           if (!userData) {
@@ -114,7 +108,6 @@ export const EditPhoneNumber: React.FC<IEditPhoneNumberProps> = ({ initialValues
 
           cache.writeQuery({
             query: GET_USER_QUERY,
-            variables: { id: userId },
             data: userData,
           });
         },

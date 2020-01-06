@@ -21,13 +21,13 @@ describe('@somo/pda-components-menu component', () => {
     props = {
       links: MenuMock,
       isAuthenticated: false,
-      userId: '1',
     };
 
     siteMetadata = {
       siteUrl: '',
       ciamCommunityUrl: '',
       ciamClientId: '',
+      sogUrl: '',
     };
   });
 

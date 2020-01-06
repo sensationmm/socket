@@ -22,7 +22,6 @@ jest.mock('@somo/pda-components-menu');
 
 describe('EditPhoneNumber component', () => {
   const props = {
-    userId: 'u1',
     form: {
       values: {
         phone: '',
@@ -39,7 +38,6 @@ describe('EditPhoneNumber component', () => {
   const userData = {
     user: {
       __typename: 'User',
-      id: 'u1',
       personalDetails: {
         __typename: 'PersonalDetails',
         name: 'John Smith',
@@ -112,7 +110,6 @@ describe('EditPhoneNumber component', () => {
   };
   const mutationResponse = {
     __typename: 'User',
-    id: 'u1',
     personalDetails: {
       __typename: 'PersonalDetails',
       phone: '55555555',
@@ -123,7 +120,6 @@ describe('EditPhoneNumber component', () => {
       request: {
         query: UPDATE_PHONE,
         variables: {
-          id: props.userId,
           phone: props.form.values.phone,
         },
       },
@@ -143,7 +139,6 @@ describe('EditPhoneNumber component', () => {
   it('should not run update address mutation on submit if the form is invalid', async () => {
     cache.writeQuery({
       query: GET_USER_QUERY,
-      variables: { id: props.userId },
       data: userData,
     });
 
@@ -159,7 +154,7 @@ describe('EditPhoneNumber component', () => {
       .simulate('click');
     await wait(0);
 
-    expect(cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toMatchObject({
+    expect(cache.readQuery({ query: GET_USER_QUERY })).toMatchObject({
       user: userData.user,
     });
   });
@@ -177,13 +172,12 @@ describe('EditPhoneNumber component', () => {
       .simulate('click');
     await wait(0);
 
-    expect(() => cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toThrow();
+    expect(() => cache.readQuery({ query: GET_USER_QUERY })).toThrow();
   });
 
   it('should run update phone number mutation and update on submit if the form is valid and cache is not empty', async () => {
     cache.writeQuery({
       query: GET_USER_QUERY,
-      variables: { id: props.userId },
       data: userData,
     });
 
@@ -199,9 +193,8 @@ describe('EditPhoneNumber component', () => {
       .simulate('click');
     await wait(0);
 
-    expect(cache.readQuery({ query: GET_USER_QUERY, variables: { id: props.userId } })).toMatchObject({
+    expect(cache.readQuery({ query: GET_USER_QUERY })).toMatchObject({
       user: {
-        id: 'u1',
         personalDetails: {
           phone: '55555555',
         },

@@ -1,7 +1,18 @@
+import express from 'express';
 import { createFilePath } from 'gatsby-source-filesystem';
 import * as path from 'path';
 import parsed from 'remark-parse';
 import unified from 'unified';
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: 'eval-source-map',
+  });
+};
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static('public'));
+};
 
 export async function createPages({ actions, graphql }) {
   const { createPage } = actions;

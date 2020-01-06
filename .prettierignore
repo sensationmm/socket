@@ -1,0 +1,13 @@
+packages/components/app-template/src/assets
+packages/apps/identity-views/dist/fonts
+packages/apps/email/src/assets/fonts
+packages/apps/e2e/cypress/videos
+packages/apps/www/public/
+packages/apps/www/.cache/
+.gitkeep
+.DS_Store
+.env.*
+*.png
+*.svg
+*.log
+*.handlebars

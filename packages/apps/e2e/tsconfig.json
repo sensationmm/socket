@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "declaration": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "types": ["cypress"],
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["es6", "dom", "es2015", "es2017.object", "es2016.array.include", "esnext.asynciterable"],
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["cypress/**/*.ts"]
+}

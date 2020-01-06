@@ -34,6 +34,7 @@ const BlogArticleLayout: React.FC<IBlogArticleLayoutProps> = ({ hero, children }
   return (
     <AppTemplate>
       <PageSection
+        element="header"
         style={hero.heroImage ? PageSectionStyle.Image : PageSectionStyle.PrimaryPattern}
         bgImage={hero.heroImage}
         className={styles.blogArticleHeroWrapper}

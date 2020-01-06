@@ -21,8 +21,8 @@
     "test:ci": "jest ./packages --coverage --ci",
     "test:clearCache": "jest --clearCache",
     "test:bail": "jest ./packages --bail",
-    "test:e2e": "echo \"No e2e tests set up yet!\"",
-    "test:e2e:smoke": "echo \"No e2e smoke tests set up yet!\"",
+    "test:e2e": "not yet setup",
+    "test:e2e:smoke": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
     "storybook": "(cd packages/apps/storybook && yarn start)",
     "gatsby": "(cd packages/apps/www && yarn develop) & (cd packages/apps/api && yarn develop)",
@@ -80,7 +80,7 @@
     "ts-loader": "6.2.1",
     "ts-node": "8.5.2",
     "tslint": "5.20.1",
-    "typescript": "3.7.2",
+    "typescript": "3.7.3",
     "waait": "1.0.5"
   },
   "dependencies": {

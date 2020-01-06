@@ -1,0 +1,8 @@
+{
+  "baseUrl": "https://localhost:8000/",
+  "testFiles": "**/smoke/**/*.spec.ts",
+  "blacklistHosts": ["*.visualstudio.com", "dc.services.visualstudio.com"],
+  "viewportWidth": 1280,
+  "viewportHeight": 800,
+  "video": false
+}

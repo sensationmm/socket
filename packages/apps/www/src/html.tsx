@@ -25,7 +25,6 @@ const HTML: React.FC<IHTMLProps> = (props) => (
       <meta name="google-site-verification" content="7ufgPTa2lk_TZ2wurEmq6PgktRnJFtgrY4LRqdf5Qp4" />
       <PreConnect preConnectUrls={preConnectList} />
       <PreLoad />
-      <noscript>Hi Anton and the Trust Pilot team, a very merry Christmas to you all 😁</noscript>
       {props.headComponents}
     </head>
     <body {...props.bodyAttributes}>

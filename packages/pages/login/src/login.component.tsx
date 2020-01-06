@@ -106,7 +106,7 @@ const LoginPage: React.FC<ILoginPageProps> = ({ actions, isAuthenticated = false
       <Helmet title={'Login'}>
         <meta name="salesforce-community" content={siteMetadata.ciamCommunityUrl} />
         <meta name="salesforce-client-id" content={siteMetadata.ciamClientId} />
-        <meta name="salesforce-redirect-uri" content={`${siteMetadata.siteUrl}/login-callback.html`} />
+        <meta name="salesforce-redirect-uri" content={`${siteMetadata.siteUrl}/login-callback`} />
         <meta name="salesforce-mode" content="inline" />
         <meta name="salesforce-target" content="#sign-in-link" />
         <meta name="salesforce-login-handler" content="onLogin" />

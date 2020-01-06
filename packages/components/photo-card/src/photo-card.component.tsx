@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import * as React from 'react';
 
+import Image from '@somo/pda-components-image/src';
 import Text, { ColorStyles, TextStyles } from '@somo/pda-components-text/src';
 
 import * as styles from './photo-card.module.css';
@@ -24,15 +25,17 @@ const PhotoCard: React.FC<IPhotoCardProps> = ({ style, image, text }) => (
       { [styles.primary]: style === PhotoCardStyle.Primary },
       { [styles.secondary]: style === PhotoCardStyle.Secondary },
     )}
-    style={{ backgroundImage: `url(${image})` }}
+    style={{ backgroundImage: text !== '' ? `url(${image})` : '' }}
   >
-    <div className={styles.inner}>
-      {text && (
+    {text !== '' ? (
+      <div className={styles.inner}>
         <Text type={TextStyles.bodyFixed} color={ColorStyles.secondary}>
           {text}
         </Text>
-      )}
-    </div>
+      </div>
+    ) : (
+      <Image src={image} alt={image} isLazy={true} />
+    )}
   </div>
 );
 

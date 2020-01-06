@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 10px;
+  height: 0;
   padding-bottom: 66%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -28,4 +29,8 @@
 
 .secondary .inner {
   background-image: linear-gradient(to bottom, rgba(var(--color-grey-dark), 0) 41%, var(--color-grey-dark));
+}
+
+.photoCard > img {
+  width: 100%;
 }

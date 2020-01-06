@@ -22,7 +22,7 @@
     "test:clearCache": "jest --clearCache",
     "test:bail": "jest ./packages --bail",
     "test:e2e": "echo \"not yet setup\"",
-    "test:e2e:smoke": "tsc -p ./packages/apps/e2e/tsconfig.json --noEmit",
+    "test:e2e:smoke": "echo \"not yet setup\"",
     "tsc:repo": "tsc -p ./tsconfig.json --noEmit",
     "storybook": "(cd packages/apps/storybook && yarn start)",
     "gatsby": "(cd packages/apps/www && yarn develop) & (cd packages/apps/api && yarn develop)",

@@ -428,6 +428,15 @@ declare namespace EON {
         };
         contactPreferences: IAccountContactPreferences;
       };
+      onboarding: {
+        journey: {
+          title: string;
+          subTitle: string;
+          timeline: {
+            title: string;
+          }
+        }
+      };
     };
     validation: {
       [key: string]: string;

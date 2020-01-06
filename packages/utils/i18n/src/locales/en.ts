@@ -476,6 +476,15 @@ const data: EON.IWebAppTranslations = {
         },
       },
     },
+    onboarding: {
+      journey: {
+        title: 'Welcome to Socket, {{name}} 👋',
+        subTitle: 'You’ve made the right choice.\nLet’s get you started.',
+        timeline: {
+          title: 'Your Socket Journey',
+        },
+      },
+    },
   },
   validation: {
     validateEmail: 'Invalid email',

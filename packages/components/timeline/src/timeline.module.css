@@ -75,9 +75,7 @@
 }
 
 .timelineItem.future::before {
-  @media (--m) {
-    display: none;
-  }
+  display: none;
 }
 
 .timelineItem:not(.current):last-of-type::before {
@@ -92,7 +90,7 @@
   width: 2px;
   border-style: solid;
   border-width: 0 1px;
-  border-color: var(--color-basic-white);
+  border-color: var(--color-grey-light);
   left: 31px;
   z-index: -1;
 

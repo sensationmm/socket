@@ -1,7 +1,7 @@
 {
   "name": "@somo/pda-components-step-card",
   "version": "0.0.0",
-  "author": "Ionut Cirja <ionut.cirja@somoglobal.com> (http://www.somoglobal.com)",
+  "author": "Socket Development Team <developers@socketenergy.co.uk> (https://www.socketenergy.co.uk)",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "UNLICENSED",

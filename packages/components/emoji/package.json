@@ -1,7 +1,7 @@
 {
   "name": "@somo/pda-components-emoji",
   "version": "0.0.0",
-  "author": "Kevin Reynolds <kevin.reynolds@somoglobal.com> (http://www.somoglobal.com)",
+  "author": "Socket Development Team <developers@socketenergy.co.uk> (https://www.socketenergy.co.uk)",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "UNLICENSED",

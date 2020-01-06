@@ -1,7 +1,7 @@
 {
   "name": "@somo/pda-pages-coming-soon",
   "version": "0.0.0",
-  "author": "George Wilde <george.wilde@eon.com> (https://www.eonenergy.co.uk)",
+  "author": "Socket Development Team <developers@socketenergy.co.uk> (https://www.socketenergy.co.uk)",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "UNLICENSED",

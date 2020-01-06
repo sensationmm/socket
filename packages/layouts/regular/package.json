@@ -1,7 +1,7 @@
 {
   "name": "@somo/pda-layouts-regular",
   "version": "0.0.0",
-  "author": "Tom Maton <thomas.maton@somoglobal.com> (http://www.somoglobal.com)",
+  "author": "Socket Development Team <developers@socketenergy.co.uk> (https://www.socketenergy.co.uk)",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "license": "UNLICENSED",

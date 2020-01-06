@@ -137,7 +137,7 @@
 }
 
 .timelineItem.future .icon {
-  filter: grayscale(10%);
+  filter: grayscale(100%);
 }
 
 .icon img {

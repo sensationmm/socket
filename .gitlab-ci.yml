@@ -78,8 +78,8 @@ build FE-INT:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/www
-    - printenv > ./.env.production
-    - cat ./.env.production
+    - printenv > ./.env.staging
+    - cat ./.env.staging
     - yarn build:staging
   artifacts:
     paths:
@@ -97,9 +97,9 @@ build PRP:
     - yarn install
     - yarn global add gatsby-cli
     - cd ./packages/apps/www
-    - printenv > ./.env.production
-    - cat ./.env.production
-    - yarn build:production
+    - printenv > ./.env.staging
+    - cat ./.env.staging
+    - yarn build:staging
   artifacts:
     paths:
       - ./packages/apps/www/public
@@ -164,7 +164,7 @@ deploy Gatsby DEV:
     name: DEV
   only:
     - develop
-    
+
 deploy Graphql DEV:
   stage: deploy DEV
   tags:

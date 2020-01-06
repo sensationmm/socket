@@ -46,7 +46,7 @@ const TimelineItem: React.FC<ITimelineItemProps> = ({
   return (
     <div className={classNames(styles.timelineItem, { [styles.current]: isCurrent }, { [styles.future]: isFuture })}>
       <div className={styles.icon}>
-        <Emoji size={isCurrent ? 24 : 16}>{emoji}</Emoji>
+        <Emoji size={isCurrent ? 32 : 24}>{emoji}</Emoji>
       </div>
 
       <div className={styles.content}>

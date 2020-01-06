@@ -31,9 +31,10 @@
   padding: 0 0 30px 0;
   display: flex;
   position: relative;
-  width: 100%;
 
   @media (--m) {
+    width: 0;
+    flex-grow: 1;
     flex-direction: column;
     padding: 0 15px;
     align-items: center;
@@ -107,16 +108,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   border: 2px solid var(--color-brand-main);
-  margin: 0 23px 0 12px;
+  margin: 0 23px 0 10px;
   background: var(--color-basic-white);
   flex-shrink: 0;
 
   @media (--m) {
-    margin: 12px 0 23px 0;
+    margin: 10px 0 23px 0;
   }
 }
 
@@ -143,7 +144,11 @@
 }
 
 .content {
-  margin-top: 12px;
+  margin-top: 16px;
+
+  @media (--m) {
+    margin-top: 10px;
+  }
 }
 
 .itemHeader {
@@ -159,6 +164,7 @@
   border-radius: 10px;
   padding: var(--spacing-m);
   margin-top: var(--spacing-l);
+  text-align: left;
 }
 
 .link {

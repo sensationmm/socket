@@ -112,7 +112,7 @@ const LoginPage: React.FC<ILoginPageProps> = ({ actions, isAuthenticated = false
         <meta name="salesforce-login-handler" content="onLogin" />
         <meta name="salesforce-logout-handler" content="onLogout" />
         <meta name="salesforce-forgot-password-enabled" content="true" />
-        <meta name="salesforce-self-register-enabled" content="true" />
+        <meta name="salesforce-self-register-enabled" content="false" />
         <script src={`${siteMetadata.ciamCommunityUrl}/servlet/servlet.loginwidgetcontroller?type=javascript_widget`} />
       </Helmet>
       <RegularLayout hero={t('site.login.hero', { returnObjects: true })}>

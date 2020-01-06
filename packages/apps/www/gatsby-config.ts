@@ -23,6 +23,8 @@ if (missingEnvironmentVars) {
 }
 
 const siteUrl = process.env.SITE_BASE_URL;
+const robotsPolicy =
+  siteUrl === 'https://www.socketenergy.co.uk' ? { userAgent: '*', allow: '/' } : { userAgent: '*', disallow: '/' };
 
 const plugins = [
   `gatsby-plugin-sitemap`,
@@ -148,14 +150,7 @@ const plugins = [
     options: {
       host: siteUrl,
       sitemap: [`${siteUrl}/sitemap.xml`],
-      env: {
-        development: {
-          policy: [{ userAgent: '*', disallow: '/' }],
-        },
-        production: {
-          policy: [{ userAgent: '*', allow: '/' }],
-        },
-      },
+      policy: [robotsPolicy],
     },
   },
   {

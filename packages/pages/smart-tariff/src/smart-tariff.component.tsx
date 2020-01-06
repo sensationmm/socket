@@ -78,6 +78,7 @@ const SmartTariffPage: React.FC<ISmartTariffPageProps> = ({ imagery }) => {
                   header={item.title}
                   body={item.text}
                   emoji={item.icon}
+                  headingLevel="h3"
                 />
               ))}
             </FlexRow>

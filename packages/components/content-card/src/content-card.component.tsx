@@ -15,13 +15,21 @@ export interface IContentCardProps {
   header: string;
   body: string;
   emoji?: string;
+  headingLevel?: 'h2' | 'h3' | 'h4' | 'h5';
 }
 
-const ContentCard: React.FC<IContentCardProps> = ({ className, ringStyle, header, body, emoji }) => (
+const ContentCard: React.FC<IContentCardProps> = ({
+  className,
+  ringStyle,
+  header,
+  body,
+  emoji,
+  headingLevel = 'h2',
+}) => (
   <div className={cx(styles.contentCard, className)}>
     <div className={styles.contentCardHeader}>
       <Ring style={ringStyle}>{emoji ? <Emoji size={24}>{emoji}</Emoji> : <SVG children={Logo} />}</Ring>
-      <Text element="h3" className={styles.contentCardTitle} type={TextStyles.h3}>
+      <Text element={headingLevel} className={styles.contentCardTitle} type={TextStyles.h3}>
         {header}
       </Text>
     </div>

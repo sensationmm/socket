@@ -20,6 +20,7 @@ export interface IBlogPostCardProps {
   link: string;
   height?: string | number;
   className?: string;
+  headingLevel?: 'h2' | 'h3' | 'h4' | 'h5';
 }
 
 const trimText = (text: string, maxNumOfChars: number) =>
@@ -37,10 +38,11 @@ const BlogPostCard: React.FC<IBlogPostCardProps> = ({
   link,
   height = 'auto',
   className,
+  headingLevel = 'h2',
 }) => (
   <ContentBox className={cx(styles.blogPostCard, className)} style={ContentBoxStyle.PrimaryPattern} height={height}>
     <ArticleAuthor name={authorName} avatar={authorAvatar} date={date} avatarSize={AvatarSizes.Small} />
-    <Text className={styles.title} element="h3" color={ColorStyles.secondary} type={TextStyles.h2}>
+    <Text className={styles.title} element={headingLevel} color={ColorStyles.secondary} type={TextStyles.h2}>
       {trimText(title, maxTitleLength)}
     </Text>
     <Text className={styles.description} element="p" color={ColorStyles.secondary} type={TextStyles.segmentCopyFixed}>

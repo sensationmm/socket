@@ -23,7 +23,7 @@ describe('@somo/pda-components-content-card component', () => {
   it('should render a title, a description and an emoji', () => {
     wrapper = shallow(<ContentCard {...props} />);
 
-    expect(wrapper.find('[element="h3"]').length).toEqual(1);
+    expect(wrapper.find('[element="h2"]').length).toEqual(1);
     expect(wrapper.find('[element="p"]').length).toEqual(1);
     expect(wrapper.find('Emoji').length).toEqual(1);
   });
@@ -33,5 +33,11 @@ describe('@somo/pda-components-content-card component', () => {
     wrapper = shallow(<ContentCard {...props} />);
 
     expect(wrapper.find('SVG').length).toEqual(1);
+  });
+
+  it('should render heading level override', () => {
+    wrapper = shallow(<ContentCard {...props} headingLevel="h3" />);
+
+    expect(wrapper.find('[element="h3"]').length).toEqual(1);
   });
 });

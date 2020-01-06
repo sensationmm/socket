@@ -84,4 +84,16 @@ describe('@somo/pda-components-blog-post-card component', () => {
     });
     expect(link.childAt(0).text()).toEqual(props.cta);
   });
+
+  it('should render default heading level', () => {
+    wrapper = shallow(<Component {...props} />);
+
+    expect(wrapper.find('[element="h2"]').length).toEqual(1);
+  });
+
+  it('should render heading level override', () => {
+    wrapper = shallow(<Component {...props} headingLevel="h4" />);
+
+    expect(wrapper.find('[element="h4"]').length).toEqual(1);
+  });
 });

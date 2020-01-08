@@ -1,25 +1,25 @@
 import * as React from 'react';
 
 import { SiteMetadataContext } from '@somo/pda-context-site-metadata/src';
-import TimelineExample from '@somo/pda-pages-timeline/src';
+import PreSupply from '@somo/pda-pages-pre-supply/src';
 import SEO from '../components/seo.component';
 import { useSiteMetadata } from '../hooks';
 
 const SEOProps = {
-  title: 'Form example',
-  description: 'Example form implementation',
+  title: 'Your Socket Dashboard',
+  description: 'Dashboard for your account',
   siteLanguage: 'en',
 };
 
-const Timeline: React.FC = () => {
+const Dashboard: React.FC = () => {
   const siteMetadata = useSiteMetadata();
 
   return (
     <SiteMetadataContext.Provider value={siteMetadata}>
       <SEO {...SEOProps} />
-      <TimelineExample />
+      <PreSupply />
     </SiteMetadataContext.Provider>
   );
 };
 
-export default Timeline;
+export default Dashboard;

@@ -238,6 +238,17 @@ declare namespace EON {
     };
   }
 
+  interface ITimelineItem {
+    heading: string;
+    text: string;
+    notification?: {
+      heading: string;
+      text: string;
+      label: string;
+      link: string;
+    };
+  }
+
   interface IWebAppTranslations {
     site: {
       blog: {
@@ -428,14 +439,18 @@ declare namespace EON {
         };
         contactPreferences: IAccountContactPreferences;
       };
-      onboarding: {
-        journey: {
+      dashboard: {
+        preSupply: {
           title: string;
           subTitle: string;
           timeline: {
             title: string;
-          }
-        }
+            welcome: ITimelineItem;
+            switching: ITimelineItem;
+            pending: ITimelineItem;
+            connected: ITimelineItem;
+          };
+        };
       };
     };
     validation: {

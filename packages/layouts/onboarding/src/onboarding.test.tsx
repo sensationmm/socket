@@ -10,6 +10,10 @@ describe('@somo/pda-layouts-onboarding component', () => {
 
   beforeEach(() => {
     props = {
+      hero: {
+        title: 'Title',
+        subtitle: 'Subtitle',
+      },
       children: <div>foo</div>,
     };
   });

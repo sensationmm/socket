@@ -476,12 +476,36 @@ const data: EON.IWebAppTranslations = {
         },
       },
     },
-    onboarding: {
-      journey: {
+    dashboard: {
+      preSupply: {
         title: 'Welcome to Socket, {{name}} 👋',
         subTitle: 'You’ve made the right choice.\nLet’s get you started.',
         timeline: {
           title: 'Your Socket Journey',
+          welcome: {
+            heading: 'Welcome!',
+            text: 'You signed up 11.10.2019. Your account was set up.',
+            notification: {
+              heading: "While you're here",
+              text: 'Why not add more details such as Contact Preferences and Priority Services Register (PSR).',
+              label: 'Contact Preferences',
+              link: 'Add more detail',
+            },
+          },
+          switching: {
+            heading: 'SWITCH IN PROGRESS',
+            text:
+              'We’re contacting your current supplier to switch you over to Socket. Don’t worry - nothing you need to do, we’ve got it.',
+          },
+          pending: {
+            heading: 'ONLY 5 DAYS TO GO',
+            text:
+              "Good news! Only 5 days to go, because you're with Socket and you've got a smart meter - there's no need for meter readings, easy peasy!",
+          },
+          connected: {
+            heading: 'CONNECTED TO SOCKET',
+            text: 'On this day, your first monthly payment will be taken. Then you’ll be connected!',
+          },
         },
       },
     },

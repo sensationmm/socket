@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import AppTemplate from '@somo/pda-components-app-template/src';
 import Footer from '@somo/pda-components-footer/src';
@@ -10,9 +9,14 @@ import { FooterNavigation } from '@somo/pda-layouts-regular/src/navigation';
 
 import * as styles from './onboarding.module.css';
 
-const OnboardingLayout: React.FC = ({ children }) => {
-  const [t] = useTranslation();
+interface IOnboardingProps {
+  hero: {
+    title: string;
+    subtitle: string;
+  };
+}
 
+const OnboardingLayout: React.FC<IOnboardingProps> = ({ hero: { title, subtitle }, children }) => {
   return (
     <AppTemplate>
       <PageSection element="header" style={PageSectionStyle.PrimaryPattern}>
@@ -22,11 +26,11 @@ const OnboardingLayout: React.FC = ({ children }) => {
       <div className={styles.header} data-test="onboarding-header">
         <div className={styles.inner}>
           <Text type={TextStyles.h2} element="h1" color={ColorStyles.secondary} className={styles.title}>
-            {t('site.onboarding.journey.title', { name: 'Kevin' })}
+            {title}
           </Text>
 
           <Text type={TextStyles.body} element="h2" color={ColorStyles.secondary}>
-            {t('site.onboarding.journey.subTitle')}
+            {subtitle}
           </Text>
         </div>
       </div>

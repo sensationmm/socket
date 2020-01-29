@@ -443,6 +443,9 @@ declare namespace EON {
         preSupply: {
           title: string;
           subTitle: string;
+          messages: {
+            cancelled: string;
+          };
           timeline: {
             title: string;
             welcome: ITimelineItem;

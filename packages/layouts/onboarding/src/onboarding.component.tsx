@@ -13,10 +13,11 @@ interface IOnboardingProps {
   hero: {
     title: string;
     subtitle: string;
+    message?: string;
   };
 }
 
-const OnboardingLayout: React.FC<IOnboardingProps> = ({ hero: { title, subtitle }, children }) => {
+const OnboardingLayout: React.FC<IOnboardingProps> = ({ hero: { title, subtitle, message }, children }) => {
   return (
     <AppTemplate>
       <PageSection element="header" style={PageSectionStyle.PrimaryPattern}>
@@ -29,9 +30,13 @@ const OnboardingLayout: React.FC<IOnboardingProps> = ({ hero: { title, subtitle 
             {title}
           </Text>
 
-          <Text type={TextStyles.body} element="h2" color={ColorStyles.secondary}>
-            {subtitle}
-          </Text>
+          {message ? (
+            <div>boo</div>
+          ) : (
+            <Text type={TextStyles.body} element="h2" color={ColorStyles.secondary}>
+              {subtitle}
+            </Text>
+          )}
         </div>
       </div>
 

@@ -1,0 +1,29 @@
+.message {
+  position: relative;
+  border: 2px solid var(--color-basic-white);
+  border-radius: 10px;
+  background: rgba(var(--color-grey-dark), 0.8);
+  padding: calc(var(--spacing-xl) * 1.5) var(--spacing-xl);
+}
+
+.icon {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 27px;
+  display: flex;
+  background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj4KICAgIDxwYXRoIGZpbGw9IiMwMDc2NzIiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE2IDIzLjJhMy4yIDMuMiAwIDEgMSAwIDYuNCAzLjIgMy4yIDAgMCAxIDAtNi40em0xLjYtMTkuNmEzLjU0NiAzLjU0NiAwIDAgMSAxLjQwMSAzLjE5bC0xLjI0MiAxMi40MThhMS43NjggMS43NjggMCAwIDEtMy41MTggMEwxMi45OTkgNi43OUEzLjU0NiAzLjU0NiAwIDAgMSAxNC40IDMuNmEyLjY2NyAyLjY2NyAwIDAgMSAzLjIgMHoiLz4KPC9zdmc+Cg==') var(--color-basic-white) center center no-repeat;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon.hasEmoji {
+  background: rgba(var(--color-basic-white), 0.8);
+}
+
+.icon img {
+  display: block;
+}

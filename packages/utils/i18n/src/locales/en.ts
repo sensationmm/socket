@@ -480,6 +480,10 @@ const data: EON.IWebAppTranslations = {
       preSupply: {
         title: 'Welcome to Socket, {{name}} 👋',
         subTitle: 'You’ve made the right choice.\nLet’s get you started.',
+        messages: {
+          cancelled:
+            "It seems like your switch over was cancelled. We're here for you if ever you want to come back, just get in touch.",
+        },
         timeline: {
           title: 'Your Socket Journey',
           welcome: {

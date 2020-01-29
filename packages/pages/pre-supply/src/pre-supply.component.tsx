@@ -23,6 +23,7 @@ const PreSupply: React.FC = () => {
       hero={{
         title: t('site.dashboard.preSupply.title', { name: 'Kevin' }),
         subtitle: t('site.dashboard.preSupply.subTitle'),
+        message: t('site.dashboard.preSupply.messages.cancelled'),
       }}
     >
       <PageSection style={PageSectionStyle.Secondary}>

@@ -45,7 +45,7 @@
     "autoprefixer": "9.7.2",
     "axios": "0.19.0",
     "bad-words": "3.0.3",
-    "codecov": "3.6.1",
+    "codecov": "3.7.1",
     "codeowner": "1.0.3",
     "cross-env": "6.0.3",
     "enzyme": "3.10.0",

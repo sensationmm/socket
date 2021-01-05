@@ -43,7 +43,7 @@
     "@types/react-dom": "16.9.4",
     "@types/react-redux": "7.1.5",
     "autoprefixer": "9.7.2",
-    "axios": "0.19.0",
+    "axios": "0.21.1",
     "bad-words": "3.0.3",
     "codecov": "3.6.1",
     "codeowner": "1.0.3",

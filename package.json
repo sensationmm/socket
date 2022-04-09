@@ -101,7 +101,7 @@
     "jsonwebtoken": "8.5.1",
     "lerna": "3.19.0",
     "mock-apollo-client": "0.2.0",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "react-i18next": "11.2.2",
     "react-media": "1.10.0",
     "react-transition-group": "4.3.0",
